@@ -1,0 +1,300 @@
+---
+---
+<section class="commander section-pad" id="commander">
+  <div class="container">
+    <div class="commander-inner">
+      <div class="commander-left">
+        <div class="section-tag">Commander</div>
+        <h2 class="section-h2">Votre site en ligne<br/><em>avant la fin de la semaine.</em></h2>
+        <p class="commander-sub">
+          Remplissez le brief ci-contre en 5 minutes. On s'occupe du reste. Vous recevez une confirmation immédiate et votre site sous 48h.
+        </p>
+        <div class="commander-reassurance">
+          <div class="reassure-item">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="var(--accent-pale)"/><path d="M5 8l2 2 4-4" stroke="var(--accent)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Paiement sécurisé Stripe
+          </div>
+          <div class="reassure-item">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="var(--accent-pale)"/><path d="M5 8l2 2 4-4" stroke="var(--accent)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Livraison 48h garantie
+          </div>
+          <div class="reassure-item">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="var(--accent-pale)"/><path d="M5 8l2 2 4-4" stroke="var(--accent)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Satisfait ou on recommence
+          </div>
+        </div>
+      </div>
+
+      <div class="brief-form">
+        <div class="form-header">
+          <span class="form-title">Brief de commande</span>
+          <span class="form-duration">~ 5 min</span>
+        </div>
+
+        <form class="form-body" id="briefForm" netlify name="brief" method="POST">
+          <input type="hidden" name="form-name" value="brief" />
+
+          <div class="field-group">
+            <label class="field-label">Votre prénom et nom *</label>
+            <input type="text" name="nom" placeholder="Marie Dupont" required />
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label">Email *</label>
+              <input type="email" name="email" placeholder="marie@restaurant.fr" required />
+            </div>
+            <div class="field-group">
+              <label class="field-label">Téléphone</label>
+              <input type="tel" name="tel" placeholder="+33 6 XX XX XX XX" />
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Votre secteur d'activité *</label>
+            <select name="secteur" required>
+              <option value="">Choisissez votre secteur</option>
+              <option>Restaurant / Café</option>
+              <option>Salon de coiffure / Barbier</option>
+              <option>Cabinet médical / Médecin</option>
+              <option>Avocat / Cabinet juridique</option>
+              <option>Coach sportif / Personnel</option>
+              <option>Artisan / Plombier / Électricien</option>
+              <option>Thérapeute / Psychologue</option>
+              <option>Agent immobilier</option>
+              <option>Photographe / Créatif</option>
+              <option>Autre profession libérale</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Nom de votre entreprise *</label>
+            <input type="text" name="entreprise" placeholder="Ex: Restaurant Le Midi, Me Dupont Avocats..." required />
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Avez-vous déjà un nom de domaine ?</label>
+            <input type="text" name="domaine" placeholder="Ex: monrestaurant.fr (laissez vide sinon)" />
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Décrivez votre activité en quelques mots *</label>
+            <textarea name="description" rows="3" placeholder="Qui êtes-vous ? Quels services proposez-vous ? Quelle ville ?" required></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Options souhaitées</label>
+            <div class="options-grid">
+              <label class="option-check">
+                <input type="checkbox" name="options" value="seo-local" />
+                <span>SEO local +€150</span>
+              </label>
+              <label class="option-check">
+                <input type="checkbox" name="options" value="rdv-en-ligne" />
+                <span>RDV en ligne +€100</span>
+              </label>
+              <label class="option-check">
+                <input type="checkbox" name="options" value="blog" />
+                <span>Blog SEO +€200</span>
+              </label>
+              <label class="option-check">
+                <input type="checkbox" name="options" value="maintenance" />
+                <span>Maintenance 6 mois +€300</span>
+              </label>
+              <label class="option-check">
+                <input type="checkbox" name="options" value="boutique" />
+                <span>Boutique en ligne +€350</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="form-submit">
+            Envoyer mon brief — je lance mon site →
+          </button>
+
+          <div class="form-note">
+            Après réception, nous vous contactons sous 2h pour confirmer et envoyer le lien de paiement sécurisé.
+          </div>
+        </form>
+
+        <div class="form-success" id="formSuccess" style="display:none;">
+          <div class="success-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="var(--accent-pale)"/><path d="M12 20l6 6 12-12" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="success-title">Brief reçu !</div>
+          <div class="success-text">On vous contacte sous 2h pour confirmer. Votre site sera en ligne d'ici 48h.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .commander-inner {
+    display: grid;
+    grid-template-columns: 1fr 540px;
+    gap: 64px;
+    align-items: start;
+  }
+  .commander-sub {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin: 20px 0 32px;
+  }
+  .commander-reassurance { display: flex; flex-direction: column; gap: 12px; }
+  .reassure-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  .brief-form {
+    background: var(--white);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+  }
+  .form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--border);
+    background: var(--cream);
+  }
+  .form-title { font-size: 15px; font-weight: 500; color: var(--text-primary); }
+  .form-duration {
+    font-size: 12px;
+    color: var(--text-muted);
+    background: var(--white);
+    padding: 3px 10px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+  }
+  .form-body {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .field-group { display: flex; flex-direction: column; gap: 6px; }
+  .field-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  input, select, textarea {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-primary);
+    background: var(--white);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    width: 100%;
+    transition: border-color 0.15s;
+    outline: none;
+    appearance: none;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(26,60,52,0.08);
+  }
+  textarea { resize: vertical; min-height: 80px; }
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A5A55' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+  }
+  .options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .option-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-secondary);
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .option-check:hover { border-color: var(--accent); background: var(--accent-pale); }
+  .option-check input { width: auto; padding: 0; border: none; box-shadow: none; }
+  .form-submit {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 500;
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 16px 24px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    width: 100%;
+    text-align: center;
+  }
+  .form-submit:hover { background: var(--accent-light); transform: translateY(-1px); }
+  .form-note {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.5;
+  }
+  .form-success {
+    padding: 48px 28px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .success-title { font-size: 20px; font-weight: 500; color: var(--text-primary); }
+  .success-text { font-size: 14px; color: var(--text-secondary); max-width: 300px; line-height: 1.6; }
+
+  @media (max-width: 960px) {
+    .commander-inner { grid-template-columns: 1fr; gap: 40px; }
+  }
+  @media (max-width: 480px) {
+    .field-row { grid-template-columns: 1fr; }
+    .options-grid { grid-template-columns: 1fr; }
+    .form-body { padding: 20px; }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('briefForm');
+  const success = document.getElementById('formSuccess');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form as HTMLFormElement);
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data as any).toString(),
+      });
+      (form as HTMLElement).style.display = 'none';
+      if (success) success.style.display = 'flex';
+    } catch {
+      alert('Une erreur est survenue. Écrivez-nous directement à hello@lancio.fr');
+    }
+  });
+</script>

@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Mentions légales | Lancio"
+  description="Mentions légales de Lancio"
+  canonical="https://lancio.fr/mentions-legales/"
+>
+  <Nav />
+  <main class="legal-page">
+    <div class="container">
+      <h1>Mentions légales</h1>
+      <div class="legal-content">
+        <h2>Éditeur du site</h2>
+        <p>Le site lancio.fr est édité par :<br/>
+        Prénom Nom (à compléter)<br/>
+        Auto-entrepreneur / Osek Mourshe<br/>
+        Email : hello@lancio.fr</p>
+
+        <h2>Hébergement</h2>
+        <p>Ce site est hébergé par Netlify, Inc.<br/>
+        512 2nd Street, Suite 200<br/>
+        San Francisco, CA 94107, USA</p>
+
+        <h2>Propriété intellectuelle</h2>
+        <p>L'ensemble des contenus présents sur ce site (textes, images, graphismes) est la propriété exclusive de Lancio. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
+
+        <h2>Données personnelles</h2>
+        <p>Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ce droit, contactez-nous à hello@lancio.fr.</p>
+
+        <h2>Cookies</h2>
+        <p>Ce site utilise Google Analytics pour mesurer l'audience. Vous pouvez désactiver ces cookies via les paramètres de votre navigateur.</p>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .legal-page { padding: 120px 0 80px; }
+  h1 { font-size: 40px; margin-bottom: 48px; }
+  .legal-content { max-width: 680px; }
+  .legal-content h2 { font-family: var(--font-body); font-size: 18px; font-weight: 500; margin: 32px 0 12px; }
+  .legal-content p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
+</style>

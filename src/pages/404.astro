@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Page introuvable | Lancio">
+  <Nav />
+  <main class="not-found">
+    <div class="container">
+      <div class="nf-num">404</div>
+      <h1>Page introuvable</h1>
+      <p>La page que vous cherchez n'existe pas ou a été déplacée.</p>
+      <a href="/" class="btn-primary">Retour à l'accueil →</a>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .not-found {
+    padding: 160px 0 80px;
+    text-align: center;
+  }
+  .nf-num {
+    font-family: var(--font-display);
+    font-size: 120px;
+    color: var(--cream-dark);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  h1 { font-size: 36px; margin-bottom: 16px; }
+  p { font-size: 16px; color: var(--text-secondary); margin-bottom: 32px; }
+  .btn-primary {
+    display: inline-flex;
+    font-size: 15px;
+    font-weight: 500;
+    background: var(--accent);
+    color: var(--white);
+    padding: 14px 28px;
+    border-radius: var(--radius-md);
+    transition: background 0.15s;
+  }
+  .btn-primary:hover { background: var(--accent-light); }
+</style>

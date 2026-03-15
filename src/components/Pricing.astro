@@ -1,0 +1,239 @@
+---
+const addons = [
+  { nom: "SEO local", prix: "+€150", desc: "Google Business + balises optimisées" },
+  { nom: "Blog (5 articles)", prix: "+€200", desc: "Articles SEO rédigés et publiés" },
+  { nom: "Prise de RDV en ligne", prix: "+€100", desc: "Calendly ou Cal.com intégré" },
+  { nom: "Maintenance 6 mois", prix: "+€300", desc: "Mises à jour + support prioritaire" },
+  { nom: "Boutique en ligne", prix: "+€350", desc: "Catalogue produits + paiement" },
+  { nom: "Page supplémentaire", prix: "+€80", desc: "Par page additionnelle" },
+];
+
+const inclus = [
+  "3 à 5 pages sur mesure",
+  "Design responsive mobile",
+  "Formulaire de contact",
+  "Google Analytics",
+  "Hébergement 1 an inclus",
+  "Nom de domaine 1 an",
+  "1 révision incluse",
+  "Certificat SSL",
+];
+---
+
+<section class="pricing section-pad" id="pricing">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Tarifs</div>
+      <h2 class="section-h2">Un prix fixe,<br/><em>zéro surprise</em></h2>
+      <p class="section-sub">Pas de devis, pas de négociation. Le prix est affiché, il ne changera pas.</p>
+    </div>
+
+    <div class="pricing-layout">
+      <div class="pricing-main">
+        <div class="price-header">
+          <div class="price-big">€650</div>
+          <div class="price-label">Site vitrine professionnel · Livraison 48h garantie</div>
+        </div>
+
+        <div class="price-inclus">
+          <div class="inclus-title">Tout est inclus</div>
+          <div class="inclus-grid">
+            {inclus.map(item => (
+              <div class="inclus-item">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="var(--accent-pale)"/><path d="M4 7l2 2 4-4" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <a href="#commander" class="price-cta">Commander mon site pour €650 →</a>
+
+        <div class="price-compare">
+          <div class="compare-label">Comparé à…</div>
+          <div class="compare-items">
+            <div class="compare-item">
+              <span class="compare-who">Agence web</span>
+              <span class="compare-price expensive">€2 000 – €8 000</span>
+            </div>
+            <div class="compare-item">
+              <span class="compare-who">Freelance</span>
+              <span class="compare-price mid">€800 – €2 500</span>
+            </div>
+            <div class="compare-item">
+              <span class="compare-who">Lancio</span>
+              <span class="compare-price good">€650 · 48h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="addons-panel">
+        <div class="addons-title">Options add-on</div>
+        <div class="addons-sub">Ajoutez ce dont vous avez besoin, rien de plus.</div>
+        <div class="addons-list">
+          {addons.map(addon => (
+            <div class="addon-row">
+              <div class="addon-info">
+                <div class="addon-nom">{addon.nom}</div>
+                <div class="addon-desc">{addon.desc}</div>
+              </div>
+              <div class="addon-prix">{addon.prix}</div>
+            </div>
+          ))}
+        </div>
+        <div class="addon-custom">
+          <div class="custom-text">Besoin d'autre chose ?</div>
+          <a href="mailto:hello@lancio.fr" class="custom-link">On discute →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 24px;
+    align-items: start;
+  }
+  .pricing-main {
+    background: var(--white);
+    border: 1.5px solid var(--accent);
+    border-radius: var(--radius-xl);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .price-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .price-big {
+    font-family: var(--font-display);
+    font-size: 72px;
+    color: var(--text-primary);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .price-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    max-width: 200px;
+    line-height: 1.5;
+  }
+  .inclus-title {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+  .inclus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .inclus-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .price-cta {
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    background: var(--accent);
+    color: var(--white);
+    padding: 16px 28px;
+    border-radius: var(--radius-md);
+    transition: background 0.15s, transform 0.1s;
+  }
+  .price-cta:hover { background: var(--accent-light); transform: translateY(-2px); }
+  .price-compare { border-top: 1px solid var(--border); padding-top: 20px; }
+  .compare-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+  .compare-items { display: flex; flex-direction: column; gap: 8px; }
+  .compare-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+  }
+  .compare-who { color: var(--text-secondary); }
+  .compare-price { font-weight: 500; }
+  .compare-price.expensive { color: #A32D2D; }
+  .compare-price.mid { color: var(--text-muted); }
+  .compare-price.good { color: var(--accent); }
+
+  .addons-panel {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+  }
+  .addons-title {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .addons-sub {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+  }
+  .addons-list { display: flex; flex-direction: column; gap: 0; }
+  .addon-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 12px;
+  }
+  .addon-row:last-child { border-bottom: none; }
+  .addon-nom { font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 2px; }
+  .addon-desc { font-size: 12px; color: var(--text-muted); }
+  .addon-prix {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .addon-custom {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .custom-text { font-size: 13px; color: var(--text-secondary); }
+  .custom-link {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 900px) {
+    .pricing-layout { grid-template-columns: 1fr; }
+    .pricing-main { padding: 28px; }
+    .price-big { font-size: 56px; }
+    .inclus-grid { grid-template-columns: 1fr; }
+  }
+</style>

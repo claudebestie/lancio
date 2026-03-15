@@ -1,0 +1,81 @@
+---
+const secteurs = [
+  { icon: "🍽️", label: "Restaurant" },
+  { icon: "✂️", label: "Coiffeur" },
+  { icon: "⚖️", label: "Avocat" },
+  { icon: "🩺", label: "Médecin" },
+  { icon: "🏋️", label: "Coach sportif" },
+  { icon: "🔧", label: "Artisan" },
+  { icon: "💈", label: "Barbier" },
+  { icon: "🌿", label: "Thérapeute" },
+  { icon: "🏠", label: "Agent immobilier" },
+  { icon: "📐", label: "Architecte" },
+  { icon: "🍰", label: "Traiteur" },
+  { icon: "📸", label: "Photographe" },
+];
+---
+
+<div class="secteurs-wrap">
+  <div class="secteurs-label">Pour tous les professionnels</div>
+  <div class="secteurs-track">
+    <div class="secteurs-inner">
+      {secteurs.map(s => (
+        <div class="secteur-item">
+          <span class="secteur-icon">{s.icon}</span>
+          <span class="secteur-name">{s.label}</span>
+        </div>
+      ))}
+      {secteurs.map(s => (
+        <div class="secteur-item" aria-hidden="true">
+          <span class="secteur-icon">{s.icon}</span>
+          <span class="secteur-name">{s.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .secteurs-wrap {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+    overflow: hidden;
+  }
+  .secteurs-label {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+  .secteurs-track {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+  .secteurs-inner {
+    display: flex;
+    gap: 12px;
+    animation: scroll 28s linear infinite;
+    width: max-content;
+  }
+  .secteurs-inner:hover { animation-play-state: paused; }
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .secteur-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 16px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .secteur-icon { font-size: 15px; }
+  .secteur-name { font-size: 13px; color: var(--text-secondary); font-weight: 400; }
+</style>

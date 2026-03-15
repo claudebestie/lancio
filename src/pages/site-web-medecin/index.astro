@@ -1,0 +1,74 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Création site web médecin cabinet médical — 48h | Lancio"
+  description="Lancio crée votre site web pour médecin ou cabinet médical en 48h à partir de €650. Horaires, prise de RDV, présentation, carte. Clé en main."
+  canonical="https://lancio.fr/site-web-medecin/"
+>
+  <Nav />
+  <main class="secteur-page">
+    <section class="secteur-hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="/">Lancio</a><span>→</span><span>Site web médecin</span></div>
+        <h1>Création site web<br/><em>médecin</em> en 48h</h1>
+        <p class="secteur-sub">Horaires, carte, prise de rendez-vous, présentation du cabinet — tout ce que vos patients cherchent, livré en 48h à partir de €650.</p>
+        <div class="secteur-actions">
+          <a href="/#commander" class="btn-primary">Commander mon site médecin →</a>
+          <div class="secteur-proof"><span>⭐ 4.9/5</span><span>·</span><span>47 sites livrés</span><span>·</span><span>48h garantis</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="secteur-inclus section-pad">
+      <div class="container">
+        <h2>Ce que votre site médecin doit afficher</h2>
+        <div class="inclus-grid">
+          <div class="inclus-card"><div class="inclus-icon">🩺</div><h3>Présentation du cabinet</h3><p>Votre spécialité, vos horaires, votre adresse — les informations essentielles immédiatement visibles.</p></div>
+          <div class="inclus-card"><div class="inclus-icon">📅</div><h3>Prise de RDV</h3><p>Lien Doctolib, Maiia ou formulaire de contact — selon votre mode de fonctionnement.</p></div>
+          <div class="inclus-card"><div class="inclus-icon">📍</div><h3>Localisation précise</h3><p>Carte interactive, accès, parking, transports — vos nouveaux patients vous trouvent sans appeler.</p></div>
+          <div class="inclus-card"><div class="inclus-icon">💊</div><h3>Services proposés</h3><p>Secteur conventionné, téléconsultation, spécialités — tout ce que le patient doit savoir avant de venir.</p></div>
+          <div class="inclus-card"><div class="inclus-icon">🔍</div><h3>SEO local</h3><p>Apparaître sur "médecin [spécialité] [ville]" — attirez de nouveaux patients régulièrement.</p></div>
+          <div class="inclus-card"><div class="inclus-icon">📱</div><h3>Mobile-first</h3><p>Vos patients cherchent depuis leur téléphone. Votre site est parfait sur tous les écrans.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="secteur-cta section-pad" style="background: var(--cream);">
+      <div class="container cta-inner">
+        <h2>Simplifiez la vie de vos patients — et la vôtre.</h2>
+        <p>Commandez aujourd'hui — votre site est en ligne dans 48h.</p>
+        <a href="/#commander" class="btn-primary">Je lance mon site →</a>
+        <div class="cta-price">À partir de €650 · Livraison 48h garantie · Satisfait ou on recommence</div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .secteur-hero { padding: 120px 0 80px; background: var(--cream); border-bottom: 1px solid var(--border); }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-muted); margin-bottom: 24px; }
+  .breadcrumb a { color: var(--accent); }
+  h1 { font-size: clamp(36px, 5vw, 64px); margin-bottom: 20px; line-height: 1.05; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .secteur-sub { font-size: 18px; color: var(--text-secondary); max-width: 560px; line-height: 1.65; margin-bottom: 32px; }
+  .secteur-actions { display: flex; flex-direction: column; gap: 16px; }
+  .secteur-proof { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-muted); }
+  .btn-primary { display: inline-flex; font-size: 15px; font-weight: 500; background: var(--accent); color: var(--white); padding: 14px 28px; border-radius: var(--radius-md); transition: background 0.15s, transform 0.1s; width: fit-content; }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+  .section-pad { padding: var(--section-py) 0; }
+  h2 { font-size: clamp(28px, 3.5vw, 40px); margin-bottom: 40px; text-align: center; line-height: 1.1; }
+  .inclus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .inclus-card { background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; }
+  .inclus-icon { font-size: 24px; margin-bottom: 12px; }
+  .inclus-card h3 { font-family: var(--font-body); font-size: 15px; font-weight: 500; margin-bottom: 8px; }
+  .inclus-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  .cta-inner { text-align: center; }
+  .cta-inner p { font-size: 16px; color: var(--text-secondary); margin-bottom: 28px; }
+  .cta-inner h2 { margin-bottom: 12px; }
+  .cta-price { margin-top: 16px; font-size: 13px; color: var(--text-muted); }
+  @media (max-width: 768px) { .inclus-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .inclus-grid { grid-template-columns: 1fr; } }
+</style>

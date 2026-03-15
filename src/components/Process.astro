@@ -1,0 +1,170 @@
+---
+const steps = [
+  {
+    num: "01",
+    titre: "Vous commandez en ligne",
+    desc: "Choisissez votre formule, remplissez le brief (5 min) et payez en ligne. Pas de réunion, pas de devis.",
+    heure: "Lundi 9h",
+    detail: "Brief · Paiement sécurisé · Confirmation immédiate"
+  },
+  {
+    num: "02",
+    titre: "On crée votre site",
+    desc: "Notre équipe conçoit votre site sur mesure. Vous recevez une notification quand c'est prêt pour validation.",
+    heure: "Lundi → Mardi",
+    detail: "Design · Développement · SEO de base"
+  },
+  {
+    num: "03",
+    titre: "Vous validez",
+    desc: "On vous envoie un lien de prévisualisation. Vous demandez vos modifications, on les fait dans les 24h.",
+    heure: "Mardi soir",
+    detail: "1 round de révisions inclus · Retours sous 24h"
+  },
+  {
+    num: "04",
+    titre: "Votre site est en ligne",
+    desc: "On met tout en ligne sur votre domaine. Vous recevez les accès et une vidéo de prise en main.",
+    heure: "Mercredi 9h",
+    detail: "Mise en ligne · Accès · Formation"
+  },
+];
+---
+
+<section class="process section-pad" id="comment">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Comment ça marche</div>
+      <h2 class="section-h2">De la commande<br/><em>à la mise en ligne en 48h</em></h2>
+    </div>
+
+    <div class="process-timeline">
+      {steps.map((step, i) => (
+        <div class="process-step">
+          <div class="step-left">
+            <div class="step-num">{step.num}</div>
+            <div class="step-heure">{step.heure}</div>
+          </div>
+          <div class="step-connector">
+            <div class="connector-dot"></div>
+            {i < steps.length - 1 && <div class="connector-line"></div>}
+          </div>
+          <div class="step-right">
+            <div class="step-titre">{step.titre}</div>
+            <div class="step-desc">{step.desc}</div>
+            <div class="step-detail">{step.detail}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="process-garantie">
+      <div class="garantie-icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L3 5v5c0 4.4 3 8.4 7 9.4 4-1 7-5 7-9.4V5l-7-3z" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="1.2" stroke-linejoin="round"/><path d="M7 10l2 2 4-4" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="garantie-text">
+        <strong>Satisfait ou on recommence</strong>
+        <span>Si le résultat ne vous convient pas, on refait votre site gratuitement. Sans question.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .process-timeline {
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .process-step {
+    display: grid;
+    grid-template-columns: 100px 32px 1fr;
+    gap: 0;
+    align-items: flex-start;
+  }
+  .step-left {
+    padding: 0 20px 0 0;
+    padding-top: 2px;
+    text-align: right;
+  }
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+  .step-heure {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+    background: var(--accent-pale);
+    padding: 2px 8px;
+    border-radius: 100px;
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .step-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding-top: 4px;
+  }
+  .connector-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .connector-line {
+    width: 2px;
+    height: 80px;
+    background: var(--border);
+    margin-top: 4px;
+  }
+  .step-right {
+    padding: 0 0 48px 20px;
+  }
+  .step-titre {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    padding-top: 0px;
+  }
+  .step-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  .step-detail {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .process-garantie {
+    max-width: 680px;
+    margin: 24px auto 0;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--accent-pale);
+    border: 1px solid rgba(26,60,52,0.15);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+  }
+  .garantie-icon { flex-shrink: 0; padding-top: 2px; }
+  .garantie-text { display: flex; flex-direction: column; gap: 2px; }
+  .garantie-text strong { font-size: 14px; font-weight: 500; color: var(--accent); }
+  .garantie-text span { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+  @media (max-width: 600px) {
+    .process-step { grid-template-columns: 72px 24px 1fr; }
+    .step-heure { font-size: 10px; }
+  }
+</style>

@@ -1,0 +1,127 @@
+---
+const temoignages = [
+  {
+    initiales: "MB",
+    nom: "Marie B.",
+    role: "Restauratrice",
+    ville: "Paris 11e",
+    stars: 5,
+    texte: "Incroyable. J'avais un devis à €4 500 d'une agence qui promettait 6 semaines. Avec Lancio, j'ai eu mon site en 2 jours pour €650. Le résultat est vraiment pro.",
+  },
+  {
+    initiales: "TL",
+    nom: "Thomas L.",
+    role: "Plombier",
+    ville: "Lyon",
+    stars: 5,
+    texte: "Je ne savais même pas par où commencer pour créer un site. Lancio m'a posé les bonnes questions, créé quelque chose de parfait, et depuis j'ai des appels de nouveaux clients chaque semaine.",
+  },
+  {
+    initiales: "SC",
+    nom: "Sophie C.",
+    role: "Coach sportive",
+    ville: "Bordeaux",
+    stars: 5,
+    texte: "Le brief en ligne est très bien fait, ça ne prend vraiment que 5 minutes. Le site était prêt avant même que j'aie le temps de m'inquiéter. Je recommande à tous mes collègues.",
+  },
+];
+---
+
+<section class="temoignages section-pad">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Témoignages</div>
+      <h2 class="section-h2">Ils ont lancé<br/><em>en 48h</em></h2>
+    </div>
+    <div class="temo-grid">
+      {temoignages.map((t, i) => (
+        <div class={`temo-card ${i === 1 ? 'temo-featured' : ''}`}>
+          <div class="temo-stars">
+            {"★".repeat(t.stars)}
+          </div>
+          <p class="temo-texte">"{t.texte}"</p>
+          <div class="temo-author">
+            <div class="temo-avatar">{t.initiales}</div>
+            <div class="temo-info">
+              <div class="temo-nom">{t.nom}</div>
+              <div class="temo-role">{t.role} · {t.ville}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .temo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+  .temo-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: transform 0.2s;
+  }
+  .temo-card:hover { transform: translateY(-3px); }
+  .temo-featured {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-8px);
+  }
+  .temo-featured:hover { transform: translateY(-12px); }
+  .temo-stars {
+    font-size: 14px;
+    color: #F1C40F;
+    letter-spacing: 1px;
+  }
+  .temo-texte {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    flex: 1;
+    font-style: italic;
+  }
+  .temo-featured .temo-texte { color: rgba(250,250,248,0.8); }
+  .temo-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .temo-featured .temo-author { border-color: rgba(250,250,248,0.2); }
+  .temo-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent-pale);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .temo-featured .temo-avatar {
+    background: rgba(250,250,248,0.15);
+    color: var(--white);
+  }
+  .temo-nom { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+  .temo-featured .temo-nom { color: var(--white); }
+  .temo-role { font-size: 12px; color: var(--text-muted); }
+  .temo-featured .temo-role { color: rgba(250,250,248,0.6); }
+
+  @media (max-width: 768px) {
+    .temo-grid { grid-template-columns: 1fr; }
+    .temo-featured { transform: none; }
+  }
+</style>

@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Secteurs from '../components/Secteurs.astro';
+import Problem from '../components/Problem.astro';
+import Exemples from '../components/Exemples.astro';
+import Process from '../components/Process.astro';
+import Pricing from '../components/Pricing.astro';
+import Temoignages from '../components/Temoignages.astro';
+import FAQ from '../components/FAQ.astro';
+import Commander from '../components/Commander.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Nav />
+  <main>
+    <Hero />
+    <Secteurs />
+    <Problem />
+    <Exemples />
+    <Process />
+    <Pricing />
+    <Temoignages />
+    <FAQ />
+    <Commander />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    padding-top: 0;
+  }
+</style>

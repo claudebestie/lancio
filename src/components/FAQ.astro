@@ -1,0 +1,150 @@
+---
+const faqs = [
+  {
+    q: "Que se passe-t-il si le résultat ne me convient pas ?",
+    r: "On recommence gratuitement. Si après la révision incluse vous n'êtes toujours pas satisfait, on refait votre site de zéro. Pas de question, pas de frais supplémentaires.",
+  },
+  {
+    q: "Comment vous envoyez mon contenu ?",
+    r: "Après votre commande, vous recevez un brief en ligne à remplir (5–10 min). Vous y mettez vos textes, photos, informations. Pas besoin d'être organisé — on structure tout pour vous.",
+  },
+  {
+    q: "Est-ce que mon site sera visible sur Google ?",
+    r: "Oui. Chaque site Lancio est livré avec les bases SEO : balises title et meta, structure H1/H2, vitesse optimisée, sitemap soumis à Google. Pour aller plus loin, l'add-on SEO local est disponible à +€150.",
+  },
+  {
+    q: "Je peux modifier mon site après la livraison ?",
+    r: "Oui. Vous recevez les accès complets à votre site. On vous envoie aussi une vidéo de prise en main pour que vous puissiez modifier textes et photos vous-même. Pour les modifications importantes, notre add-on maintenance est disponible.",
+  },
+  {
+    q: "Proposez-vous de la maintenance ?",
+    r: "Oui, en add-on à +€300 pour 6 mois. Cela inclut les mises à jour, les modifications de contenu et le support prioritaire par email.",
+  },
+  {
+    q: "Et si j'ai besoin d'une boutique en ligne ?",
+    r: "C'est possible avec l'add-on e-commerce à +€350. Il inclut un catalogue produits et l'intégration Stripe pour les paiements. Précisez-le dans votre brief.",
+  },
+  {
+    q: "Vous travaillez pour tous types d'entreprises ?",
+    r: "On se spécialise sur les TPE et professions indépendantes : restaurants, artisans, avocats, médecins, coachs, coiffeurs, thérapeutes... Si vous avez un doute, écrivez-nous à hello@lancio.fr.",
+  },
+];
+---
+
+<section class="faq section-pad">
+  <div class="container">
+    <div class="faq-inner">
+      <div class="faq-left">
+        <div class="section-tag">FAQ</div>
+        <h2 class="section-h2">Les questions<br/><em>qu'on nous pose</em></h2>
+        <p class="faq-contact">
+          Une autre question ?<br/>
+          <a href="mailto:hello@lancio.fr">hello@lancio.fr →</a>
+        </p>
+      </div>
+      <div class="faq-right">
+        {faqs.map((faq, i) => (
+          <div class="faq-item" data-index={i}>
+            <button class="faq-question" aria-expanded="false">
+              <span>{faq.q}</span>
+              <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="faq-answer">
+              <p>{faq.r}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-inner {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .faq-left { position: sticky; top: 80px; }
+  .faq-contact {
+    margin-top: 28px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .faq-contact a {
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .faq-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: color 0.15s;
+  }
+  .faq-question:hover { color: var(--accent); }
+  .faq-chevron {
+    flex-shrink: 0;
+    transition: transform 0.25s;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .faq-question[aria-expanded="true"] .faq-chevron {
+    transform: rotate(180deg);
+  }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .faq-answer.open { max-height: 300px; }
+  .faq-answer p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding-bottom: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .faq-inner { grid-template-columns: 1fr; gap: 32px; }
+    .faq-left { position: static; }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.faq-question').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling?.classList.remove('open');
+      });
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.nextElementSibling?.classList.add('open');
+      }
+    });
+  });
+</script>

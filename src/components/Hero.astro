@@ -1,0 +1,287 @@
+---
+---
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      47 sites livrés · Note 4.9/5
+    </div>
+    <h1 class="hero-h1">
+      Votre site<br/>
+      <em>lancé en 48h.</em>
+    </h1>
+    <p class="hero-sub">
+      Un site professionnel clé en main à partir de <strong>€650</strong> — sans rendez-vous, sans devis, sans surprise. Vous commandez lundi, vous êtes en ligne mercredi.
+    </p>
+    <div class="hero-actions">
+      <a href="#commander" class="btn-primary">Commander mon site →</a>
+      <a href="#exemples" class="btn-ghost">Voir les exemples</a>
+    </div>
+    <div class="hero-proof">
+      <div class="proof-item">
+        <span class="proof-num">48h</span>
+        <span class="proof-label">Délai garanti</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-item">
+        <span class="proof-num">€650</span>
+        <span class="proof-label">Prix fixe, tout compris</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-item">
+        <span class="proof-num">100%</span>
+        <span class="proof-label">Satisfait ou on recommence</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card hero-card-1">
+      <div class="hcard-top">
+        <div class="hcard-dot green"></div>
+        <div class="hcard-dot yellow"></div>
+        <div class="hcard-dot red"></div>
+      </div>
+      <div class="hcard-img"></div>
+      <div class="hcard-line long"></div>
+      <div class="hcard-line medium"></div>
+      <div class="hcard-line short"></div>
+      <div class="hcard-btn"></div>
+    </div>
+    <div class="hero-card hero-card-2">
+      <div class="hcard-top">
+        <div class="hcard-dot green"></div>
+        <div class="hcard-dot yellow"></div>
+        <div class="hcard-dot red"></div>
+      </div>
+      <div class="hcard-img restaurant"></div>
+      <div class="hcard-line long"></div>
+      <div class="hcard-line medium"></div>
+      <div class="hcard-btn"></div>
+    </div>
+    <div class="hero-delivery-tag">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#1A3C34"/><path d="M4 7l2 2 4-4" stroke="#FAFAF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Livré en 48h
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-top: 128px;
+    padding-bottom: var(--section-py);
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    align-items: center;
+    gap: 64px;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--accent);
+    background: var(--accent-pale);
+    border: 1px solid rgba(26,60,52,0.15);
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+  .badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #2ECC71;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.8); }
+  }
+  .hero-h1 {
+    font-size: clamp(48px, 6vw, 80px);
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    line-height: 1.0;
+  }
+  .hero-h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-sub {
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 480px;
+    line-height: 1.65;
+    margin-bottom: 36px;
+  }
+  .hero-sub strong { color: var(--text-primary); font-weight: 500; }
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    font-size: 15px;
+    font-weight: 500;
+    background: var(--accent);
+    color: var(--white);
+    padding: 14px 28px;
+    border-radius: var(--radius-md);
+    transition: background 0.15s, transform 0.1s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+  .btn-ghost {
+    font-size: 15px;
+    color: var(--text-secondary);
+    transition: color 0.15s;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--border-strong);
+  }
+  .btn-ghost:hover { color: var(--text-primary); }
+  .hero-proof {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .proof-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .proof-num {
+    font-family: var(--font-display);
+    font-size: 26px;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+  .proof-label {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .proof-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--border);
+  }
+
+  /* Visual mock */
+  .hero-visual {
+    position: relative;
+    height: 380px;
+  }
+  .hero-card {
+    position: absolute;
+    background: var(--white);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 8px 40px rgba(14,14,14,0.08);
+  }
+  .hero-card-1 {
+    width: 240px;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    transform: rotate(-2deg);
+    animation: float1 4s ease-in-out infinite;
+  }
+  .hero-card-2 {
+    width: 260px;
+    bottom: 20px;
+    right: 10px;
+    z-index: 3;
+    animation: float2 4s ease-in-out infinite 0.8s;
+  }
+  @keyframes float1 {
+    0%, 100% { transform: rotate(-2deg) translateY(0); }
+    50% { transform: rotate(-2deg) translateY(-8px); }
+  }
+  @keyframes float2 {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .hcard-top {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+  .hcard-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  .hcard-dot.green { background: #2ECC71; }
+  .hcard-dot.yellow { background: #F1C40F; }
+  .hcard-dot.red { background: #E74C3C; }
+  .hcard-img {
+    width: 100%;
+    height: 100px;
+    background: var(--cream-dark);
+    border-radius: var(--radius-sm);
+  }
+  .hcard-img.restaurant {
+    background: linear-gradient(135deg, #E8E0D0 0%, #D4C9B5 100%);
+  }
+  .hcard-line {
+    height: 8px;
+    background: var(--cream-dark);
+    border-radius: 4px;
+  }
+  .hcard-line.long { width: 85%; }
+  .hcard-line.medium { width: 65%; }
+  .hcard-line.short { width: 45%; }
+  .hcard-btn {
+    width: 80px;
+    height: 28px;
+    background: var(--accent);
+    border-radius: var(--radius-sm);
+    opacity: 0.9;
+  }
+  .hero-delivery-tag {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--white);
+    border: 1px solid var(--border-strong);
+    border-radius: 100px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 16px rgba(14,14,14,0.1);
+    white-space: nowrap;
+    z-index: 4;
+    animation: tagFloat 3s ease-in-out infinite 1.2s;
+  }
+  @keyframes tagFloat {
+    0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+    50% { transform: translate(-50%, -50%) translateY(-5px); }
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding-top: 100px;
+    }
+    .hero-visual { display: none; }
+    .hero-h1 { font-size: 48px; }
+  }
+</style>

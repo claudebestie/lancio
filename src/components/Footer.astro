@@ -1,0 +1,116 @@
+---
+---
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">Lancio</div>
+      <div class="footer-tagline">Votre site lancé en 48h.</div>
+      <a href="mailto:hello@lancio.fr" class="footer-email">hello@lancio.fr</a>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <div class="footer-col-title">Service</div>
+        <a href="#exemples">Exemples</a>
+        <a href="#comment">Comment ça marche</a>
+        <a href="#pricing">Tarifs</a>
+        <a href="#commander">Commander</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Secteurs</div>
+        <a href="/site-web-restaurant/">Restaurant</a>
+        <a href="/site-web-coiffeur/">Coiffeur</a>
+        <a href="/site-web-avocat/">Avocat</a>
+        <a href="/site-web-medecin/">Médecin</a>
+        <a href="/site-web-coach-sportif/">Coach sportif</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Légal</div>
+        <a href="/mentions-legales/">Mentions légales</a>
+        <a href="/politique-confidentialite/">Confidentialité</a>
+        <a href="/cgv/">CGV</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© {new Date().getFullYear()} Lancio — Tous droits réservés</span>
+      <span class="footer-sep">·</span>
+      <span>Site créé avec Lancio</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--border);
+    padding-top: 56px;
+    margin-top: var(--section-py);
+    background: var(--cream);
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 64px;
+    padding-bottom: 48px;
+  }
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .footer-tagline {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  .footer-email {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-col-title {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .footer-col a {
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: color 0.15s;
+  }
+  .footer-col a:hover { color: var(--text-primary); }
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding: 16px 0;
+  }
+  .footer-bottom-inner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .footer-sep { opacity: 0.4; }
+
+  @media (max-width: 768px) {
+    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    .footer-links { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
