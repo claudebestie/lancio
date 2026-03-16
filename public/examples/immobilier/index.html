@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agence Horizon | Immobilier, Lyon</title>
+<meta name="description" content="Agence immobilière à Lyon. Achat, vente, gestion locative et estimation gratuite. 15 ans d'expérience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--navy:#1B2A4A;--navy-dark:#121D35;--navy-light:#2A3F66;--gold:#C9A96E;--gold-light:#D9C090;--gold-dark:#A88E55;--light:#F5F3EF;--cream:#EBE7DF;--charcoal:#1A1A1A;--text-dark:#1A1A1A;--text-body:#3D3D3D;--text-muted:#6B6560;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+body{font-family:var(--sans);background:var(--light);color:var(--text-dark);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--navy);color:var(--light)}img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{font-family:inherit;cursor:pointer}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(60px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+.lancio-banner{background:var(--cream);padding:10px 24px;text-align:center;font-size:.78rem;color:var(--text-muted);z-index:200;position:relative}.lancio-banner a{color:var(--navy);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:150;padding:0 56px;height:72px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background .4s,box-shadow .4s}
+.nav.scrolled{background:rgba(27,42,74,.97);backdrop-filter:blur(20px);box-shadow:0 1px 40px rgba(0,0,0,.2)}
+.nav-logo{font-family:var(--serif);font-size:1.4rem;color:var(--light)}.nav-logo span{color:var(--gold)}
+.nav-center{display:flex;gap:40px}.nav-link{font-size:.82rem;font-weight:500;color:rgba(245,243,239,.7);letter-spacing:1.5px;text-transform:uppercase;transition:color .3s}.nav-link:hover{color:var(--gold)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.btn-nav{display:inline-flex;padding:10px 28px;background:var(--gold);border:none;color:var(--navy-dark);font-size:.85rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:2px;transition:all .35s}.btn-nav:hover{background:var(--gold-light)}
+.hamburger{display:none;flex-direction:column;width:36px;height:36px;background:none;border:none;justify-content:center;align-items:center;z-index:210}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--light);margin:3px 0;transition:all .35s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:149;background:rgba(27,42,74,.98);flex-direction:column;justify-content:center;align-items:center;gap:32px;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.mobile-menu.open{opacity:1;visibility:visible}.mobile-menu a{font-family:var(--serif);font-size:1.8rem;color:var(--light);transition:color .3s}.mobile-menu a:hover{color:var(--gold)}
+
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 48px 100px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('img/immo1.jpg') center/cover no-repeat;z-index:0}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(27,42,74,.55) 0%,rgba(18,29,53,.65) 100%)}
+.hero-content{position:relative;z-index:2;max-width:850px}
+.hero h1{font-family:var(--serif);font-size:clamp(2.5rem,5.5vw,4.5rem);color:var(--light);line-height:1.15;margin-bottom:20px}.hero h1 span{color:var(--gold)}
+.hero-tagline{font-size:clamp(1rem,2vw,1.2rem);color:rgba(245,243,239,.8);margin-bottom:48px}
+.btn-hero{display:inline-flex;padding:18px 56px;background:var(--gold);border:none;color:var(--navy-dark);font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:2px;transition:all .4s}.btn-hero:hover{background:var(--gold-light)}
+
+.properties{padding:120px 48px;background:var(--light)}
+.section-header{text-align:center;margin-bottom:72px}
+.section-header h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:12px}
+.section-header-line{width:48px;height:3px;background:var(--gold);margin:16px auto 0;border-radius:2px}
+.properties-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.property-card{background:var(--cream);border-radius:2px;overflow:hidden;transition:transform .4s,box-shadow .4s}
+.property-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(27,42,74,.12)}
+.property-card img{width:100%;height:280px;object-fit:cover}
+.property-body{padding:28px}
+.property-type{font-size:.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:8px}
+.property-card h3{font-family:var(--serif);font-size:1.2rem;color:var(--navy);margin-bottom:8px}
+.property-price{font-family:var(--serif);font-size:1.4rem;color:var(--navy);font-weight:700;margin-bottom:12px}
+.property-details{font-size:.85rem;color:var(--text-muted);line-height:1.6}
+
+.services{padding:120px 48px;background:var(--cream)}
+.services-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.service-card{background:var(--light);padding:36px 28px;text-align:center;border-radius:2px;transition:transform .4s,box-shadow .4s;border-top:3px solid transparent}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(27,42,74,.08);border-top-color:var(--gold)}
+.service-icon{font-size:2rem;margin-bottom:16px}
+.service-card h3{font-family:var(--serif);font-size:1.1rem;color:var(--navy);margin-bottom:12px}
+.service-card p{font-size:.85rem;color:var(--text-muted);line-height:1.6}
+
+.about{padding:120px 48px;background:var(--light)}
+.about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-img{border-radius:2px;overflow:hidden}.about-img img{width:100%;height:450px;object-fit:cover}
+.about h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:24px}
+.about p{font-size:.95rem;color:var(--text-body);line-height:1.85;margin-bottom:16px}
+
+.stats{padding:80px 48px;background:var(--navy)}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;text-align:center}
+.stat-num{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);color:var(--gold);line-height:1;margin-bottom:8px}
+.stat-label{font-size:.82rem;color:rgba(245,243,239,.7);letter-spacing:1px;text-transform:uppercase}
+
+.testimonials{padding:120px 48px;background:var(--cream)}
+.testimonials-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.testimonial-item{background:var(--light);padding:40px;border-radius:2px;text-align:center}
+.testimonial-quote{font-size:3rem;color:var(--gold);line-height:1;margin-bottom:16px;opacity:.4}
+.testimonial-text{font-size:.95rem;font-style:italic;line-height:1.8;margin-bottom:20px;color:var(--text-body)}
+.testimonial-name{font-weight:600;color:var(--navy);margin-bottom:4px}
+.testimonial-source{font-size:.75rem;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase}
+
+.cta-section{position:relative;min-height:420px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 48px;overflow:hidden}
+.cta-bg{position:absolute;inset:0;background:url('img/immo1.jpg') center/cover no-repeat;z-index:0}
+.cta-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(27,42,74,.7) 0%,rgba(18,29,53,.8) 100%)}
+.cta-content{position:relative;z-index:2}
+.cta-section h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);color:var(--light);margin-bottom:16px}
+.cta-sub{font-size:1.1rem;color:rgba(245,243,239,.8);margin-bottom:40px}
+
+.contact-section{padding:120px 48px;background:var(--light)}
+.contact-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center}
+.contact-card h3{font-family:var(--serif);font-size:1.1rem;color:var(--navy);margin-bottom:12px}
+.contact-card p{font-size:.95rem;color:var(--text-body);line-height:1.8}
+.contact-card .highlight{font-family:var(--serif);font-size:1.1rem;color:var(--navy);font-weight:600}
+
+.footer{background:var(--navy-dark);padding:48px;text-align:center}
+.footer-logo{font-family:var(--serif);font-size:1.3rem;color:var(--light);margin-bottom:12px}.footer-logo span{color:var(--gold)}
+.footer-copy{font-size:.78rem;color:rgba(245,243,239,.35)}
+
+@media(max-width:1024px){.nav{padding:0 32px}.nav-center{display:none}.hamburger{display:flex}.mobile-menu{display:flex}.about-inner{grid-template-columns:1fr;gap:48px}.properties-grid,.services-grid{grid-template-columns:1fr 1fr}.stats-inner{grid-template-columns:1fr 1fr;gap:32px}.testimonials-inner{grid-template-columns:1fr;gap:40px}.contact-inner{grid-template-columns:1fr}}
+@media(max-width:640px){.hero h1{font-size:2.2rem}.hero,.properties,.services,.about,.testimonials,.cta-section,.contact-section{padding:80px 24px}.properties-grid,.services-grid{grid-template-columns:1fr}.btn-nav{display:none}}
+</style>
+</head>
+<body>
+<div class="lancio-banner">Ceci est un site de démonstration créé par <a href="https://lancio.fr">Lancio</a>. Créez le vôtre en 48h → <a href="https://lancio.fr">lancio.fr</a></div>
+<nav class="nav" id="nav"><a href="#" class="nav-logo">Agence <span>Horizon</span></a><div class="nav-center"><a href="#biens" class="nav-link">Nos Biens</a><a href="#services" class="nav-link">Services</a><a href="#agence" class="nav-link">L'Agence</a><a href="#contact" class="nav-link">Contact</a></div><div class="nav-right"><a href="#estimation" class="btn-nav">Estimation gratuite</a><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="mobile-menu" id="mobileMenu"><a href="#biens" onclick="closeMobile()">Nos Biens</a><a href="#services" onclick="closeMobile()">Services</a><a href="#agence" onclick="closeMobile()">L'Agence</a><a href="#contact" onclick="closeMobile()">Contact</a></div>
+
+<section class="hero"><div class="hero-bg"></div><div class="hero-overlay"></div><div class="hero-content"><h1>Agence <span>Horizon</span></h1><p class="hero-tagline">L'immobilier d'exception à Lyon — Achat, vente & gestion locative</p><a href="#estimation" class="btn-hero">Estimation gratuite</a></div></section>
+
+<section class="properties" id="biens">
+  <div class="section-header reveal"><h2>Biens à la une</h2><div class="section-header-line"></div></div>
+  <div class="properties-grid reveal">
+    <div class="property-card"><img src="img/immo2.jpg" alt="Appartement T4"><div class="property-body"><p class="property-type">Appartement</p><h3>T4 — Presqu'île</h3><p class="property-price">€485 000</p><p class="property-details">110 m² · 4 pièces · 3 chambres · Balcon<br>Rénové, lumineux, proche métro</p></div></div>
+    <div class="property-card"><img src="img/immo3.jpg" alt="Maison de ville"><div class="property-body"><p class="property-type">Maison</p><h3>Maison de ville — Croix-Rousse</h3><p class="property-price">€720 000</p><p class="property-details">180 m² · 6 pièces · 4 chambres · Jardin<br>Charme de l'ancien, garage</p></div></div>
+    <div class="property-card"><img src="img/immo4.jpg" alt="Loft"><div class="property-body"><p class="property-type">Loft</p><h3>Loft — Confluence</h3><p class="property-price">€395 000</p><p class="property-details">95 m² · 3 pièces · 2 chambres · Terrasse<br>Vue Saône, standing contemporain</p></div></div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-header reveal"><h2>Nos Services</h2><div class="section-header-line"></div></div>
+  <div class="services-grid reveal">
+    <div class="service-card"><div class="service-icon">🏠</div><h3>Achat immobilier</h3><p>Recherche personnalisée et accompagnement jusqu'à la signature</p></div>
+    <div class="service-card"><div class="service-icon">📊</div><h3>Vente & estimation</h3><p>Estimation gratuite et stratégie de commercialisation optimale</p></div>
+    <div class="service-card"><div class="service-icon">🔑</div><h3>Gestion locative</h3><p>Gestion complète de vos biens : locataires, loyers, travaux</p></div>
+    <div class="service-card"><div class="service-icon">💰</div><h3>Investissement</h3><p>Conseil en investissement locatif et défiscalisation</p></div>
+  </div>
+</section>
+
+<section class="about" id="agence"><div class="about-inner"><div class="about-img reveal-left"><img src="img/immo2.jpg" alt="Agence Horizon"></div><div class="reveal-right"><h2>15 ans d'expertise lyonnaise</h2><p>L'Agence Horizon est implantée à Lyon depuis 2010. Notre connaissance approfondie du marché immobilier lyonnais nous permet de vous conseiller avec précision et de trouver le bien idéal.</p><p>Notre équipe de 8 conseillers passionnés vous accompagne à chaque étape de votre projet, avec réactivité et transparence.</p></div></div></section>
+
+<section class="stats"><div class="stats-inner reveal"><div><div class="stat-num">350+</div><div class="stat-label">Biens vendus</div></div><div><div class="stat-num">15</div><div class="stat-label">Ans d'expérience</div></div><div><div class="stat-num">98%</div><div class="stat-label">Satisfaction</div></div><div><div class="stat-num">24h</div><div class="stat-label">Réponse garantie</div></div></div></section>
+
+<section class="testimonials">
+  <div class="section-header reveal"><h2>Témoignages</h2><div class="section-header-line"></div></div>
+  <div class="testimonials-inner">
+    <div class="testimonial-item reveal"><div class="testimonial-quote">❝</div><p class="testimonial-text">L'Agence Horizon nous a trouvé l'appartement parfait en moins de 3 semaines. Professionnalisme et réactivité au top !</p><p class="testimonial-name">François & Anne D.</p><p class="testimonial-source">Google</p></div>
+    <div class="testimonial-item reveal"><div class="testimonial-quote">❝</div><p class="testimonial-text">Excellente gestion locative. Mon bien est entre de bonnes mains, les comptes-rendus sont clairs et les locataires bien sélectionnés.</p><p class="testimonial-name">Philippe M.</p><p class="testimonial-source">Google</p></div>
+  </div>
+</section>
+
+<section class="cta-section" id="estimation"><div class="cta-bg"></div><div class="cta-overlay"></div><div class="cta-content reveal"><h2>Estimez votre bien gratuitement</h2><p class="cta-sub">Résultat sous 24h par un expert du marché lyonnais</p><a href="#contact" class="btn-hero">Demander une estimation</a></div></section>
+
+<section class="contact-section" id="contact">
+  <div class="section-header reveal"><h2>Contact</h2><div class="section-header-line"></div></div>
+  <div class="contact-inner reveal">
+    <div class="contact-card"><h3>Adresse</h3><p>45 Rue de la République<br>69002 Lyon</p></div>
+    <div class="contact-card"><h3>Téléphone</h3><p class="highlight">04 72 XX XX XX</p><p>contact@agence-horizon.fr</p></div>
+    <div class="contact-card"><h3>Horaires</h3><p>Lun – Ven : 9h–19h<br>Sam : 10h–17h</p></div>
+  </div>
+</section>
+
+<footer class="footer"><p class="footer-logo">Agence <span>Horizon</span></p><p class="footer-copy">© 2025 Agence Horizon — Tous droits réservés</p></footer>
+
+<script>
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);});
+const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});
+function closeMobile(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow='';}
+const reveals=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:.15});
+reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

@@ -8,6 +8,17 @@ import Footer from '../../components/Footer.astro';
   title="Création site web avocat cabinet juridique — 48h | Lancio"
   description="Lancio crée votre site web pour avocat ou cabinet juridique en 48h à partir de €650. Site institutionnel, domaines d'expertise, formulaire de contact discret."
   canonical="https://lancio.fr/site-web-avocat/"
+  ogImage="https://lancio.fr/secteurs/lawyer1.jpg"
+  extraStructuredData={JSON.stringify([
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Lancio","item":"https://lancio.fr/"},
+      {"@type":"ListItem","position":2,"name":"Site web avocat","item":"https://lancio.fr/site-web-avocat/"}
+    ]},
+    {"@context":"https://schema.org","@type":"Service","serviceType":"Création de site web pour cabinet d'avocat",
+     "provider":{"@type":"ProfessionalService","name":"Lancio","url":"https://lancio.fr"},
+     "areaServed":{"@type":"Country","name":"France"},
+     "offers":{"@type":"Offer","price":"650","priceCurrency":"EUR"}}
+  ])}
 >
   <Nav />
   <main class="secteur-page">
@@ -24,6 +35,27 @@ import Footer from '../../components/Footer.astro';
         </div>
       </div>
     </section>
+    <section class="secteur-galerie section-pad">
+      <div class="container">
+        <h2>Exemples de sites avocat</h2>
+        <div class="examples-grid">
+          <a href="/examples/avocat/" class="example-card">
+            <img class="ex-preview" src="/secteurs/lawyer1.jpg" alt="Exemple de site avocat créé par Lancio" loading="lazy" />
+            <div class="ex-body">
+              <h3>Cabinet Fontaine — Site avocat</h3>
+              <p>Expertises, contact, blog juridique</p>
+            </div>
+          </a>
+          <a href="/#commander" class="example-card example-cta-card">
+            <div>
+              <h3>Vous voulez un site comme celui-ci ?</h3>
+              <p>Commandez le vôtre — livraison 48h</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section class="secteur-inclus section-pad">
       <div class="container">
         <h2>Un site à la hauteur de votre expertise</h2>
@@ -95,6 +127,15 @@ import Footer from '../../components/Footer.astro';
   .cta-inner p { font-size: 16px; color: var(--text-secondary); margin-bottom: 28px; }
   .cta-inner h2 { margin-bottom: 12px; }
   .cta-price { margin-top: 16px; font-size: 13px; color: var(--text-muted); }
+  .examples-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .example-card { display: block; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: inherit; transition: transform 0.3s, box-shadow 0.3s; }
+  .example-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+  .ex-preview { width: 100%; height: 180px; object-fit: cover; }
+  .ex-body { padding: 16px; }
+  .ex-body h3 { font-family: var(--font-body); font-size: 15px; font-weight: 500; color: var(--text-primary); margin: 0 0 4px; }
+  .ex-body p { font-size: 13px; color: var(--text-secondary); margin: 0; }
+  .example-cta-card { display: flex; align-items: center; justify-content: center; min-height: 180px; background: var(--accent-pale); border: 1px dashed var(--accent); text-align: center; padding: 24px; }
+  .example-cta-card h3 { color: var(--accent); }
   @media (max-width: 768px) { .inclus-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 480px) { .inclus-grid { grid-template-columns: 1fr; } }
 </style>

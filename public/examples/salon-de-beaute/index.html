@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Institut Rosée | Institut de Beauté, Nice</title>
+<meta name="description" content="Institut de beauté à Nice. Soins du visage, modelages, manucure et soins anti-âge dans un cadre luxueux.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--plum:#6B3A5D;--plum-dark:#532D49;--plum-light:#8A5079;--blush:#D4A5A5;--blush-light:#E8C5C5;--blush-dark:#B88A8A;--offwhite:#FDF8F5;--cream:#F5ECE6;--charcoal:#1A1A1A;--text-dark:#2D2020;--text-body:#4D3D3D;--text-muted:#8A7A7A;--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+body{font-family:var(--sans);background:var(--offwhite);color:var(--text-dark);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--plum);color:var(--offwhite)}img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{font-family:inherit;cursor:pointer}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(60px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+.lancio-banner{background:var(--cream);padding:10px 24px;text-align:center;font-size:.78rem;color:var(--text-muted);z-index:200;position:relative}.lancio-banner a{color:var(--plum);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:150;padding:0 56px;height:72px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background .4s,box-shadow .4s}
+.nav.scrolled{background:rgba(26,26,26,.95);backdrop-filter:blur(20px);box-shadow:0 1px 40px rgba(0,0,0,.2)}
+.nav-logo{font-family:var(--serif);font-size:1.4rem;color:var(--offwhite)}.nav-logo em{color:var(--blush);font-style:italic}
+.nav-center{display:flex;gap:40px}.nav-link{font-size:.82rem;font-weight:500;color:rgba(253,248,245,.7);letter-spacing:1.5px;text-transform:uppercase;transition:color .3s}.nav-link:hover{color:var(--blush)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.btn-nav{display:inline-flex;padding:10px 28px;background:transparent;border:1px solid var(--blush);color:var(--blush);font-family:var(--serif);font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;transition:all .35s}.btn-nav:hover{background:var(--blush);color:var(--charcoal)}
+.hamburger{display:none;flex-direction:column;width:36px;height:36px;background:none;border:none;justify-content:center;align-items:center;z-index:210}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--offwhite);margin:3px 0;transition:all .35s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:149;background:rgba(107,58,93,.98);flex-direction:column;justify-content:center;align-items:center;gap:32px;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.mobile-menu.open{opacity:1;visibility:visible}.mobile-menu a{font-family:var(--serif);font-size:1.8rem;color:var(--offwhite);transition:color .3s}.mobile-menu a:hover{color:var(--blush)}
+
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 48px 100px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('img/beautysalon1.jpg') center/cover no-repeat;z-index:0}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(107,58,93,.45) 0%,rgba(26,26,26,.55) 100%)}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-ornament{width:48px;height:1px;background:var(--blush);margin:0 auto 32px;opacity:.6}
+.hero-label{font-size:.75rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--blush-light);margin-bottom:20px}
+.hero h1{font-family:var(--serif);font-size:clamp(2.8rem,6vw,5rem);font-weight:400;color:var(--offwhite);letter-spacing:2px;line-height:1.1;margin-bottom:20px}.hero h1 em{font-style:italic;color:var(--blush)}
+.hero-tagline{font-family:var(--serif);font-size:clamp(1rem,2vw,1.3rem);font-style:italic;color:var(--blush-light);margin-bottom:48px}
+.btn-hero{display:inline-flex;padding:18px 56px;background:var(--blush);border:1px solid var(--blush);color:var(--charcoal);font-family:var(--serif);font-size:1rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:all .4s}.btn-hero:hover{background:transparent;color:var(--blush)}
+
+.services{padding:120px 48px;background:var(--offwhite)}
+.section-header{text-align:center;margin-bottom:72px}
+.section-header-label{font-size:.72rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--plum);margin-bottom:16px}
+.section-header h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;letter-spacing:2px;margin-bottom:12px}
+.section-header-line{width:48px;height:1px;background:var(--blush);margin:0 auto}
+.services-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.service-card{background:var(--cream);padding:40px 32px;text-align:center;border-radius:2px;transition:transform .4s,box-shadow .4s}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(107,58,93,.1)}
+.service-card h3{font-family:var(--serif);font-size:1.2rem;font-weight:500;color:var(--plum);margin-bottom:8px}
+.service-card .price{font-family:var(--serif);font-size:1.1rem;color:var(--blush-dark);font-weight:600;margin-bottom:16px}
+.service-card p{font-size:.88rem;color:var(--text-muted);line-height:1.6}
+
+.about{padding:120px 48px;background:var(--cream)}
+.about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-img{border-radius:2px;overflow:hidden}.about-img img{width:100%;height:500px;object-fit:cover}
+.about-label{font-size:.72rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--plum);margin-bottom:16px}
+.about-line{width:40px;height:1px;background:var(--blush);margin-bottom:32px}
+.about h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:24px}
+.about p{font-size:.95rem;color:var(--text-body);line-height:1.85;margin-bottom:16px}
+
+.gallery{padding:120px 48px;background:var(--offwhite)}
+.gallery-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.gallery-item{position:relative;overflow:hidden;border-radius:2px;cursor:pointer}
+.gallery-item img{width:100%;height:380px;object-fit:cover;transition:transform .7s cubic-bezier(.22,1,.36,1)}
+.gallery-item:hover img{transform:scale(1.06)}
+.gallery-caption{position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(transparent,rgba(26,26,26,.7));opacity:0;transform:translateY(10px);transition:all .4s}
+.gallery-item:hover .gallery-caption{opacity:1;transform:translateY(0)}
+.gallery-caption span{font-family:var(--serif);font-size:1.1rem;font-style:italic;color:rgba(253,248,245,.9)}
+
+.testimonials{padding:120px 48px;background:var(--cream)}
+.testimonials-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.testimonial-item{text-align:center}
+.testimonial-quote{font-family:var(--serif);font-size:4.5rem;color:var(--blush);line-height:1;margin-bottom:16px;opacity:.4}
+.testimonial-text{font-family:var(--serif);font-size:clamp(1.05rem,1.5vw,1.25rem);font-style:italic;line-height:1.85;margin-bottom:28px}
+.testimonial-line{width:32px;height:1px;background:var(--blush);margin:0 auto 20px}
+.testimonial-name{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--plum);margin-bottom:4px}
+.testimonial-source{font-size:.75rem;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase}
+
+.booking-cta{position:relative;min-height:480px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 48px;overflow:hidden}
+.booking-cta-bg{position:absolute;inset:0;background:url('img/beautysalon5.jpg') center/cover no-repeat;z-index:0}
+.booking-cta-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(107,58,93,.55) 0%,rgba(26,26,26,.6) 100%)}
+.booking-cta-content{position:relative;z-index:2}
+.booking-cta-ornament{width:48px;height:1px;background:var(--blush);margin:0 auto 40px;opacity:.6}
+.booking-cta h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);font-weight:400;color:var(--offwhite);letter-spacing:3px;margin-bottom:16px}
+.booking-cta-sub{font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--blush-light);margin-bottom:40px}
+
+.info-section{padding:120px 48px;background:var(--offwhite)}
+.info-inner{display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;max-width:1100px;margin:0 auto;gap:56px;align-items:start}
+.info-divider{width:1px;background:rgba(212,165,165,.3);align-self:stretch}
+.info-header{text-align:center;margin-bottom:72px}
+.info-header h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;letter-spacing:4px;text-transform:uppercase;margin-bottom:12px}
+.info-header-line{width:48px;height:1px;background:var(--blush);margin:20px auto 0}
+.info-col{text-align:center}
+.info-col-title{font-size:.75rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--plum);margin-bottom:24px}
+.info-col-line{width:24px;height:1px;background:var(--blush);margin:0 auto 24px;opacity:.4}
+.contact-address{font-family:var(--serif);font-size:1.15rem;color:var(--text-dark);line-height:1.8;margin-bottom:24px}
+.contact-phone{font-family:var(--serif);font-size:1.3rem;color:var(--plum);font-weight:600;letter-spacing:1px;margin-bottom:8px}
+.contact-email{font-size:.88rem;color:var(--text-muted)}
+.hours-table{width:100%;border-collapse:collapse}.hours-table tr{border-bottom:1px solid rgba(212,165,165,.2)}.hours-table tr:last-child{border-bottom:none}
+.hours-table td{padding:14px 0;font-size:.88rem;color:var(--text-muted)}.hours-table td:first-child{font-weight:500;color:var(--text-dark);text-align:start}.hours-table td:last-child{text-align:end;font-family:var(--serif);color:var(--plum);font-weight:500}
+
+.footer{background:var(--plum-dark);padding:64px 48px 48px}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:var(--serif);font-size:1.3rem;color:var(--offwhite)}.footer-logo em{color:var(--blush);font-style:italic}
+.footer-copy{font-size:.78rem;color:rgba(253,248,245,.35)}
+.footer-social{display:flex;gap:20px}.footer-social a{font-size:.78rem;color:rgba(253,248,245,.45);letter-spacing:1px;text-transform:uppercase;transition:color .3s}.footer-social a:hover{color:var(--blush)}
+
+@media(max-width:1024px){.nav{padding:0 32px}.nav-center{display:none}.hamburger{display:flex}.mobile-menu{display:flex}.about-inner{grid-template-columns:1fr;gap:48px}.services-grid{grid-template-columns:1fr 1fr}.gallery-grid{grid-template-columns:1fr}.testimonials-inner{grid-template-columns:1fr;gap:48px}.info-inner{grid-template-columns:1fr;gap:40px}.info-divider{display:none}}
+@media(max-width:640px){.hero h1{font-size:2.4rem}.hero,.services,.about,.gallery,.testimonials,.booking-cta,.info-section{padding:80px 24px}.services-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;gap:24px;text-align:center}.btn-nav{display:none}}
+</style>
+</head>
+<body>
+<div class="lancio-banner">Ceci est un site de démonstration créé par <a href="https://lancio.fr">Lancio</a>. Créez le vôtre en 48h → <a href="https://lancio.fr">lancio.fr</a></div>
+<nav class="nav" id="nav"><a href="#" class="nav-logo">L'Institut <em>Rosée</em></a><div class="nav-center"><a href="#soins" class="nav-link">Nos Soins</a><a href="#institut" class="nav-link">L'Institut</a><a href="#galerie" class="nav-link">Galerie</a><a href="#rdv" class="nav-link">Rendez-vous</a></div><div class="nav-right"><a href="#rdv" class="btn-nav">Prendre RDV</a><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="mobile-menu" id="mobileMenu"><a href="#soins" onclick="closeMobile()">Nos Soins</a><a href="#institut" onclick="closeMobile()">L'Institut</a><a href="#galerie" onclick="closeMobile()">Galerie</a><a href="#rdv" onclick="closeMobile()">Rendez-vous</a></div>
+
+<section class="hero"><div class="hero-bg"></div><div class="hero-overlay"></div><div class="hero-content"><div class="hero-ornament"></div><p class="hero-label">Institut de Beauté — Nice</p><h1>L'Institut <em>Rosée</em></h1><p class="hero-tagline">Votre parenthèse beauté & bien-être à Nice</p><a href="#rdv" class="btn-hero">Prendre rendez-vous</a></div></section>
+
+<section class="services" id="soins">
+  <div class="section-header reveal"><p class="section-header-label">Nos Prestations</p><h2>Soins & Beauté</h2><div class="section-header-line"></div></div>
+  <div class="services-grid reveal">
+    <div class="service-card"><h3>Soin Visage</h3><p class="price">€65</p><p>Nettoyage, exfoliation et hydratation profonde pour une peau lumineuse</p></div>
+    <div class="service-card"><h3>Modelage Corps</h3><p class="price">€75</p><p>Massage relaxant ou tonifiant aux huiles essentielles bio</p></div>
+    <div class="service-card"><h3>Épilation</h3><p class="price">à partir de €15</p><p>Épilation à la cire douce ou orientale, toutes zones</p></div>
+    <div class="service-card"><h3>Manucure</h3><p class="price">€35</p><p>Soin des mains, pose de vernis classique ou semi-permanent</p></div>
+    <div class="service-card"><h3>Soin Anti-Âge</h3><p class="price">€85</p><p>Traitement liftant et revitalisant aux actifs naturels</p></div>
+    <div class="service-card"><h3>Beauté des Pieds</h3><p class="price">€40</p><p>Pédicure complète et soin hydratant pour des pieds parfaits</p></div>
+  </div>
+</section>
+
+<section class="about" id="institut">
+  <div class="about-inner"><div class="about-img reveal-left"><img src="img/beautysalon2.jpg" alt="L'Institut Rosée"></div><div class="reveal-right"><p class="about-label">Notre Institut</p><div class="about-line"></div><h2>Un écrin de<br>douceur</h2><p>L'Institut Rosée est un lieu dédié au bien-être et à la beauté, niché au cœur de Nice. Dans une ambiance feutrée et élégante, notre équipe d'esthéticiennes diplômées vous accueille pour un moment de détente absolue.</p><p>Nous sélectionnons avec soin des produits naturels et efficaces pour offrir à votre peau les meilleurs soins. Chaque prestation est personnalisée selon votre type de peau et vos attentes.</p></div></div>
+</section>
+
+<section class="gallery" id="galerie">
+  <div class="section-header reveal"><p class="section-header-label">Notre Univers</p><h2>Galerie</h2><div class="section-header-line"></div></div>
+  <div class="gallery-grid">
+    <div class="gallery-item reveal"><img src="img/beautysalon3.jpg" alt="Soin visage"><div class="gallery-caption"><span>Soins du visage</span></div></div>
+    <div class="gallery-item reveal"><img src="img/beautysalon4.jpg" alt="Ambiance institut"><div class="gallery-caption"><span>Notre ambiance</span></div></div>
+    <div class="gallery-item reveal"><img src="img/beautysalon2.jpg" alt="Modelage"><div class="gallery-caption"><span>Modelages</span></div></div>
+    <div class="gallery-item reveal"><img src="img/beautysalon5.jpg" alt="Manucure"><div class="gallery-caption"><span>Beauté des mains</span></div></div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="section-header reveal"><p class="section-header-label">Avis Clients</p><h2>Témoignages</h2><div class="section-header-line"></div></div>
+  <div class="testimonials-inner">
+    <div class="testimonial-item reveal"><div class="testimonial-quote">❝</div><p class="testimonial-text">Un moment de pur bonheur. Le soin visage est divin et l'ambiance tellement apaisante. J'y retourne chaque mois !</p><div class="testimonial-line"></div><p class="testimonial-name">Nathalie C.</p><p class="testimonial-source">Google</p></div>
+    <div class="testimonial-item reveal"><div class="testimonial-quote">❝</div><p class="testimonial-text">L'Institut Rosée est mon secret beauté à Nice. Professionnalisme, douceur et résultats visibles dès la première séance.</p><div class="testimonial-line"></div><p class="testimonial-name">Émilie F.</p><p class="testimonial-source">Google</p></div>
+  </div>
+</section>
+
+<section class="booking-cta" id="rdv"><div class="booking-cta-bg"></div><div class="booking-cta-overlay"></div><div class="booking-cta-content reveal"><div class="booking-cta-ornament"></div><h2>Offrez-vous un moment de détente</h2><p class="booking-cta-sub">Réservez votre soin dès maintenant</p><a href="#" class="btn-hero">Prendre rendez-vous</a></div></section>
+
+<section class="info-section">
+  <div class="info-header reveal"><h2>Infos pratiques</h2><div class="info-header-line"></div></div>
+  <div class="info-inner reveal">
+    <div class="info-col"><p class="info-col-title">Horaires</p><div class="info-col-line"></div><table class="hours-table"><tr><td>Mar – Sam</td><td>9h30–19h</td></tr><tr><td>Dim – Lun</td><td>Fermé</td></tr></table></div>
+    <div class="info-divider"></div>
+    <div class="info-col"><p class="info-col-title">Adresse</p><div class="info-col-line"></div><p class="contact-address">12 Rue de France<br>06000 Nice</p></div>
+    <div class="info-divider"></div>
+    <div class="info-col"><p class="info-col-title">Contact</p><div class="info-col-line"></div><p class="contact-phone">04 93 XX XX XX</p><p class="contact-email">contact@institut-rosee.fr</p></div>
+  </div>
+</section>
+
+<footer class="footer"><div class="footer-inner"><div class="footer-logo">L'Institut <em>Rosée</em></div><p class="footer-copy">© 2025 L'Institut Rosée — Tous droits réservés</p><div class="footer-social"><a href="#">Instagram</a><a href="#">Facebook</a></div></div></footer>
+
+<script>
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);});
+const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});
+function closeMobile(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow='';}
+const reveals=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:.15});
+reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

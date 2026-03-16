@@ -3,12 +3,16 @@ export interface Props {
   title?: string;
   description?: string;
   canonical?: string;
+  ogImage?: string;
+  extraStructuredData?: string;
 }
 
 const {
   title = "Lancio — Votre site lancé en 48h",
   description = "Lancio crée votre site professionnel en 48h à partir de €650. Clé en main, sans rendez-vous, sans surprise. Restaurants, artisans, avocats, médecins, coachs.",
   canonical = "https://lancio.fr",
+  ogImage,
+  extraStructuredData,
 } = Astro.props;
 ---
 
@@ -28,11 +32,13 @@ const {
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Lancio" />
+    {ogImage && <meta property="og:image" content={ogImage} />}
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
 
     <!-- Hreflang -->
     <link rel="alternate" hreflang="fr" href="https://lancio.fr" />
@@ -61,6 +67,7 @@ const {
         "serviceType": "Création de site web"
       }
     </script>
+    {extraStructuredData && <script type="application/ld+json" set:html={extraStructuredData} />}
   </head>
   <body>
     <slot />

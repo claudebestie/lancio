@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café Bohème | Coffee Shop, Montpellier</title>
+<meta name="description" content="Café de spécialité et pâtisseries artisanales à Montpellier. Grains torréfiés localement, ambiance chaleureuse.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--brown:#4A3228;--brown-dark:#362419;--brown-light:#6B4D3E;--cream-accent:#F5E6D3;--cream-light:#FAF0E4;--warm-white:#FFFBF5;--charcoal:#1A1A1A;--text-dark:#2D2420;--text-body:#4A3E38;--text-muted:#8A7D75;--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+body{font-family:var(--sans);background:var(--warm-white);color:var(--text-dark);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--brown);color:var(--cream-accent)}img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{font-family:inherit;cursor:pointer}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(60px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+.lancio-banner{background:var(--cream-accent);padding:10px 24px;text-align:center;font-size:.78rem;color:var(--text-muted);z-index:200;position:relative}.lancio-banner a{color:var(--brown);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:150;padding:0 56px;height:72px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background .4s,box-shadow .4s}
+.nav.scrolled{background:rgba(74,50,40,.97);backdrop-filter:blur(20px);box-shadow:0 1px 40px rgba(0,0,0,.2)}
+.nav-logo{font-family:var(--serif);font-size:1.5rem;font-weight:500;color:var(--warm-white)}.nav-logo em{color:var(--cream-accent);font-style:italic}
+.nav-center{display:flex;gap:40px}.nav-link{font-size:.82rem;font-weight:500;color:rgba(255,251,245,.7);letter-spacing:1.5px;text-transform:uppercase;transition:color .3s}.nav-link:hover{color:var(--cream-accent)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.btn-nav{display:inline-flex;padding:10px 28px;background:transparent;border:1px solid var(--cream-accent);color:var(--cream-accent);font-family:var(--serif);font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;transition:all .35s}.btn-nav:hover{background:var(--cream-accent);color:var(--brown)}
+.hamburger{display:none;flex-direction:column;width:36px;height:36px;background:none;border:none;justify-content:center;align-items:center;z-index:210}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--warm-white);margin:3px 0;transition:all .35s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:149;background:rgba(74,50,40,.98);flex-direction:column;justify-content:center;align-items:center;gap:32px;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.mobile-menu.open{opacity:1;visibility:visible}.mobile-menu a{font-family:var(--serif);font-size:1.8rem;color:var(--warm-white);transition:color .3s}.mobile-menu a:hover{color:var(--cream-accent)}
+
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 48px 100px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('img/cafe1.jpg') center/cover no-repeat;z-index:0}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(74,50,40,.5) 0%,rgba(26,26,26,.55) 100%)}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-ornament{width:48px;height:1px;background:var(--cream-accent);margin:0 auto 32px;opacity:.6}
+.hero-label{font-size:.75rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--cream-accent);margin-bottom:20px}
+.hero h1{font-family:var(--serif);font-size:clamp(2.8rem,6vw,5rem);font-weight:400;color:var(--warm-white);letter-spacing:2px;line-height:1.1;margin-bottom:20px}.hero h1 em{font-style:italic;color:var(--cream-accent)}
+.hero-tagline{font-family:var(--serif);font-size:clamp(1rem,2vw,1.3rem);font-style:italic;color:var(--cream-light);margin-bottom:48px}
+.btn-hero{display:inline-flex;padding:18px 56px;background:var(--cream-accent);border:1px solid var(--cream-accent);color:var(--brown);font-family:var(--serif);font-size:1rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:all .4s}.btn-hero:hover{background:transparent;color:var(--cream-accent)}
+
+.menu-section{padding:120px 48px;background:var(--warm-white)}
+.section-header{text-align:center;margin-bottom:72px}
+.section-header-label{font-size:.72rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--brown-light);margin-bottom:16px}
+.section-header h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.section-header-line{width:48px;height:1px;background:var(--cream-accent);margin:0 auto}
+.menu-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:56px}
+.menu-category h3{font-family:var(--serif);font-size:1.4rem;font-weight:500;color:var(--brown);text-align:center;margin-bottom:32px;letter-spacing:2px;text-transform:uppercase}
+.menu-item{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(74,50,40,.1)}
+.menu-item-name{font-size:.9rem;font-weight:500;color:var(--text-dark)}
+.menu-item-price{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--brown);white-space:nowrap;margin-left:16px}
+
+.about{padding:120px 48px;background:var(--cream-light)}
+.about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-img{border-radius:2px;overflow:hidden}.about-img img{width:100%;height:500px;object-fit:cover}
+.about-label{font-size:.72rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--brown-light);margin-bottom:16px}
+.about-line{width:40px;height:1px;background:var(--cream-accent);margin-bottom:32px}
+.about h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:24px}
+.about p{font-size:.95rem;color:var(--text-body);line-height:1.85;margin-bottom:16px}
+
+.gallery{padding:120px 48px;background:var(--warm-white)}
+.gallery-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gallery-item{position:relative;overflow:hidden;border-radius:2px;cursor:pointer}
+.gallery-item img{width:100%;height:360px;object-fit:cover;transition:transform .7s cubic-bezier(.22,1,.36,1)}
+.gallery-item:hover img{transform:scale(1.06)}
+.gallery-caption{position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(transparent,rgba(26,26,26,.7));opacity:0;transform:translateY(10px);transition:all .4s}
+.gallery-item:hover .gallery-caption{opacity:1;transform:translateY(0)}
+.gallery-caption span{font-family:var(--serif);font-size:1.1rem;font-style:italic;color:rgba(255,251,245,.9)}
+
+.testimonials{padding:120px 48px;background:var(--cream-light)}
+.testimonials-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.testimonial-item{text-align:center}
+.testimonial-quote{font-family:var(--serif);font-size:4.5rem;color:var(--brown-light);line-height:1;margin-bottom:16px;opacity:.3}
+.testimonial-text{font-family:var(--serif);font-size:clamp(1.05rem,1.5vw,1.25rem);font-style:italic;line-height:1.85;margin-bottom:28px}
+.testimonial-line{width:32px;height:1px;background:var(--cream-accent);margin:0 auto 20px}
+.testimonial-name{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--brown);margin-bottom:4px}
+.testimonial-source{font-size:.75rem;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase}
+
+.visit-cta{position:relative;min-height:480px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 48px;overflow:hidden}
+.visit-cta-bg{position:absolute;inset:0;background:url('img/cafe5.jpg') center/cover no-repeat;z-index:0}
+.visit-cta-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(74,50,40,.6) 0%,rgba(26,26,26,.65) 100%)}
+.visit-cta-content{position:relative;z-index:2}
+.visit-cta h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);font-weight:400;color:var(--warm-white);letter-spacing:3px;margin-bottom:16px}
+.visit-cta-sub{font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--cream-light);margin-bottom:40px}
+
+.info-section{padding:120px 48px;background:var(--warm-white)}
+.info-inner{display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;max-width:1100px;margin:0 auto;gap:56px;align-items:start}
+.info-divider{width:1px;background:rgba(74,50,40,.12);align-self:stretch}
+.info-header{text-align:center;margin-bottom:72px}
+.info-header h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;letter-spacing:4px;text-transform:uppercase;margin-bottom:12px}
+.info-header-line{width:48px;height:1px;background:var(--cream-accent);margin:20px auto 0}
+.info-col{text-align:center}
+.info-col-title{font-size:.75rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--brown-light);margin-bottom:24px}
+.info-col-line{width:24px;height:1px;background:var(--cream-accent);margin:0 auto 24px;opacity:.4}
+.contact-address{font-family:var(--serif);font-size:1.15rem;color:var(--text-dark);line-height:1.8}
+.contact-phone{font-family:var(--serif);font-size:1.3rem;color:var(--brown);font-weight:600;letter-spacing:1px;margin-bottom:8px}
+.contact-extra{font-size:.88rem;color:var(--text-muted);margin-top:12px}
+.hours-table{width:100%;border-collapse:collapse}.hours-table tr{border-bottom:1px solid rgba(74,50,40,.1)}.hours-table tr:last-child{border-bottom:none}
+.hours-table td{padding:14px 0;font-size:.88rem;color:var(--text-muted)}.hours-table td:first-child{font-weight:500;color:var(--text-dark);text-align:start}.hours-table td:last-child{text-align:end;font-family:var(--serif);color:var(--brown);font-weight:500}
+
+.footer{background:var(--brown-dark);padding:64px 48px 48px}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:var(--serif);font-size:1.3rem;color:var(--warm-white)}.footer-logo em{color:var(--cream-accent);font-style:italic}
+.footer-copy{font-size:.78rem;color:rgba(255,251,245,.35)}
+.footer-social{display:flex;gap:20px}.footer-social a{font-size:.78rem;color:rgba(255,251,245,.45);letter-spacing:1px;text-transform:uppercase;transition:color .3s}.footer-social a:hover{color:var(--cream-accent)}
+
+@media(max-width:1024px){.nav{padding:0 32px}.nav-center{display:none}.hamburger{display:flex}.mobile-menu{display:flex}.about-inner{grid-template-columns:1fr;gap:48px}.menu-grid{grid-template-columns:1fr;gap:48px}.gallery-grid{grid-template-columns:1fr 1fr}.testimonials-inner{grid-template-columns:1fr;gap:48px}.info-inner{grid-template-columns:1fr;gap:40px}.info-divider{display:none}}
+@media(max-width:640px){.hero h1{font-size:2.4rem}.hero,.menu-section,.about,.gallery,.testimonials,.visit-cta,.info-section{padding:80px 24px}.gallery-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;gap:24px;text-align:center}.btn-nav{display:none}}
+</style>
+</head>
+<body>
+<div class="lancio-banner">Ceci est un site de démonstration créé par <a href="https://lancio.fr">Lancio</a>. Créez le vôtre en 48h → <a href="https://lancio.fr">lancio.fr</a></div>
+<nav class="nav" id="nav"><a href="#" class="nav-logo">Café <em>Bohème</em></a><div class="nav-center"><a href="#carte" class="nav-link">Notre Carte</a><a href="#histoire" class="nav-link">Notre Histoire</a><a href="#galerie" class="nav-link">Galerie</a><a href="#visite" class="nav-link">Nous trouver</a></div><div class="nav-right"><a href="#carte" class="btn-nav">La Carte</a><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="mobile-menu" id="mobileMenu"><a href="#carte" onclick="closeMobile()">Notre Carte</a><a href="#histoire" onclick="closeMobile()">Notre Histoire</a><a href="#galerie" onclick="closeMobile()">Galerie</a><a href="#visite" onclick="closeMobile()">Nous trouver</a></div>
+
+<section class="hero"><div class="hero-bg"></div><div class="hero-overlay"></div><div class="hero-content"><div class="hero-ornament"></div><p class="hero-label">Coffee Shop — Montpellier</p><h1>Café <em>Bohème</em></h1><p class="hero-tagline">Café de spécialité & pâtisseries artisanales à Montpellier</p><a href="#carte" class="btn-hero">Découvrir la carte</a></div></section>
+
+<section class="menu-section" id="carte">
+  <div class="section-header reveal"><p class="section-header-label">Nos Créations</p><h2>La Carte</h2><div class="section-header-line"></div></div>
+  <div class="menu-grid reveal">
+    <div class="menu-category"><h3>Cafés</h3><div class="menu-item"><span class="menu-item-name">Espresso</span><span class="menu-item-price">€2,50</span></div><div class="menu-item"><span class="menu-item-name">Cappuccino</span><span class="menu-item-price">€4</span></div><div class="menu-item"><span class="menu-item-name">Latte</span><span class="menu-item-price">€4,50</span></div><div class="menu-item"><span class="menu-item-name">V60</span><span class="menu-item-price">€5</span></div></div>
+    <div class="menu-category"><h3>Pâtisseries</h3><div class="menu-item"><span class="menu-item-name">Croissant</span><span class="menu-item-price">€2</span></div><div class="menu-item"><span class="menu-item-name">Pain au chocolat</span><span class="menu-item-price">€2,20</span></div><div class="menu-item"><span class="menu-item-name">Carrot cake</span><span class="menu-item-price">€4,50</span></div><div class="menu-item"><span class="menu-item-name">Cookie</span><span class="menu-item-price">€3</span></div></div>
+    <div class="menu-category"><h3>Boissons</h3><div class="menu-item"><span class="menu-item-name">Matcha latte</span><span class="menu-item-price">€5</span></div><div class="menu-item"><span class="menu-item-name">Chocolat chaud</span><span class="menu-item-price">€4</span></div><div class="menu-item"><span class="menu-item-name">Thé bio</span><span class="menu-item-price">€3,50</span></div><div class="menu-item"><span class="menu-item-name">Jus pressé</span><span class="menu-item-price">€5</span></div></div>
+  </div>
+</section>
+
+<section class="about" id="histoire">
+  <div class="about-inner"><div class="about-img reveal-left"><img src="img/cafe2.jpg" alt="Café Bohème intérieur"></div><div class="reveal-right"><p class="about-label">Notre Histoire</p><div class="about-line"></div><h2>Le goût de<br>l'artisanal</h2><p>Café Bohème est né d'une passion pour le café de spécialité et les bonnes choses. Nous torréfions nos grains localement, en petits lots, pour vous offrir des arômes uniques et une fraîcheur incomparable.</p><p>Notre espace, chaleureux et inspirant, est pensé pour les amateurs de café, les travailleurs nomades et tous ceux qui cherchent un moment de douceur dans leur journée.</p></div></div>
+</section>
+
+<section class="gallery" id="galerie">
+  <div class="section-header reveal"><p class="section-header-label">Notre Univers</p><h2>Galerie</h2><div class="section-header-line"></div></div>
+  <div class="gallery-grid"><div class="gallery-item reveal"><img src="img/cafe3.jpg" alt="Café latte art"><div class="gallery-caption"><span>Notre café</span></div></div><div class="gallery-item reveal"><img src="img/cafe4.jpg" alt="Pâtisseries"><div class="gallery-caption"><span>Nos pâtisseries</span></div></div><div class="gallery-item reveal"><img src="img/cafe5.jpg" alt="Ambiance café"><div class="gallery-caption"><span>L'ambiance</span></div></div></div>
+</section>
+
+<section class="testimonials">
+  <div class="section-header reveal"><p class="section-header-label">Avis Clients</p><h2>Témoignages</h2><div class="section-header-line"></div></div>
+  <div class="testimonials-inner">
+    <div class="testimonial-item reveal"><div class="testimonial-quote">❝</div><p class="testimonial-text">Le meilleur café de Montpellier, sans hésiter. Le V60 est exceptionnel et l'ambiance est parfaite pour travailler ou se détendre.</p><div class="testimonial-line"></div><p class="testimonial-name">Antoine G.</p><p class="testimonial-source">Google</p></div>
+    <div class="testimonial-item reveal"><div class="testimonial-quote">❝</div><p class="testimonial-text">Un lieu coup de cœur ! Le carrot cake est divin et le cappuccino est le meilleur que j'aie goûté. On s'y sent comme à la maison.</p><div class="testimonial-line"></div><p class="testimonial-name">Léa M.</p><p class="testimonial-source">Google</p></div>
+  </div>
+</section>
+
+<section class="visit-cta" id="visite"><div class="visit-cta-bg"></div><div class="visit-cta-overlay"></div><div class="visit-cta-content reveal"><h2>Venez nous rendre visite</h2><p class="visit-cta-sub">3 Place de la Comédie, 34000 Montpellier</p><a href="#" class="btn-hero">Voir sur la carte</a></div></section>
+
+<section class="info-section">
+  <div class="info-header reveal"><h2>Infos pratiques</h2><div class="info-header-line"></div></div>
+  <div class="info-inner reveal">
+    <div class="info-col"><p class="info-col-title">Horaires</p><div class="info-col-line"></div><table class="hours-table"><tr><td>Lun – Ven</td><td>7h30–18h</td></tr><tr><td>Sam – Dim</td><td>8h30–18h</td></tr></table></div>
+    <div class="info-divider"></div>
+    <div class="info-col"><p class="info-col-title">Adresse</p><div class="info-col-line"></div><p class="contact-address">3 Place de la Comédie<br>34000 Montpellier</p></div>
+    <div class="info-divider"></div>
+    <div class="info-col"><p class="info-col-title">Extras</p><div class="info-col-line"></div><p class="contact-phone">WiFi gratuit</p><p class="contact-extra">Terrasse ensoleillée<br>Prises électriques</p></div>
+  </div>
+</section>
+
+<footer class="footer"><div class="footer-inner"><div class="footer-logo">Café <em>Bohème</em></div><p class="footer-copy">© 2025 Café Bohème — Tous droits réservés</p><div class="footer-social"><a href="#">Instagram</a></div></div></footer>
+
+<script>
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);});
+const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});
+function closeMobile(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow='';}
+const reveals=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:.15});
+reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

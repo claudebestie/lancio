@@ -1,0 +1,117 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Création site web salon de beauté institut — 48h | Lancio"
+  description="Lancio crée votre site web pour salon de beauté ou institut en 48h à partir de €650. Prestations, galerie, prise de RDV en ligne. Clé en main."
+  canonical="https://lancio.fr/site-web-salon-de-beaute/"
+  ogImage="https://lancio.fr/secteurs/beautysalon1.jpg"
+  extraStructuredData={JSON.stringify([
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Lancio","item":"https://lancio.fr/"},
+      {"@type":"ListItem","position":2,"name":"Site web salon de beauté","item":"https://lancio.fr/site-web-salon-de-beaute/"}
+    ]},
+    {"@context":"https://schema.org","@type":"Service","serviceType":"Création de site web pour salon de beauté",
+     "provider":{"@type":"ProfessionalService","name":"Lancio","url":"https://lancio.fr"},
+     "areaServed":{"@type":"Country","name":"France"},
+     "offers":{"@type":"Offer","price":"650","priceCurrency":"EUR"}}
+  ])}
+>
+  <Nav />
+  <main class="secteur-page">
+    <section class="secteur-hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="/">Lancio</a><span>→</span><span>Site web salon de beauté</span></div>
+        <h1>Création site web<br/><em>salon de beauté</em> en 48h</h1>
+        <p class="secteur-sub">Prestations, galerie avant/après, réservation en ligne — un site élégant qui reflète votre savoir-faire. Livré en 48h à partir de €650.</p>
+        <div class="secteur-actions">
+          <a href="/#commander" class="btn-primary">Commander mon site beauté →</a>
+          <div class="secteur-proof"><span>⭐ 4.9/5</span><span>·</span><span>47 sites livrés</span><span>·</span><span>48h garantis</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secteur-galerie section-pad">
+      <div class="container">
+        <h2>Exemples de sites salon de beauté</h2>
+        <div class="examples-grid">
+          <a href="/examples/salon-de-beaute/" class="example-card">
+            <img class="ex-preview" src="/secteurs/beautysalon1.jpg" alt="Exemple de site salon de beauté créé par Lancio" loading="lazy" />
+            <div class="ex-body">
+              <h3>L'Institut Rosée — Site salon de beauté</h3>
+              <p>Prestations, galerie, réservation en ligne</p>
+            </div>
+          </a>
+          <a href="/#commander" class="example-card example-cta-card">
+            <div>
+              <h3>Vous voulez un site comme celui-ci ?</h3>
+              <p>Commandez le vôtre — livraison 48h</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="secteur-inclus section-pad">
+      <div class="container">
+        <h2>Tout ce dont votre institut a besoin</h2>
+        <div class="inclus-grid">
+          <div class="inclus-card"><div class="inclus-icon">💅</div><h3>Carte de prestations</h3><p>Soins visage, manucure, épilation, massages — toutes vos prestations clairement présentées avec tarifs.</p></div>
+          <div class="inclus-card"><div class="inclus-icon">📅</div><h3>RDV en ligne</h3><p>Vos clientes réservent directement depuis votre site, 24h/24. Fini les appels et les SMS.</p></div>
+          <div class="inclus-card"><div class="inclus-icon">📸</div><h3>Galerie avant/après</h3><p>Montrez vos résultats avec une galerie soignée. La meilleure publicité pour votre salon.</p></div>
+          <div class="inclus-card"><div class="inclus-icon">🎁</div><h3>Offres et forfaits</h3><p>Mettez en avant vos packs, cartes de fidélité et promotions saisonnières.</p></div>
+          <div class="inclus-card"><div class="inclus-icon">🔍</div><h3>SEO local</h3><p>Apparaître quand quelqu'un cherche "salon de beauté [votre ville]" sur Google.</p></div>
+          <div class="inclus-card"><div class="inclus-icon">📱</div><h3>Design élégant & mobile</h3><p>Un design raffiné, à l'image de votre salon. Parfait sur smartphone et ordinateur.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secteur-cta section-pad" style="background: var(--cream);">
+      <div class="container cta-inner">
+        <h2>Votre salon mérite un site à sa hauteur.</h2>
+        <p>Commandez aujourd'hui — votre site est en ligne dans 48h.</p>
+        <a href="/#commander" class="btn-primary">Je lance mon site →</a>
+        <div class="cta-price">À partir de €650 · Livraison 48h garantie · Satisfait ou on recommence</div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .secteur-hero { padding: 120px 0 80px; background: var(--cream); border-bottom: 1px solid var(--border); }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-muted); margin-bottom: 24px; }
+  .breadcrumb a { color: var(--accent); }
+  h1 { font-size: clamp(36px, 5vw, 64px); margin-bottom: 20px; line-height: 1.05; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .secteur-sub { font-size: 18px; color: var(--text-secondary); max-width: 560px; line-height: 1.65; margin-bottom: 32px; }
+  .secteur-actions { display: flex; flex-direction: column; gap: 16px; }
+  .secteur-proof { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-muted); }
+  .btn-primary { display: inline-flex; font-size: 15px; font-weight: 500; background: var(--accent); color: var(--white); padding: 14px 28px; border-radius: var(--radius-md); transition: background 0.15s, transform 0.1s; width: fit-content; }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+  .section-pad { padding: var(--section-py) 0; }
+  h2 { font-size: clamp(28px, 3.5vw, 40px); margin-bottom: 40px; text-align: center; line-height: 1.1; }
+  .examples-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .example-card { display: block; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: inherit; transition: transform 0.3s, box-shadow 0.3s; }
+  .example-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+  .ex-preview { width: 100%; height: 180px; object-fit: cover; }
+  .ex-body { padding: 16px; }
+  .ex-body h3 { font-family: var(--font-body); font-size: 15px; font-weight: 500; color: var(--text-primary); margin: 0 0 4px; }
+  .ex-body p { font-size: 13px; color: var(--text-secondary); margin: 0; }
+  .example-cta-card { display: flex; align-items: center; justify-content: center; min-height: 180px; background: var(--accent-pale); border: 1px dashed var(--accent); text-align: center; padding: 24px; }
+  .example-cta-card h3 { color: var(--accent); }
+  .inclus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .inclus-card { background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; }
+  .inclus-icon { font-size: 24px; margin-bottom: 12px; }
+  .inclus-card h3 { font-family: var(--font-body); font-size: 15px; font-weight: 500; margin-bottom: 8px; }
+  .inclus-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  .cta-inner { text-align: center; }
+  .cta-inner p { font-size: 16px; color: var(--text-secondary); margin-bottom: 28px; }
+  .cta-inner h2 { margin-bottom: 12px; }
+  .cta-price { margin-top: 16px; font-size: 13px; color: var(--text-muted); }
+  @media (max-width: 768px) { .inclus-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .inclus-grid { grid-template-columns: 1fr; } }
+</style>

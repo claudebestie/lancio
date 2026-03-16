@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cabinet Sérénité | Psychothérapeute, Strasbourg</title>
+<meta name="description" content="Cabinet de psychothérapie à Strasbourg. Gestion du stress, anxiété, thérapie de couple. Consultations en cabinet et en visio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--teal:#3A7C82;--teal-dark:#2B5E63;--teal-light:#5A9CA2;--lavender:#C4B7D4;--lavender-light:#DDD3EA;--warm-white:#FAF8F5;--cream:#F0ECE6;--charcoal:#2D2D2D;--text-dark:#2D2D2D;--text-body:#4A4A4A;--text-muted:#7A7A7A;--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+body{font-family:var(--sans);background:var(--warm-white);color:var(--text-dark);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--teal);color:var(--warm-white)}img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{font-family:inherit;cursor:pointer}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(60px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+.lancio-banner{background:var(--cream);padding:10px 24px;text-align:center;font-size:.78rem;color:var(--text-muted);z-index:200;position:relative}.lancio-banner a{color:var(--teal);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:150;padding:0 56px;height:72px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background .4s,box-shadow .4s}
+.nav.scrolled{background:rgba(45,45,45,.95);backdrop-filter:blur(20px);box-shadow:0 1px 40px rgba(0,0,0,.15)}
+.nav-logo{font-family:var(--serif);font-size:1.4rem;font-weight:500;color:var(--warm-white)}.nav-logo em{color:var(--lavender);font-style:italic}
+.nav-center{display:flex;gap:40px}.nav-link{font-size:.82rem;font-weight:500;color:rgba(250,248,245,.7);letter-spacing:1.5px;text-transform:uppercase;transition:color .3s}.nav-link:hover{color:var(--lavender)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.btn-nav{display:inline-flex;padding:10px 28px;background:var(--teal);border:none;color:var(--warm-white);font-size:.85rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-radius:2px;transition:all .35s}.btn-nav:hover{background:var(--teal-dark)}
+.hamburger{display:none;flex-direction:column;width:36px;height:36px;background:none;border:none;justify-content:center;align-items:center;z-index:210}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--warm-white);margin:3px 0;transition:all .35s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:149;background:rgba(45,45,45,.98);flex-direction:column;justify-content:center;align-items:center;gap:32px;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.mobile-menu.open{opacity:1;visibility:visible}.mobile-menu a{font-family:var(--serif);font-size:1.8rem;color:var(--warm-white);transition:color .3s}.mobile-menu a:hover{color:var(--lavender)}
+
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 48px 100px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('img/th%C3%A9rapeutes1.jpg') center/cover no-repeat;z-index:0}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(58,124,130,.4) 0%,rgba(45,45,45,.55) 100%)}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-ornament{width:48px;height:1px;background:var(--lavender);margin:0 auto 32px;opacity:.6}
+.hero-label{font-size:.75rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--lavender-light);margin-bottom:20px}
+.hero h1{font-family:var(--serif);font-size:clamp(2.8rem,6vw,5rem);font-weight:400;color:var(--warm-white);letter-spacing:2px;line-height:1.1;margin-bottom:20px}.hero h1 em{font-style:italic;color:var(--lavender)}
+.hero-tagline{font-family:var(--serif);font-size:clamp(1rem,2vw,1.3rem);font-style:italic;color:rgba(250,248,245,.8);margin-bottom:48px}
+.btn-hero{display:inline-flex;padding:18px 56px;background:var(--teal);border:none;color:var(--warm-white);font-family:var(--serif);font-size:1rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:2px;transition:all .4s}.btn-hero:hover{background:var(--teal-dark)}
+
+.specialties{padding:120px 48px;background:var(--warm-white)}
+.section-header{text-align:center;margin-bottom:72px}
+.section-header-label{font-size:.72rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+.section-header h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;letter-spacing:2px;margin-bottom:12px}
+.section-header-line{width:48px;height:1px;background:var(--lavender);margin:0 auto}
+.specialties-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.specialty-card{background:var(--cream);padding:40px 32px;text-align:center;border-radius:2px;transition:transform .4s,box-shadow .4s}
+.specialty-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(58,124,130,.1)}
+.specialty-icon{font-size:2rem;margin-bottom:16px}
+.specialty-card h3{font-family:var(--serif);font-size:1.15rem;font-weight:500;color:var(--teal);margin-bottom:12px}
+.specialty-card p{font-size:.88rem;color:var(--text-muted);line-height:1.6}
+
+.approach{padding:120px 48px;background:var(--cream)}
+.approach-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.approach-img{border-radius:2px;overflow:hidden}.approach-img img{width:100%;height:500px;object-fit:cover}
+.approach h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;margin-bottom:24px}
+.approach p{font-size:.95rem;color:var(--text-body);line-height:1.85;margin-bottom:16px}
+
+.faq{padding:120px 48px;background:var(--warm-white)}
+.faq-list{max-width:700px;margin:0 auto}
+.faq-item{border-bottom:1px solid rgba(58,124,130,.12);padding:0}
+.faq-question{width:100%;padding:24px 0;background:none;border:none;font-family:var(--serif);font-size:1.15rem;color:var(--text-dark);text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-question::after{content:'+';font-size:1.5rem;color:var(--teal);transition:transform .3s}
+.faq-item.open .faq-question::after{transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-answer p{font-size:.92rem;color:var(--text-body);line-height:1.8;padding:0 0 24px}
+
+.testimonials{padding:120px 48px;background:var(--cream)}
+.testimonials-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.testimonial-item{text-align:center}
+.testimonial-quote{font-family:var(--serif);font-size:4.5rem;color:var(--lavender);line-height:1;margin-bottom:16px;opacity:.4}
+.testimonial-text{font-family:var(--serif);font-size:clamp(1.05rem,1.5vw,1.25rem);font-style:italic;line-height:1.85;margin-bottom:28px}
+.testimonial-line{width:32px;height:1px;background:var(--lavender);margin:0 auto 20px}
+.testimonial-name{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--teal);margin-bottom:4px}
+.testimonial-source{font-size:.75rem;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase}
+
+.cta-section{padding:100px 48px;background:var(--teal);text-align:center}
+.cta-section h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);color:var(--warm-white);margin-bottom:16px}
+.cta-sub{font-size:1.1rem;color:rgba(250,248,245,.8);margin-bottom:40px}
+.btn-cta{display:inline-flex;padding:18px 56px;background:var(--warm-white);border:none;color:var(--teal);font-family:var(--serif);font-size:1rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:2px;transition:all .4s}.btn-cta:hover{background:var(--cream)}
+
+.contact-section{padding:120px 48px;background:var(--warm-white)}
+.contact-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center}
+.contact-card h3{font-family:var(--serif);font-size:1.1rem;color:var(--teal);margin-bottom:12px}
+.contact-card p{font-size:.95rem;color:var(--text-body);line-height:1.8}
+.contact-card .highlight{font-family:var(--serif);font-size:1.1rem;color:var(--teal);font-weight:600}
+
+.footer{background:var(--charcoal);padding:48px;text-align:center}
+.footer-logo{font-family:var(--serif);font-size:1.3rem;color:var(--warm-white);margin-bottom:12px}.footer-logo em{color:var(--lavender);font-style:italic}
+.footer-copy{font-size:.78rem;color:rgba(250,248,245,.35)}
+
+@media(max-width:1024px){.nav{padding:0 32px}.nav-center{display:none}.hamburger{display:flex}.mobile-menu{display:flex}.approach-inner{grid-template-columns:1fr;gap:48px}.specialties-grid{grid-template-columns:1fr 1fr}.testimonials-inner{grid-template-columns:1fr;gap:48px}.contact-inner{grid-template-columns:1fr}}
+@media(max-width:640px){.hero h1{font-size:2.4rem}.hero,.specialties,.approach,.faq,.testimonials,.cta-section,.contact-section{padding:80px 24px}.specialties-grid{grid-template-columns:1fr}.btn-nav{display:none}}
+</style>
+</head>
+<body>
+<div class="lancio-banner">Ceci est un site de démonstration créé par <a href="https://lancio.fr">Lancio</a>. Créez le vôtre en 48h → <a href="https://lancio.fr">lancio.fr</a></div>
+<nav class="nav" id="nav"><a href="#" class="nav-logo">Cabinet <em>Sérénité</em></a><div class="nav-center"><a href="#approche" class="nav-link">Approche</a><a href="#specialites" class="nav-link">Spécialités</a><a href="#faq" class="nav-link">FAQ</a><a href="#rdv" class="nav-link">Contact</a></div><div class="nav-right"><a href="#rdv" class="btn-nav">Prendre RDV</a><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="mobile-menu" id="mobileMenu"><a href="#specialites" onclick="closeMobile()">Spécialités</a><a href="#approche" onclick="closeMobile()">Approche</a><a href="#faq" onclick="closeMobile()">FAQ</a><a href="#rdv" onclick="closeMobile()">Contact</a></div>
+
+<section class="hero"><div class="hero-bg"></div><div class="hero-overlay"></div><div class="hero-content"><div class="hero-ornament"></div><p class="hero-label">Psychothérapeute — Strasbourg</p><h1>Cabinet <em>Sérénité</em></h1><p class="hero-tagline">Accompagnement thérapeutique bienveillant à Strasbourg</p><a href="#rdv" class="btn-hero">Prendre rendez-vous</a></div></section>
+
+<section class="specialties" id="specialites">
+  <div class="section-header reveal"><p class="section-header-label">Accompagnement</p><h2>Spécialités</h2><div class="section-header-line"></div></div>
+  <div class="specialties-grid reveal">
+    <div class="specialty-card"><div class="specialty-icon">🧘</div><h3>Gestion du stress</h3><p>Techniques de relaxation et stratégies pour retrouver calme et sérénité au quotidien</p></div>
+    <div class="specialty-card"><div class="specialty-icon">💙</div><h3>Anxiété & dépression</h3><p>Accompagnement personnalisé pour surmonter les troubles anxieux et dépressifs</p></div>
+    <div class="specialty-card"><div class="specialty-icon">💑</div><h3>Thérapie de couple</h3><p>Communication, gestion des conflits et reconstruction du lien conjugal</p></div>
+    <div class="specialty-card"><div class="specialty-icon">⭐</div><h3>Confiance en soi</h3><p>Développement de l'estime de soi et affirmation personnelle</p></div>
+    <div class="specialty-card"><div class="specialty-icon">🔥</div><h3>Burn-out</h3><p>Prévention et accompagnement du burn-out professionnel et émotionnel</p></div>
+    <div class="specialty-card"><div class="specialty-icon">🌿</div><h3>Deuil & transitions</h3><p>Soutien dans les moments de deuil, séparation et changements de vie</p></div>
+  </div>
+</section>
+
+<section class="approach" id="approche">
+  <div class="approach-inner"><div class="approach-img reveal-left"><img src="img/th%C3%A9rapeutes2.jpg" alt="Cabinet Sérénité"></div><div class="reveal-right"><h2>Un espace sûr et confidentiel</h2><p>Mon approche intègre les thérapies cognitives et comportementales (TCC) et des outils issus de la psychanalyse, pour un accompagnement adapté à chaque personne.</p><p>Je crois profondément que chacun porte en soi les ressources nécessaires au changement. Mon rôle est de vous aider à les révéler, dans un cadre bienveillant et sans jugement.</p></div></div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="section-header reveal"><p class="section-header-label">Questions</p><h2>FAQ</h2><div class="section-header-line"></div></div>
+  <div class="faq-list reveal">
+    <div class="faq-item"><button class="faq-question">Comment se passe une première séance ?</button><div class="faq-answer"><p>La première séance est un temps d'échange pour faire connaissance, comprendre votre demande et définir ensemble les objectifs thérapeutiques. Elle dure environ 1h.</p></div></div>
+    <div class="faq-item"><button class="faq-question">Combien de séances faut-il prévoir ?</button><div class="faq-answer"><p>Le nombre de séances varie selon chaque personne et la nature de la problématique. En moyenne, un suivi dure entre 8 et 20 séances.</p></div></div>
+    <div class="faq-item"><button class="faq-question">Consultez-vous en visio ?</button><div class="faq-answer"><p>Oui, je propose des consultations en visioconférence pour les personnes qui ne peuvent pas se déplacer ou qui préfèrent la consultation à distance.</p></div></div>
+    <div class="faq-item"><button class="faq-question">Quel est le tarif d'une séance ?</button><div class="faq-answer"><p>La séance de 45 minutes est à €65. Certaines mutuelles remboursent une partie des consultations de psychothérapie.</p></div></div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="section-header reveal"><p class="section-header-label">Témoignages</p><h2>Retours d'expérience</h2><div class="section-header-line"></div></div>
+  <div class="testimonials-inner">
+    <div class="testimonial-item reveal"><div class="testimonial-quote">❝</div><p class="testimonial-text">Grâce à ce suivi, j'ai pu traverser une période très difficile. L'écoute et la bienveillance de la thérapeute m'ont permis de retrouver confiance en moi.</p><div class="testimonial-line"></div><p class="testimonial-name">Sophie R.</p><p class="testimonial-source">Doctolib</p></div>
+    <div class="testimonial-item reveal"><div class="testimonial-quote">❝</div><p class="testimonial-text">En thérapie de couple depuis 3 mois, nous avons retrouvé une communication apaisée. Un accompagnement professionnel et humain.</p><div class="testimonial-line"></div><p class="testimonial-name">Marc & Julie</p><p class="testimonial-source">Google</p></div>
+  </div>
+</section>
+
+<section class="cta-section" id="rdv"><div class="reveal"><h2>Faites le premier pas</h2><p class="cta-sub">La première consultation permet de faire connaissance sans engagement</p><button class="btn-cta">Prendre rendez-vous</button></div></section>
+
+<section class="contact-section">
+  <div class="section-header reveal"><h2>Contact</h2><div class="section-header-line"></div></div>
+  <div class="contact-inner reveal">
+    <div class="contact-card"><h3>Adresse</h3><p>5 Quai des Bateliers<br>67000 Strasbourg</p></div>
+    <div class="contact-card"><h3>Téléphone</h3><p class="highlight">03 88 XX XX XX</p><p>contact@cabinet-serenite.fr</p></div>
+    <div class="contact-card"><h3>Tarif</h3><p class="highlight">€65 / séance</p><p>Durée : 45 minutes</p></div>
+  </div>
+</section>
+
+<footer class="footer"><p class="footer-logo">Cabinet <em>Sérénité</em></p><p class="footer-copy">© 2025 Cabinet Sérénité — Tous droits réservés</p></footer>
+
+<script>
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);});
+const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});
+function closeMobile(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow='';}
+const reveals=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:.15});
+reveals.forEach(el=>observer.observe(el));
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.parentElement;const answer=item.querySelector('.faq-answer');item.classList.toggle('open');answer.style.maxHeight=item.classList.contains('open')?answer.scrollHeight+'px':'0';});});
+</script>
+</body>
+</html>
