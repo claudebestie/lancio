@@ -1,0 +1,43 @@
+name: Lancio Pipeline — Scraping quotidien
+
+on:
+  schedule:
+    # 8h heure de Paris (UTC+2 en été = 6h UTC / UTC+1 en hiver = 7h UTC)
+    # On met 6h UTC pour couvrir l'heure d'été
+    - cron: '0 6 * * 1-5'   # Lundi → Vendredi uniquement
+  workflow_dispatch:          # Permet de lancer manuellement depuis GitHub
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30       # Le scraping Lobstr peut prendre ~15 min
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run pipeline
+        env:
+          LOBSTR_API_KEY:  ${{ secrets.LOBSTR_API_KEY }}
+          BREVO_API_KEY:   ${{ secrets.BREVO_API_KEY }}
+          SUPABASE_URL:    ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY:    ${{ secrets.SUPABASE_KEY }}
+        run: node pipeline.js
+
+      - name: Upload logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-error-logs
+          path: |
+            *.log
+          retention-days: 7
