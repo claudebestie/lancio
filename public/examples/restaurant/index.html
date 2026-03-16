@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Comptoir Doré | Restaurant Méditerranéen, Paris</title>
+<meta name="description" content="Restaurant méditerranéen raffiné au cœur de Paris. Cuisine de saison inspirée par la terre et la mer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+:root {
+  --burgundy: #722F37;
+  --burgundy-deep: #5A2129;
+  --burgundy-light: #8B3A44;
+  --gold: #C5A47E;
+  --gold-light: #D4BA9A;
+  --gold-dark: #A8895E;
+  --cream: #FFF8F0;
+  --cream-dark: #F5EBD9;
+  --charcoal: #1A1A1A;
+  --warm-white: #FFFCF7;
+  --text-dark: #1A1A1A;
+  --text-body: #3D3D3D;
+  --text-muted: #6B6560;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--warm-white);
+  color: var(--text-dark);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--burgundy); color: var(--cream); }
+img { display:block; max-width:100%; }
+a { text-decoration:none; color:inherit; }
+button { font-family: inherit; cursor: pointer; }
+
+/* REVEAL ANIMATIONS */
+.reveal { opacity:0; transform:translateY(40px); transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-left { opacity:0; transform:translateX(-60px); transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1); }
+.reveal-left.visible { opacity:1; transform:translateX(0); }
+.reveal-right { opacity:0; transform:translateX(60px); transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1); }
+.reveal-right.visible { opacity:1; transform:translateX(0); }
+
+/* LANCIO BANNER */
+.lancio-banner {
+  background: var(--cream-dark);
+  padding: 10px 24px;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+  position: relative;
+  z-index: 200;
+}
+.lancio-banner a {
+  color: var(--burgundy);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.3s;
+}
+.lancio-banner a:hover { color: var(--gold-dark); }
+
+/* NAVIGATION */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 150;
+  padding: 0 56px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  transition: background 0.4s, box-shadow 0.4s, backdrop-filter 0.4s;
+}
+.nav.scrolled {
+  background: rgba(26,26,26,0.95);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 1px 40px rgba(0,0,0,0.2);
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--cream);
+  letter-spacing: 0.5px;
+}
+.nav-logo em { color: var(--gold); font-style: italic; font-weight: 400; }
+.nav-center { display: flex; align-items: center; gap: 40px; }
+.nav-link {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(255,248,240,0.7);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  position: relative;
+}
+.nav-link::after {
+  content:''; position:absolute; bottom:-4px; left:0; right:0; height:1px;
+  background:var(--gold); transform:scaleX(0); transition:transform 0.3s;
+}
+.nav-link:hover { color: var(--cream); }
+.nav-link:hover::after { transform: scaleX(1); }
+.nav-right { display:flex; align-items:center; gap:16px; }
+.btn-nav {
+  display:inline-flex; align-items:center; padding:10px 28px;
+  background:transparent; border:1px solid var(--gold); color:var(--gold);
+  font-family:var(--serif); font-size:0.85rem; font-weight:500;
+  letter-spacing:1.5px; text-transform:uppercase; transition:all 0.35s;
+}
+.btn-nav:hover { background:var(--gold); color:var(--charcoal); }
+
+/* HAMBURGER */
+.hamburger {
+  display:none; flex-direction:column; justify-content:center; align-items:center;
+  width:36px; height:36px; background:none; border:none; padding:0; z-index:210;
+}
+.hamburger span {
+  display:block; width:22px; height:1.5px; background:var(--cream);
+  margin:3px 0; transition:all 0.35s; border-radius:1px;
+}
+.hamburger.open span:nth-child(1) { transform:rotate(45deg) translate(4.5px,4.5px); }
+.hamburger.open span:nth-child(2) { opacity:0; }
+.hamburger.open span:nth-child(3) { transform:rotate(-45deg) translate(4.5px,-4.5px); }
+
+.mobile-menu {
+  display:none; position:fixed; inset:0; z-index:149;
+  background:rgba(26,26,26,0.98); backdrop-filter:blur(30px);
+  flex-direction:column; justify-content:center; align-items:center; gap:32px;
+  opacity:0; visibility:hidden; transition:opacity 0.4s, visibility 0.4s;
+}
+.mobile-menu.open { opacity:1; visibility:visible; }
+.mobile-menu a {
+  font-family:var(--serif); font-size:1.8rem; color:var(--cream);
+  letter-spacing:2px; transition:color 0.3s;
+}
+.mobile-menu a:hover { color:var(--gold); }
+
+/* HERO */
+.hero {
+  position:relative; min-height:100vh; display:flex; flex-direction:column;
+  justify-content:center; align-items:center; text-align:center;
+  padding:120px 48px 100px; overflow:hidden;
+}
+.hero-bg {
+  position:absolute; inset:0;
+  background:url('img/restaurant1.jpg') center/cover no-repeat; z-index:0;
+}
+.hero-overlay {
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg, rgba(26,26,26,0.55) 0%, rgba(90,33,41,0.45) 100%);
+}
+.hero-content { position:relative; z-index:2; max-width:800px; }
+.hero-ornament { width:48px; height:1px; background:var(--gold); margin:0 auto 32px; opacity:0.6; }
+.hero-label {
+  font-size:0.75rem; font-weight:500; letter-spacing:4px; text-transform:uppercase;
+  color:var(--gold-light); margin-bottom:20px;
+}
+.hero h1 {
+  font-family:var(--serif); font-size:clamp(2.8rem,6vw,5rem);
+  font-weight:400; color:var(--cream); letter-spacing:3px; line-height:1.1; margin-bottom:20px;
+}
+.hero h1 em { font-style:italic; color:var(--gold); }
+.hero-tagline {
+  font-family:var(--serif); font-size:clamp(1rem,2vw,1.3rem);
+  font-style:italic; color:var(--gold-light); margin-bottom:48px; letter-spacing:0.5px;
+}
+.btn-hero {
+  display:inline-flex; align-items:center; padding:18px 56px;
+  background:var(--gold); border:1px solid var(--gold); color:var(--charcoal);
+  font-family:var(--serif); font-size:1rem; font-weight:600;
+  letter-spacing:2.5px; text-transform:uppercase; transition:all 0.4s;
+}
+.btn-hero:hover { background:transparent; color:var(--gold); }
+
+/* ABOUT */
+.about {
+  padding:120px 48px; background:var(--warm-white);
+}
+.about-inner {
+  max-width:1200px; margin:0 auto; display:grid;
+  grid-template-columns:1fr 1fr; gap:80px; align-items:center;
+}
+.about-img { border-radius:2px; overflow:hidden; }
+.about-img img { width:100%; height:500px; object-fit:cover; }
+.about-label {
+  font-size:0.72rem; font-weight:500; letter-spacing:4px; text-transform:uppercase;
+  color:var(--gold-dark); margin-bottom:16px;
+}
+.about-line { width:40px; height:1px; background:var(--gold); margin-bottom:32px; }
+.about h2 {
+  font-family:var(--serif); font-size:clamp(1.8rem,3vw,2.8rem);
+  font-weight:400; color:var(--text-dark); line-height:1.2; margin-bottom:24px;
+}
+.about p {
+  font-size:0.95rem; color:var(--text-body); line-height:1.85; margin-bottom:16px;
+}
+
+/* MENU */
+.menu-section {
+  padding:120px 48px; background:var(--cream);
+}
+.section-header {
+  text-align:center; margin-bottom:72px;
+}
+.section-header-label {
+  font-size:0.72rem; font-weight:500; letter-spacing:4px; text-transform:uppercase;
+  color:var(--gold-dark); margin-bottom:16px;
+}
+.section-header h2 {
+  font-family:var(--serif); font-size:clamp(1.8rem,3vw,2.6rem);
+  font-weight:400; color:var(--text-dark); letter-spacing:3px; text-transform:uppercase;
+  margin-bottom:12px;
+}
+.section-header-line { width:48px; height:1px; background:var(--gold); margin:0 auto; }
+
+.menu-grid {
+  max-width:1000px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:56px;
+}
+.menu-category h3 {
+  font-family:var(--serif); font-size:1.4rem; font-weight:500;
+  color:var(--burgundy); text-align:center; margin-bottom:32px;
+  letter-spacing:2px; text-transform:uppercase;
+}
+.menu-item {
+  display:flex; justify-content:space-between; align-items:baseline;
+  padding:14px 0; border-bottom:1px solid rgba(197,164,126,0.15);
+}
+.menu-item-name {
+  font-family:var(--sans); font-size:0.9rem; font-weight:500; color:var(--text-dark);
+}
+.menu-item-desc {
+  font-family:var(--serif); font-size:0.85rem; font-style:italic;
+  color:var(--text-muted); margin-top:4px;
+}
+.menu-item-price {
+  font-family:var(--serif); font-size:1rem; font-weight:600;
+  color:var(--burgundy); white-space:nowrap; margin-left:16px;
+}
+
+/* GALLERY */
+.gallery {
+  padding:120px 48px; background:var(--warm-white);
+}
+.gallery-grid {
+  max-width:1200px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+}
+.gallery-item {
+  position:relative; overflow:hidden; border-radius:2px; cursor:pointer;
+}
+.gallery-item img {
+  width:100%; height:360px; object-fit:cover;
+  transition:transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.gallery-item:hover img { transform:scale(1.06); }
+.gallery-caption {
+  position:absolute; bottom:0; left:0; right:0;
+  padding:24px; background:linear-gradient(transparent, rgba(26,26,26,0.7));
+  opacity:0; transform:translateY(10px); transition:all 0.4s;
+}
+.gallery-item:hover .gallery-caption { opacity:1; transform:translateY(0); }
+.gallery-caption span {
+  font-family:var(--serif); font-size:1.1rem; font-style:italic;
+  color:rgba(255,248,240,0.9);
+}
+
+/* TESTIMONIALS */
+.testimonials {
+  padding:120px 48px; background:var(--cream);
+}
+.testimonials-inner {
+  max-width:900px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr; gap:80px;
+}
+.testimonial-item { text-align:center; }
+.testimonial-quote {
+  font-family:var(--serif); font-size:4.5rem; color:var(--gold);
+  line-height:1; margin-bottom:16px; opacity:0.4;
+}
+.testimonial-text {
+  font-family:var(--serif); font-size:clamp(1.05rem,1.5vw,1.25rem);
+  font-style:italic; color:var(--text-dark); line-height:1.85; margin-bottom:28px;
+}
+.testimonial-line { width:32px; height:1px; background:var(--gold); margin:0 auto 20px; }
+.testimonial-name {
+  font-family:var(--serif); font-size:1.05rem; font-weight:600;
+  color:var(--burgundy); margin-bottom:4px;
+}
+.testimonial-source {
+  font-size:0.75rem; color:var(--text-muted); letter-spacing:1px; text-transform:uppercase;
+}
+
+/* RESERVATION CTA */
+.reservation-cta {
+  position:relative; min-height:520px; display:flex; flex-direction:column;
+  justify-content:center; align-items:center; text-align:center;
+  padding:100px 48px; overflow:hidden;
+}
+.reservation-cta-bg {
+  position:absolute; inset:0;
+  background:url('img/restaurant1.jpg') center/cover no-repeat; z-index:0;
+}
+.reservation-cta-overlay {
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg, rgba(26,26,26,0.65) 0%, rgba(90,33,41,0.55) 100%);
+}
+.reservation-cta-content { position:relative; z-index:2; }
+.reservation-cta-ornament { width:48px; height:1px; background:var(--gold); margin:0 auto 40px; opacity:0.6; }
+.reservation-cta h2 {
+  font-family:var(--serif); font-size:clamp(2rem,4vw,3.5rem);
+  font-weight:400; color:var(--cream); letter-spacing:3px; margin-bottom:16px;
+}
+.reservation-cta-sub {
+  font-family:var(--serif); font-size:1.1rem; font-style:italic;
+  color:var(--gold-light); margin-bottom:12px;
+}
+.reservation-cta-phone {
+  font-family:var(--serif); font-size:1.5rem; color:var(--cream);
+  font-weight:500; letter-spacing:2px; margin-bottom:40px;
+}
+
+/* HOURS */
+.hours-section { padding:120px 48px; background:var(--warm-white); }
+.hours-inner {
+  display:grid; grid-template-columns:1fr 1px 1fr 1px 1fr;
+  max-width:1100px; margin:0 auto; gap:56px; align-items:start;
+}
+.hours-divider-v { width:1px; background:rgba(197,164,126,0.25); align-self:stretch; }
+.hours-header { text-align:center; margin-bottom:72px; }
+.hours-header h2 {
+  font-family:var(--serif); font-size:clamp(1.8rem,3vw,2.6rem);
+  font-weight:400; letter-spacing:4px; text-transform:uppercase; margin-bottom:12px;
+}
+.hours-header-line { width:48px; height:1px; background:var(--gold); margin:20px auto 0; }
+.hours-col { text-align:center; }
+.hours-col-title {
+  font-size:0.75rem; font-weight:500; letter-spacing:3px;
+  text-transform:uppercase; color:var(--gold-dark); margin-bottom:24px;
+}
+.hours-col-line { width:24px; height:1px; background:var(--gold); margin:0 auto 24px; opacity:0.4; }
+.hours-table { width:100%; border-collapse:collapse; }
+.hours-table tr { border-bottom:1px solid rgba(197,164,126,0.15); }
+.hours-table tr:last-child { border-bottom:none; }
+.hours-table td { padding:14px 0; font-size:0.88rem; color:var(--text-muted); }
+.hours-table td:first-child { font-weight:500; color:var(--text-dark); text-align:start; }
+.hours-table td:last-child { text-align:end; font-family:var(--serif); font-size:0.95rem; color:var(--burgundy); font-weight:500; }
+.contact-address {
+  font-family:var(--serif); font-size:1.15rem; color:var(--text-dark);
+  line-height:1.8; margin-bottom:24px;
+}
+.contact-phone {
+  font-family:var(--serif); font-size:1.3rem; color:var(--burgundy);
+  font-weight:600; letter-spacing:1px; margin-bottom:8px;
+}
+.contact-email { font-size:0.88rem; color:var(--text-muted); }
+
+/* FOOTER */
+.footer {
+  background:var(--charcoal); padding:64px 48px 48px;
+  border-top:1px solid rgba(197,164,126,0.1);
+}
+.footer-inner {
+  max-width:1100px; margin:0 auto; display:flex;
+  justify-content:space-between; align-items:center;
+}
+.footer-logo {
+  font-family:var(--serif); font-size:1.3rem; color:var(--cream); font-weight:500;
+}
+.footer-logo em { color:var(--gold); font-style:italic; }
+.footer-copy { font-size:0.78rem; color:rgba(255,248,240,0.35); letter-spacing:0.5px; }
+.footer-social { display:flex; gap:20px; }
+.footer-social a {
+  font-size:0.78rem; color:rgba(255,248,240,0.45);
+  letter-spacing:1px; text-transform:uppercase; transition:color 0.3s;
+}
+.footer-social a:hover { color:var(--gold); }
+
+/* RESPONSIVE */
+@media (max-width:1024px) {
+  .nav { padding:0 32px; }
+  .nav-center { display:none; }
+  .hamburger { display:flex; }
+  .mobile-menu { display:flex; }
+  .about-inner { grid-template-columns:1fr; gap:48px; }
+  .menu-grid { grid-template-columns:1fr; gap:48px; }
+  .gallery-grid { grid-template-columns:1fr 1fr; }
+  .testimonials-inner { grid-template-columns:1fr; gap:48px; }
+  .hours-inner { grid-template-columns:1fr; gap:40px; }
+  .hours-divider-v { display:none; }
+}
+@media (max-width:640px) {
+  .hero h1 { font-size:2.4rem; }
+  .hero { padding:100px 24px 80px; }
+  .about, .menu-section, .gallery, .testimonials, .reservation-cta, .hours-section { padding:80px 24px; }
+  .gallery-grid { grid-template-columns:1fr; }
+  .footer-inner { flex-direction:column; gap:24px; text-align:center; }
+  .btn-nav { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- LANCIO BANNER -->
+<div class="lancio-banner">
+  Ceci est un site de démonstration créé par <a href="https://lancio.fr">Lancio</a>. Créez le vôtre en 48h → <a href="https://lancio.fr">lancio.fr</a>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">Le Comptoir <em>Doré</em></a>
+  <div class="nav-center">
+    <a href="#carte" class="nav-link">Notre Carte</a>
+    <a href="#histoire" class="nav-link">Notre Histoire</a>
+    <a href="#galerie" class="nav-link">Galerie</a>
+    <a href="#reserver" class="nav-link">Réserver</a>
+  </div>
+  <div class="nav-right">
+    <a href="#reserver" class="btn-nav">Réserver</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#carte" onclick="closeMobile()">Notre Carte</a>
+  <a href="#histoire" onclick="closeMobile()">Notre Histoire</a>
+  <a href="#galerie" onclick="closeMobile()">Galerie</a>
+  <a href="#reserver" onclick="closeMobile()">Réserver</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-ornament"></div>
+    <p class="hero-label">Restaurant Méditerranéen — Paris</p>
+    <h1>Le Comptoir <em>Doré</em></h1>
+    <p class="hero-tagline">Cuisine méditerranéenne raffinée au cœur de Paris</p>
+    <a href="#reserver" class="btn-hero">Réserver une table</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="histoire">
+  <div class="about-inner">
+    <div class="about-img reveal-left">
+      <img src="img/restaurant2.jpg" alt="Intérieur du restaurant Le Comptoir Doré">
+    </div>
+    <div class="reveal-right">
+      <p class="about-label">Notre Histoire</p>
+      <div class="about-line"></div>
+      <h2>La Méditerranée<br>dans votre assiette</h2>
+      <p>Depuis 2015, Le Comptoir Doré célèbre les saveurs de la Méditerranée à travers une cuisine de saison, créative et authentique. Notre chef puise son inspiration dans les marchés parisiens et les traditions culinaires du bassin méditerranéen.</p>
+      <p>Chaque plat raconte une histoire — celle des producteurs passionnés, des épices voyageuses et du savoir-faire artisanal transmis de génération en génération.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="carte">
+  <div class="section-header reveal">
+    <p class="section-header-label">Nos Créations</p>
+    <h2>La Carte</h2>
+    <div class="section-header-line"></div>
+  </div>
+  <div class="menu-grid reveal">
+    <div class="menu-category">
+      <h3>Entrées</h3>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Carpaccio de bar</div>
+          <div class="menu-item-desc">Agrumes, huile d'olive, fleur de sel</div>
+        </div>
+        <span class="menu-item-price">€16</span>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Burrata di Puglia</div>
+          <div class="menu-item-desc">Tomates anciennes, pesto, roquette</div>
+        </div>
+        <span class="menu-item-price">€14</span>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Velouté de saison</div>
+          <div class="menu-item-desc">Légumes du marché, crème d'estragon</div>
+        </div>
+        <span class="menu-item-price">€12</span>
+      </div>
+    </div>
+    <div class="menu-category">
+      <h3>Plats</h3>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Souris d'agneau confite</div>
+          <div class="menu-item-desc">Jus au thym, légumes rôtis</div>
+        </div>
+        <span class="menu-item-price">€28</span>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Risotto aux cèpes</div>
+          <div class="menu-item-desc">Parmesan 24 mois, truffe noire</div>
+        </div>
+        <span class="menu-item-price">€22</span>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Filet de dorade</div>
+          <div class="menu-item-desc">Beurre blanc, fenouil braisé</div>
+        </div>
+        <span class="menu-item-price">€26</span>
+      </div>
+    </div>
+    <div class="menu-category">
+      <h3>Desserts</h3>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Tarte au citron</div>
+          <div class="menu-item-desc">Meringue italienne, zeste confit</div>
+        </div>
+        <span class="menu-item-price">€12</span>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Tiramisu maison</div>
+          <div class="menu-item-desc">Mascarpone, café arabica</div>
+        </div>
+        <span class="menu-item-price">€11</span>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Panna cotta</div>
+          <div class="menu-item-desc">Fruits rouges, coulis de framboise</div>
+        </div>
+        <span class="menu-item-price">€10</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="galerie">
+  <div class="section-header reveal">
+    <p class="section-header-label">Ambiance</p>
+    <h2>Galerie</h2>
+    <div class="section-header-line"></div>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item reveal">
+      <img src="img/restaurant3.jpg" alt="Plat signature du Comptoir Doré">
+      <div class="gallery-caption"><span>Notre cuisine</span></div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="img/restaurant4.jpg" alt="Salle du restaurant">
+      <div class="gallery-caption"><span>L'ambiance</span></div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="img/restaurant5.jpg" alt="Terrasse du restaurant">
+      <div class="gallery-caption"><span>La terrasse</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-header reveal">
+    <p class="section-header-label">Témoignages</p>
+    <h2>Ce que disent nos clients</h2>
+    <div class="section-header-line"></div>
+  </div>
+  <div class="testimonials-inner">
+    <div class="testimonial-item reveal">
+      <div class="testimonial-quote">❝</div>
+      <p class="testimonial-text">Une expérience culinaire exceptionnelle. Chaque plat est un voyage en Méditerranée. Le service est attentionné et l'ambiance chaleureuse.</p>
+      <div class="testimonial-line"></div>
+      <p class="testimonial-name">Marie-Claire D.</p>
+      <p class="testimonial-source">Google</p>
+    </div>
+    <div class="testimonial-item reveal">
+      <div class="testimonial-quote">❝</div>
+      <p class="testimonial-text">Le meilleur restaurant méditerranéen de Paris. La souris d'agneau est à tomber et le tiramisu est le meilleur que j'aie jamais goûté.</p>
+      <div class="testimonial-line"></div>
+      <p class="testimonial-name">Jean-Philippe R.</p>
+      <p class="testimonial-source">Google</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVATION CTA -->
+<section class="reservation-cta" id="reserver">
+  <div class="reservation-cta-bg"></div>
+  <div class="reservation-cta-overlay"></div>
+  <div class="reservation-cta-content reveal">
+    <div class="reservation-cta-ornament"></div>
+    <h2>Réservez votre table</h2>
+    <p class="reservation-cta-sub">Pour une soirée inoubliable</p>
+    <p class="reservation-cta-phone">01 42 65 XX XX</p>
+    <a href="#" class="btn-hero">Réserver maintenant</a>
+  </div>
+</section>
+
+<!-- HOURS & CONTACT -->
+<section class="hours-section">
+  <div class="hours-header reveal">
+    <h2>Infos pratiques</h2>
+    <div class="hours-header-line"></div>
+  </div>
+  <div class="hours-inner reveal">
+    <div class="hours-col">
+      <p class="hours-col-title">Horaires</p>
+      <div class="hours-col-line"></div>
+      <table class="hours-table">
+        <tr><td>Lun – Ven</td><td>12h–14h30 / 19h–23h</td></tr>
+        <tr><td>Samedi</td><td>19h–23h30</td></tr>
+        <tr><td>Dimanche</td><td>Fermé</td></tr>
+      </table>
+    </div>
+    <div class="hours-divider-v"></div>
+    <div class="hours-col">
+      <p class="hours-col-title">Localisation</p>
+      <div class="hours-col-line"></div>
+      <p class="contact-address">42 Rue du Faubourg<br>Saint-Honoré<br>75008 Paris</p>
+    </div>
+    <div class="hours-divider-v"></div>
+    <div class="hours-col">
+      <p class="hours-col-title">Contact</p>
+      <div class="hours-col-line"></div>
+      <p class="contact-phone">01 42 65 XX XX</p>
+      <p class="contact-email">contact@lecomptoirdore.fr</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Le Comptoir <em>Doré</em></div>
+    <p class="footer-copy">© 2025 Le Comptoir Doré — Tous droits réservés</p>
+    <div class="footer-social">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// NAV SCROLL
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// HAMBURGER
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+function closeMobile() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// SCROLL REVEAL
+const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.15 });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

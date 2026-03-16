@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cabinet Fontaine | Avocat, Marseille</title>
+<meta name="description" content="Cabinet d'avocat à Marseille. Expertise en droit des affaires, droit du travail et droit de la famille.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--navy:#1B2A4A;--navy-dark:#121D35;--navy-light:#2A3F66;--gold:#C5A47E;--gold-light:#D4BA9A;--gold-dark:#A8895E;--light:#F5F3EF;--cream:#EBE7DF;--charcoal:#1A1A1A;--text-dark:#1A1A1A;--text-body:#3D3D3D;--text-muted:#6B6560;--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+body{font-family:var(--sans);background:var(--light);color:var(--text-dark);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--navy);color:var(--light)}img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{font-family:inherit;cursor:pointer}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(60px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+.lancio-banner{background:var(--cream);padding:10px 24px;text-align:center;font-size:.78rem;color:var(--text-muted);z-index:200;position:relative}.lancio-banner a{color:var(--navy);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:150;padding:0 56px;height:72px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background .4s,box-shadow .4s}
+.nav.scrolled{background:rgba(27,42,74,.97);backdrop-filter:blur(20px);box-shadow:0 1px 40px rgba(0,0,0,.2)}
+.nav-logo{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--light);letter-spacing:.5px}.nav-logo em{color:var(--gold);font-style:italic;font-weight:400}
+.nav-center{display:flex;gap:40px}.nav-link{font-size:.82rem;font-weight:500;color:rgba(245,243,239,.7);letter-spacing:1.5px;text-transform:uppercase;transition:color .3s;position:relative}
+.nav-link::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .3s}.nav-link:hover{color:var(--light)}.nav-link:hover::after{transform:scaleX(1)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.btn-nav{display:inline-flex;padding:10px 28px;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:var(--serif);font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;transition:all .35s}.btn-nav:hover{background:var(--gold);color:var(--navy-dark)}
+.hamburger{display:none;flex-direction:column;width:36px;height:36px;background:none;border:none;justify-content:center;align-items:center;z-index:210}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--light);margin:3px 0;transition:all .35s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:149;background:rgba(27,42,74,.98);flex-direction:column;justify-content:center;align-items:center;gap:32px;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.mobile-menu.open{opacity:1;visibility:visible}.mobile-menu a{font-family:var(--serif);font-size:1.8rem;color:var(--light);transition:color .3s}.mobile-menu a:hover{color:var(--gold)}
+
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 48px 100px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('img/lawyer1.jpg') center/cover no-repeat;z-index:0}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(27,42,74,.6) 0%,rgba(18,29,53,.7) 100%)}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-ornament{width:48px;height:1px;background:var(--gold);margin:0 auto 32px;opacity:.6}
+.hero-label{font-size:.75rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--gold-light);margin-bottom:20px}
+.hero h1{font-family:var(--serif);font-size:clamp(2.8rem,6vw,5rem);font-weight:400;color:var(--light);letter-spacing:3px;line-height:1.1;margin-bottom:20px}.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-tagline{font-family:var(--serif);font-size:clamp(1rem,2vw,1.3rem);font-style:italic;color:var(--gold-light);margin-bottom:48px}
+.btn-hero{display:inline-flex;padding:18px 56px;background:var(--gold);border:1px solid var(--gold);color:var(--navy-dark);font-family:var(--serif);font-size:1rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;transition:all .4s}.btn-hero:hover{background:transparent;color:var(--gold)}
+
+.practices{padding:120px 48px;background:var(--light)}
+.section-header{text-align:center;margin-bottom:72px}
+.section-header-label{font-size:.72rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:16px}
+.section-header h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.section-header-line{width:48px;height:1px;background:var(--gold);margin:0 auto}
+.practices-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.practice-card{background:var(--cream);padding:40px 32px;text-align:center;border-radius:2px;transition:transform .4s,box-shadow .4s;border-top:3px solid transparent}
+.practice-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(27,42,74,.1);border-top-color:var(--gold)}
+.practice-icon{font-size:2rem;margin-bottom:16px;color:var(--navy)}
+.practice-card h3{font-family:var(--serif);font-size:1.2rem;font-weight:500;color:var(--navy);margin-bottom:12px}
+.practice-card p{font-size:.88rem;color:var(--text-muted);line-height:1.6}
+
+.about{padding:120px 48px;background:var(--cream)}
+.about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-img{border-radius:2px;overflow:hidden}.about-img img{width:100%;height:500px;object-fit:cover}
+.about-label{font-size:.72rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:16px}
+.about-line{width:40px;height:1px;background:var(--gold);margin-bottom:32px}
+.about h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:24px}
+.about p{font-size:.95rem;color:var(--text-body);line-height:1.85;margin-bottom:16px}
+.about-stats{display:flex;gap:40px;margin-top:32px}.about-stat{text-align:center}
+.about-stat-num{font-family:var(--serif);font-size:2rem;font-weight:600;color:var(--navy);line-height:1}
+.about-stat-label{font-size:.75rem;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-top:4px}
+
+.team{padding:120px 48px;background:var(--light)}
+.team-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.team-card{text-align:center}
+.team-card img{width:100%;height:400px;object-fit:cover;border-radius:2px;margin-bottom:24px}
+.team-card h3{font-family:var(--serif);font-size:1.3rem;font-weight:500;color:var(--navy);margin-bottom:4px}
+.team-card .title{font-size:.82rem;color:var(--gold-dark);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.team-card p{font-size:.88rem;color:var(--text-muted);line-height:1.7}
+
+.testimonials{padding:120px 48px;background:var(--cream)}
+.testimonials-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.testimonial-item{text-align:center}
+.testimonial-quote{font-family:var(--serif);font-size:4.5rem;color:var(--gold);line-height:1;margin-bottom:16px;opacity:.4}
+.testimonial-text{font-family:var(--serif);font-size:clamp(1.05rem,1.5vw,1.25rem);font-style:italic;line-height:1.85;margin-bottom:28px}
+.testimonial-line{width:32px;height:1px;background:var(--gold);margin:0 auto 20px}
+.testimonial-name{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:4px}
+.testimonial-source{font-size:.75rem;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase}
+
+.cta-section{position:relative;min-height:420px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 48px;overflow:hidden}
+.cta-bg{position:absolute;inset:0;background:url('img/lawyer1.jpg') center/cover no-repeat;z-index:0}
+.cta-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(27,42,74,.7) 0%,rgba(18,29,53,.75) 100%)}
+.cta-content{position:relative;z-index:2}
+.cta-ornament{width:48px;height:1px;background:var(--gold);margin:0 auto 40px;opacity:.6}
+.cta-section h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);font-weight:400;color:var(--light);letter-spacing:3px;margin-bottom:16px}
+.cta-sub{font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--gold-light);margin-bottom:12px}
+.cta-phone{font-family:var(--serif);font-size:1.5rem;color:var(--light);font-weight:500;letter-spacing:2px;margin-bottom:12px}
+.cta-email{font-size:.9rem;color:var(--gold-light);margin-bottom:40px}
+
+.contact-section{padding:120px 48px;background:var(--light)}
+.contact-inner{display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;max-width:1100px;margin:0 auto;gap:56px;align-items:start}
+.contact-divider{width:1px;background:rgba(197,164,126,.25);align-self:stretch}
+.contact-header{text-align:center;margin-bottom:72px}
+.contact-header h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;letter-spacing:4px;text-transform:uppercase;margin-bottom:12px}
+.contact-header-line{width:48px;height:1px;background:var(--gold);margin:20px auto 0}
+.contact-col{text-align:center}
+.contact-col-title{font-size:.75rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:24px}
+.contact-col-line{width:24px;height:1px;background:var(--gold);margin:0 auto 24px;opacity:.4}
+.contact-address{font-family:var(--serif);font-size:1.15rem;color:var(--text-dark);line-height:1.8;margin-bottom:24px}
+.contact-phone{font-family:var(--serif);font-size:1.3rem;color:var(--navy);font-weight:600;letter-spacing:1px;margin-bottom:8px}
+.contact-email-text{font-size:.88rem;color:var(--text-muted)}
+.hours-table{width:100%;border-collapse:collapse}.hours-table tr{border-bottom:1px solid rgba(197,164,126,.15)}.hours-table tr:last-child{border-bottom:none}
+.hours-table td{padding:14px 0;font-size:.88rem;color:var(--text-muted)}.hours-table td:first-child{font-weight:500;color:var(--text-dark);text-align:start}.hours-table td:last-child{text-align:end;font-family:var(--serif);color:var(--navy);font-weight:500}
+
+.footer{background:var(--navy-dark);padding:64px 48px 48px}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:var(--serif);font-size:1.3rem;color:var(--light)}.footer-logo em{color:var(--gold);font-style:italic}
+.footer-copy{font-size:.78rem;color:rgba(245,243,239,.35)}.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:.78rem;color:rgba(245,243,239,.45);letter-spacing:1px;text-transform:uppercase;transition:color .3s}.footer-links a:hover{color:var(--gold)}
+
+@media(max-width:1024px){.nav{padding:0 32px}.nav-center{display:none}.hamburger{display:flex}.mobile-menu{display:flex}.about-inner{grid-template-columns:1fr;gap:48px}.practices-grid{grid-template-columns:1fr 1fr}.team-grid{grid-template-columns:1fr}.testimonials-inner{grid-template-columns:1fr;gap:48px}.contact-inner{grid-template-columns:1fr;gap:40px}.contact-divider{display:none}}
+@media(max-width:640px){.hero h1{font-size:2.4rem}.hero,.practices,.about,.team,.testimonials,.cta-section,.contact-section{padding:80px 24px}.practices-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;gap:24px;text-align:center}.btn-nav{display:none}}
+</style>
+</head>
+<body>
+<div class="lancio-banner">Ceci est un site de démonstration créé par <a href="https://lancio.fr">Lancio</a>. Créez le vôtre en 48h → <a href="https://lancio.fr">lancio.fr</a></div>
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">Cabinet <em>Fontaine</em></a>
+  <div class="nav-center"><a href="#domaines" class="nav-link">Domaines</a><a href="#cabinet" class="nav-link">Le Cabinet</a><a href="#equipe" class="nav-link">Équipe</a><a href="#contact" class="nav-link">Contact</a></div>
+  <div class="nav-right"><a href="#contact" class="btn-nav">Consultation</a><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu"><a href="#domaines" onclick="closeMobile()">Domaines</a><a href="#cabinet" onclick="closeMobile()">Le Cabinet</a><a href="#equipe" onclick="closeMobile()">Équipe</a><a href="#contact" onclick="closeMobile()">Contact</a></div>
+
+<section class="hero">
+  <div class="hero-bg"></div><div class="hero-overlay"></div>
+  <div class="hero-content"><div class="hero-ornament"></div><p class="hero-label">Cabinet d'Avocat — Marseille</p><h1>Cabinet <em>Fontaine</em></h1><p class="hero-tagline">Expertise juridique & accompagnement personnalisé</p><a href="#contact" class="btn-hero">Prendre rendez-vous</a></div>
+</section>
+
+<section class="practices" id="domaines">
+  <div class="section-header reveal"><p class="section-header-label">Nos Expertises</p><h2>Domaines de compétence</h2><div class="section-header-line"></div></div>
+  <div class="practices-grid reveal">
+    <div class="practice-card"><div class="practice-icon">⚖️</div><h3>Droit des affaires</h3><p>Conseil et contentieux pour entreprises, contrats, fusions-acquisitions et droit commercial</p></div>
+    <div class="practice-card"><div class="practice-icon">👥</div><h3>Droit du travail</h3><p>Relations individuelles et collectives, licenciement, harcèlement, négociations</p></div>
+    <div class="practice-card"><div class="practice-icon">🏠</div><h3>Droit de la famille</h3><p>Divorce, garde d'enfants, successions, adoption et médiation familiale</p></div>
+    <div class="practice-card"><div class="practice-icon">🏢</div><h3>Droit immobilier</h3><p>Transactions immobilières, baux commerciaux, copropriété et construction</p></div>
+    <div class="practice-card"><div class="practice-icon">🔒</div><h3>Droit pénal</h3><p>Défense pénale, garde à vue, comparution immédiate et appel</p></div>
+    <div class="practice-card"><div class="practice-icon">📋</div><h3>Contentieux commercial</h3><p>Litiges entre entreprises, recouvrement de créances et procédures collectives</p></div>
+  </div>
+</section>
+
+<section class="about" id="cabinet">
+  <div class="about-inner">
+    <div class="about-img reveal-left"><img src="img/lawyer2.jpg" alt="Cabinet Fontaine"></div>
+    <div class="reveal-right">
+      <p class="about-label">Le Cabinet</p><div class="about-line"></div>
+      <h2>L'excellence juridique<br>depuis 2005</h2>
+      <p>Le Cabinet Fontaine accompagne particuliers et entreprises dans toutes leurs problématiques juridiques. Notre approche allie rigueur intellectuelle et proximité humaine.</p>
+      <p>Situé au cœur de Marseille, notre cabinet est reconnu pour son expertise pluridisciplinaire et sa capacité à trouver des solutions adaptées à chaque situation.</p>
+      <div class="about-stats"><div class="about-stat"><div class="about-stat-num">500+</div><div class="about-stat-label">Dossiers traités</div></div><div class="about-stat"><div class="about-stat-num">20</div><div class="about-stat-label">Ans d'expérience</div></div><div class="about-stat"><div class="about-stat-num">98%</div><div class="about-stat-label">Satisfaction</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="equipe">
+  <div class="section-header reveal"><p class="section-header-label">Notre Équipe</p><h2>Nos Avocats</h2><div class="section-header-line"></div></div>
+  <div class="team-grid reveal">
+    <div class="team-card"><img src="img/lawyer3.jpg" alt="Me. Sophie Fontaine"><h3>Me. Sophie Fontaine</h3><p class="title">Associée fondatrice</p><p>Spécialisée en droit des affaires et droit de la famille. Barreau de Marseille depuis 2005.</p></div>
+    <div class="team-card"><img src="img/lawyer4.jpg" alt="Me. Pierre Duval"><h3>Me. Pierre Duval</h3><p class="title">Associé</p><p>Expert en droit du travail et contentieux commercial. Ancien collaborateur en cabinets parisiens.</p></div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="section-header reveal"><p class="section-header-label">Témoignages</p><h2>La parole à nos clients</h2><div class="section-header-line"></div></div>
+  <div class="testimonials-inner">
+    <div class="testimonial-item reveal"><div class="testimonial-quote">❝</div><p class="testimonial-text">Me Fontaine a géré mon dossier avec un professionnalisme remarquable. Écoute, réactivité et résultat au-delà de mes espérances.</p><div class="testimonial-line"></div><p class="testimonial-name">Laurent B.</p><p class="testimonial-source">Google</p></div>
+    <div class="testimonial-item reveal"><div class="testimonial-quote">❝</div><p class="testimonial-text">Un cabinet à taille humaine où on se sent écouté. Me Duval a su défendre mes droits avec conviction et expertise.</p><div class="testimonial-line"></div><p class="testimonial-name">Isabelle M.</p><p class="testimonial-source">Google</p></div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="cta-bg"></div><div class="cta-overlay"></div>
+  <div class="cta-content reveal"><div class="cta-ornament"></div><h2>Première consultation</h2><p class="cta-sub">Prenez rendez-vous pour un premier échange confidentiel</p><p class="cta-phone">04 91 XX XX XX</p><p class="cta-email">contact@cabinet-fontaine.fr</p><a href="#" class="btn-hero">Nous contacter</a></div>
+</section>
+
+<section class="contact-section">
+  <div class="contact-header reveal"><h2>Informations</h2><div class="contact-header-line"></div></div>
+  <div class="contact-inner reveal">
+    <div class="contact-col"><p class="contact-col-title">Adresse</p><div class="contact-col-line"></div><p class="contact-address">25 Cours Julien<br>13006 Marseille</p></div>
+    <div class="contact-divider"></div>
+    <div class="contact-col"><p class="contact-col-title">Horaires</p><div class="contact-col-line"></div><table class="hours-table"><tr><td>Lun – Ven</td><td>9h–18h</td></tr><tr><td>Sam – Dim</td><td>Fermé</td></tr></table></div>
+    <div class="contact-divider"></div>
+    <div class="contact-col"><p class="contact-col-title">Contact</p><div class="contact-col-line"></div><p class="contact-phone">04 91 XX XX XX</p><p class="contact-email-text">contact@cabinet-fontaine.fr</p></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner"><div class="footer-logo">Cabinet <em>Fontaine</em></div><p class="footer-copy">© 2025 Cabinet Fontaine — Tous droits réservés</p><div class="footer-links"><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a></div></div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);});
+const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});
+function closeMobile(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow='';}
+const reveals=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:.15});
+reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

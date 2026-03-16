@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Éclat | Salon de Coiffure, Lyon</title>
+<meta name="description" content="Salon de coiffure haut de gamme au cœur de Lyon. Coupes, colorations et soins personnalisés.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+:root {
+  --teal: #2C6E63;
+  --teal-dark: #1F5249;
+  --teal-light: #3A8A7D;
+  --rose: #B87E6B;
+  --rose-light: #D4A595;
+  --rose-dark: #9B6A58;
+  --offwhite: #FAFAF4;
+  --cream: #F0EDE4;
+  --charcoal: #1A1A1A;
+  --text-dark: #1A1A1A;
+  --text-body: #3D3D3D;
+  --text-muted: #7A7670;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+}
+body { font-family:var(--sans); background:var(--offwhite); color:var(--text-dark); line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+::selection { background:var(--teal); color:var(--offwhite); }
+img { display:block; max-width:100%; }
+a { text-decoration:none; color:inherit; }
+button { font-family:inherit; cursor:pointer; }
+.reveal { opacity:0; transform:translateY(40px); transition:opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-left { opacity:0; transform:translateX(-60px); transition:opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1); }
+.reveal-left.visible { opacity:1; transform:translateX(0); }
+.reveal-right { opacity:0; transform:translateX(60px); transition:opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1); }
+.reveal-right.visible { opacity:1; transform:translateX(0); }
+
+.lancio-banner { background:var(--cream); padding:10px 24px; text-align:center; font-size:0.78rem; color:var(--text-muted); letter-spacing:0.3px; z-index:200; position:relative; }
+.lancio-banner a { color:var(--teal); font-weight:600; text-decoration:underline; text-underline-offset:2px; }
+
+.nav { position:fixed; top:0; left:0; right:0; z-index:150; padding:0 56px; height:72px; display:flex; align-items:center; justify-content:space-between; background:transparent; transition:background 0.4s, box-shadow 0.4s; }
+.nav.scrolled { background:rgba(26,26,26,0.95); backdrop-filter:blur(20px); box-shadow:0 1px 40px rgba(0,0,0,0.2); }
+.nav-logo { font-family:var(--serif); font-size:1.5rem; font-weight:500; color:var(--offwhite); }
+.nav-logo em { color:var(--rose); font-style:italic; }
+.nav-center { display:flex; gap:40px; }
+.nav-link { font-size:0.82rem; font-weight:500; color:rgba(250,250,244,0.7); letter-spacing:1.5px; text-transform:uppercase; transition:color 0.3s; position:relative; }
+.nav-link::after { content:''; position:absolute; bottom:-4px; left:0; right:0; height:1px; background:var(--rose); transform:scaleX(0); transition:transform 0.3s; }
+.nav-link:hover { color:var(--offwhite); }
+.nav-link:hover::after { transform:scaleX(1); }
+.nav-right { display:flex; align-items:center; gap:16px; }
+.btn-nav { display:inline-flex; padding:10px 28px; background:transparent; border:1px solid var(--rose); color:var(--rose); font-family:var(--serif); font-size:0.85rem; letter-spacing:1.5px; text-transform:uppercase; transition:all 0.35s; }
+.btn-nav:hover { background:var(--rose); color:var(--charcoal); }
+.hamburger { display:none; flex-direction:column; width:36px; height:36px; background:none; border:none; justify-content:center; align-items:center; z-index:210; }
+.hamburger span { display:block; width:22px; height:1.5px; background:var(--offwhite); margin:3px 0; transition:all 0.35s; }
+.hamburger.open span:nth-child(1) { transform:rotate(45deg) translate(4.5px,4.5px); }
+.hamburger.open span:nth-child(2) { opacity:0; }
+.hamburger.open span:nth-child(3) { transform:rotate(-45deg) translate(4.5px,-4.5px); }
+.mobile-menu { display:none; position:fixed; inset:0; z-index:149; background:rgba(26,26,26,0.98); flex-direction:column; justify-content:center; align-items:center; gap:32px; opacity:0; visibility:hidden; transition:opacity 0.4s, visibility 0.4s; }
+.mobile-menu.open { opacity:1; visibility:visible; }
+.mobile-menu a { font-family:var(--serif); font-size:1.8rem; color:var(--offwhite); transition:color 0.3s; }
+.mobile-menu a:hover { color:var(--rose); }
+
+.hero { position:relative; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:120px 48px 100px; overflow:hidden; }
+.hero-bg { position:absolute; inset:0; background:url('img/barbershop1.jpg') center/cover no-repeat; z-index:0; }
+.hero-overlay { position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(26,26,26,0.5) 0%, rgba(44,110,99,0.4) 100%); }
+.hero-content { position:relative; z-index:2; max-width:800px; }
+.hero-ornament { width:48px; height:1px; background:var(--rose); margin:0 auto 32px; opacity:0.6; }
+.hero-label { font-size:0.75rem; font-weight:500; letter-spacing:4px; text-transform:uppercase; color:var(--rose-light); margin-bottom:20px; }
+.hero h1 { font-family:var(--serif); font-size:clamp(2.8rem,6vw,5rem); font-weight:400; color:var(--offwhite); letter-spacing:2px; line-height:1.1; margin-bottom:20px; }
+.hero h1 em { font-style:italic; color:var(--rose); }
+.hero-tagline { font-family:var(--serif); font-size:clamp(1rem,2vw,1.3rem); font-style:italic; color:var(--rose-light); margin-bottom:48px; }
+.btn-hero { display:inline-flex; padding:18px 56px; background:var(--rose); border:1px solid var(--rose); color:var(--charcoal); font-family:var(--serif); font-size:1rem; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; transition:all 0.4s; }
+.btn-hero:hover { background:transparent; color:var(--rose); }
+
+.services { padding:120px 48px; background:var(--offwhite); }
+.section-header { text-align:center; margin-bottom:72px; }
+.section-header-label { font-size:0.72rem; font-weight:500; letter-spacing:4px; text-transform:uppercase; color:var(--teal); margin-bottom:16px; }
+.section-header h2 { font-family:var(--serif); font-size:clamp(1.8rem,3vw,2.6rem); font-weight:400; letter-spacing:3px; text-transform:uppercase; margin-bottom:12px; }
+.section-header-line { width:48px; height:1px; background:var(--rose); margin:0 auto; }
+.services-grid { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+.service-card { background:var(--cream); padding:40px 32px; text-align:center; border-radius:2px; transition:transform 0.4s, box-shadow 0.4s; }
+.service-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(44,110,99,0.1); }
+.service-card h3 { font-family:var(--serif); font-size:1.2rem; font-weight:500; color:var(--teal); margin-bottom:8px; }
+.service-card .price { font-family:var(--serif); font-size:1.1rem; color:var(--rose); font-weight:600; margin-bottom:16px; }
+.service-card p { font-size:0.88rem; color:var(--text-muted); line-height:1.6; }
+
+.about { padding:120px 48px; background:var(--cream); }
+.about-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.about-img { border-radius:2px; overflow:hidden; }
+.about-img img { width:100%; height:500px; object-fit:cover; }
+.about-label { font-size:0.72rem; font-weight:500; letter-spacing:4px; text-transform:uppercase; color:var(--teal); margin-bottom:16px; }
+.about-line { width:40px; height:1px; background:var(--rose); margin-bottom:32px; }
+.about h2 { font-family:var(--serif); font-size:clamp(1.8rem,3vw,2.8rem); font-weight:400; line-height:1.2; margin-bottom:24px; }
+.about p { font-size:0.95rem; color:var(--text-body); line-height:1.85; margin-bottom:16px; }
+
+.gallery { padding:120px 48px; background:var(--offwhite); }
+.gallery-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.gallery-item { position:relative; overflow:hidden; border-radius:2px; cursor:pointer; }
+.gallery-item img { width:100%; height:360px; object-fit:cover; transition:transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+.gallery-item:hover img { transform:scale(1.06); }
+.gallery-caption { position:absolute; bottom:0; left:0; right:0; padding:24px; background:linear-gradient(transparent, rgba(26,26,26,0.7)); opacity:0; transform:translateY(10px); transition:all 0.4s; }
+.gallery-item:hover .gallery-caption { opacity:1; transform:translateY(0); }
+.gallery-caption span { font-family:var(--serif); font-size:1.1rem; font-style:italic; color:rgba(250,250,244,0.9); }
+
+.testimonials { padding:120px 48px; background:var(--cream); }
+.testimonials-inner { max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; }
+.testimonial-item { text-align:center; }
+.testimonial-quote { font-family:var(--serif); font-size:4.5rem; color:var(--rose); line-height:1; margin-bottom:16px; opacity:0.4; }
+.testimonial-text { font-family:var(--serif); font-size:clamp(1.05rem,1.5vw,1.25rem); font-style:italic; line-height:1.85; margin-bottom:28px; }
+.testimonial-line { width:32px; height:1px; background:var(--rose); margin:0 auto 20px; }
+.testimonial-name { font-family:var(--serif); font-size:1.05rem; font-weight:600; color:var(--teal); margin-bottom:4px; }
+.testimonial-source { font-size:0.75rem; color:var(--text-muted); letter-spacing:1px; text-transform:uppercase; }
+
+.booking-cta { position:relative; min-height:520px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:100px 48px; overflow:hidden; }
+.booking-cta-bg { position:absolute; inset:0; background:url('img/barbershop3.jpg') center/cover no-repeat; z-index:0; }
+.booking-cta-overlay { position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(26,26,26,0.6) 0%, rgba(44,110,99,0.5) 100%); }
+.booking-cta-content { position:relative; z-index:2; }
+.booking-cta-ornament { width:48px; height:1px; background:var(--rose); margin:0 auto 40px; opacity:0.6; }
+.booking-cta h2 { font-family:var(--serif); font-size:clamp(2rem,4vw,3.5rem); font-weight:400; color:var(--offwhite); letter-spacing:3px; margin-bottom:16px; }
+.booking-cta-sub { font-family:var(--serif); font-size:1.1rem; font-style:italic; color:var(--rose-light); margin-bottom:12px; }
+.booking-cta-phone { font-family:var(--serif); font-size:1.5rem; color:var(--offwhite); font-weight:500; letter-spacing:2px; margin-bottom:40px; }
+
+.hours-section { padding:120px 48px; background:var(--offwhite); }
+.hours-inner { display:grid; grid-template-columns:1fr 1px 1fr 1px 1fr; max-width:1100px; margin:0 auto; gap:56px; align-items:start; }
+.hours-divider-v { width:1px; background:rgba(184,126,107,0.25); align-self:stretch; }
+.hours-header { text-align:center; margin-bottom:72px; }
+.hours-header h2 { font-family:var(--serif); font-size:clamp(1.8rem,3vw,2.6rem); font-weight:400; letter-spacing:4px; text-transform:uppercase; margin-bottom:12px; }
+.hours-header-line { width:48px; height:1px; background:var(--rose); margin:20px auto 0; }
+.hours-col { text-align:center; }
+.hours-col-title { font-size:0.75rem; font-weight:500; letter-spacing:3px; text-transform:uppercase; color:var(--teal); margin-bottom:24px; }
+.hours-col-line { width:24px; height:1px; background:var(--rose); margin:0 auto 24px; opacity:0.4; }
+.hours-table { width:100%; border-collapse:collapse; }
+.hours-table tr { border-bottom:1px solid rgba(184,126,107,0.15); }
+.hours-table tr:last-child { border-bottom:none; }
+.hours-table td { padding:14px 0; font-size:0.88rem; color:var(--text-muted); }
+.hours-table td:first-child { font-weight:500; color:var(--text-dark); text-align:start; }
+.hours-table td:last-child { text-align:end; font-family:var(--serif); color:var(--teal); font-weight:500; }
+.contact-address { font-family:var(--serif); font-size:1.15rem; color:var(--text-dark); line-height:1.8; margin-bottom:24px; }
+.contact-phone { font-family:var(--serif); font-size:1.3rem; color:var(--teal); font-weight:600; letter-spacing:1px; margin-bottom:8px; }
+.contact-email { font-size:0.88rem; color:var(--text-muted); }
+
+.footer { background:var(--charcoal); padding:64px 48px 48px; }
+.footer-inner { max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
+.footer-logo { font-family:var(--serif); font-size:1.3rem; color:var(--offwhite); }
+.footer-logo em { color:var(--rose); font-style:italic; }
+.footer-copy { font-size:0.78rem; color:rgba(250,250,244,0.35); }
+.footer-social { display:flex; gap:20px; }
+.footer-social a { font-size:0.78rem; color:rgba(250,250,244,0.45); letter-spacing:1px; text-transform:uppercase; transition:color 0.3s; }
+.footer-social a:hover { color:var(--rose); }
+
+@media (max-width:1024px) {
+  .nav { padding:0 32px; }
+  .nav-center { display:none; }
+  .hamburger { display:flex; }
+  .mobile-menu { display:flex; }
+  .about-inner { grid-template-columns:1fr; gap:48px; }
+  .services-grid { grid-template-columns:1fr 1fr; }
+  .gallery-grid { grid-template-columns:1fr 1fr; }
+  .testimonials-inner { grid-template-columns:1fr; gap:48px; }
+  .hours-inner { grid-template-columns:1fr; gap:40px; }
+  .hours-divider-v { display:none; }
+}
+@media (max-width:640px) {
+  .hero h1 { font-size:2.4rem; }
+  .hero, .services, .about, .gallery, .testimonials, .booking-cta, .hours-section { padding:80px 24px; }
+  .services-grid { grid-template-columns:1fr; }
+  .gallery-grid { grid-template-columns:1fr; }
+  .footer-inner { flex-direction:column; gap:24px; text-align:center; }
+  .btn-nav { display:none; }
+}
+</style>
+</head>
+<body>
+<div class="lancio-banner">Ceci est un site de démonstration créé par <a href="https://lancio.fr">Lancio</a>. Créez le vôtre en 48h → <a href="https://lancio.fr">lancio.fr</a></div>
+
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">Studio <em>Éclat</em></a>
+  <div class="nav-center">
+    <a href="#services" class="nav-link">Nos Services</a>
+    <a href="#equipe" class="nav-link">Notre Équipe</a>
+    <a href="#galerie" class="nav-link">Galerie</a>
+    <a href="#rdv" class="nav-link">Rendez-vous</a>
+  </div>
+  <div class="nav-right">
+    <a href="#rdv" class="btn-nav">Prendre RDV</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMobile()">Nos Services</a>
+  <a href="#equipe" onclick="closeMobile()">Notre Équipe</a>
+  <a href="#galerie" onclick="closeMobile()">Galerie</a>
+  <a href="#rdv" onclick="closeMobile()">Rendez-vous</a>
+</div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-ornament"></div>
+    <p class="hero-label">Salon de Coiffure — Lyon</p>
+    <h1>Studio <em>Éclat</em></h1>
+    <p class="hero-tagline">L'art de la coiffure au cœur de Lyon</p>
+    <a href="#rdv" class="btn-hero">Prendre rendez-vous</a>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-header reveal">
+    <p class="section-header-label">Nos Prestations</p>
+    <h2>Services</h2>
+    <div class="section-header-line"></div>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card"><h3>Coupe Femme</h3><p class="price">à partir de €45</p><p>Consultation personnalisée, coupe et coiffage adaptés à votre style</p></div>
+    <div class="service-card"><h3>Coupe Homme</h3><p class="price">€25</p><p>Coupe tendance, dégradé ou classique selon vos envies</p></div>
+    <div class="service-card"><h3>Coloration</h3><p class="price">à partir de €65</p><p>Couleur sur-mesure avec des produits professionnels respectueux</p></div>
+    <div class="service-card"><h3>Balayage</h3><p class="price">à partir de €95</p><p>Reflets naturels et lumineux pour un effet soleil toute l'année</p></div>
+    <div class="service-card"><h3>Brushing</h3><p class="price">€30</p><p>Mise en forme soignée pour un look impeccable au quotidien</p></div>
+    <div class="service-card"><h3>Soin Profond</h3><p class="price">€35</p><p>Traitement nourrissant pour des cheveux revitalisés et brillants</p></div>
+  </div>
+</section>
+
+<section class="about" id="equipe">
+  <div class="about-inner">
+    <div class="about-img reveal-left"><img src="img/barbershop2.jpg" alt="L'équipe Studio Éclat"></div>
+    <div class="reveal-right">
+      <p class="about-label">Notre Équipe</p>
+      <div class="about-line"></div>
+      <h2>La passion de<br>la coiffure</h2>
+      <p>Depuis 2018, Studio Éclat réunit une équipe de coiffeurs passionnés, formés aux dernières techniques et tendances. Notre salon est un lieu de bien-être où chaque client est unique.</p>
+      <p>Nous utilisons exclusivement des produits professionnels haut de gamme, respectueux de vos cheveux et de l'environnement. Chaque prestation commence par une consultation personnalisée.</p>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="galerie">
+  <div class="section-header reveal">
+    <p class="section-header-label">Notre Univers</p>
+    <h2>Galerie</h2>
+    <div class="section-header-line"></div>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item reveal"><img src="img/barbershop1.jpg" alt="Salon Studio Éclat"><div class="gallery-caption"><span>Notre salon</span></div></div>
+    <div class="gallery-item reveal"><img src="img/barbershop2.jpg" alt="Coiffure Studio Éclat"><div class="gallery-caption"><span>Nos créations</span></div></div>
+    <div class="gallery-item reveal"><img src="img/barbershop3.jpg" alt="Ambiance Studio Éclat"><div class="gallery-caption"><span>L'ambiance</span></div></div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="section-header reveal"><p class="section-header-label">Avis Clients</p><h2>Témoignages</h2><div class="section-header-line"></div></div>
+  <div class="testimonials-inner">
+    <div class="testimonial-item reveal">
+      <div class="testimonial-quote">❝</div>
+      <p class="testimonial-text">Le meilleur salon de Lyon ! L'équipe est à l'écoute et le résultat toujours au-dessus de mes attentes. Mon balayage est parfait.</p>
+      <div class="testimonial-line"></div>
+      <p class="testimonial-name">Sophie L.</p>
+      <p class="testimonial-source">Google</p>
+    </div>
+    <div class="testimonial-item reveal">
+      <div class="testimonial-quote">❝</div>
+      <p class="testimonial-text">Enfin un salon où on prend le temps de comprendre ce que je veux. Ambiance chaleureuse et professionnalisme au rendez-vous.</p>
+      <div class="testimonial-line"></div>
+      <p class="testimonial-name">Thomas M.</p>
+      <p class="testimonial-source">Google</p>
+    </div>
+  </div>
+</section>
+
+<section class="booking-cta" id="rdv">
+  <div class="booking-cta-bg"></div>
+  <div class="booking-cta-overlay"></div>
+  <div class="booking-cta-content reveal">
+    <div class="booking-cta-ornament"></div>
+    <h2>Prenez rendez-vous</h2>
+    <p class="booking-cta-sub">Votre nouvelle coupe vous attend</p>
+    <p class="booking-cta-phone">04 72 XX XX XX</p>
+    <a href="#" class="btn-hero">Réserver en ligne</a>
+  </div>
+</section>
+
+<section class="hours-section">
+  <div class="hours-header reveal"><h2>Infos pratiques</h2><div class="hours-header-line"></div></div>
+  <div class="hours-inner reveal">
+    <div class="hours-col">
+      <p class="hours-col-title">Horaires</p><div class="hours-col-line"></div>
+      <table class="hours-table"><tr><td>Mar – Sam</td><td>9h–19h</td></tr><tr><td>Dim – Lun</td><td>Fermé</td></tr></table>
+    </div>
+    <div class="hours-divider-v"></div>
+    <div class="hours-col">
+      <p class="hours-col-title">Adresse</p><div class="hours-col-line"></div>
+      <p class="contact-address">15 Rue de la République<br>69001 Lyon</p>
+    </div>
+    <div class="hours-divider-v"></div>
+    <div class="hours-col">
+      <p class="hours-col-title">Contact</p><div class="hours-col-line"></div>
+      <p class="contact-phone">04 72 XX XX XX</p>
+      <p class="contact-email">contact@studio-eclat.fr</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Studio <em>Éclat</em></div>
+    <p class="footer-copy">© 2025 Studio Éclat — Tous droits réservés</p>
+    <div class="footer-social"><a href="#">Instagram</a><a href="#">Facebook</a></div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);});
+const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});
+function closeMobile(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow='';}
+const reveals=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.15});
+reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

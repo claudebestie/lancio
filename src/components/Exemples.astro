@@ -3,50 +3,50 @@ const exemples = [
   {
     secteur: "Restaurant",
     ville: "Paris",
-    titre: "La Table du Chef",
-    desc: "Site bilingue avec menu en ligne, réservation et photos",
-    color: "#D4C9B5",
-    accent: "#8B6F47",
+    titre: "Le Comptoir Doré",
+    desc: "Menu en ligne, réservation et galerie photos",
+    photo: "/secteurs/restaurant1.jpg",
+    href: "/examples/restaurant/",
   },
   {
     secteur: "Salon de coiffure",
     ville: "Lyon",
     titre: "Studio Éclat",
     desc: "Prise de rendez-vous en ligne, galerie avant/après",
-    color: "#C5D4D0",
-    accent: "#2A5C52",
+    photo: "/secteurs/barbershop1.jpg",
+    href: "/examples/coiffeur/",
   },
   {
     secteur: "Cabinet avocat",
     ville: "Marseille",
-    titre: "Maître Fontaine",
-    desc: "Site institutionnel, formulaire de contact, blog juridique",
-    color: "#D0CDE0",
-    accent: "#3C3489",
+    titre: "Cabinet Fontaine",
+    desc: "Site institutionnel, formulaire de contact, expertise",
+    photo: "/secteurs/lawyer1.jpg",
+    href: "/examples/avocat/",
   },
   {
     secteur: "Coach sportif",
     ville: "Bordeaux",
     titre: "Marc Performance",
-    desc: "Landing page avec programme, témoignages, CTA fort",
-    color: "#D4E0D0",
-    accent: "#1A3C34",
+    desc: "Programmes, résultats clients, prise de RDV",
+    photo: "/secteurs/coach1.jpg",
+    href: "/examples/coach-sportif/",
   },
   {
     secteur: "Artisan plombier",
     ville: "Toulouse",
-    titre: "Durand Plomberie",
-    desc: "Site vitrine urgences 24h/7j, devis en ligne",
-    color: "#E0D8CE",
-    accent: "#5A4A3A",
+    titre: "Durand & Fils",
+    desc: "Réalisations, devis en ligne, zone d'intervention",
+    photo: "/secteurs/contracting1.jpg",
+    href: "/examples/artisan/",
   },
   {
     secteur: "Médecin",
     ville: "Nantes",
-    titre: "Dr. Legrand",
-    desc: "Présentation cabinet, horaires, prise de RDV Doctolib",
-    color: "#D0DDE8",
-    accent: "#185FA5",
+    titre: "Cabinet Dr. Legrand",
+    desc: "Présentation cabinet, horaires, prise de RDV",
+    photo: "/secteurs/clinic1.jpg",
+    href: "/examples/medecin/",
   },
 ];
 ---
@@ -61,21 +61,9 @@ const exemples = [
 
     <div class="exemples-grid">
       {exemples.map(e => (
-        <div class="exemple-card">
-          <div class="exemple-preview" style={`background: ${e.color};`}>
-            <div class="preview-nav" style={`background: rgba(255,255,255,0.7);`}>
-              <div class="preview-logo" style={`background: ${e.accent}; opacity:0.3;`}></div>
-              <div class="preview-links">
-                <div class="preview-link"></div>
-                <div class="preview-link"></div>
-                <div class="preview-link"></div>
-              </div>
-            </div>
-            <div class="preview-hero">
-              <div class="preview-h1" style={`background: ${e.accent};`}></div>
-              <div class="preview-h2" style={`background: ${e.accent}; opacity:0.5;`}></div>
-              <div class="preview-cta" style={`background: ${e.accent};`}></div>
-            </div>
+        <a href={e.href} class="exemple-card">
+          <div class="exemple-preview">
+            <img src={e.photo} alt={`Exemple site ${e.secteur}`} loading="lazy" />
             <div class="exemple-tag">
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="5" fill="#1A3C34"/><path d="M2.5 5l1.5 1.5 3-3" stroke="#FAFAF8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               Livré en 48h
@@ -89,7 +77,7 @@ const exemples = [
             <div class="exemple-titre">{e.titre}</div>
             <div class="exemple-desc">{e.desc}</div>
           </div>
-        </div>
+        </a>
       ))}
     </div>
 
@@ -135,10 +123,13 @@ const exemples = [
     gap: 20px;
   }
   .exemple-card {
+    display: block;
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
   }
   .exemple-card:hover {
     transform: translateY(-4px);
@@ -146,26 +137,14 @@ const exemples = [
   }
   .exemple-preview {
     height: 180px;
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
     position: relative;
+    overflow: hidden;
   }
-  .preview-nav {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 10px;
-    border-radius: 6px;
+  .exemple-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
-  .preview-logo { width: 40px; height: 8px; border-radius: 3px; }
-  .preview-links { display: flex; gap: 6px; margin-left: auto; }
-  .preview-link { width: 24px; height: 6px; background: rgba(14,14,14,0.15); border-radius: 3px; }
-  .preview-hero { padding: 8px 10px; display: flex; flex-direction: column; gap: 7px; }
-  .preview-h1 { height: 14px; width: 70%; border-radius: 4px; opacity: 0.7; }
-  .preview-h2 { height: 9px; width: 50%; border-radius: 3px; }
-  .preview-cta { height: 22px; width: 80px; border-radius: 5px; }
   .exemple-tag {
     position: absolute;
     bottom: 10px;

@@ -1,0 +1,117 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Création site web agence immobilière — 48h | Lancio"
+  description="Lancio crée votre site web pour agence immobilière en 48h à partir de €650. Annonces, estimations, formulaire de contact. Clé en main."
+  canonical="https://lancio.fr/site-web-immobilier/"
+  ogImage="https://lancio.fr/secteurs/immo1.jpg"
+  extraStructuredData={JSON.stringify([
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Lancio","item":"https://lancio.fr/"},
+      {"@type":"ListItem","position":2,"name":"Site web immobilier","item":"https://lancio.fr/site-web-immobilier/"}
+    ]},
+    {"@context":"https://schema.org","@type":"Service","serviceType":"Création de site web pour agence immobilière",
+     "provider":{"@type":"ProfessionalService","name":"Lancio","url":"https://lancio.fr"},
+     "areaServed":{"@type":"Country","name":"France"},
+     "offers":{"@type":"Offer","price":"650","priceCurrency":"EUR"}}
+  ])}
+>
+  <Nav />
+  <main class="secteur-page">
+    <section class="secteur-hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="/">Lancio</a><span>→</span><span>Site web immobilier</span></div>
+        <h1>Création site web<br/><em>immobilier</em> en 48h</h1>
+        <p class="secteur-sub">Vitrine de vos biens, estimation en ligne, formulaire de contact — un site qui génère des mandats. Livré en 48h à partir de €650.</p>
+        <div class="secteur-actions">
+          <a href="/#commander" class="btn-primary">Commander mon site immobilier →</a>
+          <div class="secteur-proof"><span>⭐ 4.9/5</span><span>·</span><span>47 sites livrés</span><span>·</span><span>48h garantis</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secteur-galerie section-pad">
+      <div class="container">
+        <h2>Exemples de sites immobilier</h2>
+        <div class="examples-grid">
+          <a href="/examples/immobilier/" class="example-card">
+            <img class="ex-preview" src="/secteurs/immo1.jpg" alt="Exemple de site immobilier créé par Lancio" loading="lazy" />
+            <div class="ex-body">
+              <h3>Agence Horizon — Site immobilier</h3>
+              <p>Biens, estimations, contact</p>
+            </div>
+          </a>
+          <a href="/#commander" class="example-card example-cta-card">
+            <div>
+              <h3>Vous voulez un site comme celui-ci ?</h3>
+              <p>Commandez le vôtre — livraison 48h</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="secteur-inclus section-pad">
+      <div class="container">
+        <h2>Ce que votre site immobilier doit avoir</h2>
+        <div class="inclus-grid">
+          <div class="inclus-card"><div class="inclus-icon">🏠</div><h3>Vitrine de biens</h3><p>Vos annonces présentées avec photos, prix, superficie, localisation — de façon claire et attrayante.</p></div>
+          <div class="inclus-card"><div class="inclus-icon">📊</div><h3>Estimation en ligne</h3><p>Formulaire d'estimation gratuite pour capter des vendeurs potentiels et générer des mandats.</p></div>
+          <div class="inclus-card"><div class="inclus-icon">📞</div><h3>Formulaire de contact</h3><p>Demande de visite, renseignements — vos prospects vous contactent facilement depuis chaque annonce.</p></div>
+          <div class="inclus-card"><div class="inclus-icon">📍</div><h3>Zone géographique</h3><p>Présentez votre zone d'intervention, les quartiers que vous couvrez, votre expertise locale.</p></div>
+          <div class="inclus-card"><div class="inclus-icon">🔍</div><h3>SEO local</h3><p>Apparaître sur "agence immobilière [ville]" — là où vos futurs clients vous cherchent.</p></div>
+          <div class="inclus-card"><div class="inclus-icon">📱</div><h3>Design pro & mobile</h3><p>Un site professionnel et moderne. Vos clients visitent les annonces sur leur téléphone.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secteur-cta section-pad" style="background: var(--cream);">
+      <div class="container cta-inner">
+        <h2>Attirez plus de mandats avec un site qui fait la différence.</h2>
+        <p>Commandez aujourd'hui — votre site est en ligne dans 48h.</p>
+        <a href="/#commander" class="btn-primary">Je lance mon site →</a>
+        <div class="cta-price">À partir de €650 · Livraison 48h garantie · Satisfait ou on recommence</div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .secteur-hero { padding: 120px 0 80px; background: var(--cream); border-bottom: 1px solid var(--border); }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-muted); margin-bottom: 24px; }
+  .breadcrumb a { color: var(--accent); }
+  h1 { font-size: clamp(36px, 5vw, 64px); margin-bottom: 20px; line-height: 1.05; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .secteur-sub { font-size: 18px; color: var(--text-secondary); max-width: 560px; line-height: 1.65; margin-bottom: 32px; }
+  .secteur-actions { display: flex; flex-direction: column; gap: 16px; }
+  .secteur-proof { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-muted); }
+  .btn-primary { display: inline-flex; font-size: 15px; font-weight: 500; background: var(--accent); color: var(--white); padding: 14px 28px; border-radius: var(--radius-md); transition: background 0.15s, transform 0.1s; width: fit-content; }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+  .section-pad { padding: var(--section-py) 0; }
+  h2 { font-size: clamp(28px, 3.5vw, 40px); margin-bottom: 40px; text-align: center; line-height: 1.1; }
+  .examples-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .example-card { display: block; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: inherit; transition: transform 0.3s, box-shadow 0.3s; }
+  .example-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+  .ex-preview { width: 100%; height: 180px; object-fit: cover; }
+  .ex-body { padding: 16px; }
+  .ex-body h3 { font-family: var(--font-body); font-size: 15px; font-weight: 500; color: var(--text-primary); margin: 0 0 4px; }
+  .ex-body p { font-size: 13px; color: var(--text-secondary); margin: 0; }
+  .example-cta-card { display: flex; align-items: center; justify-content: center; min-height: 180px; background: var(--accent-pale); border: 1px dashed var(--accent); text-align: center; padding: 24px; }
+  .example-cta-card h3 { color: var(--accent); }
+  .inclus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .inclus-card { background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; }
+  .inclus-icon { font-size: 24px; margin-bottom: 12px; }
+  .inclus-card h3 { font-family: var(--font-body); font-size: 15px; font-weight: 500; margin-bottom: 8px; }
+  .inclus-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  .cta-inner { text-align: center; }
+  .cta-inner p { font-size: 16px; color: var(--text-secondary); margin-bottom: 28px; }
+  .cta-inner h2 { margin-bottom: 12px; }
+  .cta-price { margin-top: 16px; font-size: 13px; color: var(--text-muted); }
+  @media (max-width: 768px) { .inclus-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .inclus-grid { grid-template-columns: 1fr; } }
+</style>

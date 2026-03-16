@@ -1,17 +1,16 @@
 ---
 const secteurs = [
-  { icon: "🍽️", label: "Restaurant" },
-  { icon: "✂️", label: "Coiffeur" },
-  { icon: "⚖️", label: "Avocat" },
-  { icon: "🩺", label: "Médecin" },
-  { icon: "🏋️", label: "Coach sportif" },
-  { icon: "🔧", label: "Artisan" },
-  { icon: "💈", label: "Barbier" },
-  { icon: "🌿", label: "Thérapeute" },
-  { icon: "🏠", label: "Agent immobilier" },
-  { icon: "📐", label: "Architecte" },
-  { icon: "🍰", label: "Traiteur" },
-  { icon: "📸", label: "Photographe" },
+  { icon: "🍽️", label: "Restaurant", href: "/site-web-restaurant/" },
+  { icon: "✂️", label: "Coiffeur", href: "/site-web-coiffeur/" },
+  { icon: "⚖️", label: "Avocat", href: "/site-web-avocat/" },
+  { icon: "🩺", label: "Médecin", href: "/site-web-medecin/" },
+  { icon: "🏋️", label: "Coach sportif", href: "/site-web-coach-sportif/" },
+  { icon: "💅", label: "Salon de beauté", href: "/site-web-salon-de-beaute/" },
+  { icon: "☕", label: "Café", href: "/site-web-cafe/" },
+  { icon: "🧘", label: "Pilates", href: "/site-web-pilates/" },
+  { icon: "🌿", label: "Thérapeute", href: "/site-web-therapeute/" },
+  { icon: "🏠", label: "Immobilier", href: "/site-web-immobilier/" },
+  { icon: "🔧", label: "Artisan", href: "/site-web-artisan/" },
 ];
 ---
 
@@ -20,16 +19,16 @@ const secteurs = [
   <div class="secteurs-track">
     <div class="secteurs-inner">
       {secteurs.map(s => (
-        <div class="secteur-item">
+        <a href={s.href} class="secteur-item">
           <span class="secteur-icon">{s.icon}</span>
           <span class="secteur-name">{s.label}</span>
-        </div>
+        </a>
       ))}
       {secteurs.map(s => (
-        <div class="secteur-item" aria-hidden="true">
+        <a href={s.href} class="secteur-item" aria-hidden="true">
           <span class="secteur-icon">{s.icon}</span>
           <span class="secteur-name">{s.label}</span>
-        </div>
+        </a>
       ))}
     </div>
   </div>
@@ -75,6 +74,13 @@ const secteurs = [
     padding: 8px 16px;
     white-space: nowrap;
     flex-shrink: 0;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .secteur-item:hover {
+    background: var(--accent-pale);
+    border-color: var(--accent);
   }
   .secteur-icon { font-size: 15px; }
   .secteur-name { font-size: 13px; color: var(--text-secondary); font-weight: 400; }

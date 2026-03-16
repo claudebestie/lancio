@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marc Performance | Coach Sportif, Bordeaux</title>
+<meta name="description" content="Coach sportif certifié à Bordeaux. Programmes personnalisés de remise en forme, perte de poids et renforcement musculaire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--green:#1A3C34;--green-light:#2A5C4E;--orange:#E8653A;--orange-dark:#C85430;--offwhite:#FAFAF8;--cream:#F0EDE6;--charcoal:#1A1A1A;--text-dark:#1A1A1A;--text-body:#3D3D3D;--text-muted:#6B6560;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+body{font-family:var(--sans);background:var(--offwhite);color:var(--text-dark);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--orange);color:var(--offwhite)}img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{font-family:inherit;cursor:pointer}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(60px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+.lancio-banner{background:var(--cream);padding:10px 24px;text-align:center;font-size:.78rem;color:var(--text-muted);z-index:200;position:relative}.lancio-banner a{color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:150;padding:0 56px;height:72px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background .4s,box-shadow .4s}
+.nav.scrolled{background:rgba(26,60,52,.97);backdrop-filter:blur(20px);box-shadow:0 1px 40px rgba(0,0,0,.2)}
+.nav-logo{font-family:var(--serif);font-size:1.4rem;color:var(--offwhite)}.nav-logo span{color:var(--orange)}
+.nav-center{display:flex;gap:40px}.nav-link{font-size:.82rem;font-weight:600;color:rgba(250,250,248,.7);letter-spacing:1.5px;text-transform:uppercase;transition:color .3s}.nav-link:hover{color:var(--orange)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.btn-nav{display:inline-flex;padding:10px 28px;background:var(--orange);border:none;color:var(--offwhite);font-size:.85rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:4px;transition:all .35s}.btn-nav:hover{background:var(--orange-dark)}
+.hamburger{display:none;flex-direction:column;width:36px;height:36px;background:none;border:none;justify-content:center;align-items:center;z-index:210}
+.hamburger span{display:block;width:22px;height:2px;background:var(--offwhite);margin:3px 0;transition:all .35s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:149;background:rgba(26,60,52,.98);flex-direction:column;justify-content:center;align-items:center;gap:32px;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.mobile-menu.open{opacity:1;visibility:visible}.mobile-menu a{font-family:var(--serif);font-size:1.8rem;color:var(--offwhite);transition:color .3s}.mobile-menu a:hover{color:var(--orange)}
+
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 48px 100px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('img/coach1.jpg') center/cover no-repeat;z-index:0}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(26,60,52,.5) 0%,rgba(26,26,26,.6) 100%)}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero h1{font-family:var(--serif);font-size:clamp(2.8rem,6vw,5rem);color:var(--offwhite);line-height:1.1;margin-bottom:20px}.hero h1 span{color:var(--orange)}
+.hero-tagline{font-size:clamp(1rem,2vw,1.2rem);color:rgba(250,250,248,.8);margin-bottom:48px}
+.btn-hero{display:inline-flex;padding:18px 56px;background:var(--orange);border:none;color:var(--offwhite);font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:4px;transition:all .4s}.btn-hero:hover{background:var(--orange-dark);transform:translateY(-2px)}
+
+.programs{padding:120px 48px;background:var(--offwhite)}
+.section-header{text-align:center;margin-bottom:72px}
+.section-header h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:12px}
+.section-header-line{width:48px;height:3px;background:var(--orange);margin:16px auto 0;border-radius:2px}
+.programs-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.program-card{background:var(--cream);padding:36px 28px;text-align:center;border-radius:8px;transition:transform .4s,box-shadow .4s;border-bottom:3px solid transparent}
+.program-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(26,60,52,.12);border-bottom-color:var(--orange)}
+.program-icon{font-size:2.2rem;margin-bottom:16px}
+.program-card h3{font-family:var(--serif);font-size:1.15rem;color:var(--green);margin-bottom:8px}
+.program-card .price{font-size:1.1rem;font-weight:700;color:var(--orange);margin-bottom:12px}
+.program-card p{font-size:.85rem;color:var(--text-muted);line-height:1.6}
+
+.about{padding:120px 48px;background:var(--cream)}
+.about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-img{border-radius:8px;overflow:hidden}.about-img img{width:100%;height:500px;object-fit:cover}
+.about h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:24px}
+.about p{font-size:.95rem;color:var(--text-body);line-height:1.85;margin-bottom:16px}
+.about-badge{display:inline-flex;padding:6px 16px;background:var(--green);color:var(--offwhite);font-size:.78rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-radius:4px;margin-top:8px}
+
+.stats{padding:80px 48px;background:var(--green)}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;text-align:center}
+.stat-num{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);color:var(--orange);line-height:1;margin-bottom:8px}
+.stat-label{font-size:.82rem;color:rgba(250,250,248,.7);letter-spacing:1px;text-transform:uppercase}
+
+.testimonials{padding:120px 48px;background:var(--offwhite)}
+.testimonials-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.testimonial-item{background:var(--cream);padding:40px;border-radius:8px;text-align:center}
+.testimonial-quote{font-size:3rem;color:var(--orange);line-height:1;margin-bottom:16px;opacity:.4}
+.testimonial-text{font-size:.95rem;font-style:italic;line-height:1.8;margin-bottom:20px;color:var(--text-body)}
+.testimonial-name{font-weight:600;color:var(--green);margin-bottom:4px}
+.testimonial-source{font-size:.75rem;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase}
+
+.cta-section{position:relative;min-height:480px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 48px;overflow:hidden}
+.cta-bg{position:absolute;inset:0;background:url('img/coach4.jpg') center/cover no-repeat;z-index:0}
+.cta-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(26,60,52,.7) 0%,rgba(26,26,26,.7) 100%)}
+.cta-content{position:relative;z-index:2}
+.cta-section h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);color:var(--offwhite);margin-bottom:16px}
+.cta-sub{font-size:1.1rem;color:rgba(250,250,248,.8);margin-bottom:40px}
+
+.contact-section{padding:120px 48px;background:var(--cream)}
+.contact-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center}
+.contact-card h3{font-family:var(--serif);font-size:1.1rem;color:var(--green);margin-bottom:12px}
+.contact-card p{font-size:.95rem;color:var(--text-body);line-height:1.8}
+.contact-card .highlight{font-size:1.1rem;font-weight:600;color:var(--orange)}
+
+.footer{background:var(--charcoal);padding:48px;text-align:center}
+.footer-logo{font-family:var(--serif);font-size:1.3rem;color:var(--offwhite);margin-bottom:8px}.footer-logo span{color:var(--orange)}
+.footer-copy{font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:16px}
+.footer-social{display:flex;justify-content:center;gap:20px}
+.footer-social a{font-size:.78rem;color:rgba(255,255,255,.45);letter-spacing:1px;text-transform:uppercase;transition:color .3s}.footer-social a:hover{color:var(--orange)}
+
+@media(max-width:1024px){.nav{padding:0 32px}.nav-center{display:none}.hamburger{display:flex}.mobile-menu{display:flex}.about-inner{grid-template-columns:1fr;gap:48px}.programs-grid{grid-template-columns:1fr 1fr}.stats-inner{grid-template-columns:1fr 1fr;gap:32px}.testimonials-inner{grid-template-columns:1fr;gap:40px}.contact-inner{grid-template-columns:1fr}}
+@media(max-width:640px){.hero h1{font-size:2.4rem}.hero,.programs,.about,.testimonials,.cta-section,.contact-section{padding:80px 24px}.programs-grid{grid-template-columns:1fr}.btn-nav{display:none}}
+</style>
+</head>
+<body>
+<div class="lancio-banner">Ceci est un site de démonstration créé par <a href="https://lancio.fr">Lancio</a>. Créez le vôtre en 48h → <a href="https://lancio.fr">lancio.fr</a></div>
+<nav class="nav" id="nav"><a href="#" class="nav-logo">Marc <span>Performance</span></a><div class="nav-center"><a href="#programmes" class="nav-link">Programmes</a><a href="#resultats" class="nav-link">Résultats</a><a href="#apropos" class="nav-link">À propos</a><a href="#contact" class="nav-link">Contact</a></div><div class="nav-right"><a href="#contact" class="btn-nav">Réserver</a><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="mobile-menu" id="mobileMenu"><a href="#programmes" onclick="closeMobile()">Programmes</a><a href="#resultats" onclick="closeMobile()">Résultats</a><a href="#apropos" onclick="closeMobile()">À propos</a><a href="#contact" onclick="closeMobile()">Contact</a></div>
+
+<section class="hero"><div class="hero-bg"></div><div class="hero-overlay"></div><div class="hero-content"><h1>Marc <span>Performance</span></h1><p class="hero-tagline">Coaching sportif personnalisé à Bordeaux — Atteignez vos objectifs</p><a href="#contact" class="btn-hero">Séance d'essai gratuite</a></div></section>
+
+<section class="programs" id="programmes">
+  <div class="section-header reveal"><h2>Programmes</h2><div class="section-header-line"></div></div>
+  <div class="programs-grid reveal">
+    <div class="program-card"><div class="program-icon">💪</div><h3>Remise en forme</h3><p class="price">€50/séance</p><p>Programme complet pour retrouver votre vitalité et votre énergie</p></div>
+    <div class="program-card"><div class="program-icon">🔥</div><h3>Perte de poids</h3><p class="price">€55/séance</p><p>Coaching nutrition + sport pour des résultats durables</p></div>
+    <div class="program-card"><div class="program-icon">🏋️</div><h3>Renforcement</h3><p class="price">€50/séance</p><p>Musculation ciblée et exercices fonctionnels</p></div>
+    <div class="program-card"><div class="program-icon">⚡</div><h3>Prépa sportive</h3><p class="price">€60/séance</p><p>Préparation physique pour compétitions et événements</p></div>
+  </div>
+</section>
+
+<section class="about" id="apropos">
+  <div class="about-inner"><div class="about-img reveal-left"><img src="img/coach2.jpg" alt="Marc, coach sportif"></div><div class="reveal-right"><h2>Votre coach, votre allié</h2><p>Passionné de sport depuis toujours, je suis coach certifié BPJEPS avec 8 ans d'expérience. Mon approche est simple : comprendre vos objectifs, adapter chaque séance à votre niveau et vous accompagner jusqu'au résultat.</p><p>Que vous soyez débutant ou sportif confirmé, je crée un programme sur-mesure combinant exercices physiques et conseils nutritionnels pour des résultats concrets et durables.</p><span class="about-badge">Certifié BPJEPS</span></div></div>
+</section>
+
+<section class="stats" id="resultats">
+  <div class="stats-inner reveal">
+    <div><div class="stat-num">200+</div><div class="stat-label">Clients accompagnés</div></div>
+    <div><div class="stat-num">97%</div><div class="stat-label">Satisfaction</div></div>
+    <div><div class="stat-num">8</div><div class="stat-label">Ans d'expérience</div></div>
+    <div><div class="stat-num">BPJEPS</div><div class="stat-label">Certifié</div></div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="section-header reveal"><h2>Témoignages</h2><div class="section-header-line"></div></div>
+  <div class="testimonials-inner">
+    <div class="testimonial-item reveal"><div class="testimonial-quote">❝</div><p class="testimonial-text">Grâce à Marc, j'ai perdu 12 kg en 4 mois. Ses séances sont intenses mais toujours adaptées. Un vrai professionnel !</p><p class="testimonial-name">Stéphane D.</p><p class="testimonial-source">Google</p></div>
+    <div class="testimonial-item reveal"><div class="testimonial-quote">❝</div><p class="testimonial-text">Marc m'a préparée pour mon premier semi-marathon. Grâce à son programme, j'ai terminé en 1h52. Merci coach !</p><p class="testimonial-name">Julie A.</p><p class="testimonial-source">Google</p></div>
+  </div>
+</section>
+
+<section class="cta-section"><div class="cta-bg"></div><div class="cta-overlay"></div><div class="cta-content reveal"><h2>Votre première séance offerte</h2><p class="cta-sub">Testez sans engagement — Résultats garantis</p><a href="#contact" class="btn-hero">Je me lance</a></div></section>
+
+<section class="contact-section" id="contact">
+  <div class="section-header reveal"><h2>Contact</h2><div class="section-header-line"></div></div>
+  <div class="contact-inner reveal">
+    <div class="contact-card"><h3>Localisation</h3><p>Bordeaux centre<br>& déplacement à domicile</p></div>
+    <div class="contact-card"><h3>Téléphone</h3><p class="highlight">05 56 XX XX XX</p><p>marc@marcperformance.fr</p></div>
+    <div class="contact-card"><h3>Réseaux</h3><p>@marcperformance<br>Instagram & Facebook</p></div>
+  </div>
+</section>
+
+<footer class="footer"><p class="footer-logo">Marc <span>Performance</span></p><p class="footer-copy">© 2025 Marc Performance — Tous droits réservés</p><div class="footer-social"><a href="#">Instagram</a><a href="#">Facebook</a></div></footer>
+
+<script>
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);});
+const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});
+function closeMobile(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow='';}
+const reveals=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:.15});
+reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

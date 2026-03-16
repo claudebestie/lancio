@@ -8,6 +8,17 @@ import Footer from '../../components/Footer.astro';
   title="Création site web restaurant — Livraison 48h | Lancio"
   description="Lancio crée votre site web restaurant professionnel en 48h à partir de €650. Menu en ligne, réservation, photos. Clé en main, sans rendez-vous."
   canonical="https://lancio.fr/site-web-restaurant/"
+  ogImage="https://lancio.fr/secteurs/restaurant1.jpg"
+  extraStructuredData={JSON.stringify([
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Lancio","item":"https://lancio.fr/"},
+      {"@type":"ListItem","position":2,"name":"Site web restaurant","item":"https://lancio.fr/site-web-restaurant/"}
+    ]},
+    {"@context":"https://schema.org","@type":"Service","serviceType":"Création de site web pour restaurant",
+     "provider":{"@type":"ProfessionalService","name":"Lancio","url":"https://lancio.fr"},
+     "areaServed":{"@type":"Country","name":"France"},
+     "offers":{"@type":"Offer","price":"650","priceCurrency":"EUR"}}
+  ])}
 >
   <Nav />
   <main class="secteur-page">
@@ -30,6 +41,27 @@ import Footer from '../../components/Footer.astro';
             <span>·</span>
             <span>48h garantis</span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secteur-galerie section-pad">
+      <div class="container">
+        <h2>Exemples de sites restaurant</h2>
+        <div class="examples-grid">
+          <a href="/examples/restaurant/" class="example-card">
+            <img class="ex-preview" src="/secteurs/restaurant1.jpg" alt="Exemple de site restaurant créé par Lancio" loading="lazy" />
+            <div class="ex-body">
+              <h3>Le Comptoir Doré — Site restaurant</h3>
+              <p>Menu en ligne, réservation, galerie photos</p>
+            </div>
+          </a>
+          <a href="/#commander" class="example-card example-cta-card">
+            <div>
+              <h3>Vous voulez un site comme celui-ci ?</h3>
+              <p>Commandez le vôtre — livraison 48h</p>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -188,6 +220,15 @@ import Footer from '../../components/Footer.astro';
     font-size: 13px;
     color: var(--text-muted);
   }
+  .examples-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .example-card { display: block; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: inherit; transition: transform 0.3s, box-shadow 0.3s; }
+  .example-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+  .ex-preview { width: 100%; height: 180px; object-fit: cover; }
+  .ex-body { padding: 16px; }
+  .ex-body h3 { font-family: var(--font-body); font-size: 15px; font-weight: 500; color: var(--text-primary); margin: 0 0 4px; }
+  .ex-body p { font-size: 13px; color: var(--text-secondary); margin: 0; }
+  .example-cta-card { display: flex; align-items: center; justify-content: center; min-height: 180px; background: var(--accent-pale); border: 1px dashed var(--accent); text-align: center; padding: 24px; }
+  .example-cta-card h3 { color: var(--accent); }
   @media (max-width: 768px) {
     .inclus-grid { grid-template-columns: 1fr 1fr; }
   }

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cabinet Dr. Legrand | Médecin Généraliste, Nantes</title>
+<meta name="description" content="Cabinet médical à Nantes. Médecine générale, pédiatrie et soins personnalisés pour toute la famille.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--blue:#2B5F8E;--blue-dark:#1D4366;--blue-light:#3A7BB5;--white:#FFFFFF;--light:#F4F7FA;--cream:#EDF1F5;--charcoal:#1A1A1A;--text-dark:#1A1A1A;--text-body:#3D3D3D;--text-muted:#6B7280;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+body{font-family:var(--sans);background:var(--white);color:var(--text-dark);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--blue);color:var(--white)}img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{font-family:inherit;cursor:pointer}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(60px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+.lancio-banner{background:var(--cream);padding:10px 24px;text-align:center;font-size:.78rem;color:var(--text-muted);z-index:200;position:relative}.lancio-banner a{color:var(--blue);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:150;padding:0 56px;height:72px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background .4s,box-shadow .4s}
+.nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);box-shadow:0 1px 20px rgba(0,0,0,.08)}
+.nav-logo{font-family:var(--serif);font-size:1.4rem;color:var(--white);transition:color .4s}.nav.scrolled .nav-logo{color:var(--blue)}
+.nav-center{display:flex;gap:40px}
+.nav-link{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.8);letter-spacing:1.5px;text-transform:uppercase;transition:color .3s}.nav.scrolled .nav-link{color:var(--text-muted)}
+.nav-link:hover{color:var(--white)}.nav.scrolled .nav-link:hover{color:var(--blue)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.btn-nav{display:inline-flex;padding:10px 28px;background:var(--blue);border:1px solid var(--blue);color:var(--white);font-size:.85rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-radius:4px;transition:all .35s}.btn-nav:hover{background:var(--blue-dark)}
+.hamburger{display:none;flex-direction:column;width:36px;height:36px;background:none;border:none;justify-content:center;align-items:center;z-index:210}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--white);margin:3px 0;transition:all .35s}.nav.scrolled .hamburger span{background:var(--charcoal)}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:149;background:rgba(43,95,142,.98);flex-direction:column;justify-content:center;align-items:center;gap:32px;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.mobile-menu.open{opacity:1;visibility:visible}.mobile-menu a{font-family:var(--serif);font-size:1.8rem;color:var(--white);transition:color .3s}
+
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 48px 100px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('img/clinic1.jpg') center/cover no-repeat;z-index:0}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(43,95,142,.55) 0%,rgba(29,67,102,.65) 100%)}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero h1{font-family:var(--serif);font-size:clamp(2.5rem,5.5vw,4.5rem);color:var(--white);line-height:1.15;margin-bottom:20px}
+.hero-tagline{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,.85);margin-bottom:48px;font-weight:400}
+.btn-hero{display:inline-flex;padding:16px 48px;background:var(--blue);border:2px solid var(--white);color:var(--white);font-size:1rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border-radius:4px;transition:all .4s}.btn-hero:hover{background:var(--white);color:var(--blue)}
+
+.services{padding:120px 48px;background:var(--light)}
+.section-header{text-align:center;margin-bottom:72px}
+.section-header h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:12px}
+.section-header p{font-size:.95rem;color:var(--text-muted);max-width:500px;margin:0 auto}
+.section-header-line{width:48px;height:3px;background:var(--blue);margin:16px auto 0;border-radius:2px}
+.services-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.service-card{background:var(--white);padding:40px 32px;text-align:center;border-radius:8px;transition:transform .4s,box-shadow .4s;border:1px solid rgba(43,95,142,.08)}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(43,95,142,.1)}
+.service-icon{font-size:2.2rem;margin-bottom:16px}
+.service-card h3{font-family:var(--serif);font-size:1.15rem;color:var(--blue);margin-bottom:12px}
+.service-card p{font-size:.88rem;color:var(--text-muted);line-height:1.6}
+
+.about{padding:120px 48px;background:var(--white)}
+.about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-img{border-radius:8px;overflow:hidden}.about-img img{width:100%;height:500px;object-fit:cover}
+.about h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:24px}
+.about p{font-size:.95rem;color:var(--text-body);line-height:1.85;margin-bottom:16px}
+
+.team{padding:120px 48px;background:var(--light)}
+.team-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.team-card{text-align:center;background:var(--white);border-radius:8px;overflow:hidden;transition:transform .4s,box-shadow .4s}
+.team-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(43,95,142,.1)}
+.team-card img{width:100%;height:320px;object-fit:cover}
+.team-card-body{padding:24px}
+.team-card h3{font-family:var(--serif);font-size:1.15rem;color:var(--blue);margin-bottom:4px}
+.team-card .specialty{font-size:.82rem;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase}
+
+.testimonials{padding:120px 48px;background:var(--white)}
+.testimonials-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.testimonial-item{text-align:center;background:var(--light);padding:40px;border-radius:8px}
+.testimonial-quote{font-size:3rem;color:var(--blue);line-height:1;margin-bottom:16px;opacity:.3}
+.testimonial-text{font-size:.95rem;font-style:italic;line-height:1.8;margin-bottom:20px;color:var(--text-body)}
+.testimonial-name{font-weight:600;color:var(--blue);margin-bottom:4px}
+.testimonial-source{font-size:.75rem;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase}
+
+.cta-section{position:relative;min-height:420px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 48px;background:var(--blue)}
+.cta-section h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:16px}
+.cta-sub{font-size:1.1rem;color:rgba(255,255,255,.8);margin-bottom:12px}
+.cta-phone{font-family:var(--serif);font-size:1.5rem;color:var(--white);font-weight:500;letter-spacing:2px;margin-bottom:40px}
+.btn-cta{display:inline-flex;padding:16px 48px;background:var(--white);color:var(--blue);font-size:1rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border-radius:4px;border:none;transition:all .4s}.btn-cta:hover{background:rgba(255,255,255,.9);transform:translateY(-2px)}
+
+.info-section{padding:120px 48px;background:var(--light)}
+.info-inner{display:grid;grid-template-columns:repeat(3,1fr);max-width:1100px;margin:0 auto;gap:40px}
+.info-card{background:var(--white);padding:40px;border-radius:8px;text-align:center}
+.info-card-title{font-size:.75rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:20px}
+.info-card p{font-size:.95rem;color:var(--text-body);line-height:1.8}
+.info-card .highlight{font-family:var(--serif);font-size:1.2rem;color:var(--blue);font-weight:500}
+
+.footer{background:var(--charcoal);padding:48px;text-align:center}
+.footer-logo{font-family:var(--serif);font-size:1.3rem;color:var(--white);margin-bottom:12px}
+.footer-copy{font-size:.78rem;color:rgba(255,255,255,.35)}
+
+@media(max-width:1024px){.nav{padding:0 32px}.nav-center{display:none}.hamburger{display:flex}.mobile-menu{display:flex}.about-inner{grid-template-columns:1fr;gap:48px}.services-grid,.team-grid{grid-template-columns:1fr 1fr}.testimonials-inner{grid-template-columns:1fr;gap:40px}.info-inner{grid-template-columns:1fr}}
+@media(max-width:640px){.hero h1{font-size:2.2rem}.hero,.services,.about,.team,.testimonials,.cta-section,.info-section{padding:80px 24px}.services-grid,.team-grid{grid-template-columns:1fr}.btn-nav{display:none}}
+</style>
+</head>
+<body>
+<div class="lancio-banner">Ceci est un site de démonstration créé par <a href="https://lancio.fr">Lancio</a>. Créez le vôtre en 48h → <a href="https://lancio.fr">lancio.fr</a></div>
+<nav class="nav" id="nav"><a href="#" class="nav-logo">Dr. Legrand</a><div class="nav-center"><a href="#soins" class="nav-link">Le Cabinet</a><a href="#soins" class="nav-link">Soins</a><a href="#equipe" class="nav-link">Équipe</a><a href="#rdv" class="nav-link">Rendez-vous</a></div><div class="nav-right"><a href="#rdv" class="btn-nav">Prendre RDV</a><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="mobile-menu" id="mobileMenu"><a href="#soins" onclick="closeMobile()">Soins</a><a href="#equipe" onclick="closeMobile()">Équipe</a><a href="#rdv" onclick="closeMobile()">Rendez-vous</a></div>
+
+<section class="hero"><div class="hero-bg"></div><div class="hero-overlay"></div><div class="hero-content"><h1>Cabinet Dr. Legrand</h1><p class="hero-tagline">Médecine générale & soins personnalisés à Nantes</p><a href="#rdv" class="btn-hero">Prendre rendez-vous</a></div></section>
+
+<section class="services" id="soins">
+  <div class="section-header reveal"><h2>Nos Soins</h2><p>Une prise en charge complète pour toute la famille</p><div class="section-header-line"></div></div>
+  <div class="services-grid reveal">
+    <div class="service-card"><div class="service-icon">🩺</div><h3>Médecine générale</h3><p>Consultations, suivi médical et prévention pour adultes et enfants</p></div>
+    <div class="service-card"><div class="service-icon">👶</div><h3>Pédiatrie</h3><p>Suivi de croissance, vaccinations et soins adaptés aux plus jeunes</p></div>
+    <div class="service-card"><div class="service-icon">🔬</div><h3>Dermatologie</h3><p>Dépistage cutané, traitement de l'acné et suivi dermatologique</p></div>
+    <div class="service-card"><div class="service-icon">💉</div><h3>Vaccination</h3><p>Calendrier vaccinal, rappels et vaccins voyageurs</p></div>
+    <div class="service-card"><div class="service-icon">🤰</div><h3>Suivi grossesse</h3><p>Accompagnement personnalisé du début à la fin de la grossesse</p></div>
+    <div class="service-card"><div class="service-icon">📋</div><h3>Bilan de santé</h3><p>Check-up complet, analyses et recommandations personnalisées</p></div>
+  </div>
+</section>
+
+<section class="about"><div class="about-inner"><div class="about-img reveal-left"><img src="img/clinic2.jpg" alt="Cabinet Dr. Legrand"></div><div class="reveal-right"><h2>Une médecine humaine et accessible</h2><p>Le Cabinet Dr. Legrand accueille les patients dans un environnement moderne et bienveillant. Notre priorité : une relation de confiance avec chaque patient.</p><p>Nous prenons le temps d'écouter, de comprendre et de proposer des soins adaptés. Notre équipe pluridisciplinaire assure une prise en charge complète et coordonnée.</p></div></div></section>
+
+<section class="team" id="equipe">
+  <div class="section-header reveal"><h2>Notre Équipe</h2><p>Des professionnels dédiés à votre santé</p><div class="section-header-line"></div></div>
+  <div class="team-grid reveal">
+    <div class="team-card"><img src="img/clinic3.jpg" alt="Dr. Marie Legrand"><div class="team-card-body"><h3>Dr. Marie Legrand</h3><p class="specialty">Médecine générale</p></div></div>
+    <div class="team-card"><img src="img/clinic4.jpg" alt="Dr. Thomas Bernard"><div class="team-card-body"><h3>Dr. Thomas Bernard</h3><p class="specialty">Pédiatrie</p></div></div>
+    <div class="team-card"><img src="img/clinic5.jpg" alt="Dr. Julie Moreau"><div class="team-card-body"><h3>Dr. Julie Moreau</h3><p class="specialty">Dermatologie</p></div></div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="section-header reveal"><h2>Avis patients</h2><div class="section-header-line"></div></div>
+  <div class="testimonials-inner">
+    <div class="testimonial-item reveal"><div class="testimonial-quote">❝</div><p class="testimonial-text">Toute l'équipe est formidable. Dr. Legrand prend vraiment le temps d'écouter et d'expliquer. Je recommande vivement.</p><p class="testimonial-name">Catherine P.</p><p class="testimonial-source">Google</p></div>
+    <div class="testimonial-item reveal"><div class="testimonial-quote">❝</div><p class="testimonial-text">Cabinet moderne et accueillant. Les rendez-vous sont ponctuels et le suivi est excellent. Mon médecin de famille depuis 3 ans.</p><p class="testimonial-name">Marc S.</p><p class="testimonial-source">Google</p></div>
+  </div>
+</section>
+
+<section class="cta-section" id="rdv">
+  <div class="reveal"><h2>Prenez rendez-vous en ligne</h2><p class="cta-sub">Consultations du lundi au samedi</p><p class="cta-phone">02 40 XX XX XX</p><button class="btn-cta">Réserver un créneau</button></div>
+</section>
+
+<section class="info-section">
+  <div class="info-inner reveal">
+    <div class="info-card"><p class="info-card-title">Adresse</p><p>8 Place Royale<br>44000 Nantes</p></div>
+    <div class="info-card"><p class="info-card-title">Horaires</p><p>Lun – Ven : 8h30–18h30<br>Samedi : 9h–12h</p></div>
+    <div class="info-card"><p class="info-card-title">Urgences</p><p>En cas d'urgence<br><span class="highlight">Appelez le 15</span></p></div>
+  </div>
+</section>
+
+<footer class="footer"><p class="footer-logo">Cabinet Dr. Legrand</p><p class="footer-copy">© 2025 Cabinet Dr. Legrand — Tous droits réservés</p></footer>
+
+<script>
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);});
+const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});
+function closeMobile(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow='';}
+const reveals=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:.15});
+reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

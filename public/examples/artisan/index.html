@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Durand & Fils | Plomberie & Chauffage, Lille</title>
+<meta name="description" content="Plombier chauffagiste à Lille. Dépannage, installation, rénovation salle de bain. Certifié RGE. Devis gratuit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--earth:#5C4033;--earth-dark:#3E2B22;--earth-light:#7A5D4E;--orange:#D97B3D;--orange-dark:#C0692F;--orange-light:#E8955E;--light:#F7F4EF;--cream:#EDE7DD;--charcoal:#1A1A1A;--text-dark:#1A1A1A;--text-body:#3D3D3D;--text-muted:#6B6560;--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
+body{font-family:var(--sans);background:var(--light);color:var(--text-dark);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--orange);color:var(--light)}img{display:block;max-width:100%}a{text-decoration:none;color:inherit}button{font-family:inherit;cursor:pointer}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(60px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+.lancio-banner{background:var(--cream);padding:10px 24px;text-align:center;font-size:.78rem;color:var(--text-muted);z-index:200;position:relative}.lancio-banner a{color:var(--earth);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:150;padding:0 56px;height:72px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background .4s,box-shadow .4s}
+.nav.scrolled{background:rgba(92,64,51,.97);backdrop-filter:blur(20px);box-shadow:0 1px 40px rgba(0,0,0,.2)}
+.nav-logo{font-family:var(--serif);font-size:1.4rem;color:var(--light)}.nav-logo span{color:var(--orange)}
+.nav-center{display:flex;gap:40px}.nav-link{font-size:.82rem;font-weight:600;color:rgba(247,244,239,.7);letter-spacing:1.5px;text-transform:uppercase;transition:color .3s}.nav-link:hover{color:var(--orange)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.btn-nav{display:inline-flex;padding:10px 28px;background:var(--orange);border:none;color:var(--light);font-size:.85rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:4px;transition:all .35s}.btn-nav:hover{background:var(--orange-dark)}
+.hamburger{display:none;flex-direction:column;width:36px;height:36px;background:none;border:none;justify-content:center;align-items:center;z-index:210}
+.hamburger span{display:block;width:22px;height:2px;background:var(--light);margin:3px 0;transition:all .35s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:149;background:rgba(92,64,51,.98);flex-direction:column;justify-content:center;align-items:center;gap:32px;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.mobile-menu.open{opacity:1;visibility:visible}.mobile-menu a{font-family:var(--serif);font-size:1.8rem;color:var(--light);transition:color .3s}.mobile-menu a:hover{color:var(--orange)}
+
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 48px 100px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('img/contracting1.jpg') center/cover no-repeat;z-index:0}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(92,64,51,.5) 0%,rgba(26,26,26,.6) 100%)}
+.hero-content{position:relative;z-index:2;max-width:850px}
+.hero h1{font-family:var(--serif);font-size:clamp(2.5rem,5.5vw,4.5rem);color:var(--light);line-height:1.15;margin-bottom:20px}.hero h1 span{color:var(--orange)}
+.hero-tagline{font-size:clamp(1rem,2vw,1.2rem);color:rgba(247,244,239,.8);margin-bottom:48px}
+.btn-hero{display:inline-flex;padding:18px 56px;background:var(--orange);border:none;color:var(--light);font-size:1rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:4px;transition:all .4s}.btn-hero:hover{background:var(--orange-dark);transform:translateY(-2px)}
+
+.services{padding:120px 48px;background:var(--light)}
+.section-header{text-align:center;margin-bottom:72px}
+.section-header h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:12px}
+.section-header-line{width:48px;height:3px;background:var(--orange);margin:16px auto 0;border-radius:2px}
+.services-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.service-card{background:var(--cream);padding:40px 32px;text-align:center;border-radius:8px;transition:transform .4s,box-shadow .4s;border-bottom:3px solid transparent}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(92,64,51,.12);border-bottom-color:var(--orange)}
+.service-icon{font-size:2.2rem;margin-bottom:16px}
+.service-card h3{font-family:var(--serif);font-size:1.15rem;color:var(--earth);margin-bottom:12px}
+.service-card p{font-size:.85rem;color:var(--text-muted);line-height:1.6}
+
+.projects{padding:120px 48px;background:var(--cream)}
+.projects-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.project-card{border-radius:8px;overflow:hidden;background:var(--light);transition:transform .4s,box-shadow .4s}
+.project-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(92,64,51,.12)}
+.project-card img{width:100%;height:280px;object-fit:cover}
+.project-body{padding:28px}
+.project-card h3{font-family:var(--serif);font-size:1.1rem;color:var(--earth);margin-bottom:8px}
+.project-card p{font-size:.85rem;color:var(--text-muted);line-height:1.6}
+
+.about{padding:120px 48px;background:var(--light)}
+.about-inner{max-width:1000px;margin:0 auto;text-align:center}
+.about h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:24px}
+.about p{font-size:.95rem;color:var(--text-body);line-height:1.85;margin-bottom:16px;max-width:700px;margin-left:auto;margin-right:auto}
+.badges{display:flex;justify-content:center;gap:24px;margin-top:32px}
+.badge{display:inline-flex;padding:8px 20px;background:var(--cream);font-size:.82rem;font-weight:600;color:var(--earth);letter-spacing:1px;text-transform:uppercase;border-radius:4px}
+
+.stats{padding:80px 48px;background:var(--earth)}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;text-align:center}
+.stat-num{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);color:var(--orange);line-height:1;margin-bottom:8px}
+.stat-label{font-size:.82rem;color:rgba(247,244,239,.7);letter-spacing:1px;text-transform:uppercase}
+
+.testimonials{padding:120px 48px;background:var(--cream)}
+.testimonials-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.testimonial-item{background:var(--light);padding:40px;border-radius:8px;text-align:center}
+.testimonial-quote{font-size:3rem;color:var(--orange);line-height:1;margin-bottom:16px;opacity:.4}
+.testimonial-text{font-size:.95rem;font-style:italic;line-height:1.8;margin-bottom:20px;color:var(--text-body)}
+.testimonial-name{font-weight:600;color:var(--earth);margin-bottom:4px}
+.testimonial-source{font-size:.75rem;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase}
+
+.cta-section{position:relative;min-height:480px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 48px;overflow:hidden}
+.cta-bg{position:absolute;inset:0;background:url('img/contracting4.jpg') center/cover no-repeat;z-index:0}
+.cta-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(92,64,51,.7) 0%,rgba(26,26,26,.7) 100%)}
+.cta-content{position:relative;z-index:2}
+.cta-section h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);color:var(--light);margin-bottom:16px}
+.cta-sub{font-size:1.1rem;color:rgba(247,244,239,.8);margin-bottom:12px}
+.cta-phone{font-family:var(--serif);font-size:1.5rem;color:var(--orange);font-weight:700;letter-spacing:2px;margin-bottom:40px}
+
+.contact-section{padding:120px 48px;background:var(--light)}
+.contact-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center}
+.contact-card h3{font-family:var(--serif);font-size:1.1rem;color:var(--earth);margin-bottom:12px}
+.contact-card p{font-size:.95rem;color:var(--text-body);line-height:1.8}
+.contact-card .highlight{font-family:var(--serif);font-size:1.1rem;color:var(--orange);font-weight:600}
+
+.footer{background:var(--earth-dark);padding:48px;text-align:center}
+.footer-logo{font-family:var(--serif);font-size:1.3rem;color:var(--light);margin-bottom:12px}.footer-logo span{color:var(--orange)}
+.footer-copy{font-size:.78rem;color:rgba(247,244,239,.35)}
+
+@media(max-width:1024px){.nav{padding:0 32px}.nav-center{display:none}.hamburger{display:flex}.mobile-menu{display:flex}.services-grid,.projects-grid{grid-template-columns:1fr 1fr}.stats-inner{grid-template-columns:1fr 1fr;gap:32px}.testimonials-inner{grid-template-columns:1fr;gap:40px}.contact-inner{grid-template-columns:1fr}}
+@media(max-width:640px){.hero h1{font-size:2.2rem}.hero,.services,.projects,.about,.testimonials,.cta-section,.contact-section{padding:80px 24px}.services-grid,.projects-grid{grid-template-columns:1fr}.badges{flex-direction:column;align-items:center}.btn-nav{display:none}}
+</style>
+</head>
+<body>
+<div class="lancio-banner">Ceci est un site de démonstration créé par <a href="https://lancio.fr">Lancio</a>. Créez le vôtre en 48h → <a href="https://lancio.fr">lancio.fr</a></div>
+<nav class="nav" id="nav"><a href="#" class="nav-logo">Durand <span>& Fils</span></a><div class="nav-center"><a href="#services" class="nav-link">Services</a><a href="#realisations" class="nav-link">Réalisations</a><a href="#apropos" class="nav-link">À propos</a><a href="#devis" class="nav-link">Devis</a></div><div class="nav-right"><a href="#devis" class="btn-nav">Devis gratuit</a><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="mobile-menu" id="mobileMenu"><a href="#services" onclick="closeMobile()">Services</a><a href="#realisations" onclick="closeMobile()">Réalisations</a><a href="#apropos" onclick="closeMobile()">À propos</a><a href="#devis" onclick="closeMobile()">Devis</a></div>
+
+<section class="hero"><div class="hero-bg"></div><div class="hero-overlay"></div><div class="hero-content"><h1>Durand <span>& Fils</span></h1><p class="hero-tagline">Plomberie & chauffage — Artisans de confiance à Lille depuis 1998</p><a href="#devis" class="btn-hero">Devis gratuit</a></div></section>
+
+<section class="services" id="services">
+  <div class="section-header reveal"><h2>Nos Services</h2><div class="section-header-line"></div></div>
+  <div class="services-grid reveal">
+    <div class="service-card"><div class="service-icon">🔧</div><h3>Plomberie générale</h3><p>Installation, réparation et entretien de toutes vos installations sanitaires</p></div>
+    <div class="service-card"><div class="service-icon">🔥</div><h3>Installation chauffage</h3><p>Chaudières gaz, pompes à chaleur et plancher chauffant</p></div>
+    <div class="service-card"><div class="service-icon">🚿</div><h3>Rénovation salle de bain</h3><p>Conception et réalisation complète de votre salle de bain</p></div>
+    <div class="service-card"><div class="service-icon">⚡</div><h3>Dépannage urgent</h3><p>Intervention rapide 7j/7 pour fuites, pannes et urgences</p></div>
+    <div class="service-card"><div class="service-icon">🏠</div><h3>Chaudière & entretien</h3><p>Contrats d'entretien annuel, mise en service et dépannage</p></div>
+    <div class="service-card"><div class="service-icon">❄️</div><h3>Climatisation</h3><p>Installation et maintenance de systèmes de climatisation</p></div>
+  </div>
+</section>
+
+<section class="projects" id="realisations">
+  <div class="section-header reveal"><h2>Nos Réalisations</h2><div class="section-header-line"></div></div>
+  <div class="projects-grid reveal">
+    <div class="project-card"><img src="img/contracting2.jpg" alt="Rénovation complète"><div class="project-body"><h3>Rénovation complète</h3><p>Rénovation intégrale d'une salle de bain de 12m² à Lille-Centre. Douche italienne, double vasque.</p></div></div>
+    <div class="project-card"><img src="img/contracting3.jpg" alt="Installation chaudière"><div class="project-body"><h3>Installation chaudière</h3><p>Remplacement d'une ancienne chaudière par un modèle à condensation haute performance à Roubaix.</p></div></div>
+    <div class="project-card"><img src="img/contracting4.jpg" alt="Salle de bain moderne"><div class="project-body"><h3>Salle de bain moderne</h3><p>Création d'une salle de bain contemporaine dans un appartement haussmannien à Tourcoing.</p></div></div>
+  </div>
+</section>
+
+<section class="about" id="apropos">
+  <div class="about-inner reveal"><h2>Artisans depuis 1998</h2><p>Durand & Fils, c'est l'histoire d'une famille passionnée par les métiers du bâtiment. Fondée par Jean Durand il y a 25 ans, l'entreprise est aujourd'hui dirigée par ses fils Thomas et Nicolas.</p><p>Notre engagement : un travail soigné, des matériaux de qualité et un service irréprochable. Nous intervenons sur toute la métropole lilloise.</p><div class="badges"><span class="badge">Certifié RGE</span><span class="badge">Qualibat</span><span class="badge">Garantie décennale</span></div></div>
+</section>
+
+<section class="stats"><div class="stats-inner reveal"><div><div class="stat-num">1500+</div><div class="stat-label">Interventions</div></div><div><div class="stat-num">25</div><div class="stat-label">Ans d'expérience</div></div><div><div class="stat-num">4.9/5</div><div class="stat-label">Note Google</div></div><div><div class="stat-num">RGE</div><div class="stat-label">Certifié</div></div></div></section>
+
+<section class="testimonials">
+  <div class="section-header reveal"><h2>Témoignages</h2><div class="section-header-line"></div></div>
+  <div class="testimonials-inner">
+    <div class="testimonial-item reveal"><div class="testimonial-quote">❝</div><p class="testimonial-text">Intervention rapide et efficace pour une fuite urgente. Travail propre et soigné. Je recommande Durand & Fils sans hésiter.</p><p class="testimonial-name">Patrick L.</p><p class="testimonial-source">Google</p></div>
+    <div class="testimonial-item reveal"><div class="testimonial-quote">❝</div><p class="testimonial-text">Notre salle de bain est magnifique ! L'équipe a été à l'écoute de nos envies et le résultat dépasse nos attentes. Merci !</p><p class="testimonial-name">Sandrine & Julien V.</p><p class="testimonial-source">Google</p></div>
+  </div>
+</section>
+
+<section class="cta-section" id="devis"><div class="cta-bg"></div><div class="cta-overlay"></div><div class="cta-content reveal"><h2>Demandez votre devis gratuit</h2><p class="cta-sub">Réponse sous 24h — Sans engagement</p><p class="cta-phone">03 20 XX XX XX</p><a href="#" class="btn-hero">Demander un devis</a></div></section>
+
+<section class="contact-section">
+  <div class="section-header reveal"><h2>Contact</h2><div class="section-header-line"></div></div>
+  <div class="contact-inner reveal">
+    <div class="contact-card"><h3>Adresse</h3><p>12 Rue Nationale<br>59000 Lille</p></div>
+    <div class="contact-card"><h3>Téléphone</h3><p class="highlight">03 20 XX XX XX</p><p>contact@durand-fils.fr</p></div>
+    <div class="contact-card"><h3>Zone</h3><p>Lille métropole<br>& communes limitrophes</p></div>
+  </div>
+</section>
+
+<footer class="footer"><p class="footer-logo">Durand <span>& Fils</span></p><p class="footer-copy">© 2025 Durand & Fils — Tous droits réservés</p></footer>
+
+<script>
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);});
+const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';});
+function closeMobile(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow='';}
+const reveals=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:.15});
+reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
