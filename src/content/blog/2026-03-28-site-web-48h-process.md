@@ -2,7 +2,7 @@
 title: "Un site web professionnel en 48h : comment c'est possible ?"
 description: "Explication complète du process Lancio — comment on livre un site pro en 48h pour 650€ sans rogner sur la qualité."
 date: "2026-03-28"
-slug: "site-web-48h-comment-ca-marche"
+permalink: "site-web-48h-comment-ca-marche"
 secteur: "general"
 ---
 

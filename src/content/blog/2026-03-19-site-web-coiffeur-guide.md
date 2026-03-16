@@ -2,7 +2,7 @@
 title: "Site web pour salon de coiffure : le guide complet 2026"
 description: "Tout ce que votre site de salon de coiffure doit contenir pour attirer de nouveaux clients et remplir votre agenda."
 date: "2026-03-19"
-slug: "site-web-coiffeur-guide-complet"
+permalink: "site-web-coiffeur-guide-complet"
 secteur: "coiffeur"
 ---
 

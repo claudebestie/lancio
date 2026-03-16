@@ -2,7 +2,7 @@
 title: "Agence web, freelance ou Lancio : quelle solution choisir pour votre TPE ?"
 description: "Comparatif honnête des trois options pour créer votre site web professionnel rapidement et sans se ruiner."
 date: "2026-03-24"
-slug: "agence-web-vs-freelance-vs-lancio"
+permalink: "agence-web-vs-freelance-vs-lancio"
 secteur: "general"
 ---
 

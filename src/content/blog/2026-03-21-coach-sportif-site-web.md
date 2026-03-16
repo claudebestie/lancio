@@ -2,7 +2,7 @@
 title: "Coach sportif sans site web en 2026 : vous perdez des clients chaque jour"
 description: "Pourquoi un site web est indispensable pour un coach sportif ou personal trainer, et comment en créer un rapidement."
 date: "2026-03-21"
-slug: "pourquoi-votre-coach-a-besoin-site-web"
+permalink: "pourquoi-votre-coach-a-besoin-site-web"
 secteur: "coach"
 ---
 

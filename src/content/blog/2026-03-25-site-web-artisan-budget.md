@@ -2,7 +2,7 @@
 title: "Quel budget pour le site web d'un artisan en France ?"
 description: "Guide complet des tarifs pour créer un site professionnel quand on est artisan, plombier ou électricien."
 date: "2026-03-25"
-slug: "prix-site-web-artisan-france"
+permalink: "prix-site-web-artisan-france"
 secteur: "artisan"
 ---
 

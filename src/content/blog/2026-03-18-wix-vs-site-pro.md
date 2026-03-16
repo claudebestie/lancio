@@ -2,7 +2,7 @@
 title: "Wix vs site sur mesure : pourquoi les TPE font le mauvais choix"
 description: "Les vraies différences entre un site Wix gratuit et un site professionnel — et pourquoi ça compte pour votre business."
 date: "2026-03-18"
-slug: "wix-vs-site-professionnel-sur-mesure"
+permalink: "wix-vs-site-professionnel-sur-mesure"
 secteur: "general"
 ---
 

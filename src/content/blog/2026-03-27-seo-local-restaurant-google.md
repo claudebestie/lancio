@@ -2,7 +2,7 @@
 title: "Comment votre restaurant apparaît en premier sur Google Maps ?"
 description: "Guide SEO local pour restaurants : Google Business, site web et astuces pour dominer les recherches locales."
 date: "2026-03-27"
-slug: "referencement-local-restaurant-google"
+permalink: "referencement-local-restaurant-google"
 secteur: "restaurant"
 ---
 

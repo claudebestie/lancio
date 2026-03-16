@@ -2,7 +2,7 @@
 title: "Combien coûte un site web pour un restaurant en France en 2026 ?"
 description: "Prix, options et comparatif des solutions pour créer un site web restaurant professionnel en France."
 date: "2026-03-17"
-slug: "combien-coute-site-web-restaurant-france"
+permalink: "combien-coute-site-web-restaurant-france"
 secteur: "restaurant"
 ---
 

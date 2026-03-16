@@ -2,7 +2,7 @@
 title: "Créer un site web pour avocat : combien ça coûte vraiment ?"
 description: "Tour complet des prix du marché pour un site de cabinet d'avocat — agence, freelance, ou solution rapide."
 date: "2026-03-26"
-slug: "cout-creation-site-web-avocat"
+permalink: "cout-creation-site-web-avocat"
 secteur: "avocat"
 ---
 

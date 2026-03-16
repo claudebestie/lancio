@@ -2,7 +2,7 @@
 title: "Site web médecin : ce que vos patients cherchent vraiment"
 description: "Les 7 éléments indispensables d'un site web pour cabinet médical ou généraliste en France."
 date: "2026-03-20"
-slug: "site-web-medecin-cabinet-medical"
+permalink: "site-web-medecin-cabinet-medical"
 secteur: "medecin"
 ---
 

@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 
-const exemples: Record<string, any> = {
+const exemplesData: Record<string, any> = {
   "restaurant-paris": {
     secteur: "Restaurant",
     nom: "La Table du Marché",
@@ -102,11 +102,19 @@ const exemples: Record<string, any> = {
 };
 
 export function getStaticPaths() {
+  const exemples: Record<string, any> = {
+    "restaurant-paris": { secteur: "Restaurant", nom: "La Table du Marché", ville: "Paris 11e" },
+    "salon-coiffure-lyon": { secteur: "Salon de coiffure", nom: "Studio Lumière", ville: "Lyon 6e" },
+    "cabinet-avocat-marseille": { secteur: "Cabinet d'avocat", nom: "Maître Fontaine & Associés", ville: "Marseille" },
+    "coach-sportif-bordeaux": { secteur: "Coach sportif", nom: "Marc Durand Performance", ville: "Bordeaux" },
+    "cabinet-medical-nantes": { secteur: "Médecin généraliste", nom: "Cabinet du Dr Legrand", ville: "Nantes" },
+    "artisan-plombier-toulouse": { secteur: "Plombier artisan", nom: "Durand Plomberie", ville: "Toulouse" },
+  };
   return Object.keys(exemples).map(slug => ({ params: { slug } }));
 }
 
 const { slug } = Astro.params;
-const ex = exemples[slug as string];
+const ex = exemplesData[slug as string];
 
 if (!ex) {
   return Astro.redirect('/exemples/');
