@@ -1,13 +1,11 @@
 {
-  "name": "lancio",
-  "type": "module",
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
-  },
+  "name": "lancio-auto-pipeline",
+  "version": "2.0.0",
+  "description": "Pipeline 100% automatique : Lobstr → Brevo → Supabase",
+  "main": "pipeline.js",
   "dependencies": {
-    "astro": "^4.0.0"
+    "csv-parse": "^5.5.3",
+    "node-fetch": "^2.7.0",
+    "@supabase/supabase-js": "^2.39.0"
   }
 }
