@@ -1,0 +1,322 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const exemples: Record<string, any> = {
+  "restaurant-paris": {
+    secteur: "Restaurant",
+    nom: "La Table du Marché",
+    ville: "Paris 11e",
+    desc: "Site bilingue avec menu en ligne, galerie plats et formulaire de réservation",
+    color: "#D4C9B5",
+    accentColor: "#8B6F47",
+    photos: [
+      { file: "restaurant-hero.jpg", alt: "Salle du restaurant La Table du Marché", label: "Vue de la salle" },
+      { file: "restaurant-plat-1.jpg", alt: "Plat signature — boeuf bourguignon revisité", label: "Plat signature" },
+      { file: "restaurant-plat-2.jpg", alt: "Dessert maison du chef", label: "Dessert maison" },
+      { file: "restaurant-terrasse.jpg", alt: "Terrasse extérieure du restaurant", label: "Terrasse" },
+    ],
+    features: ["Menu en ligne", "Réservation en ligne", "Galerie photos", "Google Maps", "SEO local"],
+    texte: "Site conçu pour un restaurant français traditionnel du 11e arrondissement. Mise en valeur des plats avec galerie pleine largeur, menu saisonnier mis à jour facilement par le client, et formulaire de réservation directement intégré. SEO local optimisé sur les requêtes 'restaurant Paris 11' et 'restaurant français Oberkampf'.",
+    lien: "https://lancio.fr/#commander",
+  },
+  "salon-coiffure-lyon": {
+    secteur: "Salon de coiffure",
+    nom: "Studio Lumière",
+    ville: "Lyon 6e",
+    desc: "Prise de RDV en ligne, galerie avant/après, grille tarifaire complète",
+    color: "#C5D4D0",
+    accentColor: "#2A5C52",
+    photos: [
+      { file: "coiffeur-salon.jpg", alt: "Intérieur du salon Studio Lumière Lyon", label: "Le salon" },
+      { file: "coiffeur-avant-apres-1.jpg", alt: "Transformation — balayage naturel avant/après", label: "Balayage naturel" },
+      { file: "coiffeur-avant-apres-2.jpg", alt: "Coloration végétale avant/après", label: "Coloration végétale" },
+      { file: "coiffeur-equipe.jpg", alt: "Équipe du salon Studio Lumière", label: "L'équipe" },
+    ],
+    features: ["RDV en ligne (Planity)", "Galerie avant/après", "Grille tarifaire", "Horaires", "SEO local Lyon"],
+    texte: "Site pour un salon de coiffure haut de gamme spécialisé en colorations végétales et balayages naturels. La galerie avant/après est le cœur du site — les clients potentiels font défiler les transformations avant de prendre rendez-vous. Intégration Planity pour la prise de RDV en temps réel.",
+    lien: "https://lancio.fr/#commander",
+  },
+  "cabinet-avocat-marseille": {
+    secteur: "Cabinet d'avocat",
+    nom: "Maître Fontaine & Associés",
+    ville: "Marseille",
+    desc: "Site institutionnel sobre, domaines d'expertise, formulaire de contact confidentiel",
+    color: "#D0CDE0",
+    accentColor: "#3C3489",
+    photos: [
+      { file: "avocat-bureau.jpg", alt: "Bureau du cabinet Fontaine & Associés Marseille", label: "Le cabinet" },
+      { file: "avocat-portrait.jpg", alt: "Maître Fontaine — portrait professionnel", label: "Maître Fontaine" },
+    ],
+    features: ["Présentation cabinet", "Domaines d'expertise", "Profils avocats", "Contact confidentiel", "Blog juridique"],
+    texte: "Site institutionnel sobre et professionnel pour un cabinet spécialisé en droit des affaires et droit social. Ton rassurant, design épuré. Chaque domaine d'expertise a sa propre section avec explications accessibles. Formulaire de contact avec mention de confidentialité pour rassurer les prospects.",
+    lien: "https://lancio.fr/#commander",
+  },
+  "coach-sportif-bordeaux": {
+    secteur: "Coach sportif",
+    nom: "Marc Durand Performance",
+    ville: "Bordeaux",
+    desc: "Landing page coaching avec programme, témoignages clients et réservation séance découverte",
+    color: "#D4E0D0",
+    accentColor: "#1A3C34",
+    photos: [
+      { file: "coach-portrait.jpg", alt: "Marc Durand — coach sportif Bordeaux", label: "Marc Durand" },
+      { file: "coach-seance.jpg", alt: "Séance d'entraînement en salle", label: "En séance" },
+      { file: "coach-resultat.jpg", alt: "Résultat client — transformation physique 3 mois", label: "Résultat client" },
+    ],
+    features: ["Présentation méthode", "Résultats & témoignages", "Offres & tarifs", "Séance découverte gratuite", "Instagram intégré"],
+    texte: "Landing page conçue pour convertir les visiteurs en prospects qualifiés. La structure est pensée pour répondre aux objections dans l'ordre : d'abord la méthode (pourquoi ça marche), puis les preuves (résultats clients), puis les tarifs, enfin l'action (réserver une séance découverte gratuite).",
+    lien: "https://lancio.fr/#commander",
+  },
+  "cabinet-medical-nantes": {
+    secteur: "Médecin généraliste",
+    nom: "Cabinet du Dr Legrand",
+    ville: "Nantes",
+    desc: "Présentation cabinet, horaires, lien Doctolib, carte interactive",
+    color: "#D0DDE8",
+    accentColor: "#185FA5",
+    photos: [
+      { file: "medecin-cabinet.jpg", alt: "Salle d'attente du cabinet du Dr Legrand Nantes", label: "Salle d'attente" },
+      { file: "medecin-docteur.jpg", alt: "Dr Legrand — médecin généraliste Nantes", label: "Dr Legrand" },
+    ],
+    features: ["Horaires & disponibilités", "Lien Doctolib", "Présentation médecin", "Accès & parking", "Secteur conventionné"],
+    texte: "Site minimaliste et rassurant pour un cabinet de médecine générale. L'objectif est simple : que le patient trouve les informations essentielles en moins de 10 secondes. Horaires, prise de RDV Doctolib, adresse et numéro en tête de page. Design sobre qui inspire confiance.",
+    lien: "https://lancio.fr/#commander",
+  },
+  "artisan-plombier-toulouse": {
+    secteur: "Plombier artisan",
+    nom: "Durand Plomberie",
+    ville: "Toulouse",
+    desc: "Site vitrine urgences 24h/7j, zone d'intervention, demande de devis en ligne",
+    color: "#E0D8CE",
+    accentColor: "#5A4A3A",
+    photos: [
+      { file: "plombier-travaux.jpg", alt: "Intervention plomberie en cours — salle de bain Toulouse", label: "En intervention" },
+      { file: "plombier-realisation.jpg", alt: "Salle de bain rénovée par Durand Plomberie", label: "Réalisation" },
+    ],
+    features: ["Urgences 24h/7j", "Zone d'intervention", "Devis en ligne", "Réalisations photos", "SEO local Toulouse"],
+    texte: "Site conçu pour capter les urgences plomberie et les projets de rénovation. Numéro de téléphone visible immédiatement sur mobile, carte de la zone d'intervention, galerie des réalisations. SEO optimisé sur les requêtes locales urgentes : 'plombier urgence Toulouse', 'débouchage Toulouse', 'installation sanitaire Haute-Garonne'.",
+    lien: "https://lancio.fr/#commander",
+  },
+};
+
+export function getStaticPaths() {
+  return Object.keys(exemples).map(slug => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const ex = exemples[slug as string];
+
+if (!ex) {
+  return Astro.redirect('/exemples/');
+}
+---
+
+<Layout
+  title={`${ex.nom} — Exemple site ${ex.secteur} | Lancio`}
+  description={`Découvrez le site ${ex.secteur.toLowerCase()} créé pour ${ex.nom} à ${ex.ville} par Lancio en 48h. ${ex.desc}.`}
+  canonical={`https://lancio.fr/exemples/${slug}/`}
+>
+  <Nav />
+  <main class="exemple-page">
+
+    <div class="exemple-hero" style={`background: ${ex.color};`}>
+      <div class="container">
+        <div class="exemple-breadcrumb">
+          <a href="/">Lancio</a>
+          <span>→</span>
+          <a href="/exemples/">Exemples</a>
+          <span>→</span>
+          <span>{ex.secteur}</span>
+        </div>
+        <div class="exemple-header">
+          <div class="exemple-header-left">
+            <div class="exemple-secteur-tag">{ex.secteur}</div>
+            <h1>{ex.nom}</h1>
+            <div class="exemple-ville">{ex.ville}</div>
+            <p class="exemple-desc-hero">{ex.desc}</p>
+            <div class="exemple-features">
+              {ex.features.map((f: string) => (
+                <span class="feature-tag">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="5" fill="currentColor" opacity=".15"/><path d="M2.5 5l1.5 1.5 3-3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {f}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div class="exemple-badge-box">
+            <div class="badge-livraison">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#1A3C34"/><path d="M5 8l2 2 4-4" stroke="#FAFAF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Livré en 48h
+            </div>
+            <div class="badge-price">À partir de <strong>€650</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container exemple-content">
+
+      <!-- Photos grid -->
+      <div class="photos-section">
+        <div class="photos-label">Aperçu du site</div>
+        <div class="photos-grid" style={`--n: ${ex.photos.length};`}>
+          {ex.photos.map((p: any, i: number) => (
+            <div class={`photo-card ${i === 0 ? 'photo-featured' : ''}`}>
+              <!-- 
+                PHOTO PLACEHOLDER — Remplacer src par la vraie photo Mizra
+                Nom du fichier attendu : /photos/${p.file}
+                Placer les photos dans : public/photos/
+              -->
+              <div
+                class="photo-placeholder"
+                style={`background: ${ex.color}; --accent: ${ex.accentColor};`}
+                title={`Photo à placer : public/photos/${p.file}`}
+              >
+                <div class="ph-icon">📷</div>
+                <div class="ph-filename">{p.file}</div>
+                <div class="ph-alt">{p.alt}</div>
+              </div>
+              <!-- Quand photos disponibles, remplacer le div ci-dessus par :
+              <img src={`/photos/${p.file}`} alt={p.alt} loading={i === 0 ? 'eager' : 'lazy'} />
+              -->
+              <div class="photo-label">{p.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="exemple-texte-section">
+        <div class="texte-label">À propos de ce projet</div>
+        <p class="texte-content">{ex.texte}</p>
+      </div>
+
+      <!-- CTA -->
+      <div class="exemple-cta">
+        <div class="cta-left">
+          <h2>Vous voulez un site similaire ?</h2>
+          <p>Commandez aujourd'hui — votre site est en ligne dans 48h, à partir de €650.</p>
+        </div>
+        <div class="cta-right">
+          <a href={ex.lien} class="btn-primary">Lancer mon site {ex.secteur.toLowerCase()} →</a>
+          <div class="cta-sub">Satisfait ou on recommence</div>
+        </div>
+      </div>
+
+      <!-- Autres exemples -->
+      <div class="autres-exemples">
+        <div class="autres-label">Voir d'autres exemples</div>
+        <a href="/exemples/" class="btn-ghost">Voir tous les exemples →</a>
+      </div>
+
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .exemple-page { padding-top: 64px; }
+  .exemple-hero { padding: 64px 0 48px; border-bottom: 1px solid var(--border); }
+  .exemple-breadcrumb {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--text-muted); margin-bottom: 24px;
+  }
+  .exemple-breadcrumb a { color: var(--accent); }
+  .exemple-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .exemple-header-left { flex: 1; }
+  .exemple-secteur-tag {
+    display: inline-block; font-size: 11px; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 0.08em; background: var(--white); color: var(--accent);
+    padding: 4px 12px; border-radius: 100px; margin-bottom: 12px;
+    border: 1px solid rgba(26,60,52,0.15);
+  }
+  h1 { font-size: clamp(28px, 4vw, 48px); margin-bottom: 6px; }
+  .exemple-ville { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
+  .exemple-desc-hero { font-size: 16px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; max-width: 520px; }
+  .exemple-features { display: flex; flex-wrap: wrap; gap: 8px; }
+  .feature-tag {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 12px; color: var(--accent);
+    background: rgba(255,255,255,0.7); border: 1px solid rgba(26,60,52,0.15);
+    padding: 4px 10px; border-radius: 100px;
+  }
+  .exemple-badge-box {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 20px 24px;
+    display: flex; flex-direction: column; gap: 8px; align-items: center;
+    min-width: 160px; text-align: center;
+  }
+  .badge-livraison {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 500; color: var(--accent);
+  }
+  .badge-price { font-size: 13px; color: var(--text-secondary); }
+  .badge-price strong { color: var(--text-primary); }
+
+  .exemple-content { padding: 48px 24px; }
+
+  .photos-section { margin-bottom: 48px; }
+  .photos-label {
+    font-size: 11px; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 16px;
+  }
+  .photos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .photo-card { display: flex; flex-direction: column; gap: 6px; }
+  .photo-featured { grid-column: 1 / 3; grid-row: 1 / 3; }
+  .photo-placeholder {
+    width: 100%; height: 200px; border-radius: var(--radius-md);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 8px;
+    border: 2px dashed rgba(14,14,14,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  .photo-featured .photo-placeholder { height: 100%; min-height: 300px; }
+  .ph-icon { font-size: 28px; opacity: 0.4; }
+  .ph-filename { font-size: 11px; font-family: var(--font-body); color: rgba(14,14,14,0.5); }
+  .ph-alt { font-size: 10px; color: rgba(14,14,14,0.35); text-align: center; max-width: 160px; }
+  .photo-label { font-size: 12px; color: var(--text-muted); padding-left: 4px; }
+
+  .exemple-texte-section { margin-bottom: 48px; }
+  .texte-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 12px; }
+  .texte-content { font-size: 15px; color: var(--text-secondary); line-height: 1.7; max-width: 720px; }
+
+  .exemple-cta {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 32px; background: var(--accent); border-radius: var(--radius-xl);
+    padding: 40px 48px; margin-bottom: 32px; flex-wrap: wrap;
+  }
+  .cta-left h2 { font-size: 28px; color: var(--white); margin-bottom: 8px; }
+  .cta-left p { font-size: 15px; color: rgba(250,250,248,0.75); }
+  .btn-primary {
+    display: inline-flex; font-size: 14px; font-weight: 500;
+    background: var(--white); color: var(--accent);
+    padding: 14px 24px; border-radius: var(--radius-md);
+    transition: opacity 0.15s, transform 0.1s; white-space: nowrap;
+  }
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+  .cta-sub { font-size: 12px; color: rgba(250,250,248,0.5); margin-top: 8px; }
+  .cta-right { display: flex; flex-direction: column; align-items: flex-start; }
+
+  .autres-exemples { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .autres-label { font-size: 14px; color: var(--text-secondary); }
+  .btn-ghost {
+    font-size: 14px; font-weight: 500; color: var(--accent);
+    text-decoration: underline; text-underline-offset: 3px;
+  }
+
+  @media (max-width: 768px) {
+    .exemple-cta { padding: 28px; flex-direction: column; align-items: flex-start; }
+    .photos-grid { grid-template-columns: 1fr 1fr; }
+    .photo-featured { grid-column: 1 / -1; }
+  }
+  @media (max-width: 480px) {
+    .photos-grid { grid-template-columns: 1fr; }
+  }
+</style>

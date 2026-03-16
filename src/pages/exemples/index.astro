@@ -1,0 +1,236 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const exemples = [
+  {
+    slug: "restaurant-paris",
+    secteur: "Restaurant",
+    nom: "La Table du Marché",
+    ville: "Paris 11e",
+    desc: "Site bilingue avec menu en ligne, galerie plats et formulaire de réservation",
+    tags: ["Menu en ligne", "Réservation", "Galerie"],
+    color: "#D4C9B5",
+  },
+  {
+    slug: "salon-coiffure-lyon",
+    secteur: "Salon de coiffure",
+    nom: "Studio Lumière",
+    ville: "Lyon 6e",
+    desc: "Prise de RDV en ligne, galerie avant/après, grille tarifaire complète",
+    tags: ["RDV en ligne", "Galerie", "Tarifs"],
+    color: "#C5D4D0",
+  },
+  {
+    slug: "cabinet-avocat-marseille",
+    secteur: "Cabinet d'avocat",
+    nom: "Maître Fontaine & Associés",
+    ville: "Marseille",
+    desc: "Site institutionnel sobre, domaines d'expertise, formulaire de contact confidentiel",
+    tags: ["Institutionnel", "SEO local", "Contact"],
+    color: "#D0CDE0",
+  },
+  {
+    slug: "coach-sportif-bordeaux",
+    secteur: "Coach sportif",
+    nom: "Marc Durand Performance",
+    ville: "Bordeaux",
+    desc: "Landing page coaching avec programme, témoignages clients et réservation séance découverte",
+    tags: ["Landing page", "Témoignages", "RDV"],
+    color: "#D4E0D0",
+  },
+  {
+    slug: "cabinet-medical-nantes",
+    secteur: "Médecin généraliste",
+    nom: "Cabinet du Dr Legrand",
+    ville: "Nantes",
+    desc: "Présentation cabinet, horaires, lien Doctolib, carte interactive",
+    tags: ["Doctolib", "Horaires", "Carte"],
+    color: "#D0DDE8",
+  },
+  {
+    slug: "artisan-plombier-toulouse",
+    secteur: "Plombier artisan",
+    nom: "Durand Plomberie",
+    ville: "Toulouse",
+    desc: "Site vitrine urgences 24h/7j, zone d'intervention, demande de devis en ligne",
+    tags: ["Urgences", "Devis en ligne", "SEO local"],
+    color: "#E0D8CE",
+  },
+];
+---
+
+<Layout
+  title="Exemples de sites créés par Lancio en 48h"
+  description="Découvrez des exemples de sites web professionnels créés par Lancio en 48h — restaurants, salons, avocats, médecins, coachs et artisans."
+  canonical="https://lancio.fr/exemples/"
+>
+  <Nav />
+  <main class="exemples-main">
+    <div class="exemples-hero">
+      <div class="container">
+        <div class="section-tag">Exemples</div>
+        <h1>Des sites livrés en 48h,<br/><em>pour des pros comme vous</em></h1>
+        <p class="hero-sub">Chaque site est créé sur mesure — pas de template, pas de Wix. Votre identité, votre secteur, votre ville.</p>
+      </div>
+    </div>
+
+    <div class="container exemples-grid-wrap">
+      <div class="exemples-grid">
+        {exemples.map(e => (
+          <a href={`/exemples/${e.slug}/`} class="exemple-card">
+            <div class="exemple-preview" style={`background: ${e.color};`}>
+              <div class="preview-browser">
+                <div class="browser-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="browser-url">lancio.fr/exemples/{e.slug}</div>
+              </div>
+              <div class="preview-content">
+                <div class="preview-nav-bar" style={`background: rgba(0,0,0,0.06);`}></div>
+                <div class="preview-hero-area">
+                  <div class="preview-headline"></div>
+                  <div class="preview-subline"></div>
+                  <div class="preview-cta-btn"></div>
+                </div>
+              </div>
+              <div class="exemple-badge">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="5" fill="#1A3C34"/><path d="M2.5 5l1.5 1.5 3-3" stroke="#FAFAF8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Livré en 48h
+              </div>
+            </div>
+            <div class="exemple-info">
+              <div class="exemple-meta">
+                <span class="exemple-secteur">{e.secteur}</span>
+                <span class="exemple-ville">{e.ville}</span>
+              </div>
+              <div class="exemple-nom">{e.nom}</div>
+              <div class="exemple-desc">{e.desc}</div>
+              <div class="exemple-tags">
+                {e.tags.map(t => <span class="tag">{t}</span>)}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="exemples-cta-block">
+        <h2>Vous voulez un site comme ça ?</h2>
+        <p>Commandez aujourd'hui — votre site est en ligne dans 48h.</p>
+        <a href="/#commander" class="btn-primary">Lancer mon site →</a>
+        <div class="cta-note">À partir de €650 · 48h garantis · Satisfait ou on recommence</div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .exemples-main { padding-top: 64px; }
+  .exemples-hero {
+    padding: 80px 0 56px;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+  }
+  h1 { font-size: clamp(36px, 5vw, 64px); margin-top: 12px; line-height: 1.05; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub { font-size: 18px; color: var(--text-secondary); max-width: 520px; margin-top: 16px; line-height: 1.6; }
+  .exemples-grid-wrap { padding: 56px 24px; }
+  .exemples-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 64px;
+  }
+  .exemple-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .exemple-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(14,14,14,0.1); }
+  .exemple-preview {
+    height: 200px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 10px;
+  }
+  .preview-browser {
+    background: rgba(255,255,255,0.85);
+    border-radius: 6px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .browser-dots { display: flex; gap: 4px; }
+  .browser-dots span { width: 7px; height: 7px; border-radius: 50%; background: rgba(14,14,14,0.15); }
+  .browser-url { font-size: 9px; color: rgba(14,14,14,0.4); font-family: var(--font-body); }
+  .preview-content { flex: 1; display: flex; flex-direction: column; gap: 8px; padding: 8px 0; }
+  .preview-nav-bar { height: 6px; border-radius: 3px; width: 100%; }
+  .preview-hero-area { padding: 8px 0; display: flex; flex-direction: column; gap: 6px; }
+  .preview-headline { height: 12px; width: 65%; background: rgba(14,14,14,0.2); border-radius: 3px; }
+  .preview-subline { height: 8px; width: 45%; background: rgba(14,14,14,0.12); border-radius: 3px; }
+  .preview-cta-btn { height: 20px; width: 80px; background: rgba(26,60,52,0.4); border-radius: 4px; margin-top: 4px; }
+  .exemple-badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--accent);
+  }
+  .exemple-info { padding: 18px; flex: 1; }
+  .exemple-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .exemple-secteur {
+    font-size: 11px; font-weight: 500;
+    background: var(--accent-pale); color: var(--accent);
+    padding: 3px 8px; border-radius: 100px;
+  }
+  .exemple-ville { font-size: 12px; color: var(--text-muted); }
+  .exemple-nom { font-size: 15px; font-weight: 500; color: var(--text-primary); margin-bottom: 6px; }
+  .exemple-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px; }
+  .exemple-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 11px; color: var(--text-muted);
+    background: var(--cream); border: 1px solid var(--border);
+    padding: 3px 8px; border-radius: 100px;
+  }
+  .exemples-cta-block {
+    text-align: center;
+    padding: 56px 24px;
+    background: var(--cream);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border);
+  }
+  .exemples-cta-block h2 { font-size: 36px; margin-bottom: 12px; }
+  .exemples-cta-block p { font-size: 16px; color: var(--text-secondary); margin-bottom: 28px; }
+  .btn-primary {
+    display: inline-flex; font-size: 15px; font-weight: 500;
+    background: var(--accent); color: var(--white);
+    padding: 14px 28px; border-radius: var(--radius-md);
+    transition: background 0.15s, transform 0.1s;
+  }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+  .cta-note { margin-top: 14px; font-size: 13px; color: var(--text-muted); }
+  @media (max-width: 900px) { .exemples-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .exemples-grid { grid-template-columns: 1fr; } }
+</style>

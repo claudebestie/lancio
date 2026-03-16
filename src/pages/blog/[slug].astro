@@ -1,0 +1,178 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.data.slug || post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+function formatDate(d: string) {
+  return new Date(d).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+const allPosts = (await getCollection('blog'))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .filter(p => (p.data.slug || p.slug) !== (post.data.slug || post.slug))
+  .slice(0, 3);
+---
+
+<Layout
+  title={`${post.data.title} | Lancio`}
+  description={post.data.description}
+  canonical={`https://lancio.fr/blog/${post.data.slug || post.slug}/`}
+>
+  <Nav />
+  <main class="article-main">
+    <div class="container article-container">
+
+      <div class="article-header">
+        <div class="article-breadcrumb">
+          <a href="/">Lancio</a>
+          <span>→</span>
+          <a href="/blog/">Blog</a>
+          <span>→</span>
+          <span>{post.data.secteur || 'Conseils'}</span>
+        </div>
+        {post.data.secteur && (
+          <div class="article-secteur">{post.data.secteur}</div>
+        )}
+        <h1>{post.data.title}</h1>
+        <div class="article-meta">
+          <span class="article-date">{formatDate(post.data.date)}</span>
+          <span class="article-sep">·</span>
+          <span class="article-read">Lecture ~5 min</span>
+        </div>
+      </div>
+
+      <div class="article-layout">
+        <div class="article-content">
+          <Content />
+        </div>
+
+        <aside class="article-sidebar">
+          <div class="sidebar-cta">
+            <div class="sidebar-cta-title">Votre site en 48h</div>
+            <p>À partir de <strong>€650</strong>, livré en 48h. Sans rendez-vous, sans surprise.</p>
+            <a href="/#commander" class="sidebar-cta-btn">Lancer mon site →</a>
+          </div>
+
+          {allPosts.length > 0 && (
+            <div class="sidebar-related">
+              <div class="sidebar-related-title">À lire aussi</div>
+              {allPosts.map(p => (
+                <a href={`/blog/${p.data.slug || p.slug}/`} class="related-item">
+                  <div class="related-title">{p.data.title}</div>
+                  <div class="related-date">{formatDate(p.data.date)}</div>
+                </a>
+              ))}
+            </div>
+          )}
+        </aside>
+      </div>
+
+      <div class="article-footer-cta">
+        <h2>Prêt à lancer votre site ?</h2>
+        <p>Votre site professionnel en ligne en 48h — à partir de €650, clé en main.</p>
+        <a href="/#commander" class="btn-primary">Je lance mon site →</a>
+      </div>
+
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .article-main { padding-top: 64px; }
+  .article-container { max-width: 1040px; padding: 56px 24px; }
+  .article-breadcrumb {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--text-muted); margin-bottom: 20px;
+  }
+  .article-breadcrumb a { color: var(--accent); }
+  .article-secteur {
+    display: inline-block;
+    font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em;
+    background: var(--accent-pale); color: var(--accent);
+    padding: 4px 12px; border-radius: 100px; margin-bottom: 14px;
+  }
+  h1 { font-size: clamp(28px, 4vw, 48px); line-height: 1.1; margin-bottom: 16px; }
+  .article-meta { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-muted); margin-bottom: 40px; }
+  .article-layout { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; }
+
+  /* Article content styles */
+  .article-content { min-width: 0; }
+  .article-content :global(h2) {
+    font-size: 24px; margin: 36px 0 14px;
+  }
+  .article-content :global(h3) {
+    font-family: var(--font-body); font-size: 18px; font-weight: 500; margin: 24px 0 10px;
+  }
+  .article-content :global(p) {
+    font-size: 16px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 18px;
+  }
+  .article-content :global(ul), .article-content :global(ol) {
+    margin: 0 0 18px 20px; font-size: 16px; line-height: 1.8; color: var(--text-secondary);
+  }
+  .article-content :global(li) { margin-bottom: 6px; }
+  .article-content :global(strong) { color: var(--text-primary); font-weight: 500; }
+  .article-content :global(a) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .article-content :global(blockquote) {
+    border-left: 3px solid var(--accent); padding-left: 20px; margin: 24px 0;
+    font-style: italic; color: var(--text-secondary);
+  }
+
+  /* Sidebar */
+  .article-sidebar { position: sticky; top: 80px; display: flex; flex-direction: column; gap: 20px; }
+  .sidebar-cta {
+    background: var(--accent); color: var(--white); border-radius: var(--radius-lg);
+    padding: 24px; display: flex; flex-direction: column; gap: 10px;
+  }
+  .sidebar-cta-title { font-size: 16px; font-weight: 500; }
+  .sidebar-cta p { font-size: 13px; opacity: 0.85; line-height: 1.5; }
+  .sidebar-cta strong { color: var(--white); font-weight: 600; }
+  .sidebar-cta-btn {
+    display: block; text-align: center; background: var(--white); color: var(--accent);
+    font-size: 13px; font-weight: 500; padding: 10px 16px; border-radius: var(--radius-md);
+    margin-top: 4px; transition: opacity 0.15s;
+  }
+  .sidebar-cta-btn:hover { opacity: 0.9; }
+  .sidebar-related {
+    background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .sidebar-related-title { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+  .related-item { display: flex; flex-direction: column; gap: 3px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .related-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .related-title { font-size: 13px; color: var(--text-primary); line-height: 1.4; }
+  .related-item:hover .related-title { color: var(--accent); }
+  .related-date { font-size: 11px; color: var(--text-muted); }
+
+  /* Footer CTA */
+  .article-footer-cta {
+    margin-top: 64px; padding: 48px; background: var(--cream);
+    border: 1px solid var(--border); border-radius: var(--radius-xl); text-align: center;
+  }
+  .article-footer-cta h2 { font-size: 32px; margin-bottom: 12px; }
+  .article-footer-cta p { font-size: 16px; color: var(--text-secondary); margin-bottom: 28px; }
+  .btn-primary {
+    display: inline-flex; font-size: 15px; font-weight: 500;
+    background: var(--accent); color: var(--white);
+    padding: 14px 28px; border-radius: var(--radius-md);
+    transition: background 0.15s, transform 0.1s;
+  }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+
+  @media (max-width: 768px) {
+    .article-layout { grid-template-columns: 1fr; }
+    .article-sidebar { position: static; }
+  }
+</style>
