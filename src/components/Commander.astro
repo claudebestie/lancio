@@ -115,9 +115,9 @@
                 <input type="checkbox" class="f-option" value="blog" data-price="200" />
                 <span>Blog SEO +€200</span>
               </label>
-              <label class="option-check">
-                <input type="checkbox" class="f-option" value="maintenance" data-price="300" />
-                <span>Maintenance 6 mois +€300</span>
+              <label class="option-check option-maintenance">
+                <input type="checkbox" id="f-maintenance" value="maintenance" data-price="0" />
+                <span>Maintenance mensuelle — 50€/mois</span>
               </label>
               <label class="option-check">
                 <input type="checkbox" class="f-option" value="boutique" data-price="350" />
@@ -127,8 +127,11 @@
           </div>
 
           <div class="price-summary" id="priceSummary">
-            <span class="price-label">Total estimé</span>
+            <span class="price-label">Total estimé (paiement unique)</span>
             <span class="price-val" id="priceVal">€650</span>
+          </div>
+          <div id="maintenanceNote" class="maintenance-note" style="display:none;">
+            + Maintenance 50€/mois <span class="maint-detail">· facturée mensuellement après livraison</span>
           </div>
 
           <div id="form-error" style="display:none; font-size:13px; color:#A32D2D; padding:10px; background:#FEF0F0; border-radius:8px;"></div>
@@ -157,6 +160,17 @@
             <div class="payment-secure">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1L2 2.5v3.5c0 3.3 1.8 4.5 4 5 2.2-.5 4-1.7 4-5V2.5L6 1z" fill="var(--accent)" opacity=".3" stroke="var(--accent)" stroke-width=".8"/></svg>
               Paiement 100% sécurisé — Stripe · Carte ou virement
+            </div>
+
+            <!-- Abonnement maintenance (affiché seulement si coché) -->
+            <div id="maintenancePayment" class="maintenance-payment" style="display:none;">
+              <div class="maintenance-divider"></div>
+              <div class="maintenance-payment-title">Maintenance mensuelle</div>
+              <div class="maintenance-payment-price">50€<span>/mois</span></div>
+              <div class="maintenance-payment-desc">Mises à jour, modifications de contenu et support prioritaire. Résiliable à tout moment.</div>
+              <a id="maintenanceStripeBtn" href="#" class="maintenance-cta" target="_blank">
+                S'abonner à la maintenance →
+              </a>
             </div>
           </div>
         </div>
@@ -235,6 +249,30 @@
   .stripe-cta:hover { background: var(--accent-light); transform: translateY(-2px); }
   .payment-secure { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted); }
 
+  /* Maintenance note */
+  .maintenance-note {
+    font-size: 13px; color: var(--accent); font-weight: 500;
+    padding: 8px 16px; background: var(--accent-pale);
+    border-radius: var(--radius-sm); text-align: right;
+  }
+  .maintenance-note .maint-detail { font-weight: 400; color: var(--text-muted); font-size: 12px; }
+  .option-maintenance span { font-weight: 500; }
+
+  /* Maintenance payment step */
+  .maintenance-payment { margin-top: 16px; text-align: center; }
+  .maintenance-divider { height: 1px; background: var(--border); margin: 16px 0; }
+  .maintenance-payment-title { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+  .maintenance-payment-price { font-family: var(--font-display); font-size: 28px; color: var(--accent); margin: 4px 0; }
+  .maintenance-payment-price span { font-size: 14px; font-weight: 400; color: var(--text-muted); }
+  .maintenance-payment-desc { font-size: 12px; color: var(--text-secondary); max-width: 280px; margin: 0 auto 12px; line-height: 1.5; }
+  .maintenance-cta {
+    display: block; background: var(--cream); color: var(--accent);
+    font-size: 13px; font-weight: 500; padding: 12px 24px;
+    border: 1px solid var(--accent); border-radius: var(--radius-md);
+    transition: background .15s, transform .1s; width: 100%; text-align: center;
+  }
+  .maintenance-cta:hover { background: var(--accent-pale); transform: translateY(-1px); }
+
   @media (max-width: 960px) { .commander-inner { grid-template-columns: 1fr; gap: 40px; } }
   @media (max-width: 480px) { .field-row { grid-template-columns: 1fr; } .options-grid { grid-template-columns: 1fr; } .form-body { padding: 20px; } }
 </style>
@@ -244,24 +282,36 @@
   const SUPABASE_URL = 'https://rofkgmwjggvxlgrdnsyt.supabase.co';
   const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvZmtnbXdqZ2d2eGxncmRuc3l0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5MzA2MTgsImV4cCI6MjA4NzUwNjYxOH0.6nlnX-0wUlID-630j5fOyveEAG0Lrp2gWhgGMRKpmNk';
 
-  // ── Stripe Payment Links ───────────────────────────────────────────────────────
+  // ── Stripe Payment Links (one-time) ─────────────────────────────────────────
+  // Chaque montant unique = 1 Payment Link à créer sur dashboard.stripe.com
+  // ⚠️  Remplacer les TODO par les vrais liens Stripe avant mise en prod
   const STRIPE_LINKS: Record<number, string> = {
     650:  'https://buy.stripe.com/6oU14nfrP9cj64cd6D4Ja00',  // Base
     750:  'https://buy.stripe.com/cNi14ndjH60778g5Eb4Ja04',  // Base + RDV
     800:  'https://buy.stripe.com/6oUcN57Znagn3W4c2z4Ja02',  // Base + SEO
     850:  'https://buy.stripe.com/00w00jenLbkrdwEc2z4Ja01',  // Base + Blog
     900:  'https://buy.stripe.com/7sY9AT3J774b64c5Eb4Ja03',  // Base + SEO + RDV
+    950:  'TODO_STRIPE_LINK_950',   // Base + RDV + Blog
+    1000: 'TODO_STRIPE_LINK_1000',  // Base + Boutique
+    1050: 'TODO_STRIPE_LINK_1050',  // Base + SEO + Blog
+    1100: 'TODO_STRIPE_LINK_1100',  // Base + RDV + Boutique  OU  Base + SEO + RDV + Blog
+    1150: 'TODO_STRIPE_LINK_1150',  // Base + SEO + Boutique
+    1200: 'TODO_STRIPE_LINK_1200',  // Base + Blog + Boutique
+    1250: 'TODO_STRIPE_LINK_1250',  // Base + SEO + RDV + Boutique
+    1300: 'TODO_STRIPE_LINK_1300',  // Base + RDV + Blog + Boutique
+    1350: 'TODO_STRIPE_LINK_1350',  // Base + SEO + Blog + Boutique
+    1500: 'TODO_STRIPE_LINK_1500',  // Base + SEO + RDV + Blog + Boutique
   };
 
-  // ── Fallback vers le lien de base si combinaison non listée
-  const STRIPE_FALLBACK = 'https://buy.stripe.com/6oU14nfrP9cj64cd6D4Ja00';
+  // ── Stripe Subscription Link pour la maintenance (50€/mois) ─────────────────
+  // Créer un produit récurrent sur Stripe Dashboard → Payment Link mensuel
+  const STRIPE_MAINTENANCE_LINK = 'TODO_STRIPE_MAINTENANCE_50_MOIS';
 
-  // ── Add-on prices ─────────────────────────────────────────────────────────────
+  // ── Add-on prices (one-time uniquement, maintenance = abonnement séparé) ────
   const ADDON_PRICES: Record<string, number> = {
     'seo-local': 150,
     'rdv-en-ligne': 100,
     'blog': 200,
-    'maintenance': 300,
     'boutique': 350,
   };
 
@@ -273,12 +323,20 @@
     });
     const el = document.getElementById('priceVal');
     if (el) el.textContent = '€' + total.toLocaleString('fr-FR');
+
+    // Afficher la note maintenance si cochée
+    const maintenanceCb = document.getElementById('f-maintenance') as HTMLInputElement;
+    const maintenanceNote = document.getElementById('maintenanceNote');
+    if (maintenanceNote) {
+      maintenanceNote.style.display = maintenanceCb?.checked ? 'block' : 'none';
+    }
     return total;
   }
 
   document.querySelectorAll('.f-option').forEach(cb => {
     cb.addEventListener('change', updatePrice);
   });
+  document.getElementById('f-maintenance')?.addEventListener('change', updatePrice);
 
   // ── Submit brief ──────────────────────────────────────────────────────────────
   async function submitBrief() {
@@ -309,7 +367,24 @@
       optionsTotal += ADDON_PRICES[cb.value] || 0;
     });
 
+    // Maintenance = abonnement séparé, pas dans le total one-time
+    const maintenanceCb = document.getElementById('f-maintenance') as HTMLInputElement;
+    const wantsMaintenance = maintenanceCb?.checked || false;
+    if (wantsMaintenance && !checkedOptions.includes('maintenance')) {
+      checkedOptions.push('maintenance');
+    }
+
     const totalPrice = 650 + optionsTotal;
+
+    // ── FIX BUG CRITIQUE : bloquer si pas de lien Stripe au lieu de fallback €650
+    const stripeLink = STRIPE_LINKS[totalPrice];
+    if (!stripeLink || stripeLink.startsWith('TODO')) {
+      errorDiv.textContent = 'Cette combinaison d\'options n\'est pas encore disponible au paiement en ligne. Contactez-nous à hello@lancio.fr pour finaliser votre commande.';
+      errorDiv.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Envoyer mon brief et payer →';
+      return;
+    }
 
     const payload = {
       nom, email,
@@ -321,6 +396,8 @@
       options_total: optionsTotal,
       base_price: 650,
       total_price: totalPrice,
+      maintenance: wantsMaintenance,
+      maintenance_price_monthly: wantsMaintenance ? 50 : 0,
       status: 'new',
       source: 'lancio.fr',
     };
@@ -341,9 +418,6 @@
         throw new Error('Supabase error');
       }
 
-      // Trouver le bon lien Stripe
-      const stripeLink = STRIPE_LINKS[totalPrice] || STRIPE_FALLBACK;
-
       // Afficher étape paiement
       const stepBrief = document.getElementById('step-brief') as HTMLElement;
       const stepPayment = document.getElementById('step-payment') as HTMLElement;
@@ -354,8 +428,15 @@
       amountEl.textContent = '€' + totalPrice.toLocaleString('fr-FR');
 
       const stripeBtn = document.getElementById('stripeBtn') as HTMLAnchorElement;
-      // Passer email + nom en paramètre au Payment Link Stripe
       stripeBtn.href = `${stripeLink}?prefilled_email=${encodeURIComponent(email)}&client_reference_id=${encodeURIComponent(entreprise)}`;
+
+      // Si maintenance cochée → afficher le lien d'abonnement séparé
+      const maintenancePayment = document.getElementById('maintenancePayment') as HTMLElement;
+      const maintenanceStripeBtn = document.getElementById('maintenanceStripeBtn') as HTMLAnchorElement;
+      if (wantsMaintenance && maintenancePayment && maintenanceStripeBtn) {
+        maintenancePayment.style.display = 'block';
+        maintenanceStripeBtn.href = `${STRIPE_MAINTENANCE_LINK}?prefilled_email=${encodeURIComponent(email)}&client_reference_id=${encodeURIComponent(entreprise)}`;
+      }
 
     } catch (err) {
       console.error(err);
