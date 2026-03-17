@@ -22,7 +22,7 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install csv-parse node-fetch@2 @supabase/supabase-js
 
       - name: Run pipeline
         env:
