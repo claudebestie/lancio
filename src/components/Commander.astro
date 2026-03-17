@@ -283,29 +283,26 @@
   const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvZmtnbXdqZ2d2eGxncmRuc3l0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5MzA2MTgsImV4cCI6MjA4NzUwNjYxOH0.6nlnX-0wUlID-630j5fOyveEAG0Lrp2gWhgGMRKpmNk';
 
   // ── Stripe Payment Links (one-time) ─────────────────────────────────────────
-  // Chaque montant unique = 1 Payment Link à créer sur dashboard.stripe.com
-  // ⚠️  Remplacer les TODO par les vrais liens Stripe avant mise en prod
   const STRIPE_LINKS: Record<number, string> = {
     650:  'https://buy.stripe.com/6oU14nfrP9cj64cd6D4Ja00',  // Base
     750:  'https://buy.stripe.com/cNi14ndjH60778g5Eb4Ja04',  // Base + RDV
     800:  'https://buy.stripe.com/6oUcN57Znagn3W4c2z4Ja02',  // Base + SEO
     850:  'https://buy.stripe.com/00w00jenLbkrdwEc2z4Ja01',  // Base + Blog
     900:  'https://buy.stripe.com/7sY9AT3J774b64c5Eb4Ja03',  // Base + SEO + RDV
-    950:  'TODO_STRIPE_LINK_950',   // Base + RDV + Blog
-    1000: 'TODO_STRIPE_LINK_1000',  // Base + Boutique
-    1050: 'TODO_STRIPE_LINK_1050',  // Base + SEO + Blog
-    1100: 'TODO_STRIPE_LINK_1100',  // Base + RDV + Boutique  OU  Base + SEO + RDV + Blog
-    1150: 'TODO_STRIPE_LINK_1150',  // Base + SEO + Boutique
-    1200: 'TODO_STRIPE_LINK_1200',  // Base + Blog + Boutique
-    1250: 'TODO_STRIPE_LINK_1250',  // Base + SEO + RDV + Boutique
-    1300: 'TODO_STRIPE_LINK_1300',  // Base + RDV + Blog + Boutique
-    1350: 'TODO_STRIPE_LINK_1350',  // Base + SEO + Blog + Boutique
-    1500: 'TODO_STRIPE_LINK_1500',  // Base + SEO + RDV + Blog + Boutique
+    950:  'https://buy.stripe.com/aFa6oHa7vfAHaks2rZ4Ja0f',  // Base + RDV + Blog
+    1000: 'https://buy.stripe.com/dRm5kDfrPagneAI3w34Ja0e',  // Base + Boutique
+    1050: 'https://buy.stripe.com/7sY6oHgvT74bdwE0jR4Ja0d',  // Base + SEO + Blog
+    1100: 'https://buy.stripe.com/fZu4gzcfD4W3dwE0jR4Ja0c',  // Base + RDV + Boutique  OU  Base + SEO + RDV + Blog
+    1150: 'https://buy.stripe.com/3cIbJ10wV2NVfEMgiP4Ja0a',  // Base + SEO + Boutique
+    1200: 'https://buy.stripe.com/14A5kD0wVcoveAIaYv4Ja09',  // Base + Blog + Boutique
+    1250: 'https://buy.stripe.com/6oU5kDgvT88fcsA7Mj4Ja08',  // Base + SEO + RDV + Boutique
+    1300: 'https://buy.stripe.com/4gM4gz7Zn0FN64c0jR4Ja07',  // Base + RDV + Blog + Boutique
+    1350: 'https://buy.stripe.com/6oU14n2F39cjgIQ1nV4Ja06',  // Base + SEO + Blog + Boutique
+    1450: 'TODO_STRIPE_LINK_1450',  // Base + SEO + RDV + Blog + Boutique (150+100+200+350)
   };
 
   // ── Stripe Subscription Link pour la maintenance (50€/mois) ─────────────────
-  // Créer un produit récurrent sur Stripe Dashboard → Payment Link mensuel
-  const STRIPE_MAINTENANCE_LINK = 'TODO_STRIPE_MAINTENANCE_50_MOIS';
+  const STRIPE_MAINTENANCE_LINK = 'https://buy.stripe.com/5kQcN593r9cj1NW3w34Ja05';
 
   // ── Add-on prices (one-time uniquement, maintenance = abonnement séparé) ────
   const ADDON_PRICES: Record<string, number> = {
