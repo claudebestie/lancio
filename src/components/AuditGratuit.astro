@@ -1,0 +1,175 @@
+---
+// AuditGratuit.astro — Lancio
+// Formulaire d'audit gratuit → lancio_audit_requests (Supabase)
+---
+<section class="audit section-pad" id="audit">
+  <div class="container">
+    <div class="audit-banner">
+      <div class="audit-banner-left">
+        <div class="audit-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="var(--accent-pale)"/><circle cx="14" cy="14" r="6" stroke="var(--accent)" stroke-width="1.5"/><path d="M19 19l5 5" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <h3 class="audit-title">Audit gratuit de votre site actuel</h3>
+          <p class="audit-desc">On analyse votre site existant et on vous dit exactement ce qui peut être amélioré. Gratuit, sans engagement.</p>
+        </div>
+      </div>
+
+      <div class="audit-form" id="audit-form-body">
+        <div class="audit-fields">
+          <div class="audit-row">
+            <input type="text" id="au-nom" placeholder="Votre nom *" class="audit-input" required />
+            <input type="email" id="au-email" placeholder="Email *" class="audit-input" required />
+          </div>
+          <div class="audit-row">
+            <input type="tel" id="au-tel" placeholder="Téléphone" class="audit-input" />
+            <select id="au-secteur" class="audit-input">
+              <option value="">Votre secteur</option>
+              <option>Restaurant / Café</option>
+              <option>Salon de coiffure / Barbier</option>
+              <option>Cabinet médical / Médecin</option>
+              <option>Avocat / Cabinet juridique</option>
+              <option>Coach sportif / Personnel</option>
+              <option>Artisan / Plombier / Électricien</option>
+              <option>Thérapeute / Psychologue</option>
+              <option>Agent immobilier</option>
+              <option>Photographe / Créatif</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="audit-row audit-row-full">
+            <input type="url" id="au-site" placeholder="URL de votre site actuel * (ex: monsite.fr)" class="audit-input" required />
+            <button type="button" class="audit-submit" id="au-submit" onclick="submitAudit()">
+              Demander mon audit gratuit →
+            </button>
+          </div>
+        </div>
+        <div id="au-error" style="display:none; font-size:12px; color:#A32D2D; padding:8px 12px; background:#FEF0F0; border-radius:6px; margin-top:8px;"></div>
+      </div>
+
+      <div id="audit-success" style="display:none;" class="audit-success">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="var(--accent-pale)"/><path d="M7 12l3 3 7-7" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Demande envoyée ! On vous envoie votre audit sous 48h.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .audit-banner {
+    background: var(--cream);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-xl);
+    padding: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .audit-banner-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .audit-icon { flex-shrink: 0; }
+  .audit-title { font-family: var(--font-display); font-size: 22px; color: var(--text-primary); margin-bottom: 6px; }
+  .audit-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; max-width: 500px; }
+
+  .audit-fields { display: flex; flex-direction: column; gap: 10px; }
+  .audit-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .audit-row-full { grid-template-columns: 1fr auto; }
+  .audit-input {
+    font-family: var(--font-body); font-size: 13px; color: var(--text-primary);
+    background: var(--white); border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm); padding: 10px 14px; width: 100%;
+    transition: border-color .15s; outline: none; appearance: none;
+  }
+  .audit-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(26,60,52,0.08); }
+  select.audit-input {
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A5A55' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer;
+  }
+
+  .audit-submit {
+    font-family: var(--font-body); font-size: 13px; font-weight: 500;
+    background: var(--accent); color: var(--white); border: none;
+    border-radius: var(--radius-sm); padding: 10px 20px; cursor: pointer;
+    transition: background .15s; white-space: nowrap;
+  }
+  .audit-submit:hover { background: var(--accent-light); }
+  .audit-submit:disabled { opacity: .6; cursor: not-allowed; }
+
+  .audit-success {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 14px; font-weight: 500; color: var(--accent);
+    padding: 12px 0;
+  }
+
+  @media (max-width: 768px) {
+    .audit-banner { padding: 24px 20px; }
+    .audit-row { grid-template-columns: 1fr; }
+    .audit-row-full { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  const SUPABASE_URL = 'https://rofkgmwjggvxlgrdnsyt.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvZmtnbXdqZ2d2eGxncmRuc3l0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5MzA2MTgsImV4cCI6MjA4NzUwNjYxOH0.6nlnX-0wUlID-630j5fOyveEAG0Lrp2gWhgGMRKpmNk';
+
+  async function submitAudit() {
+    const btn = document.getElementById('au-submit') as HTMLButtonElement;
+    const errorDiv = document.getElementById('au-error') as HTMLDivElement;
+    errorDiv.style.display = 'none';
+
+    const nom = (document.getElementById('au-nom') as HTMLInputElement).value.trim();
+    const email = (document.getElementById('au-email') as HTMLInputElement).value.trim();
+    const tel = (document.getElementById('au-tel') as HTMLInputElement).value.trim();
+    const secteur = (document.getElementById('au-secteur') as HTMLSelectElement).value;
+    const site_actuel = (document.getElementById('au-site') as HTMLInputElement).value.trim();
+
+    if (!nom || !email || !site_actuel) {
+      errorDiv.textContent = 'Merci de remplir votre nom, email et l\'URL de votre site.';
+      errorDiv.style.display = 'block';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Envoi en cours...';
+
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/lancio_audit_requests`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`,
+          'Prefer': 'return=minimal',
+        },
+        body: JSON.stringify({
+          nom,
+          email,
+          tel: tel || null,
+          secteur: secteur || null,
+          site_actuel,
+          website: site_actuel,
+          seen: false,
+          done: false,
+          source: 'lancio.fr',
+        }),
+      });
+
+      if (!res.ok) throw new Error('Erreur Supabase');
+
+      (document.getElementById('audit-form-body') as HTMLElement).style.display = 'none';
+      (document.getElementById('audit-success') as HTMLElement).style.display = 'flex';
+
+    } catch (err) {
+      console.error(err);
+      errorDiv.textContent = 'Erreur d\'envoi. Écrivez-nous à hello@lancio.fr';
+      errorDiv.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Demander mon audit gratuit →';
+    }
+  }
+
+  (window as any).submitAudit = submitAudit;
+</script>

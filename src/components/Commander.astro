@@ -400,19 +400,52 @@
     };
 
     try {
+      // ── 1. Créer la commande dans lancio_orders ──
       const res = await fetch(`${SUPABASE_URL}/rest/v1/lancio_orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'apikey': SUPABASE_KEY,
           'Authorization': `Bearer ${SUPABASE_KEY}`,
-          'Prefer': 'return=minimal',
+          'Prefer': 'return=representation',
         },
         body: JSON.stringify(payload),
       });
 
       if (!res.ok) {
         throw new Error('Supabase error');
+      }
+
+      // ── 2. Auto-créer le lancio_onboarding lié ──
+      try {
+        const [order] = await res.json();
+        const onbPayload = {
+          order_id: order?.id || null,
+          nom,
+          email,
+          tel: (document.getElementById('f-tel') as HTMLInputElement).value.trim() || null,
+          secteur,
+          entreprise,
+          domaine: (document.getElementById('f-domaine') as HTMLInputElement).value.trim() || null,
+          description,
+          status: 'pending',
+          seen: false,
+          done: false,
+          source: 'lancio.fr',
+        };
+
+        await fetch(`${SUPABASE_URL}/rest/v1/lancio_onboarding`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_KEY,
+            'Authorization': `Bearer ${SUPABASE_KEY}`,
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify(onbPayload),
+        });
+      } catch (onbErr) {
+        console.warn('Onboarding auto-creation failed (non-blocking):', onbErr);
       }
 
       // Afficher étape paiement
