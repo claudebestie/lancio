@@ -30,6 +30,7 @@ jobs:
           BREVO_API_KEY:   ${{ secrets.BREVO_API_KEY }}
           SUPABASE_URL:    ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY:    ${{ secrets.SUPABASE_KEY }}
+          SENDER_EMAIL:    ${{ secrets.SENDER_EMAIL }}
         run: node pipeline.js
 
       - name: Upload logs on failure

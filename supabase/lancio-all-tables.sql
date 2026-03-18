@@ -3,6 +3,45 @@
 -- Run this in Supabase SQL Editor
 -- ============================================
 
+-- ── 0. TABLE lancio_pipeline_logs (scraping + email pipeline) ──
+CREATE TABLE IF NOT EXISTS lancio_pipeline_logs (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  created_at TIMESTAMPTZ DEFAULT now(),
+
+  run_id TEXT NOT NULL,
+  ville TEXT NOT NULL,
+  secteur TEXT NOT NULL,
+
+  contacts_total INTEGER DEFAULT 0,
+  contacts_imported INTEGER DEFAULT 0,
+
+  lobstr_run_id TEXT,
+  brevo_list_id INTEGER,
+  brevo_list_name TEXT,
+  campaigns JSONB,
+
+  status TEXT DEFAULT 'pending',
+  error_message TEXT
+);
+
+ALTER TABLE lancio_pipeline_logs ENABLE ROW LEVEL SECURITY;
+
+-- Dashboard (anon key) needs to read
+CREATE POLICY "anon_select_lancio_pipeline_logs" ON lancio_pipeline_logs
+  FOR SELECT TO anon USING (true);
+
+-- Pipeline (anon key from GitHub Actions) needs to insert
+CREATE POLICY "anon_insert_lancio_pipeline_logs" ON lancio_pipeline_logs
+  FOR INSERT TO anon WITH CHECK (true);
+
+-- Service role full access
+CREATE POLICY "service_full_lancio_pipeline_logs" ON lancio_pipeline_logs
+  FOR ALL TO service_role USING (true) WITH CHECK (true);
+
+CREATE INDEX IF NOT EXISTS idx_lancio_pipeline_logs_created ON lancio_pipeline_logs(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_lancio_pipeline_logs_ville ON lancio_pipeline_logs(ville, secteur);
+
+
 -- ── 1. AJOUTER colonnes manquantes sur lancio_orders ──
 ALTER TABLE lancio_orders ADD COLUMN IF NOT EXISTS seen BOOLEAN DEFAULT false;
 ALTER TABLE lancio_orders ADD COLUMN IF NOT EXISTS done BOOLEAN DEFAULT false;
