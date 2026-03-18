@@ -29,8 +29,19 @@ const faqs = [
     r: "On se spécialise sur les TPE et professions indépendantes : restaurants, artisans, avocats, médecins, coachs, coiffeurs, thérapeutes... Si vous avez un doute, écrivez-nous à hello@lancio.fr.",
   },
 ];
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.r },
+  })),
+});
 ---
 
+<script type="application/ld+json" set:html={faqSchema} />
 <section class="faq section-pad">
   <div class="container">
     <div class="faq-inner">

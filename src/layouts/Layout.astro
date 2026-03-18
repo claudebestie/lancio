@@ -21,9 +21,20 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1A3C34" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href={canonical} />
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="fr" href={canonical} />
+    <link rel="alternate" hreflang="en" href="https://getmizra.com" />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+
+    <!-- Geo Meta Tags for Local SEO -->
+    <meta name="geo.region" content="FR" />
+    <meta name="geo.placename" content="France" />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
@@ -33,17 +44,14 @@ const {
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Lancio" />
     {ogImage && <meta property="og:image" content={ogImage} />}
+    {ogImage && <meta property="og:image:width" content="1200" />}
+    {ogImage && <meta property="og:image:height" content="630" />}
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     {ogImage && <meta name="twitter:image" content={ogImage} />}
-
-    <!-- Hreflang -->
-    <link rel="alternate" hreflang="fr" href="https://lancio.fr" />
-    <link rel="alternate" hreflang="en" href="https://getmizra.com" />
-    <link rel="alternate" hreflang="x-default" href="https://lancio.fr" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -64,7 +72,25 @@ const {
         "email": "hello@lancio.fr",
         "areaServed": ["FR", "BE", "CH"],
         "priceRange": "€€",
-        "serviceType": "Création de site web"
+        "serviceType": "Création de site web",
+        "knowsLanguage": ["fr", "en", "he"]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Lancio",
+        "url": "https://lancio.fr",
+        "inLanguage": "fr",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://lancio.fr/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
       }
     </script>
     {extraStructuredData && <script type="application/ld+json" set:html={extraStructuredData} />}

@@ -1,4 +1,12 @@
+# robots.txt for lancio.fr
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
 
 Sitemap: https://lancio.fr/sitemap-index.xml
