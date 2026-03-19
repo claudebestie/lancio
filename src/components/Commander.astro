@@ -136,16 +136,69 @@
 
           <div id="form-error" style="display:none; font-size:13px; color:#A32D2D; padding:10px; background:#FEF0F0; border-radius:8px;"></div>
 
-          <button type="button" class="form-submit" id="submitBtn" onclick="submitBrief()">
-            Envoyer mon brief et payer →
+          <button type="button" class="form-submit" id="submitBtn" onclick="showRecap()">
+            Voir le récapitulatif →
           </button>
 
           <div class="form-note">
-            Après validation, vous serez redirigé vers le paiement sécurisé Stripe.
+            Vous pourrez relire votre commande avant de payer.
           </div>
         </div>
 
-        <!-- Étape 2 : Paiement Stripe -->
+        <!-- Étape 2 : Récapitulatif -->
+        <div id="step-recap" style="display:none;" class="form-body">
+          <div class="recap-step">
+            <div class="recap-header-title">Récapitulatif de votre commande</div>
+            <div class="recap-subtitle">Vérifiez vos informations avant de confirmer.</div>
+
+            <div class="recap-card">
+              <div class="recap-section">
+                <div class="recap-section-title">Vos coordonnées</div>
+                <div class="recap-row"><span class="recap-label">Nom</span><span class="recap-value" id="recap-nom"></span></div>
+                <div class="recap-row"><span class="recap-label">Email</span><span class="recap-value" id="recap-email"></span></div>
+                <div class="recap-row" id="recap-tel-row" style="display:none;"><span class="recap-label">Téléphone</span><span class="recap-value" id="recap-tel"></span></div>
+              </div>
+
+              <div class="recap-divider"></div>
+
+              <div class="recap-section">
+                <div class="recap-section-title">Votre projet</div>
+                <div class="recap-row"><span class="recap-label">Secteur</span><span class="recap-value" id="recap-secteur"></span></div>
+                <div class="recap-row"><span class="recap-label">Entreprise</span><span class="recap-value" id="recap-entreprise"></span></div>
+                <div class="recap-row" id="recap-domaine-row" style="display:none;"><span class="recap-label">Domaine</span><span class="recap-value" id="recap-domaine"></span></div>
+                <div class="recap-row recap-row-full"><span class="recap-label">Description</span><span class="recap-value recap-value-desc" id="recap-description"></span></div>
+              </div>
+
+              <div class="recap-divider"></div>
+
+              <div class="recap-section">
+                <div class="recap-section-title">Formule & options</div>
+                <div class="recap-row"><span class="recap-label">Site de base</span><span class="recap-price">€650</span></div>
+                <div id="recap-options-list"></div>
+                <div id="recap-maintenance-row" class="recap-row" style="display:none;"><span class="recap-label">Maintenance mensuelle</span><span class="recap-price recap-price-muted">50€/mois</span></div>
+              </div>
+
+              <div class="recap-total">
+                <span class="recap-total-label">Total (paiement unique)</span>
+                <span class="recap-total-val" id="recap-total"></span>
+              </div>
+              <div id="recap-maintenance-note" class="recap-maintenance-note" style="display:none;">
+                + Maintenance 50€/mois · facturée après livraison
+              </div>
+            </div>
+
+            <div id="recap-error" style="display:none; font-size:13px; color:#A32D2D; padding:10px; background:#FEF0F0; border-radius:8px;"></div>
+
+            <button type="button" class="form-submit" id="confirmBtn" onclick="confirmAndPay()">
+              Confirmer et payer →
+            </button>
+            <button type="button" class="recap-back" onclick="backToForm()">
+              ← Modifier mon brief
+            </button>
+          </div>
+        </div>
+
+        <!-- Étape 3 : Paiement Stripe -->
         <div id="step-payment" style="display:none;" class="form-body">
           <div class="payment-step">
             <div class="payment-icon">
@@ -187,7 +240,7 @@
     gap: 64px;
     align-items: start;
   }
-  .commander-sub { font-size: 16px; color: var(--text-secondary); line-height: 1.65; margin: 20px 0 28px; }
+  .commander-sub { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin: 20px 0 28px; }
   .commander-reassurance { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
   .reassure-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-secondary); }
 
@@ -273,8 +326,36 @@
   }
   .maintenance-cta:hover { background: var(--accent-pale); transform: translateY(-1px); }
 
+  /* Recap step */
+  .recap-step { display: flex; flex-direction: column; gap: 16px; }
+  .recap-header-title { font-family: var(--font-display); font-size: 22px; color: var(--text-primary); text-align: center; }
+  .recap-subtitle { font-size: 14px; color: var(--text-secondary); text-align: center; margin-bottom: 4px; }
+  .recap-card { background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; display: flex; flex-direction: column; gap: 0; }
+  .recap-section { display: flex; flex-direction: column; gap: 8px; padding: 16px 0; }
+  .recap-section:first-child { padding-top: 0; }
+  .recap-section-title { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); margin-bottom: 4px; }
+  .recap-divider { height: 1px; background: var(--border); }
+  .recap-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .recap-row-full { flex-direction: column; gap: 4px; }
+  .recap-label { font-size: 13px; color: var(--text-secondary); flex-shrink: 0; }
+  .recap-value { font-size: 13px; color: var(--text-primary); font-weight: 500; text-align: right; }
+  .recap-value-desc { font-weight: 400; text-align: left; font-size: 13px; line-height: 1.6; color: var(--text-secondary); }
+  .recap-price { font-size: 13px; color: var(--accent); font-weight: 500; }
+  .recap-price-muted { color: var(--text-muted); font-weight: 400; }
+  .recap-total { display: flex; justify-content: space-between; align-items: center; padding: 16px 0 0; border-top: 1px solid var(--border-strong); margin-top: 8px; }
+  .recap-total-label { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+  .recap-total-val { font-size: 28px; font-family: var(--font-display); color: var(--accent); }
+  .recap-maintenance-note { font-size: 12px; color: var(--accent); text-align: right; margin-top: -8px; }
+  .recap-back {
+    font-family: var(--font-body); font-size: 14px; color: var(--text-secondary);
+    background: none; border: none; cursor: pointer; text-align: center;
+    text-decoration: underline; text-underline-offset: 3px;
+    transition: color .15s; padding: 4px;
+  }
+  .recap-back:hover { color: var(--text-primary); }
+
   @media (max-width: 960px) { .commander-inner { grid-template-columns: 1fr; gap: 40px; } }
-  @media (max-width: 480px) { .field-row { grid-template-columns: 1fr; } .options-grid { grid-template-columns: 1fr; } .form-body { padding: 20px; } }
+  @media (max-width: 480px) { .field-row { grid-template-columns: 1fr; } .options-grid { grid-template-columns: 1fr; } .form-body { padding: 20px; } .recap-card { padding: 16px; } }
 </style>
 
 <script>
@@ -335,9 +416,16 @@
   });
   document.getElementById('f-maintenance')?.addEventListener('change', updatePrice);
 
-  // ── Submit brief ──────────────────────────────────────────────────────────────
-  async function submitBrief() {
-    const btn = document.getElementById('submitBtn') as HTMLButtonElement;
+  // ── Option labels for recap ──────────────────────────────────────────────────
+  const OPTION_LABELS: Record<string, string> = {
+    'seo-local': 'SEO local',
+    'rdv-en-ligne': 'RDV en ligne',
+    'blog': 'Blog SEO (5 articles)',
+    'boutique': 'Boutique en ligne',
+  };
+
+  // ── Show Recap (étape intermédiaire) ──────────────────────────────────────────
+  function showRecap() {
     const errorDiv = document.getElementById('form-error') as HTMLDivElement;
     errorDiv.style.display = 'none';
 
@@ -354,8 +442,95 @@
       return;
     }
 
+    const tel = (document.getElementById('f-tel') as HTMLInputElement).value.trim();
+    const domaine = (document.getElementById('f-domaine') as HTMLInputElement).value.trim();
+
+    // Remplir le recap
+    (document.getElementById('recap-nom') as HTMLElement).textContent = nom;
+    (document.getElementById('recap-email') as HTMLElement).textContent = email;
+
+    const telRow = document.getElementById('recap-tel-row') as HTMLElement;
+    if (tel) {
+      (document.getElementById('recap-tel') as HTMLElement).textContent = tel;
+      telRow.style.display = 'flex';
+    } else {
+      telRow.style.display = 'none';
+    }
+
+    (document.getElementById('recap-secteur') as HTMLElement).textContent = secteur;
+    (document.getElementById('recap-entreprise') as HTMLElement).textContent = entreprise;
+
+    const domaineRow = document.getElementById('recap-domaine-row') as HTMLElement;
+    if (domaine) {
+      (document.getElementById('recap-domaine') as HTMLElement).textContent = domaine;
+      domaineRow.style.display = 'flex';
+    } else {
+      domaineRow.style.display = 'none';
+    }
+
+    (document.getElementById('recap-description') as HTMLElement).textContent = description;
+
+    // Options
+    const optionsList = document.getElementById('recap-options-list') as HTMLElement;
+    optionsList.innerHTML = '';
+    let optionsTotal = 0;
+    document.querySelectorAll<HTMLInputElement>('.f-option:checked').forEach(cb => {
+      const price = ADDON_PRICES[cb.value] || 0;
+      optionsTotal += price;
+      const row = document.createElement('div');
+      row.style.cssText = 'display:flex;justify-content:space-between;align-items:baseline;gap:12px';
+      row.innerHTML = `<span style="font-size:13px;color:var(--text-secondary)">${OPTION_LABELS[cb.value] || cb.value}</span><span style="font-size:13px;color:var(--accent);font-weight:500">+€${price}</span>`;
+      optionsList.appendChild(row);
+    });
+
+    const totalPrice = 650 + optionsTotal;
+    (document.getElementById('recap-total') as HTMLElement).textContent = '€' + totalPrice.toLocaleString('fr-FR');
+
+    // Maintenance
+    const maintenanceCb = document.getElementById('f-maintenance') as HTMLInputElement;
+    const wantsMaintenance = maintenanceCb?.checked || false;
+    const maintenanceRow = document.getElementById('recap-maintenance-row') as HTMLElement;
+    const maintenanceNote = document.getElementById('recap-maintenance-note') as HTMLElement;
+    maintenanceRow.style.display = wantsMaintenance ? 'flex' : 'none';
+    maintenanceNote.style.display = wantsMaintenance ? 'block' : 'none';
+
+    // Vérifier que le lien Stripe existe
+    const stripeLink = STRIPE_LINKS[totalPrice];
+    if (!stripeLink || stripeLink.startsWith('TODO')) {
+      const recapError = document.getElementById('recap-error') as HTMLDivElement;
+      recapError.textContent = 'Cette combinaison d\'options n\'est pas encore disponible au paiement en ligne. Contactez-nous à hello@lancio.fr.';
+      recapError.style.display = 'block';
+    }
+
+    // Basculer les étapes
+    (document.getElementById('step-brief') as HTMLElement).style.display = 'none';
+    (document.getElementById('step-recap') as HTMLElement).style.display = 'block';
+
+    // Scroll vers le haut du formulaire
+    document.querySelector('.brief-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // ── Back to form ──────────────────────────────────────────────────────────────
+  function backToForm() {
+    (document.getElementById('step-recap') as HTMLElement).style.display = 'none';
+    (document.getElementById('step-brief') as HTMLElement).style.display = 'flex';
+    document.querySelector('.brief-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // ── Confirm & Pay (anciennement submitBrief) ──────────────────────────────────
+  async function confirmAndPay() {
+    const btn = document.getElementById('confirmBtn') as HTMLButtonElement;
+    const errorDiv = document.getElementById('recap-error') as HTMLDivElement;
+    errorDiv.style.display = 'none';
+
     btn.disabled = true;
     btn.textContent = 'Envoi en cours…';
+
+    const nom = (document.getElementById('f-nom') as HTMLInputElement).value.trim();
+    const email = (document.getElementById('f-email') as HTMLInputElement).value.trim();
+    const secteur = (document.getElementById('f-secteur') as HTMLSelectElement).value;
+    const entreprise = (document.getElementById('f-entreprise') as HTMLInputElement).value.trim();
+    const description = (document.getElementById('f-description') as HTMLTextAreaElement).value.trim();
 
     const checkedOptions: string[] = [];
     let optionsTotal = 0;
@@ -364,7 +539,6 @@
       optionsTotal += ADDON_PRICES[cb.value] || 0;
     });
 
-    // Maintenance = abonnement séparé, pas dans le total one-time
     const maintenanceCb = document.getElementById('f-maintenance') as HTMLInputElement;
     const wantsMaintenance = maintenanceCb?.checked || false;
     if (wantsMaintenance && !checkedOptions.includes('maintenance')) {
@@ -373,13 +547,12 @@
 
     const totalPrice = 650 + optionsTotal;
 
-    // ── FIX BUG CRITIQUE : bloquer si pas de lien Stripe au lieu de fallback €650
     const stripeLink = STRIPE_LINKS[totalPrice];
     if (!stripeLink || stripeLink.startsWith('TODO')) {
       errorDiv.textContent = 'Cette combinaison d\'options n\'est pas encore disponible au paiement en ligne. Contactez-nous à hello@lancio.fr pour finaliser votre commande.';
       errorDiv.style.display = 'block';
       btn.disabled = false;
-      btn.textContent = 'Envoyer mon brief et payer →';
+      btn.textContent = 'Confirmer et payer →';
       return;
     }
 
@@ -412,53 +585,33 @@
         body: JSON.stringify(payload),
       });
 
-      if (!res.ok) {
-        throw new Error('Supabase error');
-      }
+      if (!res.ok) throw new Error('Supabase error');
 
       // ── 2. Auto-créer le lancio_onboarding lié ──
       try {
         const [order] = await res.json();
         const onbPayload = {
           order_id: order?.id || null,
-          nom,
-          email,
+          nom, email,
           tel: (document.getElementById('f-tel') as HTMLInputElement).value.trim() || null,
-          secteur,
-          entreprise,
+          secteur, entreprise,
           domaine: (document.getElementById('f-domaine') as HTMLInputElement).value.trim() || null,
           description,
-          status: 'pending',
-          seen: false,
-          done: false,
-          source: 'lancio.fr',
+          status: 'pending', seen: false, done: false, source: 'lancio.fr',
         };
-
         await fetch(`${SUPABASE_URL}/rest/v1/lancio_onboarding`, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'apikey': SUPABASE_KEY,
-            'Authorization': `Bearer ${SUPABASE_KEY}`,
-            'Prefer': 'return=minimal',
-          },
+          headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}`, 'Prefer': 'return=minimal' },
           body: JSON.stringify(onbPayload),
         });
-      } catch (onbErr) {
-        console.warn('Onboarding auto-creation failed (non-blocking):', onbErr);
-      }
+      } catch (onbErr) { console.warn('Onboarding auto-creation failed (non-blocking):', onbErr); }
 
       // Afficher étape paiement
-      const stepBrief = document.getElementById('step-brief') as HTMLElement;
-      const stepPayment = document.getElementById('step-payment') as HTMLElement;
-      stepBrief.style.display = 'none';
-      stepPayment.style.display = 'block';
+      (document.getElementById('step-recap') as HTMLElement).style.display = 'none';
+      (document.getElementById('step-payment') as HTMLElement).style.display = 'block';
 
-      const amountEl = document.getElementById('paymentAmount') as HTMLElement;
-      amountEl.textContent = '€' + totalPrice.toLocaleString('fr-FR');
-
-      const stripeBtn = document.getElementById('stripeBtn') as HTMLAnchorElement;
-      stripeBtn.href = `${stripeLink}?prefilled_email=${encodeURIComponent(email)}&client_reference_id=${encodeURIComponent(entreprise)}`;
+      (document.getElementById('paymentAmount') as HTMLElement).textContent = '€' + totalPrice.toLocaleString('fr-FR');
+      (document.getElementById('stripeBtn') as HTMLAnchorElement).href = `${stripeLink}?prefilled_email=${encodeURIComponent(email)}&client_reference_id=${encodeURIComponent(entreprise)}`;
 
       // Si maintenance cochée → afficher le lien d'abonnement séparé
       const maintenancePayment = document.getElementById('maintenancePayment') as HTMLElement;
@@ -468,15 +621,19 @@
         maintenanceStripeBtn.href = `${STRIPE_MAINTENANCE_LINK}?prefilled_email=${encodeURIComponent(email)}&client_reference_id=${encodeURIComponent(entreprise)}`;
       }
 
+      document.querySelector('.brief-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
     } catch (err) {
       console.error(err);
       errorDiv.textContent = 'Erreur. Écrivez-nous directement à hello@lancio.fr';
       errorDiv.style.display = 'block';
       btn.disabled = false;
-      btn.textContent = 'Envoyer mon brief et payer →';
+      btn.textContent = 'Confirmer et payer →';
     }
   }
 
   // Exposer pour onclick
-  (window as any).submitBrief = submitBrief;
+  (window as any).showRecap = showRecap;
+  (window as any).backToForm = backToForm;
+  (window as any).confirmAndPay = confirmAndPay;
 </script>
