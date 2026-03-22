@@ -91,6 +91,19 @@ async function lobstrGet(path) {
   return res.json();
 }
 
+async function lobstrDelete(path) {
+  const url = `https://api.lobstr.io/v1${path}`;
+  const res = await fetch(url, {
+    method: 'DELETE',
+    headers: { 'Authorization': `Token ${LOBSTR_KEY}`, 'Accept': 'application/json' },
+  });
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`Lobstr DELETE ${path} → ${res.status}: ${body}`);
+  }
+  return res.json();
+}
+
 async function lobstrPost(path, body) {
   const url = `https://api.lobstr.io/v1${path}`;
   const res = await fetch(url, {
@@ -107,6 +120,17 @@ async function lobstrPost(path, body) {
     throw new Error(`Lobstr POST ${path} → ${res.status}: ${text}`);
   }
   return res.json();
+}
+
+// Supprime un squid pour libérer le slot Lobstr (limite 2 actifs)
+async function deleteSquid(squidId) {
+  try {
+    const result = await lobstrDelete(`/squids/${squidId}`);
+    log(`Squid ${squidId} supprimé — slot Lobstr libéré`);
+    return result;
+  } catch (err) {
+    log(`Warning: échec suppression squid ${squidId}: ${err.message}`);
+  }
 }
 
 // Crée (ou réutilise) un squid pour la ville/catégorie
@@ -441,13 +465,19 @@ async function main() {
   log(`Ville du jour : ${ville} / ${secteur} (catégorie Maps: "${category}")`);
 
   let runId = null;
+  let squidId = null;
 
   try {
     // 2. Lobstr : squid + tasks + run + CSV
-    const squidId = await getOrCreateSquid(ville, category);
+    squidId = await getOrCreateSquid(ville, category);
     await addTasks(squidId, ville, category);
     runId = await runAndWait(squidId);
     const csvText = await downloadCSV(runId);
+
+    // Libérer le slot Lobstr dès que le scraping est terminé (limite 2 slots actifs)
+    await deleteSquid(squidId);
+    squidId = null; // Marquer comme supprimé pour éviter double suppression
+
     const contacts = parseAndClean(csvText);
 
     if (contacts.length === 0) {
@@ -490,6 +520,10 @@ async function main() {
 
   } catch (err) {
     console.error(`PIPELINE ERROR: ${err.message}`);
+    // Libérer le slot Lobstr même en cas d'erreur
+    if (squidId) {
+      await deleteSquid(squidId);
+    }
     await logRun({
       run_id: tag, ville, secteur,
       contacts_total: 0, contacts_imported: 0,
