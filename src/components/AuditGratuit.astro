@@ -1,17 +1,17 @@
 ---
 // AuditGratuit.astro — Lancio
-// Formulaire d'audit gratuit → lancio_audit_requests (Supabase)
+// Formulaire de mockup gratuit → lancio_audit_requests (Supabase)
 ---
-<section class="audit section-pad" id="audit">
+<section class="audit section-pad" id="mockup">
   <div class="container">
     <div class="audit-banner">
       <div class="audit-banner-left">
         <div class="audit-icon">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="var(--accent-pale)"/><circle cx="14" cy="14" r="6" stroke="var(--accent)" stroke-width="1.5"/><path d="M19 19l5 5" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="var(--accent-pale)"/><rect x="8" y="6" width="16" height="20" rx="2" stroke="var(--accent)" stroke-width="1.5" fill="none"/><line x1="12" y1="12" x2="20" y2="12" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round"/><line x1="12" y1="16" x2="18" y2="16" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round"/><line x1="12" y1="20" x2="16" y2="20" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round"/></svg>
         </div>
         <div>
-          <h3 class="audit-title">Audit gratuit de votre site actuel</h3>
-          <p class="audit-desc">On analyse votre site existant et on vous dit exactement ce qui peut être amélioré. Gratuit, sans engagement.</p>
+          <h3 class="audit-title">Mockup gratuit de votre futur site</h3>
+          <p class="audit-desc">On vous crée un mockup personnalisé de votre futur site web. Gratuit, sans engagement. Vous payez uniquement si ça vous plaît.</p>
         </div>
       </div>
 
@@ -38,9 +38,9 @@
             </select>
           </div>
           <div class="audit-row audit-row-full">
-            <input type="url" id="au-site" placeholder="URL de votre site actuel * (ex: monsite.fr)" class="audit-input" required />
+            <input type="text" id="au-site" placeholder="Nom de votre entreprise *" class="audit-input" required />
             <button type="button" class="audit-submit" id="au-submit" onclick="submitAudit()">
-              Demander mon audit gratuit →
+              Recevoir mon mockup gratuit →
             </button>
           </div>
         </div>
@@ -49,7 +49,7 @@
 
       <div id="audit-success" style="display:none;" class="audit-success">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="var(--accent-pale)"/><path d="M7 12l3 3 7-7" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span>Demande envoyée ! On vous envoie votre audit sous 48h.</span>
+        <span>Demande envoyée ! Votre mockup sera prêt sous 48h.</span>
       </div>
     </div>
   </div>
@@ -127,7 +127,7 @@
     const site_actuel = (document.getElementById('au-site') as HTMLInputElement).value.trim();
 
     if (!nom || !email || !site_actuel) {
-      errorDiv.textContent = 'Merci de remplir votre nom, email et l\'URL de votre site.';
+      errorDiv.textContent = 'Merci de remplir votre nom, email et le nom de votre entreprise.';
       errorDiv.style.display = 'block';
       return;
     }
@@ -167,7 +167,7 @@
       errorDiv.textContent = 'Erreur d\'envoi. Écrivez-nous à hello@lancio.fr';
       errorDiv.style.display = 'block';
       btn.disabled = false;
-      btn.textContent = 'Demander mon audit gratuit →';
+      btn.textContent = 'Recevoir mon mockup gratuit →';
     }
   }
 
