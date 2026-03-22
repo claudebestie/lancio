@@ -14,8 +14,8 @@
       Un site professionnel clé en main à partir de <strong>€650</strong> — sans rendez-vous, sans devis, sans surprise. Vous commandez lundi, vous êtes en ligne mercredi.
     </p>
     <div class="hero-actions">
-      <a href="#commander" class="btn-primary">Commander mon site →</a>
-      <a href="#exemples" class="btn-ghost">Voir les exemples</a>
+      <a href="#mockup" class="btn-primary">Demander un mockup gratuit →</a>
+      <a href="https://calendly.com/hello-beyitworld/30min" target="_blank" class="btn-secondary">Prendre RDV avec un conseiller</a>
     </div>
     <div class="hero-proof">
       <div class="proof-item">
@@ -150,15 +150,20 @@
     gap: 6px;
   }
   .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
-  .btn-ghost {
+  .btn-secondary {
     font-size: 15px;
-    color: var(--text-secondary);
-    transition: color 0.15s;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-color: var(--border-strong);
+    font-weight: 500;
+    color: var(--accent);
+    background: var(--white);
+    border: 1.5px solid var(--accent);
+    padding: 14px 28px;
+    border-radius: var(--radius-md);
+    transition: background 0.15s, color 0.15s, transform 0.1s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
   }
-  .btn-ghost:hover { color: var(--text-primary); }
+  .btn-secondary:hover { background: var(--accent); color: var(--white); transform: translateY(-2px); }
   .hero-proof {
     display: flex;
     align-items: center;
