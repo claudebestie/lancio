@@ -1,0 +1,35 @@
+name: Blog Auto — 5 articles/semaine
+
+on:
+  schedule:
+    # Tous les lundis à 9h (heure de Paris = 8h UTC en hiver, 7h UTC en été)
+    - cron: '0 8 * * 1'
+  workflow_dispatch: # Lancement manuel possible
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install anthropic supabase requests
+
+      - name: Generate blog articles
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_OWNER: claudebestie
+          GITHUB_REPO: lancio
+          NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+          ARTICLES_PER_RUN: '5'
+        run: python scripts/generate_blog_lancio.py

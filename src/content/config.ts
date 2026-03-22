@@ -8,6 +8,7 @@ const blog = defineCollection({
     date: z.string(),
     permalink: z.string().optional(),
     secteur: z.string().optional(),
+    keyword: z.string().optional(),
   }),
 });
 

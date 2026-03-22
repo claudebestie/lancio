@@ -7,10 +7,10 @@ import Footer from '../../components/Footer.astro';
 const posts = (await getCollection('blog'))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 
-const secteurs = ['Tous', 'restaurant', 'coiffeur', 'avocat', 'medecin', 'coach', 'artisan', 'general'];
+const secteurs = ['Tous', 'restaurant', 'coiffeur', 'avocat', 'medecin', 'coach', 'artisan', 'therapeute', 'immobilier', 'cafe', 'beaute', 'pilates', 'general'];
 
 function getSecteurColor(s: string) {
-  const map: Record<string, string> = {restaurant:'#F5EDE7',coiffeur:'#E8F0EE',avocat:'#EEF0F8',medecin:'#E8F5EE',coach:'#F5F0E8',artisan:'#F0EDE8'};
+  const map: Record<string, string> = {restaurant:'#F5EDE7',coiffeur:'#E8F0EE',avocat:'#EEF0F8',medecin:'#E8F5EE',coach:'#F5F0E8',artisan:'#F0EDE8',therapeute:'#F0E8F5',immobilier:'#E8EEF5',cafe:'#F5F2E8',beaute:'#F5E8EE',pilates:'#E8F5F0'};
   return map[s] || '#F0EEE8';
 }
 
