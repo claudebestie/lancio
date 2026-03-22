@@ -606,6 +606,11 @@
         });
       } catch (onbErr) { console.warn('Onboarding auto-creation failed (non-blocking):', onbErr); }
 
+      // Datafast: track order_submitted + thank_you_view
+      const selectedOptions = checkedOptions.filter(o => o !== 'maintenance').join(', ') || 'base';
+      window.datafast?.('order_submitted', { package: selectedOptions, total: '€' + totalPrice, method: 'stripe' });
+      window.datafast?.('thank_you_view', { type: 'order' });
+
       // Afficher étape paiement
       (document.getElementById('step-recap') as HTMLElement).style.display = 'none';
       (document.getElementById('step-payment') as HTMLElement).style.display = 'block';
@@ -630,6 +635,32 @@
       btn.disabled = false;
       btn.textContent = 'Confirmer et payer →';
     }
+  }
+
+  // ── Datafast: track payment clicks ──────────────────────────────────────────
+  document.getElementById('stripeBtn')?.addEventListener('click', () => {
+    window.datafast?.('payment_success');
+  });
+
+  // Direct payment links
+  document.querySelectorAll('.pl-link').forEach(link => {
+    link.addEventListener('click', () => {
+      window.datafast?.('payment_success');
+    });
+  });
+
+  // ── Datafast: track open_order_modal when #commander becomes visible ────────
+  const commanderSection = document.getElementById('commander');
+  if (commanderSection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          window.datafast?.('open_order_modal');
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(commanderSection);
   }
 
   // Exposer pour onclick

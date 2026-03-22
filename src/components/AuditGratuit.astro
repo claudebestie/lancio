@@ -159,6 +159,10 @@
 
       if (!res.ok) throw new Error('Erreur Supabase');
 
+      // Datafast: track mockup_request + thank_you_view
+      window.datafast?.('mockup_request', { lang: 'fr' });
+      window.datafast?.('thank_you_view', { type: 'mockup' });
+
       (document.getElementById('audit-form-body') as HTMLElement).style.display = 'none';
       (document.getElementById('audit-success') as HTMLElement).style.display = 'flex';
 

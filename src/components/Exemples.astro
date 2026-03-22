@@ -205,3 +205,12 @@ const exemples = [
     .exemples-grid { grid-template-columns: 1fr; }
   }
 </style>
+
+<script>
+  document.querySelectorAll('.exemple-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const secteur = card.querySelector('.exemple-secteur')?.textContent?.toLowerCase().trim() || '';
+      window.datafast?.('example_click', { example: secteur });
+    });
+  });
+</script>

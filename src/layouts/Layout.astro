@@ -96,7 +96,41 @@ const {
     {extraStructuredData && <script type="application/ld+json" set:html={extraStructuredData} />}
 
     <!-- Analytics -->
+    <script id="datafast-queue">
+      window.datafast = window.datafast || function() {
+        window.datafast.q = window.datafast.q || [];
+        window.datafast.q.push(arguments);
+      };
+    </script>
     <script defer data-website-id="dfid_H9G7QTugjA4UgAvUJ2m32" data-domain="lancio.fr" src="https://datafa.st/js/script.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Track page language
+        window.datafast?.('page_lang', { lang: 'fr' });
+
+        // Track cta_get_started on all #commander links (covers sector pages too)
+        document.querySelectorAll('a[href="#commander"], a[href="/#commander"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            window.datafast?.('cta_get_started');
+          });
+        });
+
+        // Track book_consultation on all Calendly links
+        document.querySelectorAll('a[href*="calendly.com"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            var page = window.location.pathname.replace(/\//g, '') || 'homepage';
+            window.datafast?.('book_consultation', { page: page });
+          });
+        });
+
+        // Track whatsapp_click on all WhatsApp links
+        document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            window.datafast?.('whatsapp_click');
+          });
+        });
+      });
+    </script>
   </head>
   <body>
     <slot />
