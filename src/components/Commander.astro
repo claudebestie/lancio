@@ -26,21 +26,61 @@
           </div>
         </div>
 
-        <!-- Stripe Payment Links — à créer dans dashboard.stripe.com -->
-        <div class="payment-links">
-          <div class="pl-label">Paiement direct sans brief →</div>
-          <div class="pl-links">
-            <a href="https://buy.stripe.com/6oU14nfrP9cj64cd6D4Ja00" class="pl-link" target="_blank">
-              Site de base — €650
-            </a>
-            <a href="https://buy.stripe.com/6oUcN57Znagn3W4c2z4Ja02" class="pl-link" target="_blank">
-              + SEO local — €800
-            </a>
-            <a href="https://buy.stripe.com/7sY9AT3J774b64c5Eb4Ja03" class="pl-link pl-featured" target="_blank">
-              Site complet (base + SEO + RDV) — €900
-            </a>
+        <!-- Menu tarifs clair -->
+        <div class="menu-tarifs">
+          <div class="menu-tarifs-title">Ce que vous obtenez</div>
+          <div class="menu-base">
+            <div class="menu-base-header">
+              <div class="menu-base-name">Site vitrine professionnel</div>
+              <div class="menu-base-price">€650</div>
+            </div>
+            <div class="menu-base-desc">3 à 5 pages sur-mesure, responsive mobile, formulaire de contact, hébergement + domaine 1 an, certificat SSL, livraison 48h.</div>
           </div>
-          <div class="pl-note">Paiement en 1 clic · Carte ou virement</div>
+          <div class="menu-options-title">Options à ajouter</div>
+          <div class="menu-options">
+            <div class="menu-option">
+              <div class="menu-option-left">
+                <div class="menu-option-name">SEO local</div>
+                <div class="menu-option-desc">Fiche Google Business, balises optimisées, référencement local pour apparaître dans les résultats de votre ville.</div>
+              </div>
+              <div class="menu-option-price">+€150</div>
+            </div>
+            <div class="menu-option">
+              <div class="menu-option-left">
+                <div class="menu-option-name">Prise de RDV en ligne</div>
+                <div class="menu-option-desc">Calendrier intégré (Calendly ou Cal.com) pour que vos clients réservent directement depuis votre site.</div>
+              </div>
+              <div class="menu-option-price">+€100</div>
+            </div>
+            <div class="menu-option">
+              <div class="menu-option-left">
+                <div class="menu-option-name">Blog SEO (5 articles)</div>
+                <div class="menu-option-desc">5 articles optimisés pour le référencement, rédigés et publiés sur votre site pour attirer du trafic organique.</div>
+              </div>
+              <div class="menu-option-price">+€200</div>
+            </div>
+            <div class="menu-option">
+              <div class="menu-option-left">
+                <div class="menu-option-name">Boutique en ligne</div>
+                <div class="menu-option-desc">Catalogue produits, panier d'achat et paiement sécurisé intégré directement à votre site.</div>
+              </div>
+              <div class="menu-option-price">+€350</div>
+            </div>
+            <div class="menu-option">
+              <div class="menu-option-left">
+                <div class="menu-option-name">Page supplémentaire</div>
+                <div class="menu-option-desc">Ajoutez une page additionnelle à votre site (portfolio, équipe, FAQ, etc.).</div>
+              </div>
+              <div class="menu-option-price">+€80</div>
+            </div>
+            <div class="menu-option menu-option-recurring">
+              <div class="menu-option-left">
+                <div class="menu-option-name">Maintenance mensuelle</div>
+                <div class="menu-option-desc">Mises à jour de contenu, modifications mineures et support prioritaire. Résiliable à tout moment.</div>
+              </div>
+              <div class="menu-option-price">50€<span>/mois</span></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -244,21 +284,24 @@
   .commander-reassurance { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
   .reassure-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-secondary); }
 
-  /* Payment Links rapides */
-  .payment-links { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); }
-  .pl-label { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; }
-  .pl-links { display: flex; flex-direction: column; gap: 8px; }
-  .pl-link {
-    font-size: 13px; color: var(--accent); font-weight: 500;
-    padding: 9px 14px; border: 1px solid rgba(26,60,52,0.2);
-    border-radius: var(--radius-md); transition: background .15s;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .pl-link:hover { background: var(--accent-pale); }
-  .pl-link.pl-featured { background: var(--accent); color: var(--white); border-color: var(--accent); }
-  .pl-link.pl-featured:hover { background: var(--accent-light); }
-  .pl-link::after { content: '→'; }
-  .pl-note { font-size: 11px; color: var(--text-muted); margin-top: 8px; }
+  /* Menu tarifs */
+  .menu-tarifs { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); }
+  .menu-tarifs-title { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 14px; }
+  .menu-base { background: var(--accent-pale); border: 1.5px solid var(--accent); border-radius: var(--radius-md); padding: 16px 18px; margin-bottom: 20px; }
+  .menu-base-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  .menu-base-name { font-size: 15px; font-weight: 500; color: var(--accent); }
+  .menu-base-price { font-family: var(--font-display); font-size: 28px; color: var(--accent); }
+  .menu-base-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+  .menu-options-title { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 10px; }
+  .menu-options { display: flex; flex-direction: column; gap: 0; }
+  .menu-option { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .menu-option:last-child { border-bottom: none; }
+  .menu-option-left { flex: 1; }
+  .menu-option-name { font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 2px; }
+  .menu-option-desc { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+  .menu-option-price { font-size: 14px; font-weight: 500; color: var(--accent); white-space: nowrap; flex-shrink: 0; padding-top: 1px; }
+  .menu-option-price span { font-size: 11px; font-weight: 400; color: var(--text-muted); }
+  .menu-option-recurring { background: var(--cream); margin: 0 -18px; padding: 12px 18px; border-bottom: none; border-radius: 0 0 var(--radius-sm) var(--radius-sm); }
 
   /* Form */
   .brief-form { background: var(--white); border: 1px solid var(--border-strong); border-radius: var(--radius-xl); overflow: hidden; }
