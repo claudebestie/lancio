@@ -1,0 +1,238 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Merci pour votre commande ! | Lancio"
+  description="Votre commande a bien été reçue. Notre équipe revient vers vous très rapidement."
+  canonical="https://lancio.fr/merci/"
+>
+
+<nav class="nav-merci">
+  <div class="container nav-merci-inner">
+    <a href="/" class="nav-merci-logo">Lancio</a>
+  </div>
+</nav>
+
+<main class="merci">
+  <div class="container">
+    <div class="merci-card">
+
+      <div class="merci-icon">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="32" fill="var(--accent-pale)"/>
+          <path d="M20 32l8 8 16-16" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <h1>Merci pour votre commande !</h1>
+      <p class="merci-sub">Votre paiement a bien été reçu et votre brief est entre nos mains.</p>
+
+      <div class="merci-timeline">
+        <div class="timeline-step timeline-done">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-title">Brief reçu</div>
+            <div class="timeline-desc">Votre brief de commande est bien enregistré.</div>
+          </div>
+        </div>
+        <div class="timeline-step timeline-done">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-title">Paiement confirmé</div>
+            <div class="timeline-desc">Votre paiement a été traité avec succès via Stripe.</div>
+          </div>
+        </div>
+        <div class="timeline-step timeline-active">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-title">On revient très vite vers vous</div>
+            <div class="timeline-desc">Notre équipe prend connaissance de votre projet et vous contacte sous 24h pour lancer la création de votre site.</div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-title">Votre site en ligne sous 48h</div>
+            <div class="timeline-desc">Livraison garantie dans les 48 heures suivant la validation du brief.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="merci-info">
+        <div class="merci-info-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="9" fill="var(--accent-pale)"/><path d="M9 5v4M9 12h.01" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="merci-info-title">Une question ?</div>
+          <div class="merci-info-desc">Écrivez-nous à <a href="mailto:hello@lancio.fr">hello@lancio.fr</a> ou sur <a href="https://wa.me/33787686005" target="_blank">WhatsApp</a>.</div>
+        </div>
+      </div>
+
+      <a href="/" class="merci-back">← Retour à l'accueil</a>
+
+    </div>
+  </div>
+</main>
+
+<script>
+  // Track thank you page view
+  window.datafast?.('thank_you_view', { type: 'order_confirmed' });
+</script>
+
+</Layout>
+
+<style>
+  .nav-merci {
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+  }
+  .nav-merci-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-merci-logo {
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--text-primary);
+  }
+
+  .merci {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0;
+    background: var(--cream);
+  }
+
+  .merci-card {
+    max-width: 540px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-xl);
+    padding: 48px 40px;
+    text-align: center;
+  }
+
+  .merci-icon {
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+
+  .merci-sub {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+
+  /* Timeline */
+  .merci-timeline {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 32px;
+    padding-left: 4px;
+  }
+
+  .timeline-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    position: relative;
+    padding-bottom: 24px;
+    padding-left: 8px;
+  }
+  .timeline-step:last-child { padding-bottom: 0; }
+
+  /* Vertical line */
+  .timeline-step::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 20px;
+    bottom: 0;
+    width: 1px;
+    background: var(--border-strong);
+  }
+  .timeline-step:last-child::before { display: none; }
+
+  .timeline-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border-strong);
+    flex-shrink: 0;
+    margin-top: 5px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline-step.timeline-done .timeline-dot {
+    background: var(--accent);
+  }
+  .timeline-step.timeline-done::before {
+    background: var(--accent);
+  }
+
+  .timeline-step.timeline-active .timeline-dot {
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-pale);
+  }
+
+  .timeline-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+  .timeline-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .timeline-step.timeline-done .timeline-title { color: var(--accent); }
+
+  /* Info box */
+  .merci-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    text-align: left;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+  .merci-info-icon { flex-shrink: 0; margin-top: 2px; }
+  .merci-info-title { font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 2px; }
+  .merci-info-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+  .merci-info-desc a { color: var(--accent); font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
+
+  .merci-back {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.15s;
+  }
+  .merci-back:hover { color: var(--text-primary); }
+
+  @media (max-width: 600px) {
+    .merci-card { padding: 32px 24px; }
+    h1 { font-size: 24px; }
+  }
+</style>

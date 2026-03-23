@@ -247,7 +247,7 @@
             <div class="payment-title">Brief reçu !</div>
             <div class="payment-sub">Dernière étape : le paiement sécurisé pour confirmer votre commande.</div>
             <div class="payment-amount" id="paymentAmount">€650</div>
-            <a id="stripeBtn" href="#" class="stripe-cta" target="_blank">
+            <a id="stripeBtn" href="#" class="stripe-cta" onclick="handleStripeClick()">
               Payer maintenant via Stripe →
             </a>
             <div class="payment-secure">
@@ -680,17 +680,20 @@
     }
   }
 
-  // ── Datafast: track payment clicks ──────────────────────────────────────────
-  document.getElementById('stripeBtn')?.addEventListener('click', () => {
-    window.datafast?.('payment_success');
-  });
-
-  // Direct payment links
-  document.querySelectorAll('.pl-link').forEach(link => {
-    link.addEventListener('click', () => {
+  // ── Handle Stripe click: open payment in new tab, redirect to /merci/ ──────
+  function handleStripeClick() {
+    const btn = document.getElementById('stripeBtn') as HTMLAnchorElement;
+    const href = btn.href;
+    if (href && href !== '#') {
+      window.open(href, '_blank');
       window.datafast?.('payment_success');
-    });
-  });
+      // Redirect to thank you page after short delay
+      setTimeout(() => {
+        window.location.href = '/merci/';
+      }, 1500);
+    }
+  }
+  (window as any).handleStripeClick = handleStripeClick;
 
   // ── Datafast: track open_order_modal when #commander becomes visible ────────
   const commanderSection = document.getElementById('commander');
