@@ -1,0 +1,484 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = "Cas Client : Mizra — Comment une agence web a triplé son volume de leads";
+const description = "Comment Mizra, agence web israelienne, a industrialisé sa prospection avec un back-office sur-mesure : 9 595 leads importés, CRM, devis automatisés, dashboard KPIs.";
+const canonical = "https://lancio.fr/cas-client/mizra/";
+
+const articleLD = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": "2026-03-23",
+  "author": { "@type": "Organization", "name": "Lancio", "url": "https://lancio.fr" },
+  "publisher": { "@type": "Organization", "name": "Lancio", "url": "https://lancio.fr" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": canonical },
+});
+---
+
+<Layout title={title} description={description} canonical={canonical} extraStructuredData={articleLD}>
+  <Nav />
+  <main class="uc-main">
+    <div class="container uc-container">
+
+      <!-- BREADCRUMB -->
+      <div class="uc-breadcrumb">
+        <a href="/">Lancio</a>
+        <span>→</span>
+        <a href="/cas-client/mizra/">Cas clients</a>
+        <span>→</span>
+        <span>Mizra</span>
+      </div>
+
+      <!-- HERO -->
+      <div class="uc-hero">
+        <div class="uc-badge">Cas client · Agence web · Israël</div>
+        <h1>Mizra a <em>triplé son volume</em> de prospects avec un back-office sur-mesure</h1>
+        <p class="uc-subtitle">Comment une agence web israelienne a industrialisé sa prospection, centralisé ses leads et automatisé ses devis — sans dépendre d'aucun SaaS.</p>
+      </div>
+
+      <!-- METRICS -->
+      <div class="uc-metrics">
+        <div class="uc-metric">
+          <div class="uc-metric-val">9 595</div>
+          <div class="uc-metric-lbl">Leads importés</div>
+        </div>
+        <div class="uc-metric">
+          <div class="uc-metric-val">48h</div>
+          <div class="uc-metric-lbl">Livraison site + BO</div>
+        </div>
+        <div class="uc-metric">
+          <div class="uc-metric-val">0€/mois</div>
+          <div class="uc-metric-lbl">Aucun SaaS récurrent</div>
+        </div>
+        <div class="uc-metric">
+          <div class="uc-metric-val">3×</div>
+          <div class="uc-metric-lbl">Leads traités / sem.</div>
+        </div>
+      </div>
+
+      <!-- CONTENT GRID -->
+      <div class="uc-layout">
+        <div class="uc-content">
+
+          <!-- CONTEXTE -->
+          <section class="uc-section">
+            <div class="uc-eyebrow">Contexte</div>
+            <h2>Mizra : livrer des sites pro en 48h à Tel Aviv</h2>
+            <p>Mizra est une agence web israelienne fondée par Margaux, qui livre des sites professionnels pour les TPE locales (restaurants, avocats, barbiers, coachs…) en 48 heures chrono, à partir de 1 500 NIS.</p>
+            <p>Le défi : un marché dense, des cycles de vente courts, et un volume de prospects à traiter qui dépasse rapidement les capacités d'un suivi manuel.</p>
+
+            <div class="uc-context-grid">
+              <div class="uc-context-cell">
+                <div class="uc-context-label">Marché cible</div>
+                <div class="uc-context-value">TPE Tel Aviv, restaurants, professions libérales</div>
+              </div>
+              <div class="uc-context-cell">
+                <div class="uc-context-label">Canal principal</div>
+                <div class="uc-context-value">WhatsApp Business + email outreach</div>
+              </div>
+              <div class="uc-context-cell">
+                <div class="uc-context-label">Volume leads</div>
+                <div class="uc-context-value">9 595 contacts importés via scraping</div>
+              </div>
+              <div class="uc-context-cell">
+                <div class="uc-context-label">Enjeu</div>
+                <div class="uc-context-value">Passer à l'échelle sans outil de gestion</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SOLUTION BO -->
+          <section class="uc-section">
+            <div class="uc-eyebrow">Solution</div>
+            <h2>Un back-office qui centralise tout</h2>
+            <p>Mizra a fait construire sur-mesure un back-office complet — hébergé sur Vercel, alimenté par Supabase — qui remplace d'un coup Excel, Notion, et les outils CRM payants.</p>
+
+            <div class="uc-bo">
+              <div class="uc-bo-header">
+                <h3>Back-office Mizra — modules actifs</h3>
+                <p>Interface admin unique, accessible partout, sans abonnement mensuel.</p>
+              </div>
+              <div class="uc-bo-grid">
+                <div class="uc-bo-card">
+                  <span class="uc-bo-emoji">📥</span>
+                  <div>
+                    <div class="uc-bo-title">Import CSV massif</div>
+                    <div class="uc-bo-desc">9 595 leads injectés en une commande depuis Lobstr</div>
+                  </div>
+                </div>
+                <div class="uc-bo-card">
+                  <span class="uc-bo-emoji">🔄</span>
+                  <div>
+                    <div class="uc-bo-title">Pipeline de suivi</div>
+                    <div class="uc-bo-desc">Statuts visuels : Nouveau → Contacté → Devis → Signé</div>
+                  </div>
+                </div>
+                <div class="uc-bo-card">
+                  <span class="uc-bo-emoji">📄</span>
+                  <div>
+                    <div class="uc-bo-title">Devis auto-générés</div>
+                    <div class="uc-bo-desc">PDF numérotés, envoyés par email en 1 clic</div>
+                  </div>
+                </div>
+                <div class="uc-bo-card">
+                  <span class="uc-bo-emoji">💳</span>
+                  <div>
+                    <div class="uc-bo-title">Paiement intégré</div>
+                    <div class="uc-bo-desc">Passerelle PayPlus connectée, suivi des encaissements</div>
+                  </div>
+                </div>
+                <div class="uc-bo-card">
+                  <span class="uc-bo-emoji">📊</span>
+                  <div>
+                    <div class="uc-bo-title">KPIs en temps réel</div>
+                    <div class="uc-bo-desc">CA, taux de conv., leads par source, performance hebdo</div>
+                  </div>
+                </div>
+                <div class="uc-bo-card">
+                  <span class="uc-bo-emoji">📱</span>
+                  <div>
+                    <div class="uc-bo-title">WhatsApp WATI</div>
+                    <div class="uc-bo-desc">Templates d'outreach connectés, suivi des réponses</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- PIPELINE -->
+          <section class="uc-section">
+            <div class="uc-eyebrow">Flux commercial</div>
+            <h2>Un pipeline de A à Z</h2>
+            <p>Chaque lead suit un parcours tracé, du scraping jusqu'à la signature, sans perte d'information.</p>
+
+            <div class="uc-pipeline">
+              <div class="uc-pipe-step">
+                <span class="uc-pipe-num">9.6k</span>
+                <span class="uc-pipe-label">Scraping</span>
+              </div>
+              <div class="uc-pipe-step">
+                <span class="uc-pipe-num">→ BO</span>
+                <span class="uc-pipe-label">Import</span>
+              </div>
+              <div class="uc-pipe-step">
+                <span class="uc-pipe-num">WA</span>
+                <span class="uc-pipe-label">Outreach</span>
+              </div>
+              <div class="uc-pipe-step">
+                <span class="uc-pipe-num">PDF</span>
+                <span class="uc-pipe-label">Devis</span>
+              </div>
+              <div class="uc-pipe-step">
+                <span class="uc-pipe-num">✓</span>
+                <span class="uc-pipe-label">Signé</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- QUOTE -->
+          <blockquote class="uc-quote">
+            <p>"Avant le back-office, je jonglais entre WhatsApp, Excel et mon email. Maintenant tout est dans une interface — les leads arrivent, les devis partent, et je vois mon pipeline en temps réel."</p>
+            <cite>— Margaux, fondatrice de Mizra · getmizra.com</cite>
+          </blockquote>
+
+          <!-- RESULTS -->
+          <section class="uc-section">
+            <div class="uc-eyebrow">Résultats</div>
+            <h2>La preuve par les chiffres</h2>
+            <div class="uc-results">
+              <div class="uc-result">
+                <div class="uc-result-num">9 595</div>
+                <p>Leads importés en base, qualifiés et suivis depuis le BO</p>
+              </div>
+              <div class="uc-result">
+                <div class="uc-result-num">3×</div>
+                <p>Plus de prospects traités chaque semaine vs. gestion manuelle</p>
+              </div>
+              <div class="uc-result">
+                <div class="uc-result-num">48h</div>
+                <p>De la commande au site live — délai tenu à chaque projet</p>
+              </div>
+              <div class="uc-result">
+                <div class="uc-result-num">0 SaaS</div>
+                <p>Aucun abonnement CRM ou facturation — tout est propriétaire</p>
+              </div>
+            </div>
+          </section>
+
+          <p class="uc-footer-note">
+            Mizra est une agence web israelienne partenaire de Lancio. Découvrez leur approche sur <a href="https://getmizra.com" target="_blank" rel="noopener">getmizra.com</a>
+          </p>
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="uc-sidebar">
+          <div class="uc-card">
+            <div class="uc-card-title">Fiche client</div>
+            <div class="uc-row"><span>Client</span><span>Mizra</span></div>
+            <div class="uc-row"><span>Secteur</span><span>Agence web</span></div>
+            <div class="uc-row"><span>Pays</span><span>Israël 🇮🇱</span></div>
+            <div class="uc-row"><span>Livraison</span><span>48 heures</span></div>
+            <div class="uc-row"><span>Scope</span><span>Site + Back-office</span></div>
+          </div>
+
+          <div class="uc-card">
+            <div class="uc-card-title">Stack technique</div>
+            <div class="uc-tags">
+              <span class="uc-tag">Supabase</span>
+              <span class="uc-tag">Vercel</span>
+              <span class="uc-tag">Astro</span>
+              <span class="uc-tag">WATI</span>
+              <span class="uc-tag">Brevo</span>
+              <span class="uc-tag">PayPlus</span>
+              <span class="uc-tag">Resend</span>
+            </div>
+          </div>
+
+          <div class="uc-card">
+            <div class="uc-card-title">Modules livrés</div>
+            <div class="uc-row"><span>Site vitrine</span><span>✓</span></div>
+            <div class="uc-row"><span>CRM + Leads</span><span>✓</span></div>
+            <div class="uc-row"><span>Devis PDF</span><span>✓</span></div>
+            <div class="uc-row"><span>Facturation</span><span>✓</span></div>
+            <div class="uc-row"><span>Paiement</span><span>✓</span></div>
+            <div class="uc-row"><span>Dashboard</span><span>✓</span></div>
+          </div>
+
+          <div class="uc-backlink">
+            <div class="uc-backlink-label">Partenaire Lancio</div>
+            <p>Mizra livre des sites professionnels en 48h pour les TPE israeliennes. Un modèle inspirant — en France ou ailleurs.</p>
+            <a href="https://getmizra.com" target="_blank" rel="noopener" class="uc-backlink-btn">Voir getmizra.com →</a>
+          </div>
+        </aside>
+      </div>
+
+      <!-- FOOTER CTA -->
+      <div class="uc-cta-block">
+        <h2>Vous aussi, lancez votre site ?</h2>
+        <p>Votre site professionnel en ligne en 48h — à partir de €650, clé en main.</p>
+        <a href="/#commander" class="btn-primary">Je lance mon site →</a>
+      </div>
+
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .uc-main { padding-top: 64px; }
+  .uc-container { max-width: 1040px; padding: 56px 24px; }
+
+  /* Breadcrumb */
+  .uc-breadcrumb {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--text-muted); margin-bottom: 20px;
+  }
+  .uc-breadcrumb a { color: var(--accent); }
+
+  /* Hero */
+  .uc-hero { margin-bottom: 40px; }
+  .uc-badge {
+    display: inline-block;
+    font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em;
+    background: var(--accent-pale); color: var(--accent);
+    padding: 5px 14px; border-radius: 100px; margin-bottom: 16px;
+  }
+  .uc-hero h1 { font-size: clamp(28px, 4vw, 44px); line-height: 1.1; margin-bottom: 16px; }
+  .uc-hero h1 em { font-style: italic; color: var(--accent); }
+  .uc-subtitle { font-size: 16px; color: var(--text-secondary); line-height: 1.7; max-width: 600px; }
+
+  /* Metrics */
+  .uc-metrics {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--border); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 48px;
+  }
+  .uc-metric { background: var(--white); padding: 24px 16px; text-align: center; }
+  .uc-metric-val {
+    font-family: var(--font-display); font-size: 28px; color: var(--accent);
+    line-height: 1; margin-bottom: 6px;
+  }
+  .uc-metric-lbl {
+    font-size: 11px; color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 0.06em; font-weight: 500;
+  }
+
+  /* Layout */
+  .uc-layout { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: start; }
+
+  /* Sections */
+  .uc-section { margin-bottom: 40px; }
+  .uc-eyebrow {
+    font-size: 11px; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--accent); margin-bottom: 8px;
+  }
+  .uc-section h2 { font-size: clamp(22px, 3vw, 30px); margin-bottom: 14px; }
+  .uc-section p { font-size: 15px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px; }
+
+  /* Context grid */
+  .uc-context-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: var(--border); border-radius: var(--radius-md); overflow: hidden; margin-top: 20px;
+  }
+  .uc-context-cell { background: var(--cream); padding: 16px; }
+  .uc-context-label {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--text-muted); font-weight: 500; margin-bottom: 4px;
+  }
+  .uc-context-value { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+
+  /* BO Section */
+  .uc-bo {
+    background: var(--accent); border-radius: var(--radius-lg);
+    padding: 28px; margin: 24px 0; position: relative; overflow: hidden;
+  }
+  .uc-bo::before {
+    content: 'BO'; position: absolute; right: -8px; top: -14px;
+    font-family: var(--font-display); font-size: 120px;
+    color: rgba(255,255,255,0.04); pointer-events: none; line-height: 1;
+  }
+  .uc-bo-header h3 {
+    font-family: var(--font-display); font-size: 20px; color: var(--white); margin-bottom: 6px;
+  }
+  .uc-bo-header p { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+  .uc-bo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .uc-bo-card {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: rgba(255,255,255,0.06); padding: 14px;
+    border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.08);
+  }
+  .uc-bo-emoji { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .uc-bo-title { font-size: 13px; font-weight: 500; color: var(--white); margin-bottom: 3px; }
+  .uc-bo-desc { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.4; }
+
+  /* Pipeline */
+  .uc-pipeline {
+    display: flex; gap: 0; margin: 20px 0;
+    border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden;
+  }
+  .uc-pipe-step {
+    flex: 1; padding: 16px 8px; text-align: center;
+    background: var(--white); border-right: 1px solid var(--border);
+  }
+  .uc-pipe-step:last-child { border-right: none; }
+  .uc-pipe-num {
+    display: block; font-family: var(--font-display); font-size: 20px;
+    color: var(--accent); margin-bottom: 4px;
+  }
+  .uc-pipe-label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--text-muted); font-weight: 500;
+  }
+
+  /* Quote */
+  .uc-quote {
+    border-left: 3px solid var(--accent); padding: 20px 24px;
+    margin: 32px 0; background: var(--cream); border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+  .uc-quote p {
+    font-family: var(--font-display); font-size: 17px; font-style: italic;
+    color: var(--text-primary); line-height: 1.5; margin-bottom: 10px;
+  }
+  .uc-quote cite {
+    font-size: 12px; color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 0.06em; font-style: normal; font-weight: 500;
+  }
+
+  /* Results */
+  .uc-results { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+  .uc-result {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius-md); padding: 20px;
+    position: relative; overflow: hidden;
+  }
+  .uc-result::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px; background: var(--accent);
+  }
+  .uc-result-num {
+    font-family: var(--font-display); font-size: 28px; color: var(--accent);
+    line-height: 1; margin-bottom: 6px;
+  }
+  .uc-result p { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 0; }
+
+  /* Footer note */
+  .uc-footer-note {
+    font-size: 13px; color: var(--text-muted); padding-top: 20px;
+    border-top: 1px solid var(--border); margin-top: 24px;
+  }
+  .uc-footer-note a { color: var(--accent); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+
+  /* Sidebar */
+  .uc-sidebar { position: sticky; top: 80px; display: flex; flex-direction: column; gap: 16px; }
+  .uc-card {
+    background: var(--cream); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 20px;
+  }
+  .uc-card-title {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--text-muted); font-weight: 500; margin-bottom: 14px;
+  }
+  .uc-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px;
+  }
+  .uc-row:last-child { border-bottom: none; }
+  .uc-row span:first-child { color: var(--text-muted); }
+  .uc-row span:last-child { font-weight: 500; color: var(--text-primary); }
+  .uc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .uc-tag {
+    display: inline-block; padding: 4px 10px;
+    background: var(--accent-pale); border-radius: 6px;
+    font-size: 11px; font-weight: 500; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+
+  /* Backlink card */
+  .uc-backlink {
+    background: var(--accent); border-radius: var(--radius-lg);
+    padding: 24px; text-align: center;
+  }
+  .uc-backlink-label {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.5); font-weight: 500; margin-bottom: 8px;
+  }
+  .uc-backlink p { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.5; margin-bottom: 16px; }
+  .uc-backlink-btn {
+    display: block; background: var(--white); color: var(--accent);
+    font-size: 13px; font-weight: 500; padding: 10px 16px;
+    border-radius: var(--radius-md); transition: opacity 0.15s;
+  }
+  .uc-backlink-btn:hover { opacity: 0.9; }
+
+  /* Footer CTA */
+  .uc-cta-block {
+    margin-top: 64px; padding: 48px; background: var(--cream);
+    border: 1px solid var(--border); border-radius: var(--radius-xl); text-align: center;
+  }
+  .uc-cta-block h2 { font-size: 32px; margin-bottom: 12px; }
+  .uc-cta-block p { font-size: 16px; color: var(--text-secondary); margin-bottom: 28px; }
+  .btn-primary {
+    display: inline-flex; font-size: 15px; font-weight: 500;
+    background: var(--accent); color: var(--white);
+    padding: 14px 28px; border-radius: var(--radius-md);
+    transition: background 0.15s, transform 0.1s;
+  }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .uc-layout { grid-template-columns: 1fr; }
+    .uc-sidebar { position: static; }
+    .uc-metrics { grid-template-columns: repeat(2, 1fr); }
+    .uc-bo-grid, .uc-results, .uc-context-grid { grid-template-columns: 1fr; }
+    .uc-pipeline { flex-wrap: wrap; }
+    .uc-pipe-step { border-right: none; border-bottom: 1px solid var(--border); flex: 1 1 45%; }
+    .uc-pipe-step:last-child { border-bottom: none; }
+    .uc-cta-block { padding: 32px 20px; }
+  }
+</style>
