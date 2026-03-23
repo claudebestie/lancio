@@ -163,6 +163,9 @@
       window.datafast?.('mockup_request', { lang: 'fr' });
       window.datafast?.('thank_you_view', { type: 'mockup' });
 
+      // Meta Pixel: track Lead conversion
+      if (typeof fbq === 'function') fbq('track', 'Lead');
+
       (document.getElementById('audit-form-body') as HTMLElement).style.display = 'none';
       (document.getElementById('audit-success') as HTMLElement).style.display = 'flex';
 
