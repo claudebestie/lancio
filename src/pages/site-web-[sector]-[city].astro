@@ -1,0 +1,323 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import sectors from '../data/sectors.json';
+import cities from '../data/cities.json';
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const sector of sectors) {
+    for (const city of cities) {
+      paths.push({
+        params: { sector: sector.slug, city: city.slug },
+        props: { sector, city },
+      });
+    }
+  }
+  return paths;
+}
+
+const { sector, city } = Astro.props;
+const site = 'https://lancio.fr';
+const canonical = `${site}/site-web-${sector.slug}-${city.slug}/`;
+
+// SEO
+const title = `Création site internet ${sector.name} ${city.name} | Dès €650 | Lancio`;
+const description = `Création de site internet pour ${sector.name} à ${city.name} en 48h. ${sector.features[0].title}, ${sector.features[1].title.toLowerCase()}, SEO local. Site professionnel dès €650.`;
+
+// Structured data
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Lancio", "item": `${site}/` },
+      { "@type": "ListItem", "position": 2, "name": `Site web ${sector.name}`, "item": `${site}/site-web-${sector.slug}/` },
+      { "@type": "ListItem", "position": 3, "name": city.name }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": `Création de site web pour ${sector.name}`,
+    "provider": { "@type": "ProfessionalService", "name": "Lancio", "url": site },
+    "areaServed": { "@type": "City", "name": city.name },
+    "offers": { "@type": "Offer", "price": "650", "priceCurrency": "EUR" }
+  }
+];
+
+// Nearby cities for this sector
+const nearbyCityLinks = cities
+  .filter(c => city.nearbyCities.includes(c.slug))
+  .map(c => ({ href: `/site-web-${sector.slug}-${c.slug}/`, label: `${sector.name} à ${c.name}` }));
+
+// All other cities for this sector
+const allCityLinks = cities
+  .filter(c => c.slug !== city.slug)
+  .map(c => ({ href: `/site-web-${sector.slug}-${c.slug}/`, label: c.name }));
+
+// Related sectors in this city
+const relatedSectorLinks = (sector.relatedSectors || [])
+  .map(slug => sectors.find(s => s.slug === slug))
+  .filter(Boolean)
+  .map(s => ({ href: `/site-web-${s!.slug}-${city.slug}/`, label: `${s!.name} à ${city.name}` }));
+
+// Copy rotation using simple hash
+function simpleHash(str: string): number {
+  let hash = 5381;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) + hash) + str.charCodeAt(i);
+    hash = hash & hash;
+  }
+  return Math.abs(hash);
+}
+
+const heroVariants = [
+  `Un site professionnel pour votre ${sector.nameFull} à ${city.name} — conçu pour attirer des clients et développer votre activité.`,
+  `Lancez votre site ${sector.name} à ${city.name} et transformez vos visiteurs en clients. Rapide, optimisé Google, prêt en 48h.`,
+  `Votre ${sector.nameFull} à ${city.name} mérite un site à la hauteur de votre savoir-faire. Passez au digital.`,
+  `Démarquez-vous de la concurrence à ${city.name} avec un site ${sector.name} professionnel, rapide et mobile.`,
+];
+
+const ctaVariants = [
+  `Prêt à lancer votre site ${sector.name} à ${city.name} ?`,
+  `Votre ${sector.nameFull} à ${city.name} mérite un site professionnel.`,
+  `Développez votre ${sector.name} à ${city.name} avec un site qui convertit.`,
+  `Passez au digital à ${city.name} — commandez votre site ${sector.name}.`,
+];
+
+const localVariants = [
+  `À ${city.name}, les clients cherchent en ligne avant de se déplacer. Votre site ${sector.name} fait en sorte qu'ils vous trouvent, pas vos concurrents.`,
+  `${city.name} est un marché concurrentiel. Un site professionnel donne à votre ${sector.nameFull} un avantage décisif sur Google.`,
+  `Que votre ${sector.nameFull} soit en centre-ville ou en périphérie de ${city.name}, un site web vous met sur la carte — littéralement.`,
+  `Les ${city.name.toLowerCase().endsWith('s') ? '' : 'habitants de '}${city.name} recherchent activement des ${sector.name}s sur Google. Sans site, vous êtes invisible.`,
+];
+
+const key = `${sector.slug}-${city.slug}`;
+const heroText = heroVariants[simpleHash(`hero-${key}`) % heroVariants.length];
+const ctaText = ctaVariants[simpleHash(`cta-${key}`) % ctaVariants.length];
+const localText = localVariants[simpleHash(`local-${key}`) % localVariants.length];
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={`${site}${sector.image}`}
+  extraStructuredData={JSON.stringify(structuredData)}
+>
+  <Nav />
+  <main class="secteur-page">
+
+    <section class="secteur-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="/">Lancio</a>
+          <span>→</span>
+          <a href={`/site-web-${sector.slug}/`}>Site web {sector.name}</a>
+          <span>→</span>
+          <span>{city.name}</span>
+        </div>
+        <h1>Création site web<br/><em>{sector.name}</em> à {city.name}</h1>
+        <p class="secteur-sub">{heroText} À partir de €650.</p>
+        <div class="secteur-actions">
+          <a href="/#commander" class="btn-primary">Commander mon site {sector.name} →</a>
+          <div class="secteur-proof">
+            <span>⭐ 4.9/5</span>
+            <span>·</span>
+            <span>47 sites livrés</span>
+            <span>·</span>
+            <span>48h garantis</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secteur-inclus section-pad">
+      <div class="container">
+        <h2>Tout ce dont votre {sector.name} à {city.name} a besoin</h2>
+        <div class="inclus-grid">
+          {sector.features.map((f: any) => (
+            <div class="inclus-card">
+              <div class="inclus-icon">{f.icon}</div>
+              <h3>{f.title}</h3>
+              <p>{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="secteur-local section-pad" style="background: var(--cream);">
+      <div class="container">
+        <h2>Pourquoi votre {sector.name} à {city.name} a besoin d'un site web</h2>
+        <div class="local-content">
+          <p>{city.localNote}</p>
+          <p>{localText}</p>
+          <p>Avec {city.population > 500000 ? 'plus de ' + Math.round(city.population / 100000) + '00 000' : 'près de ' + Math.round(city.population / 1000) + ' 000'} habitants, {city.name} représente un bassin de clientèle considérable. Chaque jour, des dizaines de personnes cherchent "{sector.name} {city.name}" sur Google. Sans site, votre {sector.nameFull} n'apparaît pas dans ces recherches — et vos concurrents récupèrent ces clients.</p>
+          <p>Un site optimisé pour le SEO local vous positionne sur les recherches comme "{sector.name} {city.name}", "{sector.nameFull} près de chez moi" ou "meilleur {sector.name} {city.name}". Combiné à un profil Google Business complet, c'est la meilleure stratégie pour attirer des clients sans payer de publicité.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="secteur-villes section-pad">
+      <div class="container">
+        <h2>Sites {sector.name} dans d'autres villes</h2>
+        <div class="villes-grid">
+          {allCityLinks.map(link => (
+            <a href={link.href} class="ville-tag">{link.label}</a>
+          ))}
+        </div>
+        {relatedSectorLinks.length > 0 && (
+          <>
+            <h3 class="related-title">Autres métiers à {city.name}</h3>
+            <div class="villes-grid">
+              {relatedSectorLinks.map(link => (
+                <a href={link.href} class="ville-tag">{link.label}</a>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </section>
+
+    <section class="secteur-cta section-pad">
+      <div class="container cta-inner">
+        <h2>{ctaText}</h2>
+        <p>Commandez aujourd'hui — votre site est en ligne dans 48h.</p>
+        <a href="/#commander" class="btn-primary">Je lance mon site →</a>
+        <div class="cta-price">À partir de €650 · Livraison 48h garantie · Satisfait ou on recommence</div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .secteur-hero {
+    padding: 120px 0 80px;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+  }
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  h1 {
+    font-size: clamp(36px, 5vw, 64px);
+    margin-bottom: 20px;
+    line-height: 1.05;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .secteur-sub {
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 560px;
+    line-height: 1.65;
+    margin-bottom: 32px;
+  }
+  .secteur-actions { display: flex; flex-direction: column; gap: 16px; }
+  .secteur-proof {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 500;
+    background: var(--accent);
+    color: var(--white);
+    padding: 14px 28px;
+    border-radius: var(--radius-md);
+    transition: background 0.15s, transform 0.1s;
+    width: fit-content;
+    text-decoration: none;
+  }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+  .section-pad { padding: var(--section-py) 0; }
+  h2 {
+    font-size: clamp(28px, 3.5vw, 40px);
+    margin-bottom: 40px;
+    text-align: center;
+    line-height: 1.1;
+  }
+  .inclus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .inclus-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+  }
+  .inclus-icon { font-size: 24px; margin-bottom: 12px; }
+  .inclus-card h3 { font-family: var(--font-body); font-size: 15px; font-weight: 500; margin-bottom: 8px; }
+  .inclus-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  .local-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .local-content p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .villes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  .ville-tag {
+    font-size: 13px;
+    color: var(--text-secondary);
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 6px 16px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  a.ville-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .related-title {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    margin: 32px 0 16px;
+    color: var(--text-secondary);
+  }
+  .cta-inner { text-align: center; }
+  .cta-inner p { font-size: 16px; color: var(--text-secondary); margin-bottom: 28px; }
+  .cta-inner h2 { margin-bottom: 12px; }
+  .cta-price {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  @media (max-width: 768px) {
+    .inclus-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    .inclus-grid { grid-template-columns: 1fr; }
+  }
+</style>

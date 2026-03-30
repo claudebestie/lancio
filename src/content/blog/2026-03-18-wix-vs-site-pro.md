@@ -42,7 +42,7 @@ Un site sur mesure est optimisé spécifiquement pour votre contenu. Pas de code
 
 ### Adaptabilité
 
-Votre restaurant ajoute un service traiteur ? Votre salon propose maintenant des soins esthétiques ? Modifier un site sur mesure est simple. Faire tenir de nouveaux contenus dans un template Wix qui ne les prévoyait pas, c'est souvent une souffrance.
+Votre restaurant ajoute un service traiteur ? Votre salon propose maintenant des soins esthétiques ? Modifier un site sur mesure est simple. Faire tenir de nouveaux contenus dans un template Wix qui ne les prévoyait pas, c'est souvent une souffrance. Consultez nos pages dédiées pour les [restaurants](/site-web-restaurant/), [coiffeurs](/site-web-coiffeur/) et [salons de beauté](/site-web-salon-de-beaute/).
 
 ## Quand Wix a du sens
 

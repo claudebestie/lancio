@@ -18,6 +18,18 @@ Ce n'est pas une perte ponctuelle. C'est une fuite continue de clients que vous 
 
 Instagram ne suffit pas pour deux raisons. Premièrement, seuls vos abonnés voient vos posts. Deuxièmement, les algorithmes décident de votre visibilité — et cette visibilité décline constamment sauf si vous publiez tous les jours. Un site web, lui, travaille 24h/24 sans que vous fassiez quoi que ce soit.
 
+## Instagram vs site web : le vrai match
+
+Comparons honnêtement les deux outils que tout coach sportif utilise — ou devrait utiliser.
+
+**Portée.** Sur Instagram, seuls vos abonnés voient vos posts, et encore — l'algorithme ne montre votre contenu qu'à 10-20% d'entre eux. Un site web apparaît sur Google devant des gens qui cherchent activement un coach. La différence est fondamentale : sur Instagram, vous espérez être vu. Sur Google, les clients viennent à vous.
+
+**Durée de vie.** Un post Instagram a une durée de vie de 24 à 48 heures. Votre story disparaît en 24h. Un site web travaille pour vous 365 jours par an, 24 heures sur 24. L'article que vous y publiez en mars continue de générer des contacts en décembre.
+
+**Crédibilité professionnelle.** Quand un client potentiel hésite entre deux coachs, celui qui a un site professionnel avec ses certifications, ses témoignages et ses tarifs clairs inspire plus confiance que celui qui n'a qu'un profil Instagram avec des selfies en salle. Un site dit "je suis un professionnel établi", Instagram dit "je suis présent en ligne".
+
+La bonne stratégie ? Les deux. Instagram pour créer du lien et de l'engagement, votre site web pour convertir les curieux en clients et être trouvé par ceux qui ne vous connaissent pas encore.
+
 ## Ce qu'un bon site de coach sportif doit faire
 
 Un site de coach sportif a un seul objectif : transformer les visiteurs en prospects qui vous contactent. Pour ça, il doit accomplir trois choses.
@@ -33,5 +45,7 @@ Un site de coach sportif a un seul objectif : transformer les visiteurs en prosp
 Beaucoup de coachs repoussent la création de leur site parce qu'ils pensent que c'est cher ou compliqué. Ce n'est plus le cas. [Lancio](https://lancio.fr) crée des sites pour coachs sportifs en 48 heures à partir de €650 — présentation de la méthode, témoignages, tarifs, prise de rendez-vous.
 
 Calculons ensemble : si votre site vous apporte un seul nouveau client par mois à 4 séances à €60, ça fait €240/mois, soit €2 880/an. Le site est rentabilisé en moins de 3 mois.
+
+Et si vous donnez aussi des cours collectifs ? Un seul nouveau participant par semaine à €15 la séance, c'est €60/mois. Cinq nouveaux participants trouvés via Google en un mois, c'est €300/mois de revenus récurrents — soit €3 600/an pour un site à €650.
 
 [Créer votre site coach sportif →](https://lancio.fr/site-web-coach-sportif/)

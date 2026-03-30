@@ -34,6 +34,28 @@ Apparaître en première position sur "médecin [votre spécialité] [votre vill
 
 L'élément le plus important : que votre site mentionne explicitement votre spécialité, votre ville, et les types de consultations que vous proposez. Ce contenu textuel est ce que Google lit pour décider de vous proposer.
 
-[Lancio](https://lancio.fr) crée des sites pour cabinets médicaux en 48h à partir de €650, avec SEO local inclus.
+## Doctolib ne remplace pas un site web
 
-[Créer votre site cabinet médical →](https://lancio.fr/site-web-medecin/)
+Beaucoup de médecins pensent que leur profil Doctolib suffit. C'est faux pour trois raisons.
+
+Premièrement, Doctolib contrôle votre visibilité. Vous êtes noyé parmi des dizaines de confrères dans la même ville. Si un patient tape "médecin généraliste [votre ville]" sur Google, c'est la page Doctolib qui apparaît — pas vous personnellement. Vous dépendez entièrement de leur algorithme de classement.
+
+Deuxièmement, Doctolib ne montre pas qui vous êtes. Votre profil est une fiche standardisée identique à celle de tous les autres médecins. Pas de place pour expliquer votre approche, montrer votre cabinet, détailler vos spécialisations. Un site personnel vous permet de vous présenter comme un être humain, pas comme une ligne dans un annuaire.
+
+Troisièmement, Doctolib peut changer ses conditions ou augmenter ses tarifs demain. Votre site web vous appartient. C'est un actif que personne ne peut vous retirer.
+
+L'idéal est d'avoir les deux : Doctolib pour la prise de rendez-vous (c'est un excellent outil), et un site personnel pour le SEO, la crédibilité et l'indépendance. Votre site renvoie vers Doctolib pour les RDV, et Doctolib mentionne l'URL de votre site — les deux se renforcent mutuellement.
+
+## Trois actions concrètes pour votre SEO médical
+
+Au-delà d'un site bien structuré, voici ce qui fait la différence sur Google pour un cabinet médical :
+
+**Complétez votre Google Business Profile.** Ajoutez des photos réelles de votre cabinet, répondez à chaque avis patient (même les négatifs, avec professionnalisme), et publiez régulièrement des mises à jour (nouveaux horaires, fermetures exceptionnelles). Google favorise les profils actifs.
+
+**Publiez du contenu utile.** Un article par mois sur un sujet courant — grippe saisonnière, vaccination, allergies — positionne votre site comme une référence locale. Les patients qui lisent votre article aujourd'hui prennent rendez-vous demain.
+
+**Assurez-vous que votre nom, adresse et téléphone sont identiques partout.** Site web, Doctolib, Pages Jaunes, Google Business — la moindre incohérence (un "Dr." ici, "Docteur" là) peut nuire à votre référencement local.
+
+[Lancio](https://lancio.fr) crée des sites pour cabinets médicaux en 48h à partir de €650, avec SEO local inclus. Lisez aussi notre guide sur le [référencement local](/blog/referencement-local-restaurant-google/) — les principes s'appliquent à tous les métiers de proximité.
+
+[Créer votre site cabinet médical →](/site-web-medecin/)

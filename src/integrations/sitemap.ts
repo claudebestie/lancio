@@ -2,17 +2,21 @@ import type { AstroIntegration } from 'astro';
 import { writeFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
-function findHtmlFiles(dir: string, files: string[] = []): string[] {
+function findHtmlFiles(dir: string, files: { path: string; mtime: Date }[] = []): { path: string; mtime: Date }[] {
   for (const entry of readdirSync(dir)) {
     const full = join(dir, entry);
-    if (statSync(full).isDirectory()) {
+    const stat = statSync(full);
+    if (stat.isDirectory()) {
       findHtmlFiles(full, files);
     } else if (entry === 'index.html') {
-      files.push(full);
+      files.push({ path: full, mtime: stat.mtime });
     }
   }
   return files;
 }
+
+// Major cities get higher priority
+const majorCities = ['paris', 'lyon', 'marseille', 'toulouse', 'bordeaux'];
 
 export default function sitemapIntegration(): AstroIntegration {
   return {
@@ -26,9 +30,10 @@ export default function sitemapIntegration(): AstroIntegration {
         const htmlFiles = findHtmlFiles(distDir);
         const urls: { loc: string; priority: string; changefreq: string; lastmod: string }[] = [];
 
-        for (const file of htmlFiles) {
-          const rel = relative(distDir, file).replace(/index\.html$/, '').replace(/\\/g, '/');
+        for (const fileInfo of htmlFiles) {
+          const rel = relative(distDir, fileInfo.path).replace(/index\.html$/, '').replace(/\\/g, '/');
           const path = '/' + rel;
+          const lastmod = fileInfo.mtime.toISOString().split('T')[0];
 
           // Skip 404 and admin pages
           if (path.includes('/404') || path.startsWith('/api/') || path.startsWith('/admin/')) {
@@ -42,8 +47,17 @@ export default function sitemapIntegration(): AstroIntegration {
             priority = '1.0';
             changefreq = 'daily';
           } else if (path.startsWith('/site-web-')) {
-            priority = '0.8';
-            changefreq = 'weekly';
+            // Check if it's a sector-city page (has 2+ hyphens after /site-web-)
+            const afterPrefix = path.replace('/site-web-', '').replace('/', '');
+            const isCityPage = afterPrefix.split('-').length > 2 || majorCities.some(c => afterPrefix.endsWith(c));
+            if (isCityPage) {
+              // Higher priority for major cities
+              priority = majorCities.some(c => path.includes(c)) ? '0.7' : '0.65';
+              changefreq = 'weekly';
+            } else {
+              priority = '0.8';
+              changefreq = 'weekly';
+            }
           } else if (path === '/blog/') {
             priority = '0.8';
             changefreq = 'daily';
@@ -61,7 +75,7 @@ export default function sitemapIntegration(): AstroIntegration {
             changefreq = 'yearly';
           }
 
-          urls.push({ loc: `${site}${path}`, priority, changefreq, lastmod: today });
+          urls.push({ loc: `${site}${path}`, priority, changefreq, lastmod });
         }
 
         // Sort: homepage first, then by priority descending, then alphabetically

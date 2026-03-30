@@ -46,6 +46,8 @@ Quel que soit votre budget, ces éléments sont non négociables.
 
 Le design sur mesure prend plusieurs heures là où un template Wix se configure en 20 minutes. La différence se voit immédiatement. Mais au-delà du design, c'est le SEO qui fait la vraie différence : un site beau mais invisible sur Google ne vous apportera aucun client. Les balises titre, la structure des URLs, la vitesse de chargement — tout ça détermine si vous apparaissez en premier ou en dixième page quand quelqu'un cherche "restaurant [votre ville]".
 
+Découvrez notre page dédiée à la [création de site web pour restaurant](/site-web-restaurant/) avec tous les détails.
+
 ## Notre recommandation
 
 Pour un restaurant qui démarre ou qui veut simplement une présence web efficace, le rapport qualité-prix le plus honnête se situe entre €650 et €1 200. Au-delà, vous payez surtout pour des fonctionnalités dont vous n'avez probablement pas besoin dans l'immédiat.

@@ -46,4 +46,20 @@ Le vrai ROI d'un site pour un artisan vient du référencement local. Apparaîtr
 
 Pour ça, il faut un site correctement structuré avec les bonnes informations, couplé à un Google Business Profile optimisé. L'add-on SEO local de Lancio (€150 en plus) s'occupe de tout.
 
-[Créer votre site artisan →](https://lancio.fr/#commander)
+## Les recherches qui rapportent
+
+Voici le type de recherches que font vos futurs clients sur Google — et pour lesquelles votre site peut apparaître :
+
+- "**plombier urgence [votre ville]**" — le client a une fuite, il appelle le premier résultat. Marge élevée, client immédiat.
+- "**électricien certifié [votre département]**" — un propriétaire qui rénove et cherche un pro de confiance.
+- "**devis peinture appartement [votre ville]**" — quelqu'un prêt à dépenser, qui compare 2-3 artisans.
+- "**serrurier [votre ville] avis**" — un client qui vérifie la réputation avant d'appeler. Vos avis Google font la différence.
+- "**artisan [votre spécialité] près de chez moi**" — la recherche mobile classique, souvent suivie d'un appel dans les 5 minutes.
+
+Chacune de ces recherches représente un client potentiel avec un besoin immédiat et un budget. Si votre site apparaît dans les 3 premiers résultats, vous avez une chance sur deux de décrocher l'appel.
+
+## La puissance des photos de vos réalisations
+
+Un dernier point que beaucoup d'artisans négligent : les photos de vos chantiers. Avant/après d'une salle de bain rénovée, d'une façade repeinte, d'une installation électrique propre — ces images valent plus que n'importe quel discours commercial. Elles prouvent votre savoir-faire en 2 secondes. Prenez l'habitude de photographier vos réalisations (avec l'accord du client) et votre site deviendra votre meilleur commercial.
+
+[Créer votre site artisan →](/site-web-artisan/)
