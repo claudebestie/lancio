@@ -1,4 +1,6 @@
 ---
+import ChatWidget from '../components/ChatWidget.astro';
+
 export interface Props {
   title?: string;
   description?: string;
@@ -155,6 +157,7 @@ const {
   </head>
   <body>
     <slot />
+    <ChatWidget />
   </body>
 </html>
 
