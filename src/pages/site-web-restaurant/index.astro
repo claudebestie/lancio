@@ -108,8 +108,19 @@ import Footer from '../../components/Footer.astro';
       <div class="container">
         <h2>Nous créons des sites pour les restaurants dans toute la France</h2>
         <div class="villes-grid">
-          {["Paris", "Lyon", "Marseille", "Bordeaux", "Toulouse", "Nantes", "Nice", "Strasbourg", "Montpellier", "Lille"].map(v => (
-            <span class="ville-tag">{v}</span>
+          {[
+            { name: "Paris", slug: "paris" },
+            { name: "Lyon", slug: "lyon" },
+            { name: "Marseille", slug: "marseille" },
+            { name: "Bordeaux", slug: "bordeaux" },
+            { name: "Toulouse", slug: "toulouse" },
+            { name: "Nantes", slug: "nantes" },
+            { name: "Nice", slug: "nice" },
+            { name: "Strasbourg", slug: "strasbourg" },
+            { name: "Montpellier", slug: "montpellier" },
+            { name: "Lille", slug: "lille" },
+          ].map(v => (
+            <a href={`/site-web-restaurant-${v.slug}/`} class="ville-tag">{v.name}</a>
           ))}
         </div>
       </div>

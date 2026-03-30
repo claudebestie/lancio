@@ -1,0 +1,189 @@
+[
+  {
+    "slug": "restaurant",
+    "name": "restaurant",
+    "nameFull": "restaurant",
+    "icon": "🍽️",
+    "image": "/secteurs/restaurant1.jpg",
+    "heroSub": "Un site professionnel pour votre restaurant avec menu en ligne, photos et réservation.",
+    "features": [
+      { "icon": "🍽️", "title": "Menu en ligne", "desc": "Votre carte complète, mise à jour facilement. Fini les menus PDF illisibles sur mobile." },
+      { "icon": "📅", "title": "Réservation en ligne", "desc": "Formulaire de réservation intégré ou lien vers votre système (TheFork, etc.)" },
+      { "icon": "📸", "title": "Galerie photos", "desc": "Mettez en valeur vos plats et votre salle avec une galerie professionnelle." },
+      { "icon": "📍", "title": "Google Maps intégré", "desc": "Carte interactive, horaires, numéro de téléphone — tout ce qu'un client cherche." },
+      { "icon": "📱", "title": "100% mobile", "desc": "70% de vos clients vous cherchent sur smartphone. Votre site est parfait sur tous les écrans." },
+      { "icon": "🔍", "title": "Visible sur Google", "desc": "Optimisation SEO locale pour apparaître quand quelqu'un cherche \"restaurant\" dans votre ville." }
+    ],
+    "relatedSectors": ["cafe", "coiffeur", "salon-de-beaute"]
+  },
+  {
+    "slug": "coiffeur",
+    "name": "coiffeur",
+    "nameFull": "salon de coiffure",
+    "icon": "💇",
+    "image": "/secteurs/barbershop1.jpg",
+    "heroSub": "Prise de rendez-vous en ligne, galerie avant/après, grille tarifaire — tout pour remplir votre agenda.",
+    "features": [
+      { "icon": "📅", "title": "RDV en ligne", "desc": "Vos clients réservent directement depuis votre site, 24h/24. Fini les SMS et appels manqués." },
+      { "icon": "📸", "title": "Galerie avant/après", "desc": "Montrez votre talent avec une galerie soignée. La meilleure publicité pour votre salon." },
+      { "icon": "💇", "title": "Grille tarifaire", "desc": "Vos prestations et prix clairement affichés. Plus de questions, plus de malentendus." },
+      { "icon": "📍", "title": "Localisation", "desc": "Adresse, horaires, parking — tout pour que vos clients vous trouvent facilement." },
+      { "icon": "🔍", "title": "SEO local", "desc": "Apparaître quand quelqu'un cherche \"coiffeur\" dans votre ville sur Google." },
+      { "icon": "📱", "title": "Design mobile-first", "desc": "Parfait sur smartphone — là où vos clients regardent votre site." }
+    ],
+    "relatedSectors": ["salon-de-beaute", "restaurant", "coach-sportif"]
+  },
+  {
+    "slug": "avocat",
+    "name": "avocat",
+    "nameFull": "cabinet d'avocat",
+    "icon": "⚖️",
+    "image": "/secteurs/avocat1.jpg",
+    "heroSub": "Un site professionnel pour votre cabinet avec vos domaines de compétence, prise de RDV et formulaire de contact.",
+    "features": [
+      { "icon": "⚖️", "title": "Domaines de compétence", "desc": "Présentez clairement vos spécialisations : droit de la famille, pénal, immobilier, commercial." },
+      { "icon": "📋", "title": "Profil professionnel", "desc": "Mettez en avant votre parcours, diplômes et expérience pour inspirer confiance." },
+      { "icon": "📅", "title": "Prise de RDV", "desc": "Vos clients prennent rendez-vous pour une consultation directement en ligne." },
+      { "icon": "📩", "title": "Formulaire de contact", "desc": "Formulaire sécurisé pour les demandes de consultation et premiers contacts." },
+      { "icon": "🔍", "title": "SEO local", "desc": "Apparaître quand quelqu'un cherche \"avocat\" dans votre ville sur Google." },
+      { "icon": "📱", "title": "100% mobile", "desc": "Votre site s'affiche parfaitement sur tous les appareils." }
+    ],
+    "relatedSectors": ["medecin", "immobilier", "artisan"]
+  },
+  {
+    "slug": "medecin",
+    "name": "médecin",
+    "nameFull": "cabinet médical",
+    "icon": "🩺",
+    "image": "/secteurs/medecin1.jpg",
+    "heroSub": "Un site professionnel pour votre cabinet avec prise de RDV Doctolib, présentation de l'équipe et infos pratiques.",
+    "features": [
+      { "icon": "🩺", "title": "Soins et spécialités", "desc": "Présentez vos spécialités, consultations et actes pratiqués de manière claire." },
+      { "icon": "📅", "title": "RDV Doctolib", "desc": "Intégration Doctolib ou autre outil de prise de rendez-vous en ligne." },
+      { "icon": "👥", "title": "Équipe médicale", "desc": "Présentez votre équipe pour rassurer les patients et créer un lien de confiance." },
+      { "icon": "ℹ️", "title": "Infos pratiques", "desc": "Horaires, accès, mutuelles acceptées, urgences — tout au même endroit." },
+      { "icon": "🔍", "title": "SEO local", "desc": "Apparaître quand un patient cherche \"médecin\" dans votre ville sur Google." },
+      { "icon": "📱", "title": "100% mobile", "desc": "Parfait sur smartphone — là où vos patients cherchent un médecin." }
+    ],
+    "relatedSectors": ["therapeute", "coach-sportif", "pilates"]
+  },
+  {
+    "slug": "coach-sportif",
+    "name": "coach sportif",
+    "nameFull": "coach sportif",
+    "icon": "🏋️",
+    "image": "/secteurs/coach1.jpg",
+    "heroSub": "Programmes d'entraînement, réservation de séances et témoignages clients — votre vitrine fitness en ligne.",
+    "features": [
+      { "icon": "🏋️", "title": "Programmes", "desc": "Présentez vos programmes : perte de poids, musculation, remise en forme, coaching perso." },
+      { "icon": "📅", "title": "Réservation de séances", "desc": "Vos clients réservent leurs séances de coaching directement en ligne." },
+      { "icon": "⭐", "title": "Témoignages", "desc": "Montrez les résultats et témoignages de vos clients pour inspirer confiance." },
+      { "icon": "💰", "title": "Tarifs et forfaits", "desc": "Affichez vos forfaits clairement : séance unique, pack 10, abonnement mensuel." },
+      { "icon": "🔍", "title": "SEO local", "desc": "Apparaître quand quelqu'un cherche \"coach sportif\" dans votre ville." },
+      { "icon": "📱", "title": "100% mobile", "desc": "Votre site s'affiche parfaitement sur smartphone et tablette." }
+    ],
+    "relatedSectors": ["pilates", "therapeute", "medecin"]
+  },
+  {
+    "slug": "salon-de-beaute",
+    "name": "salon de beauté",
+    "nameFull": "institut de beauté",
+    "icon": "💅",
+    "image": "/secteurs/beaute1.jpg",
+    "heroSub": "Vitrine de vos soins, réservation en ligne et galerie — un site qui remplit votre agenda beauté.",
+    "features": [
+      { "icon": "💅", "title": "Carte des soins", "desc": "Présentez tous vos soins : visage, corps, ongles, épilation — avec descriptions et tarifs." },
+      { "icon": "📅", "title": "RDV en ligne", "desc": "Vos clientes réservent 24h/24 depuis votre site. Fini les appels manqués." },
+      { "icon": "📸", "title": "Galerie photos", "desc": "Mettez en valeur votre institut et vos réalisations avec de belles photos." },
+      { "icon": "📍", "title": "Localisation", "desc": "Adresse, horaires, accès — tout pour que vos clientes vous trouvent." },
+      { "icon": "🔍", "title": "SEO local", "desc": "Apparaître quand quelqu'un cherche \"salon de beauté\" dans votre ville." },
+      { "icon": "📱", "title": "100% mobile", "desc": "Parfait sur smartphone — essentiel pour votre clientèle." }
+    ],
+    "relatedSectors": ["coiffeur", "pilates", "therapeute"]
+  },
+  {
+    "slug": "cafe",
+    "name": "café",
+    "nameFull": "café",
+    "icon": "☕",
+    "image": "/secteurs/cafe1.jpg",
+    "heroSub": "Un site vitrine pour votre café avec menu, horaires, galerie photos et intégration Instagram.",
+    "features": [
+      { "icon": "☕", "title": "Carte et menu", "desc": "Présentez vos boissons, pâtisseries et brunchs dans un design appétissant." },
+      { "icon": "📸", "title": "Galerie photos", "desc": "Montrez l'ambiance de votre café avec une galerie soignée." },
+      { "icon": "📍", "title": "Horaires et adresse", "desc": "Affichez clairement vos horaires, adresse et itinéraire pour vos clients." },
+      { "icon": "📱", "title": "Instagram intégré", "desc": "Affichez votre feed Instagram directement sur votre site." },
+      { "icon": "🔍", "title": "SEO local", "desc": "Apparaître quand quelqu'un cherche \"café\" dans votre ville sur Google." },
+      { "icon": "📱", "title": "100% mobile", "desc": "Votre site est parfait sur tous les écrans." }
+    ],
+    "relatedSectors": ["restaurant", "salon-de-beaute", "coiffeur"]
+  },
+  {
+    "slug": "pilates",
+    "name": "pilates",
+    "nameFull": "studio de Pilates",
+    "icon": "🧘",
+    "image": "/secteurs/pilates1.jpg",
+    "heroSub": "Planning des cours, réservation en ligne et présentation de vos instructeurs — votre studio en vitrine.",
+    "features": [
+      { "icon": "🧘", "title": "Planning des cours", "desc": "Affichez votre planning hebdomadaire avec horaires, niveaux et instructeurs." },
+      { "icon": "📅", "title": "Réservation en ligne", "desc": "Vos élèves réservent leurs cours directement depuis votre site." },
+      { "icon": "👥", "title": "Instructeurs", "desc": "Présentez votre équipe avec photos, certifications et spécialités." },
+      { "icon": "💰", "title": "Tarifs et abonnements", "desc": "Forfaits clairement présentés : cours à l'unité, carte 10, abonnement." },
+      { "icon": "🔍", "title": "SEO local", "desc": "Apparaître quand quelqu'un cherche \"pilates\" dans votre ville." },
+      { "icon": "📱", "title": "100% mobile", "desc": "Parfait sur smartphone pour vos élèves en déplacement." }
+    ],
+    "relatedSectors": ["coach-sportif", "therapeute", "salon-de-beaute"]
+  },
+  {
+    "slug": "therapeute",
+    "name": "thérapeute",
+    "nameFull": "cabinet de thérapie",
+    "icon": "🧠",
+    "image": "/secteurs/therapeute1.jpg",
+    "heroSub": "Présentez votre approche, vos spécialités et permettez à vos patients de prendre RDV en ligne.",
+    "features": [
+      { "icon": "🧠", "title": "Approche thérapeutique", "desc": "Présentez votre méthode et votre philosophie pour rassurer vos futurs patients." },
+      { "icon": "📋", "title": "Spécialités", "desc": "Détaillez vos domaines d'expertise : anxiété, dépression, couple, enfants." },
+      { "icon": "📅", "title": "Prise de RDV", "desc": "Vos patients prennent rendez-vous directement en ligne, simplement." },
+      { "icon": "🔒", "title": "Confidentialité", "desc": "Un site sobre et professionnel qui inspire confiance et discrétion." },
+      { "icon": "🔍", "title": "SEO local", "desc": "Apparaître quand quelqu'un cherche \"thérapeute\" dans votre ville." },
+      { "icon": "📱", "title": "100% mobile", "desc": "Parfait sur smartphone pour vos patients." }
+    ],
+    "relatedSectors": ["medecin", "coach-sportif", "pilates"]
+  },
+  {
+    "slug": "immobilier",
+    "name": "immobilier",
+    "nameFull": "agence immobilière",
+    "icon": "🏠",
+    "image": "/secteurs/immobilier1.jpg",
+    "heroSub": "Vitrine de vos biens, formulaire d'estimation et présentation de votre équipe — votre agence en ligne.",
+    "features": [
+      { "icon": "🏠", "title": "Vitrine des biens", "desc": "Présentez vos biens à vendre et à louer avec photos, prix et descriptions." },
+      { "icon": "📋", "title": "Estimation en ligne", "desc": "Formulaire d'estimation gratuite pour générer des leads vendeurs." },
+      { "icon": "👥", "title": "Équipe", "desc": "Présentez vos agents avec photo, spécialités et contact direct." },
+      { "icon": "📍", "title": "Zones géographiques", "desc": "Affichez les quartiers et villes où vous êtes actif." },
+      { "icon": "🔍", "title": "SEO local", "desc": "Apparaître quand quelqu'un cherche \"agence immobilière\" dans votre ville." },
+      { "icon": "📱", "title": "100% mobile", "desc": "Vos clients consultent les biens sur smartphone — votre site est adapté." }
+    ],
+    "relatedSectors": ["avocat", "artisan", "restaurant"]
+  },
+  {
+    "slug": "artisan",
+    "name": "artisan",
+    "nameFull": "entreprise artisanale",
+    "icon": "🔧",
+    "image": "/secteurs/artisan1.jpg",
+    "heroSub": "Présentez vos réalisations, zones d'intervention et demandes de devis — votre vitrine artisanale.",
+    "features": [
+      { "icon": "🔧", "title": "Services et prestations", "desc": "Détaillez toutes vos prestations : dépannage, installation, rénovation, entretien." },
+      { "icon": "📸", "title": "Galerie réalisations", "desc": "Montrez vos plus belles réalisations pour convaincre vos futurs clients." },
+      { "icon": "📍", "title": "Zones d'intervention", "desc": "Affichez clairement les villes et zones où vous intervenez." },
+      { "icon": "📋", "title": "Demande de devis", "desc": "Formulaire simple pour que vos clients demandent un devis gratuit." },
+      { "icon": "🔍", "title": "SEO local", "desc": "Apparaître quand quelqu'un cherche un artisan dans votre ville sur Google." },
+      { "icon": "📱", "title": "100% mobile", "desc": "En urgence, vos clients cherchent sur mobile — votre site est prêt." }
+    ],
+    "relatedSectors": ["immobilier", "restaurant", "avocat"]
+  }
+]

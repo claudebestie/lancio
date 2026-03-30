@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "paris",
+    "name": "Paris",
+    "population": 2161000,
+    "localNote": "Paris est le cœur économique de la France avec des millions de clients potentiels. Un site professionnel vous aide à vous démarquer dans ce marché ultra-concurrentiel.",
+    "nearbyCities": ["lyon", "lille", "nantes"]
+  },
+  {
+    "slug": "lyon",
+    "name": "Lyon",
+    "population": 522969,
+    "localNote": "Lyon est le deuxième pôle économique de France. Un site internet vous aide à toucher les Lyonnais et les nombreux visiteurs de la ville.",
+    "nearbyCities": ["paris", "marseille", "strasbourg"]
+  },
+  {
+    "slug": "marseille",
+    "name": "Marseille",
+    "population": 873076,
+    "localNote": "Marseille est une ville méditerranéenne dynamique avec une forte économie locale et touristique. Un site professionnel vous aide à capter les recherches locales.",
+    "nearbyCities": ["nice", "montpellier", "toulouse"]
+  },
+  {
+    "slug": "toulouse",
+    "name": "Toulouse",
+    "population": 498003,
+    "localNote": "Toulouse est une ville en pleine croissance avec un secteur tech et services dynamique. Un site internet aide les entreprises locales à attirer des clients en ligne.",
+    "nearbyCities": ["bordeaux", "montpellier", "marseille"]
+  },
+  {
+    "slug": "nice",
+    "name": "Nice",
+    "population": 342669,
+    "localNote": "Nice attire des millions de touristes chaque année. Un site professionnel vous aide à capter le trafic touristique et les recherches locales sur la Côte d'Azur.",
+    "nearbyCities": ["marseille", "montpellier", "lyon"]
+  },
+  {
+    "slug": "nantes",
+    "name": "Nantes",
+    "population": 320732,
+    "localNote": "Nantes possède un écosystème entrepreneurial dynamique. Un site internet vous aide à être trouvé sur Google et à attirer de nouveaux clients.",
+    "nearbyCities": ["bordeaux", "paris", "toulouse"]
+  },
+  {
+    "slug": "strasbourg",
+    "name": "Strasbourg",
+    "population": 287228,
+    "localNote": "Strasbourg est un carrefour européen avec une clientèle diversifiée. Un site professionnel vous aide à attirer des clients français et internationaux.",
+    "nearbyCities": ["paris", "lyon", "lille"]
+  },
+  {
+    "slug": "montpellier",
+    "name": "Montpellier",
+    "population": 295542,
+    "localNote": "Montpellier est l'une des villes les plus dynamiques de France avec une population jeune et connectée. Un site internet est essentiel pour toucher vos clients.",
+    "nearbyCities": ["toulouse", "marseille", "nice"]
+  },
+  {
+    "slug": "bordeaux",
+    "name": "Bordeaux",
+    "population": 260958,
+    "localNote": "Bordeaux est une ville en plein essor qui attire de nouveaux résidents et touristes. Un site internet aide votre entreprise à se démarquer sur ce marché en croissance.",
+    "nearbyCities": ["toulouse", "nantes", "paris"]
+  },
+  {
+    "slug": "lille",
+    "name": "Lille",
+    "population": 236710,
+    "localNote": "Lille est un pôle économique majeur du nord de la France. Un site internet aide les entreprises locales à être compétitives et attirer des clients de toute la métropole.",
+    "nearbyCities": ["paris", "strasbourg", "nantes"]
+  }
+]
