@@ -230,7 +230,7 @@
             <div id="recap-error" style="display:none; font-size:13px; color:#A32D2D; padding:10px; background:#FEF0F0; border-radius:8px;"></div>
 
             <button type="button" class="form-submit" id="confirmBtn" onclick="confirmAndPay()">
-              Confirmer et payer →
+              Envoyer ma commande →
             </button>
             <button type="button" class="recap-back" onclick="backToForm()">
               ← Modifier mon brief
@@ -563,155 +563,47 @@
 
   // ── Confirm & Pay (anciennement submitBrief) ──────────────────────────────────
   async function confirmAndPay() {
-    const btn = document.getElementById('confirmBtn') as HTMLButtonElement;
-    const errorDiv = document.getElementById('recap-error') as HTMLDivElement;
-    errorDiv.style.display = 'none';
-
+    const btn = document.getElementById('confirmBtn');
+    if (!btn) return;
     btn.disabled = true;
-    btn.textContent = 'Envoi en cours…';
-
-    const nom = (document.getElementById('f-nom') as HTMLInputElement).value.trim();
-    const email = (document.getElementById('f-email') as HTMLInputElement).value.trim();
-    const secteur = (document.getElementById('f-secteur') as HTMLSelectElement).value;
-    const entreprise = (document.getElementById('f-entreprise') as HTMLInputElement).value.trim();
-    const description = (document.getElementById('f-description') as HTMLTextAreaElement).value.trim();
-
-    const checkedOptions: string[] = [];
-    let optionsTotal = 0;
-    document.querySelectorAll<HTMLInputElement>('.f-option:checked').forEach(cb => {
-      checkedOptions.push(cb.value);
-      optionsTotal += ADDON_PRICES[cb.value] || 0;
-    });
-
-    const maintenanceCb = document.getElementById('f-maintenance') as HTMLInputElement;
-    const wantsMaintenance = maintenanceCb?.checked || false;
-    if (wantsMaintenance && !checkedOptions.includes('maintenance')) {
-      checkedOptions.push('maintenance');
-    }
-
-    const totalPrice = 290 + optionsTotal;
-
-    const stripeLink = STRIPE_LINKS[totalPrice];
-    if (!stripeLink || stripeLink.startsWith('TODO')) {
-      errorDiv.textContent = 'Cette combinaison d\'options n\'est pas encore disponible au paiement en ligne. Contactez-nous à hello@lancio.fr pour finaliser votre commande.';
-      errorDiv.style.display = 'block';
-      btn.disabled = false;
-      btn.textContent = 'Confirmer et payer →';
-      return;
-    }
-
-    const payload = {
-      nom, email,
-      tel: (document.getElementById('f-tel') as HTMLInputElement).value.trim() || null,
-      secteur, entreprise,
-      domaine: (document.getElementById('f-domaine') as HTMLInputElement).value.trim() || null,
-      description,
-      options: checkedOptions.length > 0 ? checkedOptions : null,
-      options_total: optionsTotal,
-      base_price: 290,
-      total_price: totalPrice,
-      maintenance: wantsMaintenance,
-      maintenance_price_monthly: wantsMaintenance ? 50 : 0,
-      status: 'new',
-      source: 'lancio.fr',
-    };
-
+    btn.textContent = 'Envoi en cours...';
     try {
-      // ── 1. Créer la commande dans lancio_orders ──
-      const res = await fetch(`${SUPABASE_URL}/rest/v1/lancio_orders`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'apikey': SUPABASE_KEY,
-          'Authorization': `Bearer ${SUPABASE_KEY}`,
-          'Prefer': 'return=representation',
-        },
-        body: JSON.stringify(payload),
-      });
+      const nom = document.getElementById('recap-nom')?.textContent?.trim() || document.getElementById('f-nom')?.value || '';
+      const email = document.getElementById('recap-email')?.textContent?.trim() || document.getElementById('f-email')?.value || '';
+      const tel = document.getElementById('recap-tel')?.textContent?.trim() || document.getElementById('f-tel')?.value || '';
+      const secteur = document.getElementById('recap-secteur')?.textContent?.trim() || document.getElementById('f-secteur')?.value || '';
+      const entreprise = document.getElementById('recap-entreprise')?.textContent?.trim() || document.getElementById('f-entreprise')?.value || '';
+      const domaine = document.getElementById('recap-domaine')?.textContent?.trim() || document.getElementById('f-domaine')?.value || '';
+      const description = document.getElementById('recap-description')?.textContent?.trim() || document.getElementById('f-description')?.value || '';
+      const maintenance = (document.getElementById('f-maintenance')?.checked) ? '50€/mois' : '';
+      const options = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(cb => cb.closest('label')?.textContent?.trim() || cb.value).filter(Boolean).join(', ');
 
-      if (!res.ok) throw new Error('Supabase error');
-
-      // ── 2. Auto-créer le lancio_onboarding lié ──
-      try {
-        const [order] = await res.json();
-        const onbPayload = {
-          order_id: order?.id || null,
-          nom, email,
-          tel: (document.getElementById('f-tel') as HTMLInputElement).value.trim() || null,
-          secteur, entreprise,
-          domaine: (document.getElementById('f-domaine') as HTMLInputElement).value.trim() || null,
-          description,
-          status: 'pending', seen: false, done: false, source: 'lancio.fr',
-        };
-        await fetch(`${SUPABASE_URL}/rest/v1/lancio_onboarding`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}`, 'Prefer': 'return=minimal' },
-          body: JSON.stringify(onbPayload),
-        });
-      } catch (onbErr) { console.warn('Onboarding auto-creation failed (non-blocking):', onbErr); }
-
-      // Datafast: track order_submitted + thank_you_view
-      const selectedOptions = checkedOptions.filter(o => o !== 'maintenance').join(', ') || 'base';
-      window.datafast?.('order_submitted', { package: selectedOptions, total: '€' + totalPrice, method: 'stripe' });
-      window.datafast?.('thank_you_view', { type: 'order' });
-
-      // Afficher étape paiement
-      (document.getElementById('step-recap') as HTMLElement).style.display = 'none';
-      (document.getElementById('step-payment') as HTMLElement).style.display = 'block';
-
-      (document.getElementById('paymentAmount') as HTMLElement).textContent = '€' + totalPrice.toLocaleString('fr-FR');
-      (document.getElementById('stripeBtn') as HTMLAnchorElement).href = `${stripeLink}?prefilled_email=${encodeURIComponent(email)}&client_reference_id=${encodeURIComponent(entreprise)}`;
-
-      // Si maintenance cochée → afficher le lien d'abonnement séparé
-      const maintenancePayment = document.getElementById('maintenancePayment') as HTMLElement;
-      const maintenanceStripeBtn = document.getElementById('maintenanceStripeBtn') as HTMLAnchorElement;
-      if (wantsMaintenance && maintenancePayment && maintenanceStripeBtn) {
-        maintenancePayment.style.display = 'block';
-        maintenanceStripeBtn.href = `${STRIPE_MAINTENANCE_LINK}?prefilled_email=${encodeURIComponent(email)}&client_reference_id=${encodeURIComponent(entreprise)}`;
+      const scripts = Array.from(document.querySelectorAll('script:not([src])'));
+      let key = '';
+      for (const s of scripts) {
+        const m = s.textContent.match(/(eyJ[A-Za-z0-9_\-\.]{100,})/);
+        if (m) { key = m[1]; break; }
       }
 
-      document.querySelector('.brief-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-    } catch (err) {
-      console.error(err);
-      errorDiv.textContent = 'Erreur. Écrivez-nous directement à hello@lancio.fr';
-      errorDiv.style.display = 'block';
-      btn.disabled = false;
-      btn.textContent = 'Confirmer et payer →';
-    }
-  }
-
-  // ── Handle Stripe click: open payment in new tab, redirect to /merci/ ──────
-  function handleStripeClick() {
-    const btn = document.getElementById('stripeBtn') as HTMLAnchorElement;
-    const href = btn.href;
-    if (href && href !== '#') {
-      window.open(href, '_blank');
-      window.datafast?.('payment_success');
-      // Redirect to thank you page after short delay
-      setTimeout(() => {
-        window.location.href = '/merci/';
-      }, 1500);
-    }
-  }
-  (window as any).handleStripeClick = handleStripeClick;
-
-  // ── Datafast: track open_order_modal when #commander becomes visible ────────
-  const commanderSection = document.getElementById('commander');
-  if (commanderSection) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          window.datafast?.('open_order_modal');
-          observer.disconnect();
-        }
+      const res = await fetch('https://rofkgmwjggvxlgrdnsyt.supabase.co/rest/v1/lancio_orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', apikey: key, Authorization: 'Bearer ' + key, Prefer: 'return=minimal' },
+        body: JSON.stringify({ nom, email, tel, secteur, entreprise, domaine, description, options, maintenance, statut: 'Nouveau', paiement: 'En attente' })
       });
-    }, { threshold: 0.3 });
-    observer.observe(commanderSection);
+
+      if (res.ok || res.status === 201) {
+        const successDiv = document.createElement('div');
+        successDiv.style.cssText = 'padding:2rem;background:#f0fdf4;border-radius:12px;border:1px solid #bbf7d0;text-align:center;';
+        successDiv.innerHTML = '<div style="font-size:2rem;margin-bottom:0.75rem;">✅</div><h3 style="color:#166534;font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;">Commande reçue !</h3><p style="color:#555;font-size:0.95rem;line-height:1.5;">Votre brief est enregistré. Nous vous contactons sous 24h pour confirmer et organiser le paiement.</p>';
+        btn.closest('.recap-actions, .form-actions, div')?.replaceWith(successDiv) || btn.replaceWith(successDiv);
+      } else {
+        throw new Error('status ' + res.status);
+      }
+    } catch(e) {
+      btn.disabled = false;
+      btn.textContent = 'Envoyer ma commande →';
+      alert('Erreur lors de l\'envoi. Contactez-nous à hello@lancio.fr');
+    }
   }
 
-  // Exposer pour onclick
-  (window as any).showRecap = showRecap;
-  (window as any).backToForm = backToForm;
-  (window as any).confirmAndPay = confirmAndPay;
 </script>
