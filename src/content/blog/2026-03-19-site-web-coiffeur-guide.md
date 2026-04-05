@@ -50,11 +50,11 @@ Chaque page de votre site doit mener vers une action : prendre rendez-vous, vous
 
 Les salons qui génèrent le plus de nouveaux clients via leur site ont en commun trois choses : un site rapide (chargement en moins de 2 secondes sur mobile), un SEO local bien configuré (Google Business Profile complet et lié au site), et une galerie régulièrement mise à jour.
 
-C'est exactement ce que propose [Lancio](https://lancio.fr) pour les salons de coiffure : un site sur mesure avec galerie, grille tarifaire, prise de RDV intégrée, et SEO local optimisé — livré en 48 heures pour €650.
+C'est exactement ce que propose [Lancio](https://lancio.fr) pour les salons de coiffure : un site sur mesure avec galerie, grille tarifaire, prise de RDV intégrée, et SEO local optimisé — livré en 48 heures pour €290.
 
 ## Combien ça coûte de bien faire les choses ?
 
-Un site professionnel pour un salon de coiffure coûte entre €650 et €2 000 selon la complexité. L'add-on prise de RDV en ligne est à +€100 chez Lancio. L'investissement se rentabilise en général dès les 3 premiers nouveaux clients qu'il vous apporte.
+Un site professionnel pour un salon de coiffure coûte entre €290 et €2 000 selon la complexité. L'add-on prise de RDV en ligne est à +€50 chez Lancio. L'investissement se rentabilise en général dès les 3 premiers nouveaux clients qu'il vous apporte.
 
 Comparez à ce que vous dépensez en publicité Instagram ou en flyers distribués dans le quartier — et demandez-vous lequel des deux continue à travailler pour vous à 2h du matin.
 

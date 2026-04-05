@@ -314,7 +314,7 @@ async function ensureTemplates() {
       html: `<!DOCTYPE html><html><body style="font-family:Arial,sans-serif;font-size:15px;color:#222;line-height:1.7;max-width:500px;margin:0 auto;padding:24px">
 <p>Bonjour,</p>
 <p>J'ai vu que <strong>{{params.NOM}}</strong> n'avait pas encore de site professionnel — ou que celui que j'ai trouvé date un peu.</p>
-<p>Chez Lancio on crée des sites vitrines en 48h pour <strong>650&euro; tout compris</strong>, sans rendez-vous, sans abonnement.</p>
+<p>Chez Lancio on crée des sites vitrines en 48h pour <strong>290&euro; tout compris</strong>, sans rendez-vous, sans abonnement.</p>
 <p>Est-ce que ça vaut 5 minutes cette semaine ?</p>
 <p>Margaux<br><a href="https://lancio.fr">lancio.fr</a><br><a href="https://calendly.com/lancio/audit">Réserver un appel gratuit</a></p>
 <p style="font-size:11px;color:#aaa;margin-top:32px"><a href="{{unsubscribeLink}}">Se désinscrire</a></p>
@@ -337,7 +337,7 @@ async function ensureTemplates() {
       html: `<!DOCTYPE html><html><body style="font-family:Arial,sans-serif;font-size:15px;color:#222;line-height:1.7;max-width:500px;margin:0 auto;padding:24px">
 <p>Bonjour,</p>
 <p>Je ne veux pas vous encombrer — c'est mon dernier email.</p>
-<p>Si un site professionnel en 48h pour 650&euro; peut vous intéresser un jour, <a href="https://lancio.fr">lancio.fr</a> est là.</p>
+<p>Si un site professionnel en 48h pour 290&euro; peut vous intéresser un jour, <a href="https://lancio.fr">lancio.fr</a> est là.</p>
 <p>Bonne continuation,<br>Margaux</p>
 <p style="font-size:11px;color:#aaa;margin-top:32px"><a href="{{unsubscribeLink}}">Se désinscrire</a></p>
 </body></html>`,

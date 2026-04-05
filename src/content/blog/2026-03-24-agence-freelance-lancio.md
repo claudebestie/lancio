@@ -30,7 +30,7 @@ Un bon freelance peut livrer un site excellent pour €1 000 à €2 000. Le pro
 
 [Lancio](https://lancio.fr) part d'un constat simple : la majorité des TPE n'ont pas besoin d'une agence à €5 000 ni de prendre le risque d'un freelance inconnu. Elles ont besoin d'un site professionnel, rapidement, à un prix prévisible.
 
-**€650, 48 heures, sur mesure.** Pas un template Wix, pas un site générique — votre site, avec votre identité, optimisé SEO, livré avant la fin de la semaine.
+**€290, 48 heures, sur mesure.** Pas un template Wix, pas un site générique — votre site, avec votre identité, optimisé SEO, livré avant la fin de la semaine.
 
 **Pour qui :** restaurants, coiffeurs, avocats, médecins, coachs, artisans — toute TPE qui veut une présence web professionnelle sans les complications et le temps perdu d'une agence ou les risques d'un freelance inconnu.
 
@@ -50,8 +50,8 @@ La question est finalement simple. Posez-vous ces trois critères :
 
 - **Agence web** : €3 000–10 000 · 6–12 semaines · Résultat garanti, prix variable
 - **Freelance** : €1 000–2 000 · 3–6 semaines · Qualité variable, risque de disparition
-- **Lancio** : €650–1 500 · 48 heures · Prix fixe, satisfait ou on recommence
+- **Lancio** : €290–1 500 · 48 heures · Prix fixe, satisfait ou on recommence
 
-La plupart des TPE — [restaurants](/site-web-restaurant/), [artisans](/site-web-artisan/), [coiffeurs](/site-web-coiffeur/), [avocats](/site-web-avocat/) — n'ont pas besoin d'un site complexe. Elles ont besoin d'un site qui les rend visibles sur Google, qui inspire confiance, et qui transforme les visiteurs en clients. Pour ça, 48 heures et €650 suffisent largement.
+La plupart des TPE — [restaurants](/site-web-restaurant/), [artisans](/site-web-artisan/), [coiffeurs](/site-web-coiffeur/), [avocats](/site-web-avocat/) — n'ont pas besoin d'un site complexe. Elles ont besoin d'un site qui les rend visibles sur Google, qui inspire confiance, et qui transforme les visiteurs en clients. Pour ça, 48 heures et €290 suffisent largement.
 
 [Comparer les offres et lancer votre site →](https://lancio.fr/#pricing)

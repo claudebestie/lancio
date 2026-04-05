@@ -34,7 +34,7 @@ Avoir un site web lié à votre fiche Google Business n'est pas optionnel si vou
 
 Votre site doit mentionner explicitement : votre type de cuisine, votre adresse complète, votre ville et quartier, vos spécialités. Ces informations doivent être dans le texte de votre site, pas seulement dans les images.
 
-Un site professionnel avec ces éléments bien structurés peut faire remonter votre restaurant de la 8ème à la 2ème position dans le pack local en quelques semaines. [Lancio](https://lancio.fr) intègre cet optimisation SEO local dans tous ses sites de restaurants, avec l'option Google Business setup à +€150.
+Un site professionnel avec ces éléments bien structurés peut faire remonter votre restaurant de la 8ème à la 2ème position dans le pack local en quelques semaines. [Lancio](https://lancio.fr) intègre cet optimisation SEO local dans tous ses sites de restaurants, avec l'option Google Business setup à +€75.
 
 ## Étape 3 : les avis clients, votre arme secrète
 
@@ -50,6 +50,6 @@ NAP signifie Name, Address, Phone — votre nom, adresse et téléphone. Ces tro
 
 Un restaurant qui applique ces quatre étapes peut espérer intégrer le pack local de Google en 4 à 12 semaines selon la concurrence dans sa zone. Pour un restaurant en dehors des grandes métropoles, 6 semaines suffisent souvent.
 
-L'investissement : votre temps pour les avis et Google Business, et un bon site web. [Lancio](https://lancio.fr) gère la partie site en 48 heures pour €650, avec le setup Google Business inclus dans l'add-on SEO local.
+L'investissement : votre temps pour les avis et Google Business, et un bon site web. [Lancio](https://lancio.fr) gère la partie site en 48 heures pour €290, avec le setup Google Business inclus dans l'add-on SEO local.
 
 [Lancer votre site restaurant et démarrer le SEO →](https://lancio.fr/site-web-restaurant/)

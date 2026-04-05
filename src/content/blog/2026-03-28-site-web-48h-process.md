@@ -1,6 +1,6 @@
 ---
 title: "Un site web professionnel en 48h : comment c'est possible ?"
-description: "Explication complète du process Lancio — comment on livre un site pro en 48h pour 650€ sans rogner sur la qualité."
+description: "Explication complète du process Lancio — comment on livre un site pro en 48h pour 290€ sans rogner sur la qualité."
 date: "2026-03-28"
 permalink: "site-web-48h-comment-ca-marche"
 secteur: "general"
@@ -8,7 +8,7 @@ secteur: "general"
 
 # Un site web professionnel en 48h : comment c'est possible ?
 
-Quand on annonce un site web professionnel en 48 heures pour €650, la réaction naturelle est la méfiance. Les agences prennent 6 semaines, les freelances 3 semaines — alors comment est-ce possible de livrer quelque chose de vraiment bien en 2 jours ? La réponse est dans notre processus.
+Quand on annonce un site web professionnel en 48 heures pour €290, la réaction naturelle est la méfiance. Les agences prennent 6 semaines, les freelances 3 semaines — alors comment est-ce possible de livrer quelque chose de vraiment bien en 2 jours ? La réponse est dans notre processus.
 
 ## Ce qui prend du temps dans la création de site traditionnelle
 
@@ -32,7 +32,7 @@ Tout commence par notre formulaire de commande en ligne. En 5 minutes, vous nous
 
 ### Pas de négociation de prix
 
-Le prix est affiché : €650 pour le site de base, avec des add-ons clairement tarifés. Vous savez exactement ce que vous payez avant de commander. Aucune surprise, aucune négociation, aucun devis à attendre.
+Le prix est affiché : €290 pour le site de base, avec des add-ons clairement tarifés. Vous savez exactement ce que vous payez avant de commander. Aucune surprise, aucune négociation, aucun devis à attendre.
 
 ### Un process de création optimisé
 

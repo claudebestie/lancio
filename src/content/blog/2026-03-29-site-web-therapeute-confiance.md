@@ -44,6 +44,6 @@ L'avantage des thérapeutes sur le SEO : la concurrence en ligne est souvent fai
 
 Pendant que vous êtes en séance, votre site reçoit des visites, répond aux questions fréquentes, et génère des prises de rendez-vous. C'est votre assistant administratif silencieux, disponible 24h/24.
 
-[Lancio](https://lancio.fr) crée des sites pour thérapeutes en 48h à partir de €650 — présentation sobre et professionnelle, SEO local, formulaire de contact sécurisé.
+[Lancio](https://lancio.fr) crée des sites pour thérapeutes en 48h à partir de €290 — présentation sobre et professionnelle, SEO local, formulaire de contact sécurisé.
 
 [Créer votre site thérapeute →](/site-web-therapeute/)

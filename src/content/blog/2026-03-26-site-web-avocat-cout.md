@@ -32,9 +32,9 @@ Une bonne agence généraliste peut créer un excellent site pour votre cabinet,
 
 Un freelance expérimenté pour €800 à €2 000. Les mêmes précautions s'appliquent qu'ailleurs : vérifiez le portfolio, demandez des références, protégez-vous contractuellement.
 
-### Lancio : €650, 48h
+### Lancio : €290, 48h
 
-[Lancio](https://lancio.fr) crée des sites pour avocats et cabinets juridiques avec une approche sobre et professionnelle. Présentation du cabinet, domaines d'expertise, profil des avocats, formulaire de contact discret. En 48 heures à partir de €650.
+[Lancio](https://lancio.fr) crée des sites pour avocats et cabinets juridiques avec une approche sobre et professionnelle. Présentation du cabinet, domaines d'expertise, profil des avocats, formulaire de contact discret. En 48 heures à partir de €290.
 
 ## Ce que votre site d'avocat doit absolument contenir
 

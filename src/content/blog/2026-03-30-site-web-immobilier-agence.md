@@ -53,8 +53,8 @@ Pour y apparaître, votre site doit mentionner explicitement votre zone géograp
 
 ## Un investissement ridicule face à un seul mandat
 
-Un mandat de vente rapporte en moyenne €5 000 à €15 000 de commission à l'agence. Un site web à €650 qui vous apporte un seul mandat supplémentaire par trimestre, c'est un retour sur investissement de 2000% ou plus.
+Un mandat de vente rapporte en moyenne €5 000 à €15 000 de commission à l'agence. Un site web à €290 qui vous apporte un seul mandat supplémentaire par trimestre, c'est un retour sur investissement de 2000% ou plus.
 
-[Lancio](https://lancio.fr) crée des sites pour agences immobilières en 48h à partir de €650 — vitrine professionnelle, biens en vente, biens vendus, estimation en ligne et SEO local.
+[Lancio](https://lancio.fr) crée des sites pour agences immobilières en 48h à partir de €290 — vitrine professionnelle, biens en vente, biens vendus, estimation en ligne et SEO local.
 
 [Créer votre site immobilier →](/site-web-immobilier/)

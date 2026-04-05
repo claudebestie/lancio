@@ -40,8 +40,8 @@ Pour aller plus loin sur le référencement local, consultez notre [guide du SEO
 
 ## Un investissement qui se rentabilise vite
 
-Un café qui sert 200 couverts par jour n'a besoin que de 2-3 clients supplémentaires par semaine pour rentabiliser un site à €650 en quelques mois. Et contrairement à la publicité qui s'arrête quand vous arrêtez de payer, un site bien référencé travaille pour vous 24h/24, 365 jours par an.
+Un café qui sert 200 couverts par jour n'a besoin que de 2-3 clients supplémentaires par semaine pour rentabiliser un site à €290 en quelques mois. Et contrairement à la publicité qui s'arrête quand vous arrêtez de payer, un site bien référencé travaille pour vous 24h/24, 365 jours par an.
 
-[Lancio](https://lancio.fr) crée des sites pour cafés et bars en 48h à partir de €650 — carte en ligne, galerie photos, SEO local, le tout optimisé mobile.
+[Lancio](https://lancio.fr) crée des sites pour cafés et bars en 48h à partir de €290 — carte en ligne, galerie photos, SEO local, le tout optimisé mobile.
 
 [Créer votre site café →](/site-web-cafe/)

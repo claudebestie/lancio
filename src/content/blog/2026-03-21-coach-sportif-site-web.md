@@ -42,10 +42,10 @@ Un site de coach sportif a un seul objectif : transformer les visiteurs en prosp
 
 ## Le bon investissement au bon moment
 
-Beaucoup de coachs repoussent la création de leur site parce qu'ils pensent que c'est cher ou compliqué. Ce n'est plus le cas. [Lancio](https://lancio.fr) crée des sites pour coachs sportifs en 48 heures à partir de €650 — présentation de la méthode, témoignages, tarifs, prise de rendez-vous.
+Beaucoup de coachs repoussent la création de leur site parce qu'ils pensent que c'est cher ou compliqué. Ce n'est plus le cas. [Lancio](https://lancio.fr) crée des sites pour coachs sportifs en 48 heures à partir de €290 — présentation de la méthode, témoignages, tarifs, prise de rendez-vous.
 
 Calculons ensemble : si votre site vous apporte un seul nouveau client par mois à 4 séances à €60, ça fait €240/mois, soit €2 880/an. Le site est rentabilisé en moins de 3 mois.
 
-Et si vous donnez aussi des cours collectifs ? Un seul nouveau participant par semaine à €15 la séance, c'est €60/mois. Cinq nouveaux participants trouvés via Google en un mois, c'est €300/mois de revenus récurrents — soit €3 600/an pour un site à €650.
+Et si vous donnez aussi des cours collectifs ? Un seul nouveau participant par semaine à €15 la séance, c'est €60/mois. Cinq nouveaux participants trouvés via Google en un mois, c'est €300/mois de revenus récurrents — soit €3 600/an pour un site à €290.
 
 [Créer votre site coach sportif →](https://lancio.fr/site-web-coach-sportif/)

@@ -56,6 +56,6 @@ Au-delà d'un site bien structuré, voici ce qui fait la différence sur Google 
 
 **Assurez-vous que votre nom, adresse et téléphone sont identiques partout.** Site web, Doctolib, Pages Jaunes, Google Business — la moindre incohérence (un "Dr." ici, "Docteur" là) peut nuire à votre référencement local.
 
-[Lancio](https://lancio.fr) crée des sites pour cabinets médicaux en 48h à partir de €650, avec SEO local inclus. Lisez aussi notre guide sur le [référencement local](/blog/referencement-local-restaurant-google/) — les principes s'appliquent à tous les métiers de proximité.
+[Lancio](https://lancio.fr) crée des sites pour cabinets médicaux en 48h à partir de €290, avec SEO local inclus. Lisez aussi notre guide sur le [référencement local](/blog/referencement-local-restaurant-google/) — les principes s'appliquent à tous les métiers de proximité.
 
 [Créer votre site cabinet médical →](/site-web-medecin/)

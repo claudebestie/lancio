@@ -52,7 +52,7 @@ Mais pour un commerce, un cabinet, un studio, un restaurant qui veut générer d
 
 ## L'alternative : le meilleur des deux mondes
 
-Lancio propose quelque chose de différent : un site sur mesure, vraiment professionnel, livré en 48 heures pour €650. Pas une usine à sites, pas un template modifié — votre site, créé pour vous, avec vos photos et votre identité.
+Lancio propose quelque chose de différent : un site sur mesure, vraiment professionnel, livré en 48 heures pour €290. Pas une usine à sites, pas un template modifié — votre site, créé pour vous, avec vos photos et votre identité.
 
 Pour une TPE qui veut arrêter de perdre des clients parce que son site fait peur, c'est probablement la décision la plus rentable à prendre cette année.
 

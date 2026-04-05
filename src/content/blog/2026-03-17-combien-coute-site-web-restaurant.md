@@ -26,9 +26,9 @@ Un bon freelance sur Malt peut créer votre site pour €800 à €2 500. C'est 
 
 Wix, Squarespace, Jimdo — vous payez un abonnement mensuel, vous choisissez un template, vous remplissez les cases. Résultat : quelque chose qui ressemble exactement aux sites Wix des 10 millions d'autres utilisateurs. Pour un restaurant, le problème est brutal : vos photos sont au cœur de votre identité. Un template générique ne met pas en valeur votre carte, votre ambiance, ce qui vous rend unique.
 
-### Lancio : €650, livraison 48h
+### Lancio : €290, livraison 48h
 
-[Lancio](https://lancio.fr) a choisi une approche différente : un site professionnel sur mesure à prix fixe, livré en 48 heures. Pas de template, pas de Wix — un vrai site créé pour vous, avec votre menu, vos photos, votre identité. €650 pour la base, avec des options comme le SEO local ou la prise de RDV en ligne.
+[Lancio](https://lancio.fr) a choisi une approche différente : un site professionnel sur mesure à prix fixe, livré en 48 heures. Pas de template, pas de Wix — un vrai site créé pour vous, avec votre menu, vos photos, votre identité. €290 pour la base, avec des options comme le SEO local ou la prise de RDV en ligne.
 
 ## Ce que votre site restaurant doit absolument avoir
 
@@ -50,7 +50,7 @@ Découvrez notre page dédiée à la [création de site web pour restaurant](/si
 
 ## Notre recommandation
 
-Pour un restaurant qui démarre ou qui veut simplement une présence web efficace, le rapport qualité-prix le plus honnête se situe entre €650 et €1 200. Au-delà, vous payez surtout pour des fonctionnalités dont vous n'avez probablement pas besoin dans l'immédiat.
+Pour un restaurant qui démarre ou qui veut simplement une présence web efficace, le rapport qualité-prix le plus honnête se situe entre €290 et €1 200. Au-delà, vous payez surtout pour des fonctionnalités dont vous n'avez probablement pas besoin dans l'immédiat.
 
 Si vous avez besoin d'un site rapidement — pour une ouverture, une saison haute qui approche, un changement de carte — Lancio livre en 48 heures. Vous commandez lundi, vous êtes en ligne mercredi.
 

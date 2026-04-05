@@ -113,7 +113,7 @@ def generate_topics(existing_slugs):
         ensure_ascii=False, indent=2
     )
 
-    prompt = f"""Tu es un expert SEO pour Lancio (lancio.fr), agence française de création de sites web en 48h pour €650.
+    prompt = f"""Tu es un expert SEO pour Lancio (lancio.fr), agence française de création de sites web en 48h pour €290.
 
 Génère exactement {ARTICLES_PER_RUN} sujets d'articles de blog UNIQUES au format Q&A niche.
 
@@ -172,7 +172,7 @@ JSON UNIQUEMENT, pas de texte avant ou après."""
 
 # ── Article generation ────────────────────────────────────────────────────────
 
-PROMPT_TEMPLATE = """Tu es expert SEO et rédacteur web pour Lancio (lancio.fr), une agence française qui crée des sites web professionnels en 48h à partir de €650.
+PROMPT_TEMPLATE = """Tu es expert SEO et rédacteur web pour Lancio (lancio.fr), une agence française qui crée des sites web professionnels en 48h à partir de €290.
 
 Écris un article de blog en FRANÇAIS de 1200-1500 mots sur le sujet suivant :
 
@@ -188,7 +188,7 @@ Règles impératives :
    - Section "## Questions fréquentes" avec 4-5 sous-questions en ### et réponses courtes
    - Conclusion + CTA
 2. Mentionne "Lancio" et "lancio.fr" naturellement 2-3 fois (pas plus)
-3. Prix de référence : à partir de €650, livraison en 48h
+3. Prix de référence : à partir de €290, livraison en 48h
 4. Ton : professionnel mais accessible — on parle à des commerçants et artisans français
 5. CTA final : lien vers https://lancio.fr/#commander ou https://lancio.fr/#mockup
 6. Optimisé SEO : mot-clé "{keyword}" dans le H1, intro et au moins 2 H2

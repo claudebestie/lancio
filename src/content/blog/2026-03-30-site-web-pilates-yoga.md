@@ -46,8 +46,8 @@ Ces photos font la différence entre "je vais peut-être essayer" et "je réserv
 
 ## Le calcul qui compte
 
-Un cours collectif à 8 participants vous rapporte en moyenne €120-€160 par séance. Un site à €650 qui vous apporte 2 nouveaux élèves réguliers par mois se rentabilise en quelques semaines. Et ces élèves, une fois fidélisés, restent en moyenne 8 à 12 mois.
+Un cours collectif à 8 participants vous rapporte en moyenne €120-€160 par séance. Un site à €290 qui vous apporte 2 nouveaux élèves réguliers par mois se rentabilise en quelques semaines. Et ces élèves, une fois fidélisés, restent en moyenne 8 à 12 mois.
 
-[Lancio](https://lancio.fr) crée des sites pour studios de pilates et yoga en 48h à partir de €650 — planning, réservation, galerie photos et SEO local inclus.
+[Lancio](https://lancio.fr) crée des sites pour studios de pilates et yoga en 48h à partir de €290 — planning, réservation, galerie photos et SEO local inclus.
 
 [Créer votre site pilates →](/site-web-pilates/)

@@ -36,7 +36,7 @@ Une agence web classique : €2 500 à €6 000 pour un site vitrine. Délai 4 �
 
 Un freelance sérieux : €900 à €2 000. Délai 2 à 4 semaines si disponible.
 
-[Lancio](https://lancio.fr) : €650, livraison 48 heures. Site sur mesure avec SEO local inclus.
+[Lancio](https://lancio.fr) : €290, livraison 48 heures. Site sur mesure avec SEO local inclus.
 
 Pour un artisan qui commence ou qui veut simplement être visible sur Google, l'investissement de base se rentabilise en général avec un ou deux chantiers supplémentaires générés par le site dans l'année.
 

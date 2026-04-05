@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS lancio_orders (
   -- Options & pricing
   options JSONB,
   options_total INTEGER DEFAULT 0,
-  base_price INTEGER DEFAULT 650,
+  base_price INTEGER DEFAULT 290,
   total_price INTEGER NOT NULL,
 
   -- Status tracking
