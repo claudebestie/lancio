@@ -177,8 +177,7 @@
           <div id="form-error" style="display:none; font-size:13px; color:#A32D2D; padding:10px; background:#FEF0F0; border-radius:8px;"></div>
 
           <button type="button" class="form-submit" id="submitBtn" onclick="showRecap()">
-            Voir le récapitulatif →
-          </button>
+            Passer ma commande →</button>
 
           <div class="form-note">
             Vous pourrez relire votre commande avant de payer.
@@ -470,88 +469,30 @@
 
   // ── Show Recap (étape intermédiaire) ──────────────────────────────────────────
   function showRecap() {
-    const errorDiv = document.getElementById('form-error') as HTMLDivElement;
-    errorDiv.style.display = 'none';
-
-    // Validation
-    const nom = (document.getElementById('f-nom') as HTMLInputElement).value.trim();
-    const email = (document.getElementById('f-email') as HTMLInputElement).value.trim();
-    const secteur = (document.getElementById('f-secteur') as HTMLSelectElement).value;
-    const entreprise = (document.getElementById('f-entreprise') as HTMLInputElement).value.trim();
-    const description = (document.getElementById('f-description') as HTMLTextAreaElement).value.trim();
-
+    const errorEl = document.getElementById('form-error');
+    const nom = document.getElementById('f-nom')?.value?.trim();
+    const email = document.getElementById('f-email')?.value?.trim();
+    const secteur = document.getElementById('f-secteur')?.value;
+    const entreprise = document.getElementById('f-entreprise')?.value?.trim();
+    const description = document.getElementById('f-description')?.value?.trim();
     if (!nom || !email || !secteur || !entreprise || !description) {
-      errorDiv.textContent = 'Merci de remplir tous les champs obligatoires.';
-      errorDiv.style.display = 'block';
+      if (errorEl) { errorEl.textContent = 'Merci de remplir tous les champs obligatoires.'; errorEl.style.display = 'block'; }
       return;
     }
-
-    const tel = (document.getElementById('f-tel') as HTMLInputElement).value.trim();
-    const domaine = (document.getElementById('f-domaine') as HTMLInputElement).value.trim();
-
-    // Remplir le recap
-    (document.getElementById('recap-nom') as HTMLElement).textContent = nom;
-    (document.getElementById('recap-email') as HTMLElement).textContent = email;
-
-    const telRow = document.getElementById('recap-tel-row') as HTMLElement;
-    if (tel) {
-      (document.getElementById('recap-tel') as HTMLElement).textContent = tel;
-      telRow.style.display = 'flex';
-    } else {
-      telRow.style.display = 'none';
-    }
-
-    (document.getElementById('recap-secteur') as HTMLElement).textContent = secteur;
-    (document.getElementById('recap-entreprise') as HTMLElement).textContent = entreprise;
-
-    const domaineRow = document.getElementById('recap-domaine-row') as HTMLElement;
-    if (domaine) {
-      (document.getElementById('recap-domaine') as HTMLElement).textContent = domaine;
-      domaineRow.style.display = 'flex';
-    } else {
-      domaineRow.style.display = 'none';
-    }
-
-    (document.getElementById('recap-description') as HTMLElement).textContent = description;
-
-    // Options
-    const optionsList = document.getElementById('recap-options-list') as HTMLElement;
-    optionsList.innerHTML = '';
-    let optionsTotal = 0;
-    document.querySelectorAll<HTMLInputElement>('.f-option:checked').forEach(cb => {
-      const price = ADDON_PRICES[cb.value] || 0;
-      optionsTotal += price;
-      const row = document.createElement('div');
-      row.style.cssText = 'display:flex;justify-content:space-between;align-items:baseline;gap:12px';
-      row.innerHTML = `<span style="font-size:13px;color:var(--text-secondary)">${OPTION_LABELS[cb.value] || cb.value}</span><span style="font-size:13px;color:var(--accent);font-weight:500">+€${price}</span>`;
-      optionsList.appendChild(row);
-    });
-
-    const totalPrice = 290 + optionsTotal;
-    (document.getElementById('recap-total') as HTMLElement).textContent = '€' + totalPrice.toLocaleString('fr-FR');
-
-    // Maintenance
-    const maintenanceCb = document.getElementById('f-maintenance') as HTMLInputElement;
-    const wantsMaintenance = maintenanceCb?.checked || false;
-    const maintenanceRow = document.getElementById('recap-maintenance-row') as HTMLElement;
-    const maintenanceNote = document.getElementById('recap-maintenance-note') as HTMLElement;
-    maintenanceRow.style.display = wantsMaintenance ? 'flex' : 'none';
-    maintenanceNote.style.display = wantsMaintenance ? 'block' : 'none';
-
-    // Vérifier que le lien Stripe existe
-    const stripeLink = STRIPE_LINKS[totalPrice];
-    if (!stripeLink || stripeLink.startsWith('TODO')) {
-      const recapError = document.getElementById('recap-error') as HTMLDivElement;
-      recapError.textContent = 'Cette combinaison d\'options n\'est pas encore disponible au paiement en ligne. Contactez-nous à hello@lancio.fr.';
-      recapError.style.display = 'block';
-    }
-
-    // Basculer les étapes
-    (document.getElementById('step-brief') as HTMLElement).style.display = 'none';
-    (document.getElementById('step-recap') as HTMLElement).style.display = 'block';
-
-    // Scroll vers le haut du formulaire
-    document.querySelector('.brief-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (errorEl) errorEl.style.display = 'none';
+    const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+    set('recap-nom', nom); set('recap-email', email); set('recap-secteur', secteur); set('recap-entreprise', entreprise); set('recap-description', description);
+    const tel = document.getElementById('f-tel')?.value?.trim();
+    if (tel) { set('recap-tel', tel); const r = document.getElementById('recap-tel-row'); if(r) r.style.display=''; }
+    const dom = document.getElementById('f-domaine')?.value?.trim();
+    if (dom) { set('recap-domaine', dom); const r = document.getElementById('recap-domaine-row'); if(r) r.style.display=''; }
+    const opts = Array.from(document.querySelectorAll('input[type=checkbox]:checked'));
+    const ol = document.getElementById('recap-options-list');
+    if (ol) ol.innerHTML = opts.length ? opts.map(cb => '<li>' + (cb.closest('label')?.textContent?.trim() || cb.value) + '</li>').join('') : '<li>Aucune option</li>';
+    const brief = document.getElementById('step-brief');
+    const recap = document.getElementById('step-recap');
+    if (brief) brief.style.display = 'none';
+    if (recap) { recap.style.display = 'block'; recap.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   }
 
   // ── Back to form ──────────────────────────────────────────────────────────────
