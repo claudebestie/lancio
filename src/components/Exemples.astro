@@ -4,82 +4,72 @@ const exemples = [
     secteur: "Restaurant",
     url: "trattoria-bella.fr",
     nom: "Trattoria Bella",
-    nomStyle: "",
-    headline: "La dolce vita<br/>dans votre assiette",
+    headline: "La dolce vita dans votre assiette",
     badge: "Ouvert ce soir · Bordeaux",
-    badgeUrgent: false,
     cta: "Réserver une table",
-    chips: ["RDV en ligne", "Menu digital", "Google Maps"],
-    heroBg: "#2a1505",
-    heroGradient: "",
+    chips: ["Réservation en ligne", "Menu digital", "Google Maps"],
+    photo: "/secteurs/restaurant3.jpg",
     accent: "#e8c97a",
-    navBg: "rgba(42,21,5,0.95)",
-    desc: "Menu en ligne, réservation et galerie photo pour un restaurant italien.",
+    overlay: "linear-gradient(160deg, rgba(42,21,5,0.92) 0%, rgba(42,21,5,0.6) 50%, rgba(42,21,5,0.3) 100%)",
+    desc: "Menu interactif, réservation Calendly et galerie photo — le tout livré en 48h.",
+    style: "elegant",
   },
   {
-    secteur: "Coiffure",
+    secteur: "Salon de beauté",
     url: "studio-caprice.fr",
     nom: "Studio Caprice",
-    nomStyle: "font-style:italic;",
-    headline: "Révélez<br/>votre beauté",
+    headline: "Révélez votre beauté",
     badge: "Lyon 6e · Sur rendez-vous",
-    badgeUrgent: false,
-    cta: "Prendre RDV",
+    cta: "Prendre rendez-vous",
     chips: ["Calendly", "Galerie avant-après", "Tarifs"],
-    heroBg: "",
-    heroGradient: "linear-gradient(135deg, #2d1f3d, #6b3fa0)",
+    photo: "/secteurs/beautysalon1.jpg",
     accent: "#e8a0d4",
-    navBg: "rgba(45,31,61,0.95)",
-    desc: "Prise de rendez-vous, galerie avant/après et grille tarifaire.",
+    overlay: "linear-gradient(160deg, rgba(45,31,61,0.9) 0%, rgba(107,63,160,0.5) 60%, rgba(107,63,160,0.2) 100%)",
+    desc: "Réservation en ligne, galerie avant/après et grille tarifaire élégante.",
+    style: "luxe",
   },
   {
     secteur: "Thérapeute",
     url: "cabinet-serenite.fr",
     nom: "Cabinet Sérénité",
-    nomStyle: "",
-    headline: "Retrouvez votre<br/>équilibre intérieur",
+    headline: "Retrouvez votre équilibre intérieur",
     badge: "Nantes · Présentiel & visio",
-    badgeUrgent: false,
-    cta: "Voir mes disponibilités",
-    chips: ["Agenda en ligne", "Visio", "Blog SEO"],
-    heroBg: "",
-    heroGradient: "linear-gradient(135deg, #0d3b66, #1e6fa8)",
+    cta: "Voir les disponibilités",
+    chips: ["Agenda en ligne", "Visio", "Blog bien-être"],
+    photo: "/secteurs/thérapeutes2.jpg",
     accent: "#f4a261",
-    navBg: "rgba(13,59,102,0.95)",
-    desc: "Agenda en ligne, visio intégrée et articles SEO pour thérapeutes.",
+    overlay: "linear-gradient(160deg, rgba(13,59,102,0.9) 0%, rgba(30,111,168,0.5) 60%, rgba(30,111,168,0.15) 100%)",
+    desc: "Agenda en ligne, consultations visio et articles SEO pour thérapeutes.",
+    style: "zen",
   },
   {
     secteur: "Artisan",
     url: "plomberie-martin.fr",
     nom: "Plomberie Martin",
-    nomStyle: "",
-    headline: "Plombier certifié<br/>Strasbourg",
+    headline: "Plombier certifié — Strasbourg",
     badge: "⚡ Urgence 7j/7",
     badgeUrgent: true,
     cta: "Demander un devis",
     chips: ["Devis en ligne", "Google My Business", "Avis clients"],
-    heroBg: "",
-    heroGradient: "linear-gradient(135deg, #1c3557, #2e5c8a)",
+    photo: "/secteurs/contracting1.jpg",
     accent: "#f0a500",
-    navBg: "rgba(28,53,87,0.95)",
-    desc: "Devis en ligne, fiche Google et avis clients pour artisans.",
+    overlay: "linear-gradient(160deg, rgba(28,53,87,0.92) 0%, rgba(46,92,138,0.5) 60%, rgba(46,92,138,0.2) 100%)",
+    desc: "Devis en ligne, fiche Google et avis clients — tout pour inspirer confiance.",
+    style: "robust",
   },
   {
-    secteur: "Coach sport",
+    secteur: "Coach sportif",
     url: "coach-clara.fr",
     nom: "COACH CLARA",
-    nomStyle: "text-transform:uppercase;font-weight:700;letter-spacing:1px;",
-    headline: "Transformez<br/>votre corps.",
+    headline: "Transformez votre corps.",
     badge: "Paris · En ligne & présentiel",
-    badgeUrgent: false,
     cta: "Séance découverte gratuite",
     chips: ["Réservation", "Programmes", "Paiement Stripe"],
-    heroBg: "#0a0a0a",
-    heroGradient: "",
+    photo: "/secteurs/coach2.jpg",
     accent: "#c8ff00",
-    navBg: "rgba(10,10,10,0.95)",
-    heroSpecial: true,
-    desc: "Réservation, programmes et paiement intégré pour coachs sportifs.",
+    overlay: "linear-gradient(160deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.2) 100%)",
+    desc: "Réservation, programmes sur mesure et paiement intégré pour coachs.",
+    style: "bold",
   },
 ];
 ---
@@ -89,97 +79,66 @@ const exemples = [
     <div class="section-header">
       <div class="section-tag">Exemples</div>
       <h2 class="section-h2">Des sites livrés en 48h,<br/><em>pour des pros comme vous</em></h2>
-      <p class="section-sub">Chaque site est créé sur mesure — pas de template générique.</p>
+      <p class="section-sub">Chaque site est créé sur mesure selon votre secteur. Voici ce qu'on fait.</p>
     </div>
 
     <div class="exemples-grid">
       {exemples.map(e => (
-        <div class="exemple-card">
-          <div class="exemple-badge-top" style={`background:${e.accent}20; color:${e.accent}; border:1px solid ${e.accent}40;`}>
-            {e.secteur}
-          </div>
-          <div class="browser-chrome">
-            <div class="browser-bar">
-              <div class="browser-dots">
-                <span class="dot dot-red"></span>
-                <span class="dot dot-yellow"></span>
-                <span class="dot dot-green"></span>
+        <div class={`exemple-card exemple-card--${e.style}`}>
+          {/* Photo background */}
+          <div class="exemple-photo">
+            <img src={e.photo} alt={`Site ${e.secteur}`} loading="lazy" />
+            <div class="exemple-overlay" style={`background:${e.overlay};`}></div>
+
+            {/* Content over photo */}
+            <div class="exemple-photo-content">
+              <div class="exemple-top-row">
+                <span class="exemple-secteur-pill" style={`background:${e.accent}; color:#000;`}>{e.secteur}</span>
+                <span class={`exemple-badge ${e.badgeUrgent ? 'exemple-badge--urgent' : ''}`}>{e.badge}</span>
               </div>
-              <div class="browser-url">{e.url}</div>
-            </div>
-            <div class="browser-content">
-              {/* Mini site preview */}
-              <div style={`font-family:-apple-system,system-ui,sans-serif;overflow:hidden;`}>
-                {/* Nav */}
-                <div style={`background:${e.navBg}; padding:6px 10px; display:flex; align-items:center; justify-content:space-between;`}>
-                  <span style={`color:#fff; font-size:8px; font-weight:600; ${e.nomStyle}`}>{e.nom}</span>
-                  <div style="display:flex; gap:6px; align-items:center;">
-                    <span style="color:rgba(255,255,255,0.5); font-size:6px;">Menu</span>
-                    <span style="color:rgba(255,255,255,0.5); font-size:6px;">Contact</span>
-                    <span style={`background:${e.accent}; color:${e.heroBg || '#111'}; font-size:5px; padding:2px 5px; border-radius:3px; font-weight:600;`}>RDV</span>
-                  </div>
+
+              <div class="exemple-hero-text">
+                <div class="exemple-url" style={`border-color:${e.accent}40;`}>
+                  <span class="url-dot" style={`background:${e.accent};`}></span>
+                  {e.url}
                 </div>
-                {/* Hero */}
-                <div style={`${e.heroGradient ? `background:${e.heroGradient}` : `background:${e.heroBg || '#111'}`}; padding:16px 10px 12px; ${e.heroSpecial ? `border-top:2px solid ${e.accent};` : ''} text-align:center; position:relative;`}>
-                  {/* Badge */}
-                  <div style={`display:inline-block; font-size:5px; padding:2px 6px; border-radius:10px; margin-bottom:6px; ${e.badgeUrgent ? `background:${e.accent}; color:#000; font-weight:700;` : `background:rgba(255,255,255,0.12); color:rgba(255,255,255,0.7);`}`}>
-                    {e.badge}
-                  </div>
-                  {/* Headline */}
-                  <div style={`color:#fff; font-size:11px; font-weight:700; line-height:1.25; margin-bottom:4px;`} set:html={e.headline} />
-                  <div style="color:rgba(255,255,255,0.6); font-size:5.5px; margin-bottom:8px;">Un site professionnel livré en 48h</div>
-                  {/* CTA Button */}
-                  <div style={`display:inline-block; background:${e.accent}; color:${(e.heroBg === '#0a0a0a' || !e.heroBg) ? '#000' : '#fff'}; font-size:6px; font-weight:600; padding:4px 10px; border-radius:4px;`}>
-                    {e.cta}
-                  </div>
-                  {/* Chips */}
-                  <div style="display:flex; justify-content:center; gap:3px; margin-top:6px; flex-wrap:wrap;">
-                    {e.chips.map(chip => (
-                      <span style={`font-size:4.5px; padding:1.5px 4px; border-radius:3px; background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.6);`}>{chip}</span>
-                    ))}
-                  </div>
+                <h3 class="exemple-nom" style={e.style === 'bold' ? 'text-transform:uppercase; letter-spacing:2px; font-weight:800;' : e.style === 'luxe' ? 'font-style:italic; font-weight:400; letter-spacing:1px;' : ''}>{e.nom}</h3>
+                <p class="exemple-headline">{e.headline}</p>
+                <div class="exemple-cta-btn" style={`background:${e.accent}; color:${e.style === 'bold' ? '#000' : e.style === 'elegant' ? '#2a1505' : '#fff'};`}>
+                  {e.cta}
                 </div>
+              </div>
+
+              <div class="exemple-chips">
+                {e.chips.map(chip => (
+                  <span class="exemple-chip">{chip}</span>
+                ))}
               </div>
             </div>
           </div>
+
+          {/* Bottom info */}
           <div class="exemple-bottom">
-            <div class="exemple-livraison">✓ Livré en 48h</div>
-            <h3 class="exemple-titre">{e.nom}</h3>
-            <p class="exemple-desc">{e.desc}</p>
+            <div class="exemple-bottom-left">
+              <span class="exemple-livraison">✓ Livré en 48h</span>
+              <p class="exemple-desc">{e.desc}</p>
+            </div>
             <a href="#commander" class="btn-exemple" style={`border-color:${e.accent}; color:${e.accent};`}>
-              Je veux ce site →
+              Commander ce site →
             </a>
           </div>
         </div>
       ))}
 
       {/* CTA card */}
-      <div class="exemple-card exemple-cta-card">
-        <div class="browser-chrome">
-          <div class="browser-bar">
-            <div class="browser-dots">
-              <span class="dot dot-red"></span>
-              <span class="dot dot-yellow"></span>
-              <span class="dot dot-green"></span>
-            </div>
-            <div class="browser-url">votre-site.fr</div>
-          </div>
-          <div class="browser-content">
-            <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; padding:20px; text-align:center; background:#fafaf8;">
-              <div style="font-size:28px; margin-bottom:8px;">✨</div>
-              <div style="font-size:13px; font-weight:600; color:#1A3C34; line-height:1.3;">Votre site ici<br/>dans 48h</div>
-              <div style="font-size:9px; color:#888; margin-top:4px; line-height:1.4;">Avocat, médecin, photographe,<br/>boutique...</div>
-            </div>
-          </div>
-        </div>
-        <div class="exemple-bottom" style="text-align:center;">
-          <a href="#commander" class="btn-exemple btn-exemple-accent">Créer mon site →</a>
+      <div class="exemple-card exemple-card--cta">
+        <div class="exemple-cta-inner">
+          <div class="cta-sparkle">✨</div>
+          <h3 class="cta-title">Et votre site<br/>dans 48h ?</h3>
+          <p class="cta-sub">Avocat, médecin, photographe, boutique, consultant... quel que soit votre métier.</p>
+          <a href="#commander" class="btn-cta-main">Créer mon site →</a>
         </div>
       </div>
-    </div>
-
-    <div class="exemples-cta">
-      <a href="#commander" class="btn-primary">Je veux un site comme ça →</a>
     </div>
   </div>
 </section>
@@ -201,103 +160,159 @@ const exemples = [
     max-width: 480px; margin: 0 auto;
   }
 
+  /* Grid */
   .exemples-grid {
     display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 20px; margin-top: 48px;
   }
 
+  /* Card */
   .exemple-card {
-    border: 1px solid var(--border); border-radius: var(--radius-lg);
-    overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;
-    background: var(--white); position: relative;
+    border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--white);
+    transition: transform 0.25s, box-shadow 0.25s;
   }
   .exemple-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(14,14,14,0.1);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
   }
 
-  .exemple-cta-card {
-    border-style: dashed; border-color: var(--accent);
+  /* Photo area */
+  .exemple-photo {
+    position: relative; height: 280px; overflow: hidden;
+  }
+  .exemple-photo img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.4s;
+  }
+  .exemple-card:hover .exemple-photo img {
+    transform: scale(1.05);
+  }
+  .exemple-overlay {
+    position: absolute; inset: 0; z-index: 1;
+  }
+  .exemple-photo-content {
+    position: absolute; inset: 0; z-index: 2;
+    display: flex; flex-direction: column;
+    justify-content: space-between; padding: 14px 16px;
   }
 
-  .exemple-badge-top {
-    position: absolute; top: 12px; left: 12px; z-index: 2;
-    font-size: 10px; font-weight: 600; padding: 3px 10px;
-    border-radius: 100px; backdrop-filter: blur(4px);
+  /* Top row */
+  .exemple-top-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  }
+  .exemple-secteur-pill {
+    font-size: 10px; font-weight: 700; padding: 4px 10px;
+    border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .exemple-badge {
+    font-size: 9px; padding: 3px 8px; border-radius: 100px;
+    background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8);
+    backdrop-filter: blur(4px);
+  }
+  .exemple-badge--urgent {
+    background: rgba(240,165,0,0.9); color: #000; font-weight: 700;
   }
 
-  /* Browser chrome */
-  .browser-chrome {
-    border-bottom: 1px solid var(--border);
+  /* Hero text */
+  .exemple-hero-text {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
   }
-  .browser-bar {
-    display: flex; align-items: center; gap: 8px;
-    padding: 6px 10px; background: #f5f5f4;
-    border-bottom: 1px solid #e5e5e4;
+  .exemple-url {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 9px; color: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.15); border-radius: 4px;
+    padding: 2px 8px;
   }
-  .browser-dots { display: flex; gap: 4px; }
-  .dot { width: 7px; height: 7px; border-radius: 50%; }
-  .dot-red { background: #ff5f57; }
-  .dot-yellow { background: #febc2e; }
-  .dot-green { background: #28c840; }
-  .browser-url {
-    flex: 1; font-size: 9px; color: #888;
-    background: #fff; border: 1px solid #e5e5e4;
-    border-radius: 4px; padding: 2px 8px; text-align: center;
+  .url-dot { width: 5px; height: 5px; border-radius: 50%; }
+  .exemple-nom {
+    font-size: 20px; font-weight: 600; color: #fff;
+    line-height: 1.15; margin: 0;
   }
-  .browser-content {
-    min-height: 130px; overflow: hidden;
+  .exemple-headline {
+    font-size: 12px; color: rgba(255,255,255,0.65);
+    line-height: 1.4; margin: 0;
+  }
+  .exemple-cta-btn {
+    display: inline-block; font-size: 10px; font-weight: 600;
+    padding: 6px 14px; border-radius: 6px; margin-top: 2px;
   }
 
-  /* Bottom info */
-  .exemple-bottom { padding: 14px 16px 16px; }
+  /* Chips */
+  .exemple-chips {
+    display: flex; gap: 4px; flex-wrap: wrap;
+  }
+  .exemple-chip {
+    font-size: 8px; padding: 2px 7px; border-radius: 4px;
+    background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.7);
+    backdrop-filter: blur(4px);
+  }
+
+  /* Bottom */
+  .exemple-bottom {
+    padding: 14px 16px; display: flex;
+    align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .exemple-bottom-left { flex: 1; }
   .exemple-livraison {
-    font-size: 11px; font-weight: 500; color: #22c55e; margin-bottom: 6px;
-  }
-  .exemple-titre {
-    font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;
+    font-size: 11px; font-weight: 600; color: #22c55e; margin-bottom: 4px;
   }
   .exemple-desc {
-    font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px;
+    font-size: 12px; color: var(--text-secondary); line-height: 1.45; margin: 0;
   }
 
   .btn-exemple {
-    display: inline-block; font-size: 12px; font-weight: 500;
-    padding: 6px 14px; border: 1.5px solid var(--accent);
-    border-radius: var(--radius-sm); color: var(--accent);
-    text-decoration: none; transition: all 0.15s;
+    display: inline-block; font-size: 11px; font-weight: 600;
+    padding: 8px 14px; border: 1.5px solid; border-radius: 8px;
+    text-decoration: none; transition: all 0.15s; white-space: nowrap;
+    flex-shrink: 0;
   }
-  .btn-exemple:hover {
-    background: var(--accent); color: var(--white);
-  }
-  .btn-exemple-accent {
-    border-color: var(--accent); color: var(--accent);
-    font-size: 13px; font-weight: 600; padding: 10px 20px;
-    margin-top: 8px;
-  }
+  .btn-exemple:hover { filter: brightness(1.2); transform: translateY(-1px); }
 
-  .exemples-cta { text-align: center; margin-top: 40px; }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 15px; font-weight: 500; background: var(--accent);
-    color: var(--white); padding: 14px 28px; border-radius: var(--radius-md);
-    transition: background 0.15s, transform 0.1s; text-decoration: none;
+  /* CTA card */
+  .exemple-card--cta {
+    border: 2px dashed var(--accent); background: var(--accent-pale);
+    display: flex; align-items: center; justify-content: center;
   }
-  .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+  .exemple-cta-inner {
+    padding: 40px 28px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+  }
+  .cta-sparkle { font-size: 36px; }
+  .cta-title {
+    font-size: 22px; font-weight: 700; color: var(--text-primary);
+    line-height: 1.2; margin: 0;
+  }
+  .cta-sub {
+    font-size: 13px; color: var(--text-secondary); max-width: 220px;
+    line-height: 1.5; margin: 0;
+  }
+  .btn-cta-main {
+    display: inline-block; background: var(--accent); color: var(--white);
+    font-size: 14px; font-weight: 600; padding: 12px 24px;
+    border-radius: 8px; text-decoration: none; transition: all 0.15s;
+  }
+  .btn-cta-main:hover { background: var(--accent-light); transform: translateY(-2px); }
 
+  /* Responsive */
   @media (max-width: 900px) {
     .exemples-grid { grid-template-columns: repeat(2, 1fr); }
+    .exemple-photo { height: 240px; }
   }
   @media (max-width: 580px) {
     .exemples-grid { grid-template-columns: 1fr; }
+    .exemple-photo { height: 260px; }
+    .exemple-bottom { flex-direction: column; align-items: flex-start; }
   }
 </style>
 
 <script>
   document.querySelectorAll('.exemple-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const titre = card.querySelector('.exemple-titre')?.textContent?.toLowerCase().trim() || '';
-      window.datafast?.('example_click', { example: titre });
+    card.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).closest('a')) return;
+      const nom = card.querySelector('.exemple-nom')?.textContent?.toLowerCase().trim() || '';
+      window.datafast?.('example_click', { example: nom });
     });
   });
 </script>
