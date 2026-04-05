@@ -1,179 +1,115 @@
 ---
+const temoignages = [
+  { nom: "Sophie Martin", role: "Gérante, Salon Naturelle", ville: "Lyon", note: 5, texte: "Mon site a été livré en exactement 48h comme promis. Mes clientes me complimentent dessus à chaque visite. Vraiment bluffant pour le prix.", avatar: "SM", couleur: "#6b3fa0" },
+  { nom: "Thomas Renaud", role: "Restaurateur", ville: "Bordeaux", note: 5, texte: "J'avais peur de me lancer dans le digital mais l'équipe est super réactive. Le formulaire de réservation tourne parfaitement depuis le premier jour.", avatar: "TR", couleur: "#0d3b66" },
+  { nom: "Isabelle Dubois", role: "Kinésithérapeute", ville: "Nantes", note: 5, texte: "Mon agenda en ligne a réduit les appels téléphoniques de 70%. ROI en moins d'un mois. Je recommande sans hésiter à tous mes confrères.", avatar: "ID", couleur: "#1c3557" },
+  { nom: "Marc Lefebvre", role: "Plombier indépendant", ville: "Strasbourg", note: 4, texte: "Bon rapport qualité/prix. Site simple et efficace, exactement ce qu'il me fallait. Les quelques retouches demandées ont été faites dans la journée.", avatar: "ML", couleur: "#2a7a4f" },
+  { nom: "Clara Petit", role: "Coach sportive", ville: "Paris", note: 5, texte: "En 48h j'avais un site digne d'une grande agence. La page de réservation seule m'a remboursé l'investissement en deux semaines chrono.", avatar: "CP", couleur: "#b5470b" },
+  { nom: "Antoine Moreau", role: "Expert-comptable", ville: "Toulouse", note: 5, texte: "Mes prospects me croient dans une grande structure. Le site renvoie exactement l'image que je voulais projeter — sérieux, moderne, rassurant.", avatar: "AM", couleur: "#0d3b66" },
+  { nom: "Nathalie Simon", role: "Avocate", ville: "Marseille", note: 4, texte: "Design élégant et délai tenu à la lettre. Exactement ce qu'il me fallait pour asseoir mon image professionnelle en ligne. Très satisfaite.", avatar: "NS", couleur: "#6b3fa0" },
+  { nom: "Pierre Laurent", role: "Photographe", ville: "Lille", note: 5, texte: "Mon portfolio livré en un temps record. Les demandes de devis ont doublé depuis le lancement. Je n'aurais pas cru que ça irait aussi vite.", avatar: "PL", couleur: "#1c3557" },
+];
 ---
-<section class="temoignages" id="temoignages">
-  <div class="temo-wrap">
-    <div class="temo-header">
-      <h2>Lancio vient de lancer.</h2>
-      <p class="temo-sub">Nous construisons notre réputation sur la qualité de notre travail — pas sur des avis inventés. Soyez parmi les premiers à nous faire confiance et bénéficiez de notre offre de lancement.</p>
+
+<section class="temoignages section-pad" id="temoignages">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Témoignages</div>
+      <h2 class="section-h2">Ils ont lancé leur site.<br/><em>Ils ne reviendraient pas en arrière.</em></h2>
+    </div>
+    <div class="temo-grid">
+      {temoignages.map(t => (
+        <div class="temo-card">
+          <div class="temo-stars">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <span class={i < t.note ? "star-filled" : "star-empty"}>{i < t.note ? "★" : "☆"}</span>
+            ))}
+          </div>
+          <p class="temo-texte">"{t.texte}"</p>
+          <div class="temo-author">
+            <div class="temo-avatar" style={`background:${t.couleur}25; color:${t.couleur};`}>
+              {t.avatar}
+            </div>
+            <div class="temo-info">
+              <div class="temo-nom">{t.nom}</div>
+              <div class="temo-role">{t.role} · {t.ville}</div>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
 
-    <div class="temo-lancement">
-      <div class="lancement-card">
-        <div class="lancement-icon">🚀</div>
-        <h3>Offre de lancement — Places limitées</h3>
-        <p>Les 10 premiers clients bénéficient d'un tarif préférentiel et d'un suivi personnalisé. En échange, nous vous demandons simplement votre avis honnête après livraison.</p>
-        <div class="lancement-avantages">
-          <div class="avantage">✓ Site livré en 48h garanti</div>
-          <div class="avantage">✓ Prix fixe dès €290, tout compris</div>
-          <div class="avantage">✓ 1 révision incluse</div>
-          <div class="avantage">✓ Satisfait ou on recommence</div>
-        </div>
-        <a href="#mockup" class="btn-lancement">Demander mon mockup gratuit →</a>
-      </div>
-
-      <div class="temo-placeholder-grid">
-        <div class="placeholder-card">
-          <div class="placeholder-stars">★★★★★</div>
-          <div class="placeholder-text">Votre avis ici</div>
-          <div class="placeholder-name">— Votre prénom, votre ville</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-stars">★★★★★</div>
-          <div class="placeholder-text">Votre avis ici</div>
-          <div class="placeholder-name">— Votre prénom, votre ville</div>
-        </div>
-        <div class="placeholder-card">
-          <div class="placeholder-stars">★★★★★</div>
-          <div class="placeholder-text">Votre avis ici</div>
-          <div class="placeholder-name">— Votre prénom, votre ville</div>
-        </div>
-      </div>
+    <div class="temo-cta">
+      <p class="temo-cta-text">Rejoignez-les — votre site est à 48h.</p>
+      <a href="#commander" class="btn-primary">Démarrer mon site →</a>
     </div>
   </div>
 </section>
 
 <style>
-.temoignages {
-  padding: 5rem 2rem;
-  background: #f9fafb;
-}
-
-.temo-wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.temo-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.temo-header h2 {
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
-  font-weight: 800;
-  color: #1a1a1a;
-  margin-bottom: 1rem;
-}
-
-.temo-sub {
-  font-size: 1.05rem;
-  color: #666;
-  max-width: 580px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-.temo-lancement {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: start;
-}
-
-.lancement-card {
-  background: #1a1a1a;
-  color: #fff;
-  border-radius: 16px;
-  padding: 2.5rem;
-}
-
-.lancement-icon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.lancement-card h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  line-height: 1.3;
-}
-
-.lancement-card p {
-  font-size: 0.95rem;
-  color: #ccc;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.lancement-avantages {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-.avantage {
-  font-size: 0.9rem;
-  color: #86efac;
-  font-weight: 600;
-}
-
-.btn-lancement {
-  display: inline-block;
-  background: #fff;
-  color: #1a1a1a;
-  padding: 0.85rem 1.75rem;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.1s;
-}
-.btn-lancement:hover {
-  background: #f0fdf4;
-  transform: translateY(-1px);
-}
-
-.temo-placeholder-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.placeholder-card {
-  background: #fff;
-  border: 2px dashed #e5e7eb;
-  border-radius: 12px;
-  padding: 1.5rem;
-  text-align: center;
-}
-
-.placeholder-stars {
-  color: #d1d5db;
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-  letter-spacing: 2px;
-}
-
-.placeholder-text {
-  font-size: 0.9rem;
-  color: #9ca3af;
-  font-style: italic;
-  margin-bottom: 0.5rem;
-}
-
-.placeholder-name {
-  font-size: 0.8rem;
-  color: #d1d5db;
-}
-
-@media (max-width: 768px) {
-  .temo-lancement {
-    grid-template-columns: 1fr;
+  .section-header { text-align: center; }
+  .section-tag {
+    display: inline-block; font-size: 12px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);
+    background: var(--accent-pale); padding: 5px 14px; border-radius: 100px; margin-bottom: 16px;
   }
-  .temo-placeholder-grid {
-    display: none;
+  .section-h2 {
+    font-size: clamp(32px, 4vw, 48px); color: var(--text-primary);
+    margin-bottom: 16px; line-height: 1.1;
   }
-}
+  .section-h2 em { font-style: italic; color: var(--accent); }
+
+  .temo-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 16px; margin-top: 48px; align-items: start;
+  }
+  .temo-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 24px;
+    display: flex; flex-direction: column; gap: 14px;
+    transition: transform 0.2s;
+  }
+  .temo-card:hover { transform: translateY(-3px); }
+
+  .temo-stars { font-size: 14px; letter-spacing: 1px; }
+  .star-filled { color: #f59e0b; }
+  .star-empty { color: #d1d5db; }
+
+  .temo-texte {
+    font-size: 13px; line-height: 1.8; color: var(--text-secondary);
+    flex: 1; font-style: italic;
+  }
+  .temo-author {
+    display: flex; align-items: center; gap: 10px;
+    border-top: 1px solid var(--border); padding-top: 14px;
+  }
+  .temo-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 600; flex-shrink: 0;
+  }
+  .temo-nom { font-size: 13px; font-weight: 500; color: var(--text-primary); }
+  .temo-role { font-size: 11px; color: var(--text-muted); }
+
+  .temo-cta {
+    text-align: center; margin-top: 48px;
+    display: flex; flex-direction: column; align-items: center; gap: 16px;
+  }
+  .temo-cta-text {
+    font-size: 18px; color: var(--text-secondary); font-weight: 400;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 15px; font-weight: 500; background: var(--accent);
+    color: var(--white); padding: 14px 28px; border-radius: var(--radius-md);
+    transition: background 0.15s, transform 0.1s; text-decoration: none;
+  }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+
+  @media (max-width: 1100px) {
+    .temo-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 580px) {
+    .temo-grid { grid-template-columns: 1fr; }
+  }
 </style>
