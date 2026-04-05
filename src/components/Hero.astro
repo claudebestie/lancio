@@ -1,309 +1,157 @@
 ---
 ---
 <section class="hero">
-  <div class="container hero-inner">
+  <div class="hero-inner">
     <div class="hero-badge">
       <span class="badge-dot"></span>
-      47 sites livrés · Note 4.9/5
+      🚀 Offre de lancement — Mockup gratuit, sans engagement
     </div>
     <h1 class="hero-h1">
-      Création site web<br/>
-      <em>professionnel en 48h.</em>
+      Votre site pro en 48h —<br>
+      <em>pour artisans, restaurants<br>et indépendants.</em>
     </h1>
     <p class="hero-sub">
-      Un site professionnel clé en main à partir de <strong>€290</strong> — sans rendez-vous, sans devis, sans surprise. Vous commandez lundi, vous êtes en ligne mercredi.
+      À partir de <strong>€290</strong> seulement — prix fixe, livraison garantie en 48h. Vous commandez aujourd'hui, vous êtes en ligne après-demain.
     </p>
     <div class="hero-actions">
-      <a href="#mockup" class="btn-primary">Demander un mockup gratuit →</a>
-      <a href="https://calendly.com/hello-beyitworld/30min" target="_blank" class="btn-secondary">Prendre RDV avec un conseiller</a>
+      <a href="#mockup" class="btn-primary">Obtenir mon mockup gratuit →</a>
+      <a href="https://calendly.com/hello-beyitworld/30min" target="_blank" class="btn-secondary">Parler à un conseiller</a>
     </div>
     <div class="hero-proof">
       <div class="proof-item">
         <span class="proof-num">48h</span>
         <span class="proof-label">Délai garanti</span>
       </div>
-      <div class="proof-divider"></div>
       <div class="proof-item">
         <span class="proof-num">€290</span>
         <span class="proof-label">Prix fixe, tout compris</span>
       </div>
-      <div class="proof-divider"></div>
       <div class="proof-item">
         <span class="proof-num">100%</span>
         <span class="proof-label">Satisfait ou on recommence</span>
       </div>
     </div>
   </div>
-  <div class="hero-visual">
-    <div class="hero-card hero-card-1">
-      <div class="hcard-top">
-        <div class="hcard-dot green"></div>
-        <div class="hcard-dot yellow"></div>
-        <div class="hcard-dot red"></div>
-        <span class="hcard-url">lecomptoirdore.fr</span>
-      </div>
-      <div class="hcard-photo">
-        <img src="/secteurs/restaurant1.jpg" alt="Site restaurant Le Comptoir Doré" loading="lazy" decoding="async" />
-      </div>
-    </div>
-    <div class="hero-card hero-card-2">
-      <div class="hcard-top">
-        <div class="hcard-dot green"></div>
-        <div class="hcard-dot yellow"></div>
-        <div class="hcard-dot red"></div>
-        <span class="hcard-url">studio-eclat.fr</span>
-      </div>
-      <div class="hcard-photo">
-        <img src="/secteurs/barbershop1.jpg" alt="Site salon de coiffure Studio Éclat" loading="lazy" decoding="async" />
-      </div>
-    </div>
-    <div class="hero-card hero-card-3">
-      <div class="hcard-top">
-        <div class="hcard-dot green"></div>
-        <div class="hcard-dot yellow"></div>
-        <div class="hcard-dot red"></div>
-        <span class="hcard-url">cabinet-fontaine.fr</span>
-      </div>
-      <div class="hcard-photo">
-        <img src="/secteurs/lawyer1.jpg" alt="Site avocat Cabinet Fontaine" loading="lazy" />
-      </div>
-    </div>
-    <div class="hero-delivery-tag">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#1A3C34"/><path d="M4 7l2 2 4-4" stroke="#FAFAF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Livré en 48h
-    </div>
-  </div>
 </section>
 
 <style>
-  .hero {
-    padding-top: 100px;
-    padding-bottom: var(--section-py);
-    display: grid;
-    grid-template-columns: 1fr 480px;
-    align-items: center;
-    gap: 64px;
-    max-width: var(--max-w);
-    margin: 0 auto;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--accent);
-    background: var(--accent-pale);
-    border: 1px solid rgba(26,60,52,0.15);
-    padding: 6px 14px;
-    border-radius: 100px;
-    margin-bottom: 28px;
-    font-weight: 500;
-  }
-  .badge-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #2ECC71;
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(0.8); }
-  }
-  .hero-h1 {
-    font-size: clamp(48px, 6vw, 80px);
-    color: var(--text-primary);
-    margin-bottom: 24px;
-    line-height: 1.0;
-  }
-  .hero-h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
-  .hero-sub {
-    font-size: 18px;
-    color: var(--text-secondary);
-    max-width: 480px;
-    line-height: 1.8;
-    margin-bottom: 36px;
-  }
-  .hero-sub strong { color: var(--text-primary); font-weight: 500; }
-  .hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 48px;
-    flex-wrap: wrap;
-  }
-  .btn-primary {
-    font-size: 15px;
-    font-weight: 500;
-    background: var(--accent);
-    color: var(--white);
-    padding: 14px 28px;
-    border-radius: var(--radius-md);
-    transition: background 0.15s, transform 0.1s;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
-  .btn-secondary {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--accent);
-    background: var(--white);
-    border: 1.5px solid var(--accent);
-    padding: 14px 28px;
-    border-radius: var(--radius-md);
-    transition: background 0.15s, color 0.15s, transform 0.1s;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .btn-secondary:hover { background: var(--accent); color: var(--white); transform: translateY(-2px); }
-  .hero-proof {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    flex-wrap: wrap;
-  }
-  .proof-item {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .proof-num {
-    font-family: var(--font-display);
-    font-size: 26px;
-    color: var(--text-primary);
-    line-height: 1;
-  }
-  .proof-label {
-    font-size: 12px;
-    color: var(--text-muted);
-  }
-  .proof-divider {
-    width: 1px;
-    height: 36px;
-    background: var(--border);
-  }
+.hero {
+  padding: 5rem 2rem 4rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
 
-  /* Visual — real photos in browser frames */
-  .hero-visual {
-    position: relative;
-    height: 420px;
-  }
-  .hero-card {
-    position: absolute;
-    background: var(--white);
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: 0 8px 40px rgba(14,14,14,0.08);
-  }
-  .hero-card-1 {
-    width: 280px;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    transform: rotate(-3deg);
-    animation: float1 4s ease-in-out infinite;
-  }
-  .hero-card-2 {
-    width: 260px;
-    bottom: 0;
-    right: 0;
-    z-index: 3;
-    animation: float2 4s ease-in-out infinite 0.8s;
-  }
-  .hero-card-3 {
-    width: 200px;
-    top: 50%;
-    right: 40px;
-    transform: translateY(-50%) rotate(2deg);
-    z-index: 1;
-    opacity: 0.85;
-    animation: float3 4s ease-in-out infinite 1.6s;
-  }
-  @keyframes float1 {
-    0%, 100% { transform: rotate(-3deg) translateY(0); }
-    50% { transform: rotate(-3deg) translateY(-8px); }
-  }
-  @keyframes float2 {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-  }
-  @keyframes float3 {
-    0%, 100% { transform: translateY(-50%) rotate(2deg); }
-    50% { transform: translateY(calc(-50% - 5px)) rotate(2deg); }
-  }
-  .hcard-top {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    padding: 10px 12px;
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-  }
-  .hcard-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-  }
-  .hcard-dot.green { background: #2ECC71; }
-  .hcard-dot.yellow { background: #F1C40F; }
-  .hcard-dot.red { background: #E74C3C; }
-  .hcard-url {
-    font-size: 10px;
-    color: var(--text-muted);
-    margin-left: 6px;
-    font-family: var(--font-body);
-  }
-  .hcard-photo {
-    width: 100%;
-    overflow: hidden;
-  }
-  .hcard-photo img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    display: block;
-  }
-  .hero-card-1 .hcard-photo img { height: 200px; }
-  .hero-card-3 .hcard-photo img { height: 140px; }
-  .hero-delivery-tag {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--white);
-    border: 1px solid var(--border-strong);
-    border-radius: 100px;
-    padding: 8px 16px;
-    font-size: 13px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    box-shadow: 0 4px 16px rgba(14,14,14,0.1);
-    white-space: nowrap;
-    z-index: 4;
-    animation: tagFloat 3s ease-in-out infinite 1.2s;
-  }
-  @keyframes tagFloat {
-    0%, 100% { transform: translate(-50%, -50%) translateY(0); }
-    50% { transform: translate(-50%, -50%) translateY(-5px); }
-  }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
 
-  @media (max-width: 900px) {
-    .hero {
-      grid-template-columns: 1fr;
-      padding-top: 80px;
-    }
-    .hero-visual { display: none; }
-    .hero-h1 { font-size: 48px; }
-  }
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.hero-h1 {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #1a1a1a;
+  margin-bottom: 1.25rem;
+}
+
+.hero-h1 em {
+  font-style: italic;
+  color: #2d6a4f;
+}
+
+.hero-sub {
+  font-size: 1.15rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 520px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.btn-primary {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn-primary:hover {
+  background: #2d6a4f;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #1a1a1a;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 1.5px solid #d1d5db;
+  transition: border-color 0.2s;
+}
+.btn-secondary:hover { border-color: #1a1a1a; }
+
+.hero-proof {
+  display: flex;
+  gap: 2.5rem;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.5rem;
+}
+
+.proof-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.proof-num {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.proof-label {
+  font-size: 0.78rem;
+  color: #888;
+  margin-top: 0.1rem;
+}
+
+@media (max-width: 640px) {
+  .hero { padding: 3rem 1.25rem 2rem; }
+  .hero-proof { gap: 1.5rem; }
+  .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+}
 </style>
