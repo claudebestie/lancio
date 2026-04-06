@@ -41,11 +41,11 @@ function formatDate(d: string) {
           const isFirst = i === 0;
           return (
             <article class={`blog-card ${isFirst ? 'blog-card-featured' : ''}`}>
-              <div class="blog-card-img" style={`background: ${getSecteurColor(post.data.secteur)};`}>
-                <span class="blog-card-secteur">{post.data.secteur || 'Conseils'}</span>
-              </div>
               <div class="blog-card-body">
-                <div class="blog-card-date">{formatDate(post.data.date)}</div>
+                <div class="blog-card-meta">
+                  <span class="blog-card-secteur" style={`background: ${getSecteurColor(post.data.secteur)};`}>{post.data.secteur || 'Conseils'}</span>
+                  <span class="blog-card-date">{formatDate(post.data.date)}</span>
+                </div>
                 <h2 class="blog-card-title">
                   <a href={`/blog/${slug}/`}>{post.data.title}</a>
                 </h2>
@@ -104,40 +104,32 @@ function formatDate(d: string) {
   .blog-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(14,14,14,0.08); }
   .blog-card-featured {
     grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
   }
-  .blog-card-featured .blog-card-img { height: auto; min-height: 280px; }
-  .blog-card-img {
-    height: 180px;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    padding: 14px;
-    background: var(--accent-pale);
+  .blog-card-meta {
+    display: flex; align-items: center; gap: 10px;
   }
   .blog-card-secteur {
-    font-size: 11px;
-    font-weight: 500;
+    font-size: 10px;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    background: var(--white);
     color: var(--accent);
-    padding: 4px 10px;
+    padding: 3px 10px;
     border-radius: 100px;
+    background: var(--accent-pale);
   }
   .blog-card-body { padding: 20px; display: flex; flex-direction: column; gap: 8px; }
   .blog-card-date { font-size: 12px; color: var(--text-muted); }
   .blog-card-title { font-family: var(--font-display); font-size: 18px; font-weight: 400; line-height: 1.3; }
   .blog-card-title a { color: var(--text-primary); }
   .blog-card-title a:hover { color: var(--accent); }
-  .blog-card-featured .blog-card-title { font-size: 26px; }
+  .blog-card-featured .blog-card-title { font-size: 24px; }
   .blog-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; flex: 1; }
   .blog-card-cta { font-size: 13px; font-weight: 500; color: var(--accent); margin-top: 4px; }
   .blog-empty { text-align: center; padding: 80px 20px; color: var(--text-muted); }
   @media (max-width: 900px) {
     .blog-grid { grid-template-columns: repeat(2, 1fr); }
-    .blog-card-featured { grid-column: auto; display: block; }
+    .blog-card-featured { grid-column: auto; }
   }
   @media (max-width: 600px) {
     .blog-grid { grid-template-columns: 1fr; }
