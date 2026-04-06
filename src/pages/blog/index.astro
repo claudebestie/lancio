@@ -7,11 +7,24 @@ import Footer from '../../components/Footer.astro';
 const posts = (await getCollection('blog'))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 
-const secteurs = ['Tous', 'restaurant', 'coiffeur', 'avocat', 'medecin', 'coach', 'artisan', 'therapeute', 'immobilier', 'cafe', 'beaute', 'pilates', 'general'];
+// Couleurs FORTES par secteur — bg tag, texte tag, bande gauche
+const secteurColors: Record<string, {bg:string, text:string, bar:string}> = {
+  restaurant: { bg:'#FEF0E6', text:'#C2410C', bar:'#EA580C' },
+  coiffeur:   { bg:'#FAE8FF', text:'#A21CAF', bar:'#C026D3' },
+  avocat:     { bg:'#E0E7FF', text:'#3730A3', bar:'#4F46E5' },
+  medecin:    { bg:'#DCFCE7', text:'#166534', bar:'#16A34A' },
+  coach:      { bg:'#FEF9C3', text:'#854D0E', bar:'#CA8A04' },
+  artisan:    { bg:'#FFEDD5', text:'#9A3412', bar:'#EA580C' },
+  therapeute: { bg:'#F3E8FF', text:'#6B21A8', bar:'#9333EA' },
+  immobilier: { bg:'#DBEAFE', text:'#1E40AF', bar:'#2563EB' },
+  cafe:       { bg:'#FEF3C7', text:'#92400E', bar:'#D97706' },
+  beaute:     { bg:'#FCE7F3', text:'#9D174D', bar:'#DB2777' },
+  pilates:    { bg:'#D1FAE5', text:'#065F46', bar:'#059669' },
+  general:    { bg:'#F1F5F9', text:'#334155', bar:'#64748B' },
+};
 
-function getSecteurColor(s: string) {
-  const map: Record<string, string> = {restaurant:'#F5EDE7',coiffeur:'#E8F0EE',avocat:'#EEF0F8',medecin:'#E8F5EE',coach:'#F5F0E8',artisan:'#F0EDE8',therapeute:'#F0E8F5',immobilier:'#E8EEF5',cafe:'#F5F2E8',beaute:'#F5E8EE',pilates:'#E8F5F0'};
-  return map[s] || '#F0EEE8';
+function getColors(s: string) {
+  return secteurColors[s] || secteurColors.general;
 }
 
 function formatDate(d: string) {
@@ -39,18 +52,20 @@ function formatDate(d: string) {
         {posts.map((post, i) => {
           const slug = post.data.permalink || post.slug;
           const isFirst = i === 0;
+          const colors = getColors(post.data.secteur);
           return (
             <article class={`blog-card ${isFirst ? 'blog-card-featured' : ''}`}>
+              <div class="blog-card-bar" style={`background:${colors.bar};`}></div>
               <div class="blog-card-body">
                 <div class="blog-card-meta">
-                  <span class="blog-card-secteur" style={`background: ${getSecteurColor(post.data.secteur)};`}>{post.data.secteur || 'Conseils'}</span>
+                  <span class="blog-card-secteur" style={`background:${colors.bg}; color:${colors.text};`}>{post.data.secteur || 'Conseils'}</span>
                   <span class="blog-card-date">{formatDate(post.data.date)}</span>
                 </div>
                 <h2 class="blog-card-title">
                   <a href={`/blog/${slug}/`}>{post.data.title}</a>
                 </h2>
                 <p class="blog-card-desc">{post.data.description}</p>
-                <a href={`/blog/${slug}/`} class="blog-card-cta">Lire l'article →</a>
+                <a href={`/blog/${slug}/`} class="blog-card-cta" style={`color:${colors.bar};`}>Lire l'article →</a>
               </div>
             </article>
           );
@@ -67,16 +82,11 @@ function formatDate(d: string) {
   <Footer />
 </Layout>
 
-<script>
-  function getSecteurColor(s) { return '#E8F0EE'; }
-  function formatDate(d) { return new Date(d).toLocaleDateString('fr-FR', {day:'numeric',month:'long',year:'numeric'}); }
-</script>
-
 <style>
   .blog-main { padding-top: 64px; }
   .blog-hero {
     padding: 80px 0 56px;
-    background: var(--cream);
+    background: #f8f8f6;
     border-bottom: 1px solid var(--border);
   }
   .blog-hero-sub {
@@ -89,44 +99,75 @@ function formatDate(d: string) {
   h1 { font-size: clamp(36px, 4vw, 56px); margin-top: 12px; }
   h1 em { font-style: italic; color: var(--accent); }
   .blog-content { padding: 56px 24px; }
+
   .blog-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 20px;
   }
+
+  /* Card */
   .blog-card {
-    background: var(--white);
+    background: #fff;
     border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+    border-radius: 12px;
     overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    transition: transform 0.25s cubic-bezier(.16,1,.3,1), box-shadow 0.25s;
   }
-  .blog-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(14,14,14,0.08); }
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  }
+
+  /* Color bar left */
+  .blog-card-bar {
+    width: 4px;
+    flex-shrink: 0;
+  }
+
+  /* Featured */
   .blog-card-featured {
     grid-column: 1 / -1;
   }
+  .blog-card-featured .blog-card-bar { width: 5px; }
+  .blog-card-featured .blog-card-title { font-size: 24px; }
+
+  /* Tag */
   .blog-card-meta {
     display: flex; align-items: center; gap: 10px;
   }
   .blog-card-secteur {
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--accent);
-    padding: 3px 10px;
+    padding: 4px 10px;
     border-radius: 100px;
-    background: var(--accent-pale);
   }
-  .blog-card-body { padding: 20px; display: flex; flex-direction: column; gap: 8px; }
   .blog-card-date { font-size: 12px; color: var(--text-muted); }
-  .blog-card-title { font-family: var(--font-display); font-size: 18px; font-weight: 400; line-height: 1.3; }
-  .blog-card-title a { color: var(--text-primary); }
+
+  /* Body */
+  .blog-card-body {
+    padding: 20px; display: flex; flex-direction: column; gap: 8px; flex: 1;
+  }
+  .blog-card-title {
+    font-family: var(--font-display); font-size: 18px; font-weight: 400; line-height: 1.3;
+  }
+  .blog-card-title a { color: var(--text-primary); transition: color 0.15s; }
   .blog-card-title a:hover { color: var(--accent); }
-  .blog-card-featured .blog-card-title { font-size: 24px; }
-  .blog-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; flex: 1; }
-  .blog-card-cta { font-size: 13px; font-weight: 500; color: var(--accent); margin-top: 4px; }
+  .blog-card-desc {
+    font-size: 13px; color: var(--text-secondary); line-height: 1.6; flex: 1;
+  }
+  .blog-card-cta {
+    font-size: 13px; font-weight: 600; margin-top: 4px;
+    transition: gap 0.2s;
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+  .blog-card-cta:hover { gap: 8px; }
+
   .blog-empty { text-align: center; padding: 80px 20px; color: var(--text-muted); }
+
   @media (max-width: 900px) {
     .blog-grid { grid-template-columns: repeat(2, 1fr); }
     .blog-card-featured { grid-column: auto; }
@@ -135,14 +176,3 @@ function formatDate(d: string) {
     .blog-grid { grid-template-columns: 1fr; }
   }
 </style>
-
-{/* Move these to script context */}
-<script is:inline>
-  function getSecteurColor(s) {
-    const map = {restaurant:'#F5EDE7',coiffeur:'#E8F0EE',avocat:'#EEF0F8',medecin:'#E8F5EE',coach:'#F5F0E8',artisan:'#F0EDE8'};
-    return map[s] || '#F0EEE8';
-  }
-  function formatDate(d) {
-    return new Date(d).toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
-  }
-</script>
