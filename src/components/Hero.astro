@@ -45,7 +45,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: #f0fdf4;
+  background: linear-gradient(135deg, #f0fdf4, #FFF3ED);
   border: 1px solid #bbf7d0;
   color: #166534;
   font-size: 0.85rem;
@@ -79,7 +79,7 @@
 
 .hero-h1 em {
   font-style: italic;
-  color: #2d6a4f;
+  color: var(--accent);
 }
 
 .hero-sub {
@@ -98,7 +98,7 @@
 }
 
 .btn-primary {
-  background: #1a1a1a;
+  background: var(--accent);
   color: #fff;
   padding: 0.9rem 2rem;
   border-radius: 8px;
@@ -108,22 +108,22 @@
   transition: background 0.2s, transform 0.1s;
 }
 .btn-primary:hover {
-  background: #2d6a4f;
+  background: var(--accent-light);
   transform: translateY(-1px);
 }
 
 .btn-secondary {
   background: transparent;
-  color: #1a1a1a;
+  color: var(--accent);
   padding: 0.9rem 2rem;
   border-radius: 8px;
   font-weight: 600;
   font-size: 1rem;
   text-decoration: none;
-  border: 1.5px solid #d1d5db;
-  transition: border-color 0.2s;
+  border: 1.5px solid var(--accent);
+  transition: all 0.2s;
 }
-.btn-secondary:hover { border-color: #1a1a1a; }
+.btn-secondary:hover { background: var(--accent-pale); border-color: var(--accent-light); }
 
 .hero-proof {
   display: flex;
@@ -140,7 +140,7 @@
 .proof-num {
   font-size: 1.5rem;
   font-weight: 800;
-  color: #1a1a1a;
+  color: var(--accent);
 }
 
 .proof-label {
