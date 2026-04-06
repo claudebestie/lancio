@@ -158,6 +158,12 @@ const {
   <body>
     <slot />
     <ChatWidget />
+    <script is:inline>
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.section-header, .section-pad > .container > *:not(.section-header)').forEach(el => { el.classList.add('reveal'); obs.observe(el); });
+    </script>
   </body>
 </html>
 
@@ -176,9 +182,10 @@ const {
     --white: #FAFAF8;
     --cream: #F5F3EE;
     --cream-dark: #EAE7DF;
-    --accent: #1A3C34;
-    --accent-light: #2A5C52;
-    --accent-pale: #E8F0EE;
+    --accent: #10b981;
+    --accent-light: #0d9668;
+    --accent-pale: #ecfdf5;
+    --accent-dark: #065f46;
     --text-primary: #0E0E0E;
     --text-secondary: #5A5A55;
     --text-muted: #9A9A92;
@@ -219,8 +226,13 @@ const {
   img { max-width: 100%; display: block; }
 
   .section-pad { padding: var(--section-py) 0; }
+  .section-pad:nth-child(even) { background: #f8f8f6; }
   .section-header { margin-bottom: 48px; }
   .section-tag { margin-bottom: 16px; }
+
+  /* Reveal animation */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
 
   .container {
     max-width: var(--max-w);
