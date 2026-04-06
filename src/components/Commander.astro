@@ -458,13 +458,15 @@
       const entreprise = document.getElementById('recap-entreprise')?.textContent?.trim() || document.getElementById('f-entreprise')?.value || '';
       const domaine = document.getElementById('recap-domaine')?.textContent?.trim() || document.getElementById('f-domaine')?.value || '';
       const description = document.getElementById('recap-description')?.textContent?.trim() || document.getElementById('f-description')?.value || '';
-      const maintenance = (document.getElementById('f-maintenance')?.checked) ? '50€/mois' : '';
-      const options = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(cb => cb.closest('label')?.textContent?.trim() || cb.value).filter(Boolean).join(', ');
+      const maintenance = !!(document.getElementById('f-maintenance') as HTMLInputElement)?.checked;
+      const options = Array.from(document.querySelectorAll<HTMLInputElement>('.f-option:checked')).map(cb => cb.value).filter(Boolean).join(', ');
+      let optionsTotal = 0;
+      document.querySelectorAll<HTMLInputElement>('.f-option:checked').forEach(cb => { optionsTotal += parseInt(cb.dataset.price || '0'); });
 
       const res = await fetch(SUPABASE_URL + '/rest/v1/lancio_orders', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', apikey: SUPABASE_KEY, Authorization: 'Bearer ' + SUPABASE_KEY, Prefer: 'return=minimal' },
-        body: JSON.stringify({ nom, email, tel, secteur, entreprise, domaine, description, options, maintenance, statut: 'Nouveau', paiement: 'En attente' })
+        body: JSON.stringify({ nom, email, tel, secteur, entreprise, domaine, description, options, maintenance, options_total: optionsTotal, status: 'new' })
       });
 
       if (res.ok || res.status === 201) {
