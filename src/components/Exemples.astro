@@ -1,6 +1,6 @@
 ---
 // Exemples.astro — Lancio
-// Chaque carte est un univers visuel unique, pas un template
+// Chaque carte a un layout UNIQUE, pas juste des couleurs différentes
 ---
 
 <section class="exemples section-pad" id="exemples">
@@ -11,175 +11,86 @@
       <p class="section-sub">Chaque site a son identité. Voici un aperçu — le vôtre sera aussi unique que votre métier.</p>
     </div>
 
-    <div class="exemples-grid">
+    <div class="ex-mosaic">
 
-      <!-- 1. Restaurant — warm, editorial, full-bleed food photo -->
-      <div class="exemple-card ex-restaurant">
-        <div class="ex-photo">
-          <img src="/secteurs/restaurant3.jpg" alt="Site restaurant" loading="lazy" />
-          <div class="ex-gradient"></div>
-          <div class="ex-content">
-            <div class="ex-topbar">
-              <span class="ex-pill" style="background:#e8c97a;color:#2a1505;">Restaurant</span>
-              <span class="ex-location">Bordeaux</span>
-            </div>
-            <div class="ex-body">
-              <div class="ex-url-line"><span class="ex-dot" style="background:#e8c97a;"></span>trattoria-bella.fr</div>
-              <h3 class="ex-title ex-title--serif">Trattoria Bella</h3>
-              <p class="ex-tagline">La dolce vita dans votre assiette</p>
-              <div class="ex-cta" style="background:#e8c97a;color:#2a1505;">Réserver une table</div>
-            </div>
-            <div class="ex-features">
-              <span>Menu digital</span>
-              <span>Réservation</span>
-              <span>Google Maps</span>
-            </div>
+      <!-- 1. RESTAURANT — Grande carte hero, plein écran, immersive -->
+      <a href="/site-web-restaurant-bordeaux/" class="ex-card ex-card--hero">
+        <img src="/secteurs/restaurant3.jpg" alt="Site restaurant" loading="lazy" class="ex-card__bg" />
+        <div class="ex-card__overlay" style="background:linear-gradient(to top, rgba(42,21,5,0.95) 0%, rgba(42,21,5,0.4) 50%, transparent 100%);"></div>
+        <div class="ex-card__inner ex-card__inner--bottom">
+          <span class="ex-tag" style="background:#e8c97a;color:#2a1505;">Restaurant</span>
+          <h3 class="ex-name" style="font-family:var(--font-display),Georgia,serif; font-size:32px;">Trattoria Bella</h3>
+          <p class="ex-sub">Menu interactif, réservation Calendly et galerie photo pour un restaurant italien à Bordeaux.</p>
+          <div class="ex-row">
+            <span class="ex-btn" style="background:#e8c97a;color:#2a1505;">Voir l'exemple →</span>
+            <div class="ex-chips"><span>Menu digital</span><span>Réservation</span><span>Google Maps</span></div>
           </div>
         </div>
-        <div class="ex-footer">
-          <div class="ex-footer-info">
-            <span class="ex-delivered">Livré en 48h</span>
-            <p class="ex-desc">Menu interactif avec photos, réservation Calendly intégrée et galerie immersive.</p>
-          </div>
-          <a href="#commander" class="ex-link" style="color:#e8c97a;border-color:#e8c97a;">Commander →</a>
-        </div>
-      </div>
+      </a>
 
-      <!-- 2. Barbershop — dark, minimal, high-contrast -->
-      <div class="exemple-card ex-barbershop">
-        <div class="ex-photo">
-          <img src="/secteurs/barbershop2.jpg" alt="Site barbershop" loading="lazy" />
-          <div class="ex-gradient"></div>
-          <div class="ex-content">
-            <div class="ex-topbar">
-              <span class="ex-pill" style="background:#c9a96e;color:#1a1a1a;">Barbier</span>
-              <span class="ex-location">Lyon 2e</span>
-            </div>
-            <div class="ex-body">
-              <div class="ex-url-line"><span class="ex-dot" style="background:#c9a96e;"></span>house-of-fade.fr</div>
-              <h3 class="ex-title ex-title--condensed">HOUSE OF FADE</h3>
-              <p class="ex-tagline">Le barbier qui fait la différence</p>
-              <div class="ex-cta" style="background:#c9a96e;color:#1a1a1a;">Réserver mon créneau</div>
-            </div>
-            <div class="ex-features">
-              <span>Booking en ligne</span>
-              <span>Galerie coupes</span>
-              <span>Tarifs</span>
-            </div>
-          </div>
+      <!-- 2. BARBIER — Carte horizontale, photo à gauche, dark -->
+      <a href="/site-web-coiffeur-lyon/" class="ex-card ex-card--horizontal">
+        <div class="ex-card__photo-side">
+          <img src="/secteurs/barbershop2.jpg" alt="Site barbier" loading="lazy" />
         </div>
-        <div class="ex-footer">
-          <div class="ex-footer-info">
-            <span class="ex-delivered">Livré en 48h</span>
-            <p class="ex-desc">Réservation par créneau, galerie avant/après et ambiance premium.</p>
-          </div>
-          <a href="#commander" class="ex-link" style="color:#c9a96e;border-color:#c9a96e;">Commander →</a>
+        <div class="ex-card__text-side" style="background:#1a1714;">
+          <span class="ex-tag" style="background:#c9a96e;color:#1a1a1a;">Barbier</span>
+          <h3 class="ex-name" style="color:#fff; font-weight:800; letter-spacing:3px; text-transform:uppercase; font-size:20px;">House of Fade</h3>
+          <p class="ex-sub" style="color:rgba(255,255,255,0.6);">Réservation par créneau, galerie coupes et ambiance premium à Lyon.</p>
+          <div class="ex-chips ex-chips--dark"><span>Booking</span><span>Galerie</span><span>Tarifs</span></div>
+          <span class="ex-btn" style="background:#c9a96e;color:#1a1a1a;">Voir l'exemple →</span>
         </div>
-      </div>
+      </a>
 
-      <!-- 3. Café — film grain, warm analog feel -->
-      <div class="exemple-card ex-cafe">
-        <div class="ex-photo">
+      <!-- 3. CAFÉ — Carte claire, ambiance douce, pas de gradient sombre -->
+      <a href="/site-web-cafe-paris/" class="ex-card ex-card--light" style="background:#f9f5f0;">
+        <div class="ex-card__light-photo">
           <img src="/secteurs/cafe4.jpg" alt="Site café" loading="lazy" />
-          <div class="ex-gradient"></div>
-          <div class="ex-content">
-            <div class="ex-topbar">
-              <span class="ex-pill" style="background:#d4a574;color:#2c1810;">Café</span>
-              <span class="ex-location">Paris 11e</span>
-            </div>
-            <div class="ex-body">
-              <div class="ex-url-line"><span class="ex-dot" style="background:#d4a574;"></span>cafe-analog.fr</div>
-              <h3 class="ex-title ex-title--handwritten">Café Analog</h3>
-              <p class="ex-tagline">Torréfaction artisanale & brunch le weekend</p>
-              <div class="ex-cta" style="background:#d4a574;color:#2c1810;">Voir la carte</div>
-            </div>
-            <div class="ex-features">
-              <span>Menu du jour</span>
-              <span>Horaires</span>
-              <span>Instagram</span>
-            </div>
-          </div>
         </div>
-        <div class="ex-footer">
-          <div class="ex-footer-info">
-            <span class="ex-delivered">Livré en 48h</span>
-            <p class="ex-desc">Carte interactive, lien commande à emporter et ambiance chaleureuse.</p>
-          </div>
-          <a href="#commander" class="ex-link" style="color:#d4a574;border-color:#d4a574;">Commander →</a>
+        <div class="ex-card__light-body">
+          <span class="ex-tag" style="background:#d4a574;color:#2c1810;">Café</span>
+          <h3 class="ex-name" style="color:#2c1810; font-style:italic; font-weight:400; font-size:24px;">Café Analog</h3>
+          <p class="ex-sub" style="color:#6b5b4d;">Torréfaction artisanale, carte interactive et lien commande à emporter.</p>
+          <div class="ex-chips ex-chips--warm"><span>Menu</span><span>Horaires</span><span>Instagram</span></div>
+          <span class="ex-btn" style="background:#2c1810;color:#f9f5f0;">Voir l'exemple →</span>
         </div>
-      </div>
+      </a>
 
-      <!-- 4. Avocat — dark blue, serious, trust -->
-      <div class="exemple-card ex-avocat">
-        <div class="ex-photo">
-          <img src="/secteurs/lawyer2.jpg" alt="Site avocat" loading="lazy" />
-          <div class="ex-gradient"></div>
-          <div class="ex-content">
-            <div class="ex-topbar">
-              <span class="ex-pill" style="background:#8fa7c4;color:#0f1f33;">Avocat</span>
-              <span class="ex-location">Toulouse</span>
-            </div>
-            <div class="ex-body">
-              <div class="ex-url-line"><span class="ex-dot" style="background:#8fa7c4;"></span>cabinet-mercier.fr</div>
-              <h3 class="ex-title ex-title--serif">Cabinet Mercier</h3>
-              <p class="ex-tagline">Droit des affaires & contentieux commercial</p>
-              <div class="ex-cta" style="background:#8fa7c4;color:#0f1f33;">Prendre rendez-vous</div>
-            </div>
-            <div class="ex-features">
-              <span>Domaines d'expertise</span>
-              <span>RDV en ligne</span>
-              <span>Articles</span>
-            </div>
-          </div>
+      <!-- 4. AVOCAT — Carte minimale corporate, bordure accent, pas de photo full -->
+      <a href="/site-web-avocat-toulouse/" class="ex-card ex-card--minimal" style="background:#fff; border-left:4px solid #2a4a6b;">
+        <div class="ex-card__minimal-content">
+          <span class="ex-tag" style="background:#e8eef5;color:#2a4a6b;">Avocat</span>
+          <h3 class="ex-name" style="color:#1a2a3a; font-family:var(--font-display),Georgia,serif; font-size:22px;">Cabinet Mercier</h3>
+          <p class="ex-quote">"Un site qui projette exactement l'image de sérieux que je voulais."</p>
+          <p class="ex-sub" style="color:#5a6a7a;">Droit des affaires & contentieux. Prise de RDV en ligne, articles SEO et pages par spécialité.</p>
+          <div class="ex-chips ex-chips--corp"><span>Expertises</span><span>RDV en ligne</span><span>Blog juridique</span></div>
+          <span class="ex-btn" style="background:#2a4a6b;color:#fff;">Voir l'exemple →</span>
         </div>
-        <div class="ex-footer">
-          <div class="ex-footer-info">
-            <span class="ex-delivered">Livré en 48h</span>
-            <p class="ex-desc">Image professionnelle, pages par spécialité et prise de RDV sécurisée.</p>
-          </div>
-          <a href="#commander" class="ex-link" style="color:#8fa7c4;border-color:#8fa7c4;">Commander →</a>
+        <div class="ex-card__minimal-photo">
+          <img src="/secteurs/lawyer2.jpg" alt="Cabinet avocat" loading="lazy" />
         </div>
-      </div>
+      </a>
 
-      <!-- 5. Coach / Pilates — bright, energetic, movement -->
-      <div class="exemple-card ex-coach">
-        <div class="ex-photo">
-          <img src="/secteurs/pilate2.jpg" alt="Site pilates" loading="lazy" />
-          <div class="ex-gradient"></div>
-          <div class="ex-content">
-            <div class="ex-topbar">
-              <span class="ex-pill" style="background:#c8ff00;color:#0a0a0a;">Pilates</span>
-              <span class="ex-location">Marseille</span>
-            </div>
-            <div class="ex-body">
-              <div class="ex-url-line"><span class="ex-dot" style="background:#c8ff00;"></span>studio-flow.fr</div>
-              <h3 class="ex-title ex-title--condensed">STUDIO FLOW</h3>
-              <p class="ex-tagline">Pilates reformer · Yoga · Breathwork</p>
-              <div class="ex-cta" style="background:#c8ff00;color:#0a0a0a;">Réserver un cours</div>
-            </div>
-            <div class="ex-features">
-              <span>Planning</span>
-              <span>Packs & abonnements</span>
-              <span>Stripe</span>
-            </div>
-          </div>
+      <!-- 5. PILATES — Carte sombre full, accent néon, énergie -->
+      <a href="/site-web-pilates-marseille/" class="ex-card ex-card--dark">
+        <img src="/secteurs/pilate2.jpg" alt="Site pilates" loading="lazy" class="ex-card__bg" />
+        <div class="ex-card__overlay" style="background:linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.5) 60%, rgba(10,10,10,0.3) 100%);"></div>
+        <div class="ex-card__inner ex-card__inner--center">
+          <span class="ex-tag" style="background:#c8ff00;color:#0a0a0a;">Pilates & Yoga</span>
+          <h3 class="ex-name" style="color:#fff; font-weight:800; letter-spacing:4px; text-transform:uppercase; font-size:28px;">Studio Flow</h3>
+          <p class="ex-sub" style="color:rgba(255,255,255,0.5);">Planning interactif, réservation par cours et paiement Stripe intégré à Marseille.</p>
+          <div class="ex-chips ex-chips--neon"><span>Planning</span><span>Packs</span><span>Stripe</span></div>
+          <span class="ex-btn" style="background:#c8ff00;color:#0a0a0a; font-weight:700;">Voir l'exemple →</span>
         </div>
-        <div class="ex-footer">
-          <div class="ex-footer-info">
-            <span class="ex-delivered">Livré en 48h</span>
-            <p class="ex-desc">Planning interactif, réservation par cours et paiement Stripe intégré.</p>
-          </div>
-          <a href="#commander" class="ex-link" style="color:#c8ff00;border-color:#c8ff00;">Commander →</a>
-        </div>
-      </div>
+      </a>
 
-      <!-- 6. CTA card -->
-      <div class="exemple-card exemple-card--cta">
-        <div class="cta-inner">
-          <div class="cta-icon">→</div>
-          <h3 class="cta-title">Votre métier.<br/>Votre site.<br/>48h.</h3>
-          <p class="cta-sub">Artisan, médecin, photographe, immobilier, consultant... on s'adapte à vous.</p>
-          <a href="#commander" class="cta-btn">Démarrer →</a>
+      <!-- 6. CTA -->
+      <div class="ex-card ex-card--cta">
+        <div class="ex-cta-inner">
+          <span class="ex-cta-arrow">→</span>
+          <h3>Votre métier.<br/>Votre site.<br/><em>48h.</em></h3>
+          <p>Artisan, médecin, photographe, immobilier, consultant...</p>
+          <a href="#commander" class="ex-btn" style="background:var(--accent);color:#fff;">Démarrer →</a>
         </div>
       </div>
 
@@ -194,201 +105,212 @@
     text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);
     background: var(--accent-pale); padding: 5px 14px; border-radius: 100px; margin-bottom: 16px;
   }
-  .section-h2 {
-    font-size: clamp(32px, 4vw, 48px); color: var(--text-primary);
-    margin-bottom: 16px; line-height: 1.1;
-  }
+  .section-h2 { font-size: clamp(32px, 4vw, 48px); color: var(--text-primary); margin-bottom: 16px; line-height: 1.1; }
   .section-h2 em { font-style: italic; color: var(--accent); }
-  .section-sub {
-    font-size: 16px; color: var(--text-secondary);
-    max-width: 520px; margin: 0 auto; line-height: 1.6;
+  .section-sub { font-size: 16px; color: var(--text-secondary); max-width: 520px; margin: 0 auto; line-height: 1.6; }
+
+  /* ── Mosaic grid — chaque carte a sa place ── */
+  .ex-mosaic {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 48px;
   }
 
-  /* ── Grid ── */
-  .exemples-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 20px; margin-top: 48px;
-  }
+  /* Card 1 (restaurant) : span 2 colonnes */
+  .ex-card--hero { grid-column: span 2; }
+  /* Card 2 (barbier) : span 2 colonnes */
+  .ex-card--horizontal { grid-column: span 2; }
+  /* Card 4 (avocat) : span 2 colonnes */
+  .ex-card--minimal { grid-column: span 2; }
 
   /* ── Card base ── */
-  .exemple-card {
-    position: relative;
+  .ex-card {
     border-radius: 16px; overflow: hidden;
     border: 1px solid var(--border);
-    background: var(--white);
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s;
-    display: flex; flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
+    text-decoration: none; color: inherit; cursor: pointer;
   }
-  .exemple-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 24px 64px rgba(0,0,0,0.14);
-  }
-
-  /* ── Photo area ── */
-  .ex-photo {
-    position: relative; height: 320px; overflow: hidden;
-  }
-  .ex-photo img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .exemple-card:hover .ex-photo img {
-    transform: scale(1.08);
+  .ex-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
   }
 
-  /* ── Gradient overlays — each card gets a unique feel ── */
-  .ex-gradient {
-    position: absolute; inset: 0; z-index: 1;
-  }
-  .ex-restaurant .ex-gradient {
-    background: linear-gradient(170deg, rgba(42,21,5,0.15) 0%, rgba(42,21,5,0.75) 55%, rgba(42,21,5,0.95) 100%);
-  }
-  .ex-barbershop .ex-gradient {
-    background: linear-gradient(170deg, rgba(15,12,8,0.1) 0%, rgba(15,12,8,0.7) 50%, rgba(15,12,8,0.95) 100%);
-  }
-  .ex-cafe .ex-gradient {
-    background: linear-gradient(170deg, rgba(44,24,16,0.05) 0%, rgba(44,24,16,0.6) 50%, rgba(44,24,16,0.92) 100%);
-  }
-  .ex-avocat .ex-gradient {
-    background: linear-gradient(170deg, rgba(15,31,51,0.1) 0%, rgba(15,31,51,0.7) 50%, rgba(15,31,51,0.96) 100%);
-  }
-  .ex-coach .ex-gradient {
-    background: linear-gradient(170deg, rgba(10,10,10,0.05) 0%, rgba(10,10,10,0.65) 50%, rgba(10,10,10,0.95) 100%);
-  }
-
-  /* ── Content over photo ── */
-  .ex-content {
-    position: absolute; inset: 0; z-index: 2;
-    display: flex; flex-direction: column;
-    justify-content: space-between; padding: 16px 18px;
-  }
-
-  /* Top bar */
-  .ex-topbar {
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .ex-pill {
-    font-size: 10px; font-weight: 700; padding: 4px 12px;
+  /* ── Shared elements ── */
+  .ex-tag {
+    display: inline-block; font-size: 10px; font-weight: 700; padding: 4px 12px;
     border-radius: 100px; text-transform: uppercase; letter-spacing: 0.06em;
+    width: fit-content;
   }
-  .ex-location {
-    font-size: 10px; color: rgba(255,255,255,0.6);
-    background: rgba(255,255,255,0.1); backdrop-filter: blur(8px);
-    padding: 3px 10px; border-radius: 100px;
+  .ex-name { margin: 0; line-height: 1.15; }
+  .ex-sub { font-size: 13px; line-height: 1.6; margin: 0; }
+  .ex-quote {
+    font-size: 14px; font-style: italic; color: #3a4a5a;
+    line-height: 1.5; margin: 0;
+    padding-left: 12px; border-left: 2px solid #2a4a6b;
+  }
+  .ex-btn {
+    display: inline-block; font-size: 12px; font-weight: 600;
+    padding: 10px 20px; border-radius: 8px;
+    text-decoration: none; transition: all 0.2s; width: fit-content;
+  }
+  .ex-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+  .ex-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .ex-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .ex-chips span {
+    font-size: 9px; font-weight: 500; padding: 3px 9px; border-radius: 4px;
+  }
+  .ex-chips:not(.ex-chips--dark):not(.ex-chips--neon):not(.ex-chips--warm):not(.ex-chips--corp) span {
+    background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); backdrop-filter: blur(4px);
+  }
+  .ex-chips--dark span { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
+  .ex-chips--neon span { background: rgba(200,255,0,0.1); color: #c8ff00; border: 1px solid rgba(200,255,0,0.2); }
+  .ex-chips--warm span { background: rgba(212,165,116,0.15); color: #8b6b4a; }
+  .ex-chips--corp span { background: #e8eef5; color: #2a4a6b; }
+
+  /* ═══════════════════════════════════════════════════
+     1. HERO — Grande carte immersive (restaurant)
+     ═══════════════════════════════════════════════════ */
+  .ex-card--hero {
+    position: relative; min-height: 380px; display: flex;
+  }
+  .ex-card__bg {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+  }
+  .ex-card--hero:hover .ex-card__bg,
+  .ex-card--dark:hover .ex-card__bg { transform: scale(1.05); }
+  .ex-card__overlay { position: absolute; inset: 0; z-index: 1; }
+  .ex-card__inner {
+    position: relative; z-index: 2; padding: 28px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .ex-card__inner--bottom { justify-content: flex-end; flex: 1; }
+  .ex-card__inner--bottom .ex-name { color: #fff; }
+  .ex-card__inner--bottom .ex-sub { color: rgba(255,255,255,0.65); max-width: 420px; }
+
+  /* ═══════════════════════════════════════════════════
+     2. HORIZONTAL — Photo à gauche, texte à droite (barbier)
+     ═══════════════════════════════════════════════════ */
+  .ex-card--horizontal {
+    display: grid; grid-template-columns: 1fr 1fr;
+    min-height: 280px;
+  }
+  .ex-card__photo-side {
+    overflow: hidden; position: relative;
+  }
+  .ex-card__photo-side img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+  }
+  .ex-card--horizontal:hover .ex-card__photo-side img { transform: scale(1.05); }
+  .ex-card__text-side {
+    padding: 28px; display: flex; flex-direction: column;
+    gap: 12px; justify-content: center;
   }
 
-  /* Body text */
-  .ex-body {
-    display: flex; flex-direction: column; gap: 6px;
+  /* ═══════════════════════════════════════════════════
+     3. LIGHT — Carte claire, photo arrondie (café)
+     ═══════════════════════════════════════════════════ */
+  .ex-card--light {
+    display: flex; flex-direction: column; padding: 20px;
+    gap: 16px;
   }
-  .ex-url-line {
-    display: inline-flex; align-items: center; gap: 5px;
-    font-size: 10px; color: rgba(255,255,255,0.4);
-    font-family: ui-monospace, monospace;
+  .ex-card__light-photo {
+    border-radius: 12px; overflow: hidden; height: 180px;
   }
-  .ex-dot { width: 6px; height: 6px; border-radius: 50%; }
-  .ex-title {
-    font-size: 24px; font-weight: 600; color: #fff;
-    line-height: 1.1; margin: 0; letter-spacing: -0.01em;
+  .ex-card__light-photo img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s;
   }
-  .ex-title--serif { font-family: var(--font-display), Georgia, serif; font-weight: 500; }
-  .ex-title--condensed { font-weight: 800; letter-spacing: 3px; font-size: 22px; }
-  .ex-title--handwritten { font-style: italic; font-weight: 400; letter-spacing: 0.5px; font-size: 26px; }
-  .ex-tagline {
-    font-size: 12px; color: rgba(255,255,255,0.6);
-    line-height: 1.4; margin: 0;
-  }
-  .ex-cta {
-    display: inline-block; font-size: 11px; font-weight: 600;
-    padding: 8px 16px; border-radius: 8px; margin-top: 4px;
-    width: fit-content; transition: transform 0.15s;
-  }
-  .exemple-card:hover .ex-cta { transform: translateY(-1px); }
-
-  /* Features */
-  .ex-features {
-    display: flex; gap: 6px; flex-wrap: wrap;
-  }
-  .ex-features span {
-    font-size: 9px; padding: 3px 8px; border-radius: 4px;
-    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.65);
-    backdrop-filter: blur(4px); font-weight: 500;
+  .ex-card--light:hover .ex-card__light-photo img { transform: scale(1.05); }
+  .ex-card__light-body {
+    display: flex; flex-direction: column; gap: 8px;
   }
 
-  /* ── Footer ── */
-  .ex-footer {
-    padding: 16px 18px; display: flex;
-    align-items: center; justify-content: space-between; gap: 12px;
-    border-top: 1px solid var(--border);
+  /* ═══════════════════════════════════════════════════
+     4. MINIMAL — Corporate, bordure accent (avocat)
+     ═══════════════════════════════════════════════════ */
+  .ex-card--minimal {
+    display: grid; grid-template-columns: 1fr 200px;
+    min-height: 260px; background: #fff;
+  }
+  .ex-card__minimal-content {
+    padding: 28px; display: flex; flex-direction: column;
+    gap: 10px; justify-content: center;
+  }
+  .ex-card__minimal-photo {
+    overflow: hidden;
+  }
+  .ex-card__minimal-photo img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s;
+  }
+  .ex-card--minimal:hover .ex-card__minimal-photo img { transform: scale(1.05); }
+
+  /* ═══════════════════════════════════════════════════
+     5. DARK — Plein écran sombre, accent néon (pilates)
+     ═══════════════════════════════════════════════════ */
+  .ex-card--dark {
+    position: relative; min-height: 320px; display: flex;
+  }
+  .ex-card__inner--center {
+    justify-content: center; align-items: center; text-align: center;
     flex: 1;
   }
-  .ex-footer-info { flex: 1; }
-  .ex-delivered {
-    display: inline-flex; align-items: center; gap: 4px;
-    font-size: 11px; font-weight: 600; color: #22c55e;
-    margin-bottom: 6px;
-  }
-  .ex-delivered::before { content: "✓"; }
-  .ex-desc {
-    font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;
-  }
-  .ex-link {
-    display: inline-block; font-size: 11px; font-weight: 600;
-    padding: 8px 16px; border: 1.5px solid; border-radius: 8px;
-    text-decoration: none; transition: all 0.2s; white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .ex-link:hover { filter: brightness(1.3); transform: translateY(-2px); }
+  .ex-card__inner--center .ex-sub { max-width: 360px; }
 
-  /* ── CTA card ── */
-  .exemple-card--cta {
+  /* ═══════════════════════════════════════════════════
+     6. CTA
+     ═══════════════════════════════════════════════════ */
+  .ex-card--cta {
     border: 2px dashed var(--accent); background: var(--cream);
     display: flex; align-items: center; justify-content: center;
-    min-height: 320px;
+    min-height: 280px;
   }
-  .cta-inner {
-    padding: 40px 28px; text-align: center;
-    display: flex; flex-direction: column; align-items: center; gap: 14px;
+  .ex-cta-inner {
+    padding: 36px 24px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
   }
-  .cta-icon {
-    width: 48px; height: 48px; border-radius: 50%;
-    background: var(--accent); color: var(--white);
+  .ex-cta-arrow {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--accent); color: #fff;
     display: flex; align-items: center; justify-content: center;
-    font-size: 20px; font-weight: 700;
+    font-size: 18px; font-weight: 700;
   }
-  .cta-title {
-    font-size: 24px; font-weight: 700; color: var(--text-primary);
+  .ex-cta-inner h3 {
+    font-size: 22px; font-weight: 700; color: var(--text-primary);
     line-height: 1.15; margin: 0;
   }
-  .cta-sub {
-    font-size: 13px; color: var(--text-secondary); max-width: 240px;
+  .ex-cta-inner h3 em { color: var(--accent); }
+  .ex-cta-inner p {
+    font-size: 13px; color: var(--text-secondary); max-width: 220px;
     line-height: 1.5; margin: 0;
   }
-  .cta-btn {
-    display: inline-block; background: var(--accent); color: var(--white);
-    font-size: 14px; font-weight: 600; padding: 12px 28px;
-    border-radius: 8px; text-decoration: none; transition: all 0.2s;
-  }
-  .cta-btn:hover { background: var(--accent-light); transform: translateY(-2px); }
 
-  /* ── Responsive ── */
+  /* ═══════════════════════════════════════════════════
+     Responsive
+     ═══════════════════════════════════════════════════ */
   @media (max-width: 960px) {
-    .exemples-grid { grid-template-columns: repeat(2, 1fr); }
-    .ex-photo, .ex-content { height: 280px; }
+    .ex-mosaic { grid-template-columns: 1fr 1fr; }
+    .ex-card--hero, .ex-card--horizontal, .ex-card--minimal { grid-column: span 2; }
   }
-  @media (max-width: 580px) {
-    .exemples-grid { grid-template-columns: 1fr; }
-    .ex-photo, .ex-content { height: 300px; }
-    .ex-footer { flex-direction: column; align-items: flex-start; }
-    .ex-link { align-self: stretch; text-align: center; }
+  @media (max-width: 640px) {
+    .ex-mosaic { grid-template-columns: 1fr; }
+    .ex-card--hero, .ex-card--horizontal, .ex-card--minimal { grid-column: span 1; }
+    .ex-card--horizontal { grid-template-columns: 1fr; }
+    .ex-card__photo-side { height: 200px; }
+    .ex-card--minimal { grid-template-columns: 1fr; }
+    .ex-card__minimal-photo { height: 160px; }
+    .ex-card--hero { min-height: 320px; }
   }
 </style>
 
 <script>
-  document.querySelectorAll('.exemple-card').forEach(card => {
+  document.querySelectorAll('.ex-card').forEach(card => {
     card.addEventListener('click', (e) => {
       if ((e.target as HTMLElement).closest('a')) return;
-      const nom = card.querySelector('.ex-title')?.textContent?.toLowerCase().trim() || '';
+      const nom = card.querySelector('.ex-name')?.textContent?.toLowerCase().trim() || '';
       window.datafast?.('example_click', { example: nom });
     });
   });
