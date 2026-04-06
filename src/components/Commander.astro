@@ -459,7 +459,7 @@
       const domaine = document.getElementById('recap-domaine')?.textContent?.trim() || document.getElementById('f-domaine')?.value || '';
       const description = document.getElementById('recap-description')?.textContent?.trim() || document.getElementById('f-description')?.value || '';
       const maintenance = !!(document.getElementById('f-maintenance') as HTMLInputElement)?.checked;
-      const options = Array.from(document.querySelectorAll<HTMLInputElement>('.f-option:checked')).map(cb => cb.value).filter(Boolean).join(', ');
+      const options = Array.from(document.querySelectorAll<HTMLInputElement>('.f-option:checked')).map(cb => cb.value).filter(Boolean);
       let optionsTotal = 0;
       document.querySelectorAll<HTMLInputElement>('.f-option:checked').forEach(cb => { optionsTotal += parseInt(cb.dataset.price || '0'); });
 
