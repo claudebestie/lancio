@@ -23,8 +23,8 @@ const site = 'https://lancio.fr';
 const canonical = `${site}/site-web-${sector.slug}-${city.slug}/`;
 
 // SEO
-const title = `Création site internet ${sector.name} ${city.name} | Dès €290 | Lancio`;
-const description = `Création de site internet pour ${sector.name} à ${city.name} en 48h. ${sector.features[0].title}, ${sector.features[1].title.toLowerCase()}, SEO local. Site professionnel dès €290.`;
+const title = `Création site internet ${sector.name} ${city.name} | Dès €490 | Lancio`;
+const description = `Création de site internet pour ${sector.name} à ${city.name} en 48h. ${sector.features[0].title}, ${sector.features[1].title.toLowerCase()}, SEO local. Site professionnel dès €490.`;
 
 // Structured data
 const structuredData = [
@@ -43,7 +43,7 @@ const structuredData = [
     "serviceType": `Création de site web pour ${sector.name}`,
     "provider": { "@type": "ProfessionalService", "name": "Lancio", "url": site },
     "areaServed": { "@type": "City", "name": city.name },
-    "offers": { "@type": "Offer", "price": "290", "priceCurrency": "EUR" }
+    "offers": { "@type": "Offer", "price": "490", "priceCurrency": "EUR" }
   }
 ];
 
@@ -120,7 +120,7 @@ const localText = localVariants[simpleHash(`local-${key}`) % localVariants.lengt
           <span>{city.name}</span>
         </div>
         <h1>Création site web<br/><em>{sector.name}</em> à {city.name}</h1>
-        <p class="secteur-sub">{heroText} À partir de €290.</p>
+        <p class="secteur-sub">{heroText} À partir de €490.</p>
         <div class="secteur-actions">
           <a href="/#commander" class="btn-primary">Commander mon site {sector.name} →</a>
           <div class="secteur-proof">
@@ -187,7 +187,7 @@ const localText = localVariants[simpleHash(`local-${key}`) % localVariants.lengt
         <h2>{ctaText}</h2>
         <p>Commandez aujourd'hui — votre site est en ligne dans 48h.</p>
         <a href="/#commander" class="btn-primary">Je lance mon site →</a>
-        <div class="cta-price">À partir de €290 · Livraison 48h garantie · Satisfait ou on recommence</div>
+        <div class="cta-price">À partir de €490 · Livraison 48h garantie · Satisfait ou on recommence</div>
       </div>
     </section>
 

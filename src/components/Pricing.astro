@@ -1,21 +1,21 @@
 ---
 const addons = [
-  { nom: "SEO local", prix: "+€75", desc: "Google Business + balises optimisées" },
-  { nom: "Blog (5 articles)", prix: "+€100", desc: "Articles SEO rédigés et publiés" },
-  { nom: "Prise de RDV en ligne", prix: "+€50", desc: "Calendly ou Cal.com intégré" },
-  { nom: "Maintenance mensuelle", prix: "25€/mois", desc: "Mises à jour + support prioritaire · résiliable" },
-  { nom: "Boutique en ligne", prix: "+€175", desc: "Catalogue produits + paiement" },
-  { nom: "Page supplémentaire", prix: "+€40", desc: "Par page additionnelle" },
+  { nom: "SEO local", prix: "+€95", desc: "Google Business + balises optimisees" },
+  { nom: "Blog (5 articles)", prix: "+€150", desc: "Articles SEO rediges et publies" },
+  { nom: "Prise de RDV en ligne", prix: "+€75", desc: "Calendly ou Cal.com integre" },
+  { nom: "Maintenance mensuelle", prix: "35€/mois", desc: "Mises a jour + support prioritaire · resiliable" },
+  { nom: "Boutique en ligne", prix: "+€250", desc: "Catalogue produits + paiement" },
+  { nom: "Page supplementaire", prix: "+€60", desc: "Par page additionnelle" },
 ];
 
 const inclus = [
-  "3 à 5 pages sur mesure",
+  "3 a 5 pages sur mesure",
   "Design responsive mobile",
   "Formulaire de contact",
   "Google Analytics",
-  "Hébergement 1 an inclus",
+  "Hebergement 1 an inclus",
   "Nom de domaine 1 an",
-  "1 révision incluse",
+  "1 revision incluse",
   "Certificat SSL",
 ];
 ---
@@ -24,14 +24,14 @@ const inclus = [
   <div class="container">
     <div class="section-header">
       <div class="section-tag">Tarifs</div>
-      <h2 class="section-h2">Un prix fixe,<br/><em>zéro surprise</em></h2>
-      <p class="section-sub">Pas de devis, pas de négociation. Le prix est affiché, il ne changera pas.</p>
+      <h2 class="section-h2">Un prix fixe,<br/><em>zero surprise</em></h2>
+      <p class="section-sub">Pas de devis, pas de negociation. Le prix est affiche, il ne changera pas.</p>
     </div>
 
     <div class="pricing-layout">
       <div class="pricing-main">
         <div class="price-header">
-          <div class="price-big">€290</div>
+          <div class="price-big">€490</div>
           <div class="price-label">Site vitrine professionnel · Livraison 48h garantie</div>
         </div>
 
@@ -47,10 +47,10 @@ const inclus = [
           </div>
         </div>
 
-        <a href="#commander" class="price-cta">Commander mon site pour €290 →</a>
+        <a href="#commander" class="price-cta">Commander mon site pour €490 →</a>
 
         <div class="price-compare">
-          <div class="compare-label">Comparé à…</div>
+          <div class="compare-label">Compare a…</div>
           <div class="compare-items">
             <div class="compare-item">
               <span class="compare-who">Agence web</span>
@@ -62,7 +62,7 @@ const inclus = [
             </div>
             <div class="compare-item">
               <span class="compare-who">Lancio</span>
-              <span class="compare-price good">€290 · 48h</span>
+              <span class="compare-price good">€490 · 48h</span>
             </div>
           </div>
         </div>
@@ -100,7 +100,7 @@ const inclus = [
   }
   .pricing-main {
     background: var(--white);
-    border: 1.5px solid var(--accent);
+    border: 2px solid var(--accent);
     border-radius: var(--radius-xl);
     padding: 40px;
     display: flex;
@@ -114,8 +114,8 @@ const inclus = [
     flex-wrap: wrap;
   }
   .price-big {
-    font-family: var(--font-display);
     font-size: 72px;
+    font-weight: 800;
     color: var(--text-primary);
     line-height: 1;
     letter-spacing: -0.03em;
@@ -128,7 +128,7 @@ const inclus = [
   }
   .inclus-title {
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--text-muted);
@@ -150,12 +150,13 @@ const inclus = [
     display: block;
     text-align: center;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
     background: var(--accent);
-    color: var(--white);
+    color: #fff;
     padding: 16px 28px;
     border-radius: var(--radius-md);
     transition: background 0.15s, transform 0.1s;
+    box-shadow: 0 4px 16px rgba(232,98,44,0.2);
   }
   .price-cta:hover { background: var(--accent-light); transform: translateY(-2px); }
   .price-compare { border-top: 1px solid var(--border); padding-top: 20px; }
@@ -174,8 +175,8 @@ const inclus = [
     font-size: 13px;
   }
   .compare-who { color: var(--text-secondary); }
-  .compare-price { font-weight: 500; }
-  .compare-price.expensive { color: #A32D2D; }
+  .compare-price { font-weight: 600; }
+  .compare-price.expensive { color: #C0392B; }
   .compare-price.mid { color: var(--text-muted); }
   .compare-price.good { color: var(--accent); }
 
@@ -187,7 +188,7 @@ const inclus = [
   }
   .addons-title {
     font-size: 17px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 4px;
   }
@@ -210,7 +211,7 @@ const inclus = [
   .addon-desc { font-size: 12px; color: var(--text-muted); }
   .addon-prix {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--accent);
     white-space: nowrap;
     flex-shrink: 0;
@@ -224,7 +225,7 @@ const inclus = [
   .custom-text { font-size: 13px; color: var(--text-secondary); }
   .custom-link {
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--accent);
     text-decoration: underline;
     text-underline-offset: 3px;
