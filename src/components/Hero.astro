@@ -3,6 +3,9 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-content">
+      <div class="hero-promo">
+        🚀 Offre de lancement : <strong>-100 € jusqu'au 30 avril</strong>
+      </div>
       <div class="hero-badge">
         <span class="badge-dot"></span>
         Pour restaurants, avocats, artisans, coachs...
@@ -12,7 +15,7 @@
         <span class="hero-accent">Livré en 48h.</span>
       </h1>
       <p class="hero-sub">
-        Design sur mesure à partir de <strong>490 €</strong> — pas un template.
+        Design sur mesure à <span class="price-old">490 €</span> <strong>390 €</strong> — pas un template.
         Recevez d'abord un mockup gratuit : vous ne payez que si ça vous plaît.
       </p>
       <div class="hero-actions">
@@ -25,8 +28,8 @@
           <span class="proof-label">Livraison garantie</span>
         </div>
         <div class="proof-item">
-          <span class="proof-num">490 €</span>
-          <span class="proof-label">Prix fixe, tout compris</span>
+          <span class="proof-num">390 €</span>
+          <span class="proof-label">au lieu de 490 €</span>
         </div>
         <div class="proof-item">
           <span class="proof-num">100%</span>
@@ -131,6 +134,31 @@
   flex-direction: column;
   gap: 0.75rem;
   align-items: flex-start;
+}
+
+.hero-promo {
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+  display: inline-block;
+  animation: promo-pulse 2s infinite;
+}
+.hero-promo strong { color: #fff; }
+@keyframes promo-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232,98,44,0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(232,98,44,0); }
+}
+
+.price-old {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 0.95rem;
+  margin-right: 0.25rem;
 }
 
 .hero-micro {

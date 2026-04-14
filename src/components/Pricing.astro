@@ -30,8 +30,12 @@ const inclus = [
 
     <div class="pricing-layout">
       <div class="pricing-main">
+        <div class="pricing-promo-banner">🚀 Offre de lancement : -100 € jusqu'au 30 avril</div>
         <div class="price-header">
-          <div class="price-big">490 €</div>
+          <div class="price-big-wrap">
+            <div class="price-old-big">490 €</div>
+            <div class="price-big">390 €</div>
+          </div>
           <div class="price-label">Site vitrine professionnel · Livraison 48h garantie</div>
         </div>
 
@@ -63,7 +67,7 @@ const inclus = [
             </div>
             <div class="compare-item">
               <span class="compare-who">Lancio</span>
-              <span class="compare-price good">490 € · 48h</span>
+              <span class="compare-price good">390 € · 48h</span>
             </div>
           </div>
         </div>
@@ -116,6 +120,18 @@ const inclus = [
     display: flex;
     flex-direction: column;
     gap: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pricing-promo-banner {
+    background: var(--accent);
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px;
+    margin: -40px -40px 0;
+    letter-spacing: 0.01em;
   }
   .price-header {
     display: flex;
@@ -123,10 +139,22 @@ const inclus = [
     gap: 16px;
     flex-wrap: wrap;
   }
+  .price-big-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .price-old-big {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: line-through;
+    line-height: 1;
+  }
   .price-big {
     font-size: 72px;
     font-weight: 800;
-    color: var(--text-primary);
+    color: var(--accent);
     line-height: 1;
     letter-spacing: -0.03em;
   }
