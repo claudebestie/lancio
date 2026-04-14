@@ -6,7 +6,7 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "port": 4321,
-      "cwd": "/Users/margauxadda/Desktop/lancio"
+      "cwd": "."
     }
   ]
 }

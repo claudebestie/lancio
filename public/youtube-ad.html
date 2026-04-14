@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920, height=1080">
+<title>Lancio — Pub YouTube 10s</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.scene.active { opacity: 1; }
+
+/* ── Scene 1: Hook (0-2.5s) ── */
+.s1 { background: #0a0a0a; }
+.s1 h1 {
+  font-size: 90px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-align: center;
+  line-height: 1.1;
+  opacity: 0;
+  transform: scale(0.7);
+  animation: pop-in 0.4s 0.15s forwards;
+}
+.s1 h1 em { color: #ff4444; font-style: normal; }
+
+/* ── Scene 2: Solution (2.5-5.5s) ── */
+.s2 { background: #E8622C; }
+.s2 .logo {
+  font-size: 100px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  opacity: 0;
+  animation: pop-in 0.35s 0.1s forwards;
+}
+.s2 .tagline {
+  font-size: 44px;
+  font-weight: 700;
+  margin-top: 12px;
+  opacity: 0;
+  animation: fade-up 0.35s 0.4s forwards;
+}
+.s2 .price-row {
+  display: flex;
+  gap: 24px;
+  margin-top: 28px;
+  opacity: 0;
+  animation: fade-up 0.35s 0.7s forwards;
+}
+.s2 .price-badge {
+  background: rgba(0,0,0,0.25);
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* ── Scene 3: CTA (5.5-10s) ── */
+.s3 { background: #0a0a0a; }
+.s3-inner {
+  text-align: center;
+}
+.s3 .cta-main {
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  opacity: 0;
+  animation: pop-in 0.4s 0.1s forwards;
+}
+.s3 .cta-main em { color: #E8622C; font-style: normal; }
+.s3 .cta-url {
+  font-size: 52px;
+  font-weight: 800;
+  color: #E8622C;
+  margin-top: 24px;
+  opacity: 0;
+  animation: fade-up 0.35s 0.45s forwards;
+}
+.s3 .cta-sub {
+  font-size: 28px;
+  color: #888;
+  margin-top: 16px;
+  opacity: 0;
+  animation: fade-up 0.35s 0.7s forwards;
+}
+.s3 .cta-promo {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  background: #E8622C;
+  padding: 12px 32px;
+  border-radius: 12px;
+  margin-top: 24px;
+  opacity: 0;
+  animation: fade-up 0.35s 0.95s forwards;
+}
+
+/* ── Animations ── */
+@keyframes pop-in {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Progress bar ── */
+.progress {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background: #E8622C;
+  z-index: 100;
+  width: 0%;
+}
+
+/* ── Controls ── */
+.controls {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 100;
+  display: flex;
+  gap: 12px;
+}
+.ctrl-btn {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  backdrop-filter: blur(8px);
+}
+.ctrl-btn:hover { background: rgba(255,255,255,0.25); }
+
+.timer {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 100;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+  font-variant-numeric: tabular-nums;
+}
+</style>
+</head>
+<body>
+
+<!-- Scene 1: Hook (0 → 2.5s) -->
+<div class="scene s1 active" data-duration="2500">
+  <h1>Pas de site ?<br><em>Pas de clients.</em></h1>
+</div>
+
+<!-- Scene 2: Solution (2.5 → 5.5s) -->
+<div class="scene s2" data-duration="3000">
+  <div class="logo">Lancio.</div>
+  <div class="tagline">Site pro. Livré en 48h.</div>
+  <div class="price-row">
+    <div class="price-badge">390 € tout compris</div>
+    <div class="price-badge">Mockup gratuit</div>
+  </div>
+</div>
+
+<!-- Scene 3: CTA (5.5 → 10s) -->
+<div class="scene s3" data-duration="4500">
+  <div class="s3-inner">
+    <div class="cta-main">Mockup <em>gratuit</em>.<br>Vous payez si ça vous plaît.</div>
+    <div class="cta-url">lancio.fr</div>
+    <div class="cta-sub">Recevez votre aperçu en 48h →</div>
+    <div class="cta-promo">🚀 -100 € offre lancement — jusqu'au 30 avril</div>
+  </div>
+</div>
+
+<div class="progress" id="progress"></div>
+<div class="timer" id="timer">0.0s / 10.0s</div>
+
+<div class="controls">
+  <button class="ctrl-btn" onclick="restart()">⟲ Rejouer</button>
+</div>
+
+<script>
+const scenes = document.querySelectorAll('.scene');
+const progressBar = document.getElementById('progress');
+const timerEl = document.getElementById('timer');
+let currentScene = 0;
+let timeout = null;
+const TOTAL = 10000; // 10 seconds total
+let startTime = Date.now();
+
+function showScene(index) {
+  if (index >= scenes.length) return;
+  scenes.forEach(s => s.classList.remove('active'));
+  const scene = scenes[index];
+  scene.classList.add('active');
+  currentScene = index;
+  const dur = parseInt(scene.dataset.duration);
+  timeout = setTimeout(() => showScene(index + 1), dur);
+}
+
+// Progress + timer
+function updateProgress() {
+  const elapsed = Date.now() - startTime;
+  const pct = Math.min((elapsed / TOTAL) * 100, 100);
+  progressBar.style.width = pct + '%';
+  timerEl.textContent = (elapsed / 1000).toFixed(1) + 's / 10.0s';
+  if (elapsed < TOTAL) requestAnimationFrame(updateProgress);
+}
+
+function restart() {
+  clearTimeout(timeout);
+  progressBar.style.width = '0%';
+  startTime = Date.now();
+  showScene(0);
+  updateProgress();
+}
+
+// Start
+showScene(0);
+progressBar.style.transition = 'none';
+updateProgress();
+</script>
+</body>
+</html>
