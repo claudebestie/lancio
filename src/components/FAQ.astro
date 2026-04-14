@@ -1,40 +1,28 @@
 ---
 const faqs = [
   {
-    q: "Combien coute un site vitrine professionnel ?",
-    r: "A partir de €490 pour un site complet de 3 a 5 pages. Paiement unique, pas d'abonnement. Livraison en 48h garantie.",
+    q: "Combien coûte un site vitrine professionnel ?",
+    r: "À partir de 490 € pour un site complet de 3 à 5 pages. Paiement unique, pas d'abonnement. Livraison en 48h garantie.",
   },
   {
-    q: "Combien coute la creation d'un site internet ?",
-    r: "La creation d'un site internet professionnel coute entre €490 et €2 500 chez Lancio, selon la complexite. Ce prix inclut le design, le developpement, le SEO et l'optimisation mobile. Pas de frais caches.",
+    q: "Que se passe-t-il si le résultat ne me convient pas ?",
+    r: "On recommence gratuitement. Si après la révision incluse vous n'êtes toujours pas satisfait, on refait votre site de zéro. Pas de question, pas de frais supplémentaires.",
   },
   {
-    q: "Que se passe-t-il si le resultat ne me convient pas ?",
-    r: "On recommence gratuitement. Si apres la revision incluse vous n'etes toujours pas satisfait, on refait votre site de zero. Pas de question, pas de frais supplementaires.",
-  },
-  {
-    q: "Comment vous envoyez mon contenu ?",
-    r: "Apres votre commande, vous recevez un brief en ligne a remplir (5–10 min). Vous y mettez vos textes, photos, informations. Pas besoin d'etre organise — on structure tout pour vous.",
+    q: "Comment ça fonctionne concrètement ?",
+    r: "Vous demandez votre mockup gratuit (2 min). On vous envoie un design personnalisé sous 48h. Si ça vous plaît, vous payez et on met le site en ligne. Simple.",
   },
   {
     q: "Est-ce que mon site sera visible sur Google ?",
-    r: "Oui. Chaque site Lancio est livre avec les bases SEO : balises title et meta, structure H1/H2, vitesse optimisee, sitemap soumis a Google. Pour aller plus loin, l'add-on SEO local est disponible a +€95.",
+    r: "Oui. Chaque site Lancio est livré avec les bases SEO : balises title et meta, structure H1/H2, vitesse optimisée, sitemap soumis à Google. Pour aller plus loin, l'add-on SEO local est disponible à +95 €.",
   },
   {
-    q: "Quelle est la difference entre un site vitrine et un site e-commerce ?",
-    r: "Un site vitrine presente votre activite, vos services et vos coordonnees. Un site e-commerce permet de vendre des produits en ligne avec paiement integre. Chez Lancio, le site vitrine demarre a €490, l'e-commerce a +€250 en add-on.",
-  },
-  {
-    q: "Je peux modifier mon site apres la livraison ?",
-    r: "Oui. Vous recevez les acces complets a votre site. On vous envoie aussi une video de prise en main pour que vous puissiez modifier textes et photos vous-meme. Pour les modifications importantes, notre add-on maintenance est disponible.",
-  },
-  {
-    q: "Proposez-vous de la maintenance ?",
-    r: "Oui, pour 35€/mois. Cela inclut les mises a jour, les modifications de contenu et le support prioritaire par email. L'abonnement est sans engagement et resiliable a tout moment.",
+    q: "Je peux modifier mon site après la livraison ?",
+    r: "Oui. Vous recevez les accès complets à votre site. On vous envoie aussi une vidéo de prise en main pour que vous puissiez modifier textes et photos vous-même. Pour les modifications importantes, notre add-on maintenance est disponible.",
   },
   {
     q: "Vous travaillez pour tous types d'entreprises ?",
-    r: "On se specialise sur les TPE et professions independantes : restaurants, artisans, avocats, medecins, coachs, coiffeurs, therapeutes... Si vous avez un doute, ecrivez-nous a hello@lancio.fr.",
+    r: "On se spécialise sur les TPE et professions indépendantes : restaurants, artisans, avocats, médecins, coachs, coiffeurs, thérapeutes... Si vous avez un doute, écrivez-nous à hello@lancio.fr.",
   },
 ];
 
@@ -90,6 +78,13 @@ const faqSchema = JSON.stringify({
     align-items: start;
   }
   .faq-left { position: sticky; top: 80px; }
+  .section-tag {
+    display: inline-block; font-size: 12px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);
+    background: var(--accent-pale); padding: 5px 14px; border-radius: 100px; margin-bottom: 12px;
+  }
+  .section-h2 { font-size: clamp(32px, 4vw, 48px); color: var(--text-primary); margin-bottom: 16px; line-height: 1.1; }
+  .section-h2 em { font-style: italic; color: var(--accent); }
   .faq-contact {
     margin-top: 28px;
     font-size: 14px;

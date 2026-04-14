@@ -5,30 +5,32 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="badge-dot"></span>
-        5 sites par mois — places limitees
+        Pour restaurants, avocats, artisans, coachs...
       </div>
       <h1 class="hero-h1">
-        Votre site pro.<br/>
-        <span class="hero-accent">Livre en 48h.</span>
+        Votre site internet pro.<br/>
+        <span class="hero-accent">Livré en 48h.</span>
       </h1>
       <p class="hero-sub">
-        A partir de <strong>€490</strong> — design sur mesure, pas un template. Vous commandez aujourd'hui, vous etes en ligne apres-demain.
+        Design sur mesure à partir de <strong>490 €</strong> — pas un template.
+        Recevez d'abord un mockup gratuit : vous ne payez que si ça vous plaît.
       </p>
       <div class="hero-actions">
         <a href="#mockup" class="btn-primary">Recevoir mon mockup gratuit →</a>
+        <span class="hero-micro">Gratuit · Sans engagement · Réponse sous 48h</span>
       </div>
       <div class="hero-proof">
         <div class="proof-item">
           <span class="proof-num">48h</span>
-          <span class="proof-label">Delai garanti</span>
+          <span class="proof-label">Livraison garantie</span>
         </div>
         <div class="proof-item">
-          <span class="proof-num">€490</span>
+          <span class="proof-num">490 €</span>
           <span class="proof-label">Prix fixe, tout compris</span>
         </div>
         <div class="proof-item">
           <span class="proof-num">100%</span>
-          <span class="proof-label">Satisfait ou rembourse</span>
+          <span class="proof-label">Satisfait ou remboursé</span>
         </div>
       </div>
     </div>
@@ -41,13 +43,13 @@
           <span class="mockup-url">votre-site.fr</span>
         </div>
         <div class="mockup-screen">
-          <img src="/secteurs/restaurant3.jpg" alt="Exemple de site restaurant livre par Lancio" loading="eager" />
+          <img src="/secteurs/restaurant3.jpg" alt="Exemple de site restaurant livré par Lancio" loading="eager" />
         </div>
       </div>
       <div class="hero-float-card">
         <span class="float-icon">✓</span>
         <div>
-          <div class="float-title">Site livre</div>
+          <div class="float-title">Site livré</div>
           <div class="float-sub">il y a 2h — Restaurant, Lyon</div>
         </div>
       </div>
@@ -125,6 +127,15 @@
 
 .hero-actions {
   margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.hero-micro {
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
 
 .btn-primary {

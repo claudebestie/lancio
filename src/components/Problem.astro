@@ -2,9 +2,14 @@
 ---
 <section class="problem section-pad">
   <div class="container">
+    <div class="section-header" style="text-align:center;">
+      <div class="section-tag">Pourquoi Lancio</div>
+      <h2 class="section-h2">Fini les galères<br/><em>pour avoir un site.</em></h2>
+    </div>
+
     <div class="problem-grid">
       <div class="problem-col before">
-        <div class="col-label before-label">Avant Lancio</div>
+        <div class="col-label before-label">Sans Lancio</div>
         <div class="col-items">
           <div class="col-item">
             <div class="item-icon cross">✕</div>
@@ -17,7 +22,7 @@
             <div class="item-icon cross">✕</div>
             <div class="item-text">
               <strong>Budget imprévisible</strong>
-              <span>€2 000 minimum, jusqu'à €8 000 avec les "extras"</span>
+              <span>2 000 € minimum, jusqu'à 8 000 € avec les "extras"</span>
             </div>
           </div>
           <div class="col-item">
@@ -56,7 +61,7 @@
           <div class="col-item">
             <div class="item-icon check">✓</div>
             <div class="item-text">
-              <strong>€490 tout compris</strong>
+              <strong>490 € tout compris</strong>
               <span>Prix fixe, affiché, sans surprise. Add-ons optionnels.</span>
             </div>
           </div>
@@ -82,6 +87,13 @@
 
 <style>
   .section-pad { padding: var(--section-py) 0; }
+  .section-tag {
+    display: inline-block; font-size: 12px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);
+    background: var(--accent-pale); padding: 5px 14px; border-radius: 100px; margin-bottom: 16px;
+  }
+  .section-h2 { font-size: clamp(32px, 4vw, 48px); color: var(--text-primary); margin-bottom: 16px; line-height: 1.1; }
+  .section-h2 em { font-style: italic; color: var(--accent); }
   .problem-grid {
     display: grid;
     grid-template-columns: 1fr auto 1fr;

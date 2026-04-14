@@ -1,6 +1,6 @@
 ---
 // Commander.astro — Lancio
-// Flow : Brief → Supabase → redirect vers Stripe Payment Link
+// Flow : Brief → Supabase → confirmation
 ---
 <section class="commander section-pad" id="commander">
   <div class="container">
@@ -26,60 +26,16 @@
           </div>
         </div>
 
-        <!-- Menu tarifs clair -->
-        <div class="menu-tarifs">
-          <div class="menu-tarifs-title">Ce que vous obtenez</div>
-          <div class="menu-base">
-            <div class="menu-base-header">
-              <div class="menu-base-name">Site vitrine professionnel</div>
-              <div class="menu-base-price">€490</div>
-            </div>
-            <div class="menu-base-desc">3 à 5 pages sur-mesure, responsive mobile, formulaire de contact, hébergement + domaine 1 an, certificat SSL, livraison 48h.</div>
-          </div>
-          <div class="menu-options-title">Options à ajouter</div>
-          <div class="menu-options">
-            <div class="menu-option">
-              <div class="menu-option-left">
-                <div class="menu-option-name">SEO local</div>
-                <div class="menu-option-desc">Fiche Google Business, balises optimisées, référencement local pour apparaître dans les résultats de votre ville.</div>
-              </div>
-              <div class="menu-option-price">+€95</div>
-            </div>
-            <div class="menu-option">
-              <div class="menu-option-left">
-                <div class="menu-option-name">Prise de RDV en ligne</div>
-                <div class="menu-option-desc">Calendrier integre (Calendly ou Cal.com) pour que vos clients reservent directement depuis votre site.</div>
-              </div>
-              <div class="menu-option-price">+€75</div>
-            </div>
-            <div class="menu-option">
-              <div class="menu-option-left">
-                <div class="menu-option-name">Blog SEO (5 articles)</div>
-                <div class="menu-option-desc">5 articles optimises pour le referencement, rediges et publies sur votre site pour attirer du trafic organique.</div>
-              </div>
-              <div class="menu-option-price">+€150</div>
-            </div>
-            <div class="menu-option">
-              <div class="menu-option-left">
-                <div class="menu-option-name">Boutique en ligne</div>
-                <div class="menu-option-desc">Catalogue produits, panier d'achat et paiement securise integre directement a votre site.</div>
-              </div>
-              <div class="menu-option-price">+€250</div>
-            </div>
-            <div class="menu-option">
-              <div class="menu-option-left">
-                <div class="menu-option-name">Page supplementaire</div>
-                <div class="menu-option-desc">Ajoutez une page additionnelle a votre site (portfolio, equipe, FAQ, etc.).</div>
-              </div>
-              <div class="menu-option-price">+€60</div>
-            </div>
-            <div class="menu-option menu-option-recurring">
-              <div class="menu-option-left">
-                <div class="menu-option-name">Maintenance mensuelle</div>
-                <div class="menu-option-desc">Mises a jour de contenu, modifications mineures et support prioritaire. Resiliable a tout moment.</div>
-              </div>
-              <div class="menu-option-price">35€<span>/mois</span></div>
-            </div>
+        <div class="commander-alt">
+          <p class="alt-text">Pas encore prêt à commander ?</p>
+          <a href="#mockup" class="alt-link">Recevoir un mockup gratuit d'abord →</a>
+        </div>
+
+        <div class="commander-contact">
+          <p class="contact-text">Une question ?</p>
+          <div class="contact-links">
+            <a href="mailto:hello@lancio.fr" class="contact-email">hello@lancio.fr</a>
+            <a href="https://calendly.com/hello-beyitworld/30min" target="_blank" class="contact-rdv">Prendre RDV →</a>
           </div>
         </div>
       </div>
@@ -145,33 +101,33 @@
             <div class="options-grid">
               <label class="option-check">
                 <input type="checkbox" class="f-option" value="seo-local" data-price="95" />
-                <span>SEO local +€95</span>
+                <span>SEO local +95 €</span>
               </label>
               <label class="option-check">
                 <input type="checkbox" class="f-option" value="rdv-en-ligne" data-price="75" />
-                <span>RDV en ligne +€75</span>
+                <span>RDV en ligne +75 €</span>
               </label>
               <label class="option-check">
                 <input type="checkbox" class="f-option" value="blog" data-price="150" />
-                <span>Blog SEO +€150</span>
+                <span>Blog SEO +150 €</span>
               </label>
               <label class="option-check option-maintenance">
                 <input type="checkbox" id="f-maintenance" value="maintenance" data-price="0" />
-                <span>Maintenance mensuelle — 35€/mois</span>
+                <span>Maintenance mensuelle — 35 €/mois</span>
               </label>
               <label class="option-check">
                 <input type="checkbox" class="f-option" value="boutique" data-price="250" />
-                <span>Boutique en ligne +€250</span>
+                <span>Boutique en ligne +250 €</span>
               </label>
             </div>
           </div>
 
           <div class="price-summary" id="priceSummary">
             <span class="price-label">Total estimé (paiement unique)</span>
-            <span class="price-val" id="priceVal">€490</span>
+            <span class="price-val" id="priceVal">490 €</span>
           </div>
           <div id="maintenanceNote" class="maintenance-note" style="display:none;">
-            + Maintenance 35€/mois <span class="maint-detail">· facturée mensuellement après livraison</span>
+            + Maintenance 35 €/mois <span class="maint-detail">· facturée mensuellement après livraison</span>
           </div>
 
           <div id="form-error" style="display:none; font-size:13px; color:#A32D2D; padding:10px; background:#FEF0F0; border-radius:8px;"></div>
@@ -212,9 +168,9 @@
 
               <div class="recap-section">
                 <div class="recap-section-title">Formule & options</div>
-                <div class="recap-row"><span class="recap-label">Site de base</span><span class="recap-price">€490</span></div>
+                <div class="recap-row"><span class="recap-label">Site de base</span><span class="recap-price">490 €</span></div>
                 <div id="recap-options-list"></div>
-                <div id="recap-maintenance-row" class="recap-row" style="display:none;"><span class="recap-label">Maintenance mensuelle</span><span class="recap-price recap-price-muted">35€/mois</span></div>
+                <div id="recap-maintenance-row" class="recap-row" style="display:none;"><span class="recap-label">Maintenance mensuelle</span><span class="recap-price recap-price-muted">35 €/mois</span></div>
               </div>
 
               <div class="recap-total">
@@ -222,7 +178,7 @@
                 <span class="recap-total-val" id="recap-total"></span>
               </div>
               <div id="recap-maintenance-note" class="recap-maintenance-note" style="display:none;">
-                + Maintenance 35€/mois · facturée après livraison
+                + Maintenance 35 €/mois · facturée après livraison
               </div>
             </div>
 
@@ -259,28 +215,33 @@
     gap: 64px;
     align-items: start;
   }
+  .section-tag {
+    display: inline-block; font-size: 12px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);
+    background: var(--accent-pale); padding: 5px 14px; border-radius: 100px; margin-bottom: 16px;
+  }
+  .section-h2 { font-size: clamp(32px, 4vw, 48px); color: var(--text-primary); margin-bottom: 16px; line-height: 1.1; }
+  .section-h2 em { font-style: italic; color: var(--accent); }
   .commander-sub { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin: 20px 0 28px; }
   .commander-reassurance { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
   .reassure-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-secondary); }
 
-  /* Menu tarifs */
-  .menu-tarifs { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); }
-  .menu-tarifs-title { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 14px; }
-  .menu-base { background: var(--accent-pale); border: 1.5px solid var(--accent); border-radius: var(--radius-md); padding: 16px 18px; margin-bottom: 20px; }
-  .menu-base-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
-  .menu-base-name { font-size: 15px; font-weight: 500; color: var(--accent); }
-  .menu-base-price { font-family: var(--font-display); font-size: 28px; color: var(--accent); }
-  .menu-base-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
-  .menu-options-title { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 10px; }
-  .menu-options { display: flex; flex-direction: column; gap: 0; }
-  .menu-option { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--border); }
-  .menu-option:last-child { border-bottom: none; }
-  .menu-option-left { flex: 1; }
-  .menu-option-name { font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 2px; }
-  .menu-option-desc { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
-  .menu-option-price { font-size: 14px; font-weight: 500; color: var(--accent); white-space: nowrap; flex-shrink: 0; padding-top: 1px; }
-  .menu-option-price span { font-size: 11px; font-weight: 400; color: var(--text-muted); }
-  .menu-option-recurring { background: var(--cream); margin: 0 -18px; padding: 12px 18px; border-bottom: none; border-radius: 0 0 var(--radius-sm) var(--radius-sm); }
+  .commander-alt {
+    padding: 20px;
+    background: var(--accent-pale);
+    border: 1px solid rgba(232,98,44,0.15);
+    border-radius: var(--radius-md);
+    margin-bottom: 24px;
+  }
+  .alt-text { font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; }
+  .alt-link { font-size: 14px; font-weight: 600; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+  .commander-contact { margin-top: 0; }
+  .contact-text { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+  .contact-links { display: flex; gap: 16px; align-items: center; }
+  .contact-email { font-size: 14px; color: var(--accent); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+  .contact-rdv { font-size: 13px; color: var(--text-secondary); }
+  .contact-rdv:hover { color: var(--accent); }
 
   /* Form */
   .brief-form { background: var(--white); border: 1px solid var(--border-strong); border-radius: var(--radius-xl); overflow: hidden; }
@@ -385,9 +346,8 @@
       total += ADDON_PRICES[cb.value] || 0;
     });
     const el = document.getElementById('priceVal');
-    if (el) el.textContent = '€' + total.toLocaleString('fr-FR');
+    if (el) el.textContent = total.toLocaleString('fr-FR') + ' €';
 
-    // Afficher la note maintenance si cochée
     const maintenanceCb = document.getElementById('f-maintenance') as HTMLInputElement;
     const maintenanceNote = document.getElementById('maintenanceNote');
     if (maintenanceNote) {
@@ -409,7 +369,7 @@
     'boutique': 'Boutique en ligne',
   };
 
-  // ── Show Recap (étape intermédiaire) ──────────────────────────────────────────
+  // ── Show Recap ──────────────────────────────────────────────────────────────
   function showRecap() {
     const errorEl = document.getElementById('form-error');
     const nom = document.getElementById('f-nom')?.value?.trim();
@@ -431,6 +391,16 @@
     const opts = Array.from(document.querySelectorAll('input[type=checkbox]:checked'));
     const ol = document.getElementById('recap-options-list');
     if (ol) ol.innerHTML = opts.length ? opts.map(cb => '<li>' + (cb.closest('label')?.textContent?.trim() || cb.value) + '</li>').join('') : '<li>Aucune option</li>';
+
+    const total = updatePrice();
+    set('recap-total', total.toLocaleString('fr-FR') + ' €');
+
+    const maintenanceCb = document.getElementById('f-maintenance') as HTMLInputElement;
+    const maintenanceRow = document.getElementById('recap-maintenance-row');
+    const maintenanceNote = document.getElementById('recap-maintenance-note');
+    if (maintenanceRow) maintenanceRow.style.display = maintenanceCb?.checked ? '' : 'none';
+    if (maintenanceNote) maintenanceNote.style.display = maintenanceCb?.checked ? '' : 'none';
+
     const brief = document.getElementById('step-brief');
     const recap = document.getElementById('step-recap');
     if (brief) brief.style.display = 'none';
@@ -444,7 +414,7 @@
     document.querySelector('.brief-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  // ── Confirm & Pay (anciennement submitBrief) ──────────────────────────────────
+  // ── Confirm & Pay ──────────────────────────────────────────────────────────
   async function confirmAndPay() {
     const btn = document.getElementById('confirmBtn');
     if (!btn) return;
@@ -470,7 +440,6 @@
       });
 
       if (res.ok || res.status === 201) {
-        // Show confirmation step
         const recap = document.getElementById('step-recap');
         const confirm = document.getElementById('step-confirm');
         if (recap) recap.style.display = 'none';
@@ -486,9 +455,7 @@
     }
   }
 
-  // ── Expose to global scope for onclick handlers ──────────────────────────────
   (window as any).showRecap = showRecap;
   (window as any).backToForm = backToForm;
   (window as any).confirmAndPay = confirmAndPay;
-
 </script>
