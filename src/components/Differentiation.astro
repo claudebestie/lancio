@@ -1,0 +1,108 @@
+---
+const benefits = [
+  {
+    title: "Rapide",
+    desc: "Ton site est en ligne en 48h. Pas en 3 semaines.",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+  },
+  {
+    title: "Clair",
+    desc: "Un prix fixe, un process simple, zéro surprise.",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`,
+  },
+  {
+    title: "Pensé pour convertir",
+    desc: "Chaque page est conçue pour générer des demandes, pas juste être jolie.",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
+  },
+  {
+    title: "Sans complexité",
+    desc: "Pas de réunions interminables. Un brief, et c'est parti.",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+  },
+];
+---
+
+<section class="diff section-pad" id="pourquoi">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Pourquoi Lancio</div>
+      <h2 class="section-h2">Pas une agence lente.<br/><em>Pas un template générique.</em></h2>
+      <p class="section-sub">Un site rapide, propre, utile.</p>
+    </div>
+
+    <div class="diff-grid">
+      {benefits.map(b => (
+        <div class="diff-card">
+          <div class="diff-icon" set:html={b.icon} />
+          <h3 class="diff-title">{b.title}</h3>
+          <p class="diff-desc">{b.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.section-header { text-align: center; }
+.section-tag {
+  display: inline-block; font-size: 12px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);
+  background: var(--accent-pale); padding: 5px 14px; border-radius: 100px; margin-bottom: 16px;
+}
+.section-h2 { font-size: clamp(28px, 4vw, 44px); color: var(--text-primary); margin-bottom: 16px; line-height: 1.1; }
+.section-h2 em { font-style: italic; color: var(--accent); }
+.section-sub { font-size: 15px; color: var(--text-secondary); max-width: 400px; margin: 0 auto; line-height: 1.6; }
+
+.diff-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.diff-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  text-align: center;
+  transition: all 0.3s;
+}
+.diff-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(232,98,44,0.08);
+}
+
+.diff-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-pale);
+  border-radius: 12px;
+  margin: 0 auto 16px;
+  color: var(--accent);
+}
+
+.diff-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.diff-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .diff-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .diff-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+}
+</style>

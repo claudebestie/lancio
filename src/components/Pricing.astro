@@ -1,258 +1,173 @@
 ---
-const addons = [
-  { nom: "SEO local", prix: "+95 €", desc: "Google Business + balises optimisées" },
-  { nom: "Blog (5 articles)", prix: "+150 €", desc: "Articles SEO rédigés et publiés" },
-  { nom: "Prise de RDV en ligne", prix: "+75 €", desc: "Calendly ou Cal.com intégré" },
-  { nom: "Maintenance mensuelle", prix: "35 €/mois", desc: "Mises à jour + support prioritaire · résiliable" },
-  { nom: "Boutique en ligne", prix: "+250 €", desc: "Catalogue produits + paiement" },
-  { nom: "Page supplémentaire", prix: "+60 €", desc: "Par page additionnelle" },
-];
-
 const inclus = [
-  "3 à 5 pages sur mesure",
-  "Design responsive mobile",
-  "Formulaire de contact",
-  "Google Analytics",
-  "Hébergement 1 an inclus",
-  "Nom de domaine 1 an",
-  "1 révision incluse",
-  "Certificat SSL",
+  "Design moderne sur mesure",
+  "Structure optimisée conversion",
+  "Responsive mobile parfait",
+  "Mise en ligne rapide",
+  "Accompagnement simple",
+  "Révisions incluses",
 ];
 ---
 
 <section class="pricing section-pad" id="pricing">
   <div class="container">
     <div class="section-header">
-      <div class="section-tag">Tarifs</div>
-      <h2 class="section-h2">Un prix fixe,<br/><em>zéro surprise</em></h2>
-      <p class="section-sub">Pas de devis, pas de négociation. Le prix est affiché, il ne changera pas.</p>
+      <div class="section-tag">Offre</div>
+      <h2 class="section-h2">Une offre simple.<br/><em>Sans surprise.</em></h2>
     </div>
 
-    <div class="pricing-layout">
-      <div class="pricing-main">
-        <div class="price-header">
-          <div class="price-big">490 €</div>
-          <div class="price-label">Site vitrine professionnel · Livraison 48h garantie</div>
+    <div class="pricing-card">
+      <div class="pricing-top">
+        <div class="pricing-badge">Le plus populaire</div>
+        <div class="pricing-name">Site complet prêt à convertir</div>
+        <div class="pricing-delivery">Livré en 48h</div>
+        <div class="pricing-price">
+          <span class="price-amount">490</span>
+          <span class="price-currency">€</span>
         </div>
-
-        <div class="price-inclus">
-          <div class="inclus-title">Tout est inclus</div>
-          <div class="inclus-grid">
-            {inclus.map(item => (
-              <div class="inclus-item">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="var(--accent-pale)"/><path d="M4 7l2 2 4-4" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <a href="#commander" class="price-cta">Démarrer mon site →</a>
-        <div class="price-cta-note">Brief en 5 min · Livraison 48h garantie</div>
-
-        <div class="price-compare">
-          <div class="compare-label">Comparé à…</div>
-          <div class="compare-items">
-            <div class="compare-item">
-              <span class="compare-who">Agence web</span>
-              <span class="compare-price expensive">2 000 – 8 000 €</span>
-            </div>
-            <div class="compare-item">
-              <span class="compare-who">Freelance</span>
-              <span class="compare-price mid">800 – 2 500 €</span>
-            </div>
-            <div class="compare-item">
-              <span class="compare-who">Lancio</span>
-              <span class="compare-price good">490 € · 48h</span>
-            </div>
-          </div>
-        </div>
+        <div class="pricing-once">Paiement unique · Pas d'abonnement</div>
       </div>
 
-      <div class="addons-panel">
-        <div class="addons-title">Options add-on</div>
-        <div class="addons-sub">Ajoutez ce dont vous avez besoin, rien de plus.</div>
-        <div class="addons-list">
-          {addons.map(addon => (
-            <div class="addon-row">
-              <div class="addon-info">
-                <div class="addon-nom">{addon.nom}</div>
-                <div class="addon-desc">{addon.desc}</div>
-              </div>
-              <div class="addon-prix">{addon.prix}</div>
-            </div>
-          ))}
-        </div>
-        <div class="addon-custom">
-          <div class="custom-text">Besoin d'autre chose ?</div>
-          <a href="https://calendly.com/hello-beyitworld/30min" target="_blank" class="custom-link">Prendre RDV →</a>
-        </div>
+      <div class="pricing-features">
+        {inclus.map(item => (
+          <div class="feature-item">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="var(--accent-pale)"/><path d="M5 8l2 2 4-4" stroke="var(--accent)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>{item}</span>
+          </div>
+        ))}
       </div>
+
+      <a href="#commander" class="pricing-cta">Créer mon site</a>
+      <div class="pricing-note">Brief en 5 min · Satisfait ou remboursé</div>
     </div>
   </div>
 </section>
 
 <style>
-  .section-header { text-align: center; }
-  .section-tag {
-    display: inline-block; font-size: 12px; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);
-    background: var(--accent-pale); padding: 5px 14px; border-radius: 100px; margin-bottom: 16px;
-  }
-  .section-h2 { font-size: clamp(32px, 4vw, 48px); color: var(--text-primary); margin-bottom: 16px; line-height: 1.1; }
-  .section-h2 em { font-style: italic; color: var(--accent); }
-  .section-sub { font-size: 16px; color: var(--text-secondary); max-width: 520px; margin: 0 auto; line-height: 1.6; }
-  .pricing-layout {
-    display: grid;
-    grid-template-columns: 1fr 380px;
-    gap: 24px;
-    align-items: start;
-  }
-  .pricing-main {
-    background: var(--white);
-    border: 2px solid var(--accent);
-    border-radius: var(--radius-xl);
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    position: relative;
-    overflow: hidden;
-  }
-  .price-header {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .price-big {
-    font-size: 72px;
-    font-weight: 800;
-    color: var(--text-primary);
-    line-height: 1;
-    letter-spacing: -0.03em;
-  }
-  .price-label {
-    font-size: 14px;
-    color: var(--text-secondary);
-    max-width: 200px;
-    line-height: 1.5;
-  }
-  .inclus-title {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-muted);
-    margin-bottom: 14px;
-  }
-  .inclus-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  .inclus-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--text-secondary);
-  }
-  .price-cta {
-    display: block;
-    text-align: center;
-    font-size: 15px;
-    font-weight: 600;
-    background: var(--accent);
-    color: #fff;
-    padding: 16px 28px;
-    border-radius: var(--radius-md);
-    transition: background 0.15s, transform 0.1s;
-    box-shadow: 0 4px 16px rgba(232,98,44,0.2);
-  }
-  .price-cta:hover { background: var(--accent-light); transform: translateY(-2px); }
-  .price-cta-note {
-    font-size: 12px;
-    color: var(--text-muted);
-    text-align: center;
-    margin-top: -20px;
-  }
-  .price-compare { border-top: 1px solid var(--border); padding-top: 20px; }
-  .compare-label {
-    font-size: 11px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 12px;
-  }
-  .compare-items { display: flex; flex-direction: column; gap: 8px; }
-  .compare-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 13px;
-  }
-  .compare-who { color: var(--text-secondary); }
-  .compare-price { font-weight: 600; }
-  .compare-price.expensive { color: #C0392B; }
-  .compare-price.mid { color: var(--text-muted); }
-  .compare-price.good { color: var(--accent); }
+.section-header { text-align: center; }
+.section-tag {
+  display: inline-block; font-size: 12px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);
+  background: var(--accent-pale); padding: 5px 14px; border-radius: 100px; margin-bottom: 16px;
+}
+.section-h2 { font-size: clamp(28px, 4vw, 44px); color: var(--text-primary); margin-bottom: 16px; line-height: 1.1; }
+.section-h2 em { font-style: italic; color: var(--accent); }
 
-  .addons-panel {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-xl);
-    padding: 32px;
-  }
-  .addons-title {
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-  }
-  .addons-sub {
-    font-size: 13px;
-    color: var(--text-secondary);
-    margin-bottom: 24px;
-  }
-  .addons-list { display: flex; flex-direction: column; gap: 0; }
-  .addon-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border);
-    gap: 12px;
-  }
-  .addon-row:last-child { border-bottom: none; }
-  .addon-nom { font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 2px; }
-  .addon-desc { font-size: 12px; color: var(--text-muted); }
-  .addon-prix {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--accent);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .addon-custom {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .custom-text { font-size: 13px; color: var(--text-secondary); }
-  .custom-link {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--accent);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
+.pricing-card {
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--white);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  position: relative;
+}
 
-  @media (max-width: 900px) {
-    .pricing-layout { grid-template-columns: 1fr; }
-    .pricing-main { padding: 28px; }
-    .price-big { font-size: 56px; }
-    .inclus-grid { grid-template-columns: 1fr; }
-  }
+.pricing-top {
+  text-align: center;
+  padding: 40px 40px 32px;
+  background: linear-gradient(180deg, var(--accent-pale) 0%, var(--white) 100%);
+}
+
+.pricing-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #fff;
+  background: var(--accent);
+  padding: 4px 14px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+.pricing-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.pricing-delivery {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.pricing-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.price-amount {
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.price-currency {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.pricing-once {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.pricing-features {
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 8px 0 32px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.pricing-cta {
+  display: block;
+  margin: 0 40px 16px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  background: var(--accent);
+  color: #fff;
+  padding: 16px 28px;
+  border-radius: var(--radius-md);
+  transition: all 0.25s cubic-bezier(.16,1,.3,1);
+  box-shadow: 0 4px 16px rgba(232,98,44,0.25);
+}
+.pricing-cta:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(232,98,44,0.3);
+}
+
+.pricing-note {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  padding-bottom: 32px;
+}
+
+@media (max-width: 640px) {
+  .pricing-top { padding: 32px 24px 24px; }
+  .pricing-features { padding: 0 24px; }
+  .pricing-cta { margin: 0 24px 12px; }
+  .price-amount { font-size: 3.5rem; }
+}
 </style>

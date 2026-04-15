@@ -161,11 +161,34 @@ const {
   <body>
     <slot />
     <ChatWidget />
+
+    <!-- Sticky Mobile CTA -->
+    <div class="mobile-cta-bar" id="mobileCta">
+      <a href="#commander" class="mobile-cta-btn">Créer mon site</a>
+    </div>
+
     <script is:inline>
+      // Reveal animations
       const obs = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-      }, { threshold: 0.1 });
+      }, { threshold: 0.08 });
       document.querySelectorAll('.section-header, .section-pad > .container > *:not(.section-header)').forEach(el => { el.classList.add('reveal'); obs.observe(el); });
+
+      // Show mobile CTA after scrolling past hero
+      const mobileCta = document.getElementById('mobileCta');
+      const heroSection = document.querySelector('.hero');
+      if (mobileCta && heroSection) {
+        const heroObs = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (!e.isIntersecting) {
+              mobileCta.classList.add('show');
+            } else {
+              mobileCta.classList.remove('show');
+            }
+          });
+        }, { threshold: 0 });
+        heroObs.observe(heroSection);
+      }
     </script>
   </body>
 </html>
@@ -243,6 +266,36 @@ const {
     padding: 0 24px;
   }
 
+  /* Sticky mobile CTA bar */
+  .mobile-cta-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 90;
+    padding: 12px 20px;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+    background: rgba(254,253,251,0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+  .mobile-cta-bar.show { transform: none; }
+  .mobile-cta-btn {
+    display: block;
+    text-align: center;
+    background: var(--accent);
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 16px rgba(232,98,44,0.25);
+  }
+
   @media (max-width: 768px) {
     :root {
       --section-py: 72px;
@@ -250,5 +303,7 @@ const {
     .container {
       padding: 0 20px;
     }
+    .mobile-cta-bar { display: block; }
+    body { padding-bottom: 72px; }
   }
 </style>

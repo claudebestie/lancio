@@ -1,0 +1,83 @@
+---
+---
+
+<section class="final-cta">
+  <div class="container">
+    <div class="cta-card">
+      <h2 class="cta-title">Ton site actuel te fait<br/>peut-être <em>perdre des clients</em></h2>
+      <p class="cta-body">Corrige ça avec une landing claire, rapide et pensée pour convertir.</p>
+      <a href="#commander" class="cta-btn">Créer mon site maintenant</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.final-cta {
+  padding: 80px 0;
+}
+
+.cta-card {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 64px 40px;
+  background: var(--black);
+  border-radius: var(--radius-xl);
+  position: relative;
+  overflow: hidden;
+}
+.cta-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 60% 40%, rgba(232,98,44,0.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cta-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  color: #fff;
+  margin-bottom: 1rem;
+  position: relative;
+  line-height: 1.15;
+}
+.cta-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.cta-body {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.9rem 2.2rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.25s cubic-bezier(.16,1,.3,1);
+  box-shadow: 0 4px 20px rgba(232,98,44,0.35);
+  position: relative;
+}
+.cta-btn:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(232,98,44,0.45);
+}
+
+@media (max-width: 640px) {
+  .cta-card { padding: 48px 24px; }
+  .final-cta { padding: 48px 0; }
+}
+</style>
