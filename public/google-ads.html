@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lancio — Un site qui génère des clients en 48h</title>
+<meta name="description" content="Obtenez un site web professionnel, optimisé pour convertir, livré en 48h. Prix fixe 490€.">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#fafafa;
+--text:#1a1a1a;
+--muted:#666;
+--accent:#1a1a1a;
+--cta:#ff5c35;
+--cta-hover:#e84a25;
+--card:#fff;
+--border:#e5e5e5;
+--radius:12px;
+--radius-lg:16px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+.section{padding:80px 20px;max-width:720px;margin:0 auto}
+@media(min-width:768px){.section{padding:100px 24px}}
+
+/* Hero */
+.hero{min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 20px 80px}
+.hero-inner{max-width:640px}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.15;letter-spacing:-0.03em;margin-bottom:20px}
+.hero h1 span{color:var(--cta)}
+.hero p{font-size:1.15rem;color:var(--muted);margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto}
+.trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 28px;margin-bottom:40px;font-size:0.95rem;color:var(--text);font-weight:500}
+.trust-row span::before{content:"✔ ";color:var(--cta);font-weight:700}
+.btn-group{display:flex;flex-direction:column;gap:12px;align-items:center}
+@media(min-width:480px){.btn-group{flex-direction:row;justify-content:center}}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:16px 36px;border-radius:60px;font-size:1.05rem;font-weight:700;cursor:pointer;border:none;transition:all .2s ease}
+.btn-primary{background:var(--cta);color:#fff;box-shadow:0 4px 20px rgba(255,92,53,.3)}
+.btn-primary:hover{background:var(--cta-hover);transform:translateY(-1px);box-shadow:0 6px 28px rgba(255,92,53,.4)}
+.btn-secondary{background:transparent;color:var(--text);border:2px solid var(--border)}
+.btn-secondary:hover{border-color:var(--text)}
+
+/* Problem */
+.problem{background:#fff}
+.problem .section{text-align:center}
+.section-title{font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:16px;line-height:1.2}
+.section-sub{color:var(--muted);font-size:1.05rem;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto}
+.pain-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:24px;text-align:left;max-width:400px;margin-left:auto;margin-right:auto}
+.pain-list li{padding:12px 16px;background:var(--bg);border-radius:var(--radius);font-size:0.95rem;display:flex;align-items:center;gap:10px}
+.pain-list li::before{content:"✕";color:var(--cta);font-weight:700;font-size:1.1rem;flex-shrink:0}
+.solution-box{background:var(--bg);border-radius:var(--radius-lg);padding:28px 24px;margin:32px auto 0;max-width:480px;border-left:4px solid var(--cta)}
+.solution-box p{font-size:1rem;font-weight:600;margin-bottom:16px}
+
+/* Examples */
+.examples-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:32px}
+@media(min-width:600px){.examples-grid{grid-template-columns:repeat(3,1fr)}}
+.example-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:transform .2s}
+.example-card:hover{transform:translateY(-4px)}
+.example-visual{height:160px;background:linear-gradient(135deg,#f0f0f0,#e0e0e0);display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+.example-card h3{font-size:1rem;font-weight:700;padding:16px 16px 4px}
+.example-card p{font-size:0.85rem;color:var(--muted);padding:0 16px 16px}
+
+/* Offer */
+.offer{background:#fff}
+.offer-card{background:var(--bg);border:2px solid var(--text);border-radius:var(--radius-lg);padding:40px 28px;text-align:center;max-width:420px;margin:32px auto 0;position:relative}
+.offer-card::before{content:"POPULAIRE";position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--cta);color:#fff;font-size:0.75rem;font-weight:700;padding:4px 16px;border-radius:20px;letter-spacing:0.05em}
+.offer-card h3{font-size:1.3rem;font-weight:700;margin-bottom:20px}
+.offer-list{list-style:none;text-align:left;margin-bottom:28px}
+.offer-list li{padding:8px 0;border-bottom:1px solid var(--border);font-size:0.95rem;display:flex;align-items:center;gap:8px}
+.offer-list li:last-child{border:none}
+.offer-list li::before{content:"✓";color:var(--cta);font-weight:700}
+.price{font-size:2.8rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:4px}
+.price-note{font-size:0.85rem;color:var(--muted);margin-bottom:24px}
+
+/* Process */
+.steps{display:flex;flex-direction:column;gap:24px;margin-top:32px;counter-reset:step}
+.step{display:flex;gap:20px;align-items:flex-start}
+.step-num{width:48px;height:48px;border-radius:50%;background:var(--text);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;flex-shrink:0}
+.step-content h3{font-size:1.05rem;font-weight:700;margin-bottom:4px}
+.step-content p{font-size:0.9rem;color:var(--muted)}
+
+/* Form */
+.form-section{background:#fff}
+.form-wrap{max-width:480px;margin:32px auto 0}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:6px}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:var(--radius);font-size:1rem;font-family:inherit;background:var(--bg);transition:border .2s}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--cta)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-group .optional{color:var(--muted);font-weight:400;font-size:0.8rem}
+.form-success{display:none;text-align:center;padding:40px 20px}
+.form-success h3{font-size:1.5rem;font-weight:800;margin-bottom:12px}
+.form-success p{color:var(--muted)}
+
+/* Final CTA */
+.final{text-align:center;background:var(--text);color:#fff;padding:80px 20px}
+.final .section-title{color:#fff}
+.final p{color:rgba(255,255,255,.7);margin-bottom:32px;font-size:1.05rem}
+.final .btn-primary{font-size:1.1rem;padding:18px 44px}
+
+/* Sticky mobile CTA */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;padding:12px 16px;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--border);z-index:100;display:none;transform:translateY(100%);transition:transform .3s ease}
+.sticky-cta.visible{transform:translateY(0)}
+.sticky-cta .btn{width:100%;padding:14px;font-size:1rem}
+@media(max-width:767px){.sticky-cta{display:block}}
+
+/* Footer minimal */
+.footer{text-align:center;padding:24px 20px;font-size:0.8rem;color:var(--muted)}
+
+/* Hero animation only */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero .fade-up{animation:fadeUp .6s ease both}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero" id="top">
+<div class="hero-inner fade-up">
+<h1>Crée un site qui te génère des <span>clients en 48h</span></h1>
+<p>Pas d'agence. Pas de galère. Juste un site clair, rapide et pensé pour convertir.</p>
+<div class="trust-row">
+<span>Livraison en 48h</span>
+<span>Design + copy optimisés</span>
+<span>Prix fixe</span>
+</div>
+<div class="btn-group">
+<a href="#formulaire" class="btn btn-primary">Créer mon site</a>
+<a href="#exemples" class="btn btn-secondary">Voir un exemple</a>
+</div>
+</div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="probleme">
+<div class="section fade-up">
+<h2 class="section-title">Ton site ne te rapporte pas de clients ?</h2>
+<p class="section-sub">Le problème vient souvent du site lui-même.</p>
+<ul class="pain-list">
+<li>Message pas clair</li>
+<li>Pas de structure</li>
+<li>Aucun élément de confiance</li>
+</ul>
+<div class="solution-box">
+<p>On corrige ça en 48h avec une landing claire et efficace.</p>
+<a href="#formulaire" class="btn btn-primary" style="font-size:.95rem;padding:12px 28px">Je veux corriger ça</a>
+</div>
+</div>
+</section>
+
+<!-- EXAMPLES -->
+<section id="exemples">
+<div class="section fade-up">
+<h2 class="section-title" style="text-align:center">Exemples</h2>
+<div class="examples-grid">
+<div class="example-card">
+<div class="example-visual">🏋️</div>
+<h3>Coach</h3>
+<p>Landing page pour un coach sportif. Prise de rendez-vous simplifiée.</p>
+</div>
+<div class="example-card">
+<div class="example-visual">🚀</div>
+<h3>SaaS</h3>
+<p>Page d'inscription pour un outil SaaS B2B. Conversion optimisée.</p>
+</div>
+<div class="example-card">
+<div class="example-visual">💻</div>
+<h3>Freelance</h3>
+<p>Site vitrine pour un développeur freelance. Génération de leads.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- OFFER -->
+<section class="offer" id="offre">
+<div class="section fade-up">
+<h2 class="section-title" style="text-align:center">Une offre simple</h2>
+<div class="offer-card">
+<h3>Site complet prêt à convertir</h3>
+<ul class="offer-list">
+<li>Landing page optimisée</li>
+<li>Copy persuasif inclus</li>
+<li>Design responsive</li>
+<li>Formulaire de contact</li>
+<li>Livraison en 48h</li>
+<li>1 tour de révision</li>
+</ul>
+<div class="price">490€</div>
+<div class="price-note">Prix fixe · Sans abonnement</div>
+<a href="#formulaire" class="btn btn-primary" style="width:100%">Créer mon site</a>
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+<div class="section fade-up">
+<h2 class="section-title" style="text-align:center">Comment ça marche</h2>
+<div class="steps">
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-content">
+<h3>Tu remplis le formulaire</h3>
+<p>Décris ton activité, tes besoins et ton objectif. Ça prend 2 minutes.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-content">
+<h3>On construit ton site</h3>
+<p>Design, copy et structure optimisés pour convertir tes visiteurs en clients.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-content">
+<h3>Tu reçois tout en 48h</h3>
+<p>Ton site est prêt. Tu commences à générer des leads immédiatement.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="formulaire">
+<div class="section fade-up">
+<h2 class="section-title" style="text-align:center">Lance ton projet</h2>
+<p class="section-sub" style="text-align:center">Remplis ce formulaire et on revient vers toi sous 24h.</p>
+<div class="form-wrap">
+<form id="lead-form">
+<div class="form-group">
+<label for="nom">Nom</label>
+<input type="text" id="nom" name="nom" placeholder="Ton nom" required>
+</div>
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" id="email" name="email" placeholder="ton@email.com" required>
+</div>
+<div class="form-group">
+<label for="activite">Activité</label>
+<input type="text" id="activite" name="activite" placeholder="Ex : Coach sportif, SaaS, Freelance..." required>
+</div>
+<div class="form-group">
+<label for="site">Lien vers ton site actuel <span class="optional">(optionnel)</span></label>
+<input type="url" id="site" name="site" placeholder="https://tonsite.com">
+</div>
+<div class="form-group">
+<label for="besoin">Décris ton besoin</label>
+<textarea id="besoin" name="besoin" placeholder="Qu'est-ce que tu attends de ton nouveau site ?" required></textarea>
+</div>
+<button type="submit" class="btn btn-primary" style="width:100%;font-size:1.05rem">Lancer mon projet</button>
+</form>
+<div class="form-success" id="form-success">
+<h3>C'est envoyé !</h3>
+<p>On revient vers toi sous 24h pour démarrer.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+<div class="section">
+<h2 class="section-title fade-up">Tu perds peut-être des clients à cause de ton site</h2>
+<p class="fade-up">Corrige ça maintenant.</p>
+<a href="#formulaire" class="btn btn-primary fade-up">Créer mon site</a>
+</div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">© 2026 Lancio. Tous droits réservés.</div>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta" id="sticky-cta">
+<a href="#formulaire" class="btn btn-primary">Créer mon site</a>
+</div>
+
+<script>
+
+// Sticky CTA visibility
+const hero = document.querySelector('.hero');
+const sticky = document.getElementById('sticky-cta');
+const formSection = document.getElementById('formulaire');
+const stickyObs = new IntersectionObserver((entries) => {
+const heroVisible = entries.find(e => e.target === hero)?.isIntersecting;
+const formVisible = entries.find(e => e.target === formSection)?.isIntersecting;
+if (heroVisible || formVisible) {
+sticky.classList.remove('visible');
+} else {
+sticky.classList.add('visible');
+}
+}, { threshold: 0.1 });
+stickyObs.observe(hero);
+stickyObs.observe(formSection);
+
+// Separate observers for hero and form to track both
+let heroVis = true, formVis = false;
+const stickyCheck = () => {
+if (heroVis || formVis) sticky.classList.remove('visible');
+else sticky.classList.add('visible');
+};
+new IntersectionObserver(([e]) => { heroVis = e.isIntersecting; stickyCheck(); }, { threshold: 0.1 }).observe(hero);
+new IntersectionObserver(([e]) => { formVis = e.isIntersecting; stickyCheck(); }, { threshold: 0.1 }).observe(formSection);
+
+// Form submission
+document.getElementById('lead-form').addEventListener('submit', function(e) {
+e.preventDefault();
+const form = this;
+const data = new FormData(form);
+// Replace with your endpoint
+console.log('Form data:', Object.fromEntries(data));
+form.style.display = 'none';
+document.getElementById('form-success').style.display = 'block';
+});
+</script>
+</body>
+</html>
