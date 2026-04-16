@@ -3,12 +3,16 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Pour coachs, consultants, thérapeutes, indépendants...
+      </div>
       <h1 class="hero-h1">
         Crée un site qui te génère<br/>
         <span class="hero-accent">des clients en 48h</span>
       </h1>
       <p class="hero-sub">
-        On conçoit pour toi un site prêt à convertir — sans agence, sans perte de temps, sans complexité.
+        On conçoit ton site de coaching, consulting ou thérapie — prêt à convertir, sans agence, sans complexité.
       </p>
       <ul class="hero-trust">
         <li>
@@ -78,6 +82,32 @@
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent-pale);
+  border: 1px solid rgba(232,98,44,0.2);
+  color: var(--accent-dark);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }
 
 .hero-h1 {

@@ -1,11 +1,76 @@
 ---
-const inclus = [
-  "Design moderne sur mesure",
-  "Structure optimisée conversion",
-  "Responsive mobile parfait",
-  "Mise en ligne rapide",
-  "Accompagnement simple",
-  "Révisions incluses",
+const plans = [
+  {
+    name: "Site pro",
+    desc: "Ton site de coach livré en 48h",
+    price: "490",
+    unit: "€",
+    period: "paiement unique",
+    badge: null,
+    features: [
+      "Site complet livré en 48h",
+      "Design sur mesure",
+      "Responsive mobile",
+      "1 révision incluse",
+      "Hébergement + domaine 1 an",
+      "Structure conversion",
+    ],
+    cta: "Créer mon site",
+    href: "#commander",
+    highlight: false,
+  },
+  {
+    name: "Présence",
+    desc: "On maintient ton site pour toi",
+    price: "49",
+    unit: "€",
+    period: "/mois",
+    badge: null,
+    features: [
+      "Hébergement + maintenance",
+      "1 modification/mois",
+      "SSL + domaine inclus",
+      "Support par email",
+    ],
+    cta: "Choisir Présence",
+    href: "#commander",
+    highlight: false,
+  },
+  {
+    name: "Visibilité",
+    desc: "On te rend visible sur Google",
+    price: "99",
+    unit: "€",
+    period: "/mois",
+    badge: "Populaire",
+    features: [
+      "Tout Présence +",
+      "2 articles blog SEO/mois",
+      "Google My Business",
+      "Rapport trafic mensuel",
+    ],
+    cta: "Choisir Visibilité",
+    href: "#commander",
+    highlight: true,
+  },
+  {
+    name: "Croissance",
+    desc: "Un système qui te ramène des clients",
+    price: "199",
+    unit: "€",
+    period: "/mois",
+    badge: null,
+    features: [
+      "Tout Visibilité +",
+      "Landing page capture email",
+      "Séquence email automatique",
+      "1 page de vente/mois",
+      "Audit conversion mensuel",
+    ],
+    cta: "Choisir Croissance",
+    href: "/contact",
+    highlight: false,
+  },
 ];
 ---
 
@@ -13,32 +78,42 @@ const inclus = [
   <div class="container">
     <div class="section-header">
       <div class="section-tag">Offre</div>
-      <h2 class="section-h2">Une offre simple.<br/><em>Sans surprise.</em></h2>
+      <h2 class="section-h2">Lance ton site.<br/><em>Puis fais-le grandir.</em></h2>
+      <p class="section-sub">Un site prêt en 48h. Des abonnements pour aller plus loin.</p>
     </div>
 
-    <div class="pricing-card">
-      <div class="pricing-top">
-        <div class="pricing-badge">Le plus populaire</div>
-        <div class="pricing-name">Site complet prêt à convertir</div>
-        <div class="pricing-delivery">Livré en 48h</div>
-        <div class="pricing-price">
-          <span class="price-amount">490</span>
-          <span class="price-currency">€</span>
-        </div>
-        <div class="pricing-once">Paiement unique · Pas d'abonnement</div>
-      </div>
-
-      <div class="pricing-features">
-        {inclus.map(item => (
-          <div class="feature-item">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="var(--accent-pale)"/><path d="M5 8l2 2 4-4" stroke="var(--accent)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span>{item}</span>
+    <div class="pricing-grid">
+      {plans.map(plan => (
+        <div class={`plan-card ${plan.highlight ? 'plan-highlight' : ''}`}>
+          {plan.badge && <div class="plan-badge">{plan.badge}</div>}
+          <div class="plan-header">
+            <div class="plan-name">{plan.name}</div>
+            <div class="plan-desc">{plan.desc}</div>
+            <div class="plan-price">
+              <span class="plan-amount">{plan.price}</span>
+              <div class="plan-unit">
+                <span class="plan-currency">{plan.unit}</span>
+                <span class="plan-period">{plan.period}</span>
+              </div>
+            </div>
           </div>
-        ))}
-      </div>
+          <div class="plan-features">
+            {plan.features.map(f => (
+              <div class="plan-feature">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="var(--accent-pale)"/><path d="M4 7l2 2 4-4" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>{f}</span>
+              </div>
+            ))}
+          </div>
+          <a href={plan.href} class={`plan-cta ${plan.highlight ? 'plan-cta-primary' : 'plan-cta-secondary'}`}>
+            {plan.cta}
+          </a>
+        </div>
+      ))}
+    </div>
 
-      <a href="#commander" class="pricing-cta">Créer mon site</a>
-      <div class="pricing-note">Brief en 5 min · Satisfait ou remboursé</div>
+    <div class="pricing-note-wrap">
+      <p class="pricing-note">Tous les abonnements nécessitent le site pro (490€). Satisfait ou remboursé sur le site.</p>
     </div>
   </div>
 </section>
@@ -52,25 +127,41 @@ const inclus = [
 }
 .section-h2 { font-size: clamp(28px, 4vw, 44px); color: var(--text-primary); margin-bottom: 16px; line-height: 1.1; }
 .section-h2 em { font-style: italic; color: var(--accent); }
+.section-sub { font-size: 15px; color: var(--text-secondary); max-width: 420px; margin: 0 auto; line-height: 1.7; }
 
-.pricing-card {
-  max-width: 480px;
-  margin: 0 auto;
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.plan-card {
   background: var(--white);
-  border: 2px solid var(--accent);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
   position: relative;
+  transition: all 0.25s;
+}
+.plan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(26,26,46,0.08);
 }
 
-.pricing-top {
-  text-align: center;
-  padding: 40px 40px 32px;
-  background: linear-gradient(180deg, var(--accent-pale) 0%, var(--white) 100%);
+.plan-highlight {
+  border: 2px solid var(--accent);
+  box-shadow: 0 8px 32px rgba(232,98,44,0.12);
 }
 
-.pricing-badge {
-  display: inline-block;
+.plan-badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -79,95 +170,115 @@ const inclus = [
   background: var(--accent);
   padding: 4px 14px;
   border-radius: 100px;
+  white-space: nowrap;
+}
+
+.plan-header {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
   margin-bottom: 20px;
 }
 
-.pricing-name {
-  font-size: 1.2rem;
+.plan-name {
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 4px;
 }
 
-.pricing-delivery {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  margin-bottom: 20px;
+.plan-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  line-height: 1.5;
 }
 
-.pricing-price {
+.plan-price {
   display: flex;
   align-items: baseline;
   justify-content: center;
   gap: 4px;
-  margin-bottom: 8px;
 }
-.price-amount {
+.plan-amount {
   font-family: var(--font-display);
-  font-size: 4.5rem;
+  font-size: 2.8rem;
   font-weight: 800;
   color: var(--text-primary);
   line-height: 1;
   letter-spacing: -0.03em;
 }
-.price-currency {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-}
-
-.pricing-once {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-}
-
-.pricing-features {
-  padding: 0 40px;
+.plan-unit {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin: 8px 0 32px;
+  align-items: flex-start;
+}
+.plan-currency {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  line-height: 1;
+}
+.plan-period {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.3;
 }
 
-.feature-item {
+.plan-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+  flex: 1;
+}
+.plan-feature {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 0.9rem;
+  gap: 8px;
+  font-size: 0.82rem;
   color: var(--text-secondary);
   font-weight: 500;
 }
 
-.pricing-cta {
+.plan-cta {
   display: block;
-  margin: 0 40px 16px;
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 700;
+  padding: 14px 20px;
+  border-radius: 10px;
+  transition: all 0.25s cubic-bezier(.16,1,.3,1);
+  margin-top: auto;
+}
+.plan-cta-primary {
   background: var(--accent);
   color: #fff;
-  padding: 16px 28px;
-  border-radius: var(--radius-md);
-  transition: all 0.25s cubic-bezier(.16,1,.3,1);
   box-shadow: 0 4px 16px rgba(232,98,44,0.25);
 }
-.pricing-cta:hover {
+.plan-cta-primary:hover {
   background: var(--accent-light);
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(232,98,44,0.3);
+  box-shadow: 0 8px 24px rgba(232,98,44,0.3);
+}
+.plan-cta-secondary {
+  background: var(--white);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+.plan-cta-secondary:hover {
+  background: var(--accent-pale);
+  transform: translateY(-2px);
 }
 
-.pricing-note {
-  text-align: center;
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  padding-bottom: 32px;
-}
+.pricing-note-wrap { text-align: center; margin-top: 24px; }
+.pricing-note { font-size: 0.82rem; color: var(--text-muted); }
 
+@media (max-width: 1024px) {
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
 @media (max-width: 640px) {
-  .pricing-top { padding: 32px 24px 24px; }
-  .pricing-features { padding: 0 24px; }
-  .pricing-cta { margin: 0 24px 12px; }
-  .price-amount { font-size: 3.5rem; }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .plan-card { padding: 24px 20px; }
 }
 </style>
