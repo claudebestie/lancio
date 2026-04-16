@@ -69,6 +69,22 @@ const exemplesData: Record<string, any> = {
     texte: "Landing page conçue pour convertir les visiteurs en prospects qualifiés. La structure est pensée pour répondre aux objections dans l'ordre : d'abord la méthode (pourquoi ça marche), puis les preuves (résultats clients), puis les tarifs, enfin l'action (réserver une séance découverte gratuite).",
     lien: "https://lancio.fr/#commander",
   },
+  "coach-de-vie-paris": {
+    secteur: "Coach de vie",
+    nom: "Sophie Martin Coaching",
+    ville: "Paris",
+    desc: "Site doux et rassurant avec approche, parcours et prise de RDV pour un premier échange gratuit",
+    color: "#E8DED4",
+    accentColor: "#8B6F47",
+    photos: [
+      { file: "coach-approche.jpg", alt: "Sophie Martin — coach de vie Paris", label: "Sophie Martin" },
+      { file: "coach-seance-vie.jpg", alt: "Séance de coaching individuel", label: "En séance" },
+      { file: "coach-temoignage.jpg", alt: "Témoignage client — transformation personnelle", label: "Témoignage" },
+    ],
+    features: ["Approche & méthode", "Parcours personnel", "Témoignages clients", "RDV en ligne (Calendly)", "Blog développement personnel"],
+    texte: "Site pensé pour inspirer confiance dès la première seconde. Le ton est chaleureux et bienveillant. La page présente l'approche de Sophie, son parcours, les problématiques qu'elle accompagne (transition de vie, confiance en soi, gestion du stress). Intégration Calendly pour réserver un premier échange gratuit de 20 minutes. Témoignages clients en bas de page pour rassurer.",
+    lien: "https://lancio.fr/#commander",
+  },
   "cabinet-medical-nantes": {
     secteur: "Médecin généraliste",
     nom: "Cabinet du Dr Legrand",
@@ -107,6 +123,7 @@ export function getStaticPaths() {
     "salon-coiffure-lyon": { secteur: "Salon de coiffure", nom: "Studio Lumière", ville: "Lyon 6e" },
     "cabinet-avocat-marseille": { secteur: "Cabinet d'avocat", nom: "Maître Fontaine & Associés", ville: "Marseille" },
     "coach-sportif-bordeaux": { secteur: "Coach sportif", nom: "Marc Durand Performance", ville: "Bordeaux" },
+    "coach-de-vie-paris": { secteur: "Coach de vie", nom: "Sophie Martin Coaching", ville: "Paris" },
     "cabinet-medical-nantes": { secteur: "Médecin généraliste", nom: "Cabinet du Dr Legrand", ville: "Nantes" },
     "artisan-plombier-toulouse": { secteur: "Plombier artisan", nom: "Durand Plomberie", ville: "Toulouse" },
   };

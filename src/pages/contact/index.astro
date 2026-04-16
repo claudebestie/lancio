@@ -1,0 +1,291 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Contact — Prendre rendez-vous | Lancio"
+  description="Prenez rendez-vous gratuitement ou contactez l'équipe Lancio. Échange de 30 min pour discuter de votre projet de site web."
+  canonical="https://lancio.fr/contact/"
+>
+  <Nav />
+  <main class="contact-page">
+    <div class="container">
+
+      <div class="contact-hero">
+        <div class="section-tag">Contact</div>
+        <h1>Discutons de<br/><em>votre projet</em></h1>
+        <p class="contact-hero-sub">Réservez un créneau de 30 min gratuit pour discuter de votre site. Zéro engagement, on vous aide à y voir plus clair.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Calendly — Main -->
+        <div class="contact-calendly">
+          <div class="calendly-header">
+            <div class="calendly-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="3" stroke="var(--accent)" stroke-width="1.5"/><path d="M16 2v4M8 2v4M3 10h18" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="16" r="1.5" fill="var(--accent)"/></svg>
+            </div>
+            <div>
+              <h2 class="calendly-title">Prendre rendez-vous</h2>
+              <p class="calendly-sub">30 min · Gratuit · Sans engagement</p>
+            </div>
+          </div>
+          <div class="calendly-embed">
+            <iframe
+              src="https://calendly.com/hello-beyitworld/30min?hide_gdpr_banner=1&background_color=fefdfb&text_color=1a1a2e&primary_color=e8622c"
+              width="100%"
+              height="660"
+              frameborder="0"
+              title="Prendre rendez-vous avec Lancio"
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="calendly-fallback">
+            <a href="https://calendly.com/hello-beyitworld/30min" target="_blank" class="calendly-link-btn">
+              Ouvrir Calendly dans un nouvel onglet →
+            </a>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="contact-sidebar">
+
+          <!-- Direct contact -->
+          <div class="sidebar-card">
+            <h3>Nous écrire directement</h3>
+            <div class="sidebar-links">
+              <a href="mailto:hello@lancio.fr" class="sidebar-link">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="4" width="14" height="10" rx="2" stroke="var(--accent)" stroke-width="1.3"/><path d="M2 6l7 4.5L16 6" stroke="var(--accent)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                hello@lancio.fr
+              </a>
+              <a href="https://wa.me/33787686005" target="_blank" class="sidebar-link">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1.5C4.86 1.5 1.5 4.86 1.5 9c0 1.32.34 2.56.94 3.64L1.5 16.5l3.96-.93A7.47 7.47 0 009 16.5c4.14 0 7.5-3.36 7.5-7.5S13.14 1.5 9 1.5z" stroke="var(--accent)" stroke-width="1.3"/><path d="M6.5 7.5s.5-1 1.5-1 1.5 1 1.5 1-.5 1-1 1.5S7 11 7 11" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round"/></svg>
+                WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Reassurance -->
+          <div class="sidebar-card sidebar-reassurance">
+            <h3>Ce qu'on va aborder</h3>
+            <ul>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="var(--accent-pale)"/><path d="M4 7l2 2 4-4" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Vos objectifs et votre activité
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="var(--accent-pale)"/><path d="M4 7l2 2 4-4" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                La structure idéale pour votre site
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="var(--accent-pale)"/><path d="M4 7l2 2 4-4" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Les options adaptées à votre budget
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="var(--accent-pale)"/><path d="M4 7l2 2 4-4" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Les prochaines étapes si on travaille ensemble
+              </li>
+            </ul>
+          </div>
+
+          <!-- Quick CTA -->
+          <div class="sidebar-card sidebar-cta">
+            <p>Déjà convaincu(e) ?</p>
+            <a href="/#commander" class="sidebar-btn">Créer mon site directement →</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .contact-page { padding-top: 64px; }
+
+  .contact-hero {
+    text-align: center;
+    padding: 72px 0 48px;
+  }
+  .section-tag {
+    display: inline-block; font-size: 12px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);
+    background: var(--accent-pale); padding: 5px 14px; border-radius: 100px; margin-bottom: 16px;
+  }
+  h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.08; margin-bottom: 16px; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .contact-hero-sub {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 40px;
+    align-items: start;
+    padding-bottom: 80px;
+  }
+
+  /* Calendly embed */
+  .contact-calendly {
+    background: var(--white);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+  }
+  .calendly-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--border);
+    background: var(--cream);
+  }
+  .calendly-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--accent-pale);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .calendly-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+  .calendly-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .calendly-embed {
+    min-height: 660px;
+  }
+  .calendly-embed iframe {
+    display: block;
+    border: none;
+    min-height: 660px;
+  }
+  .calendly-fallback {
+    padding: 12px 28px 20px;
+    text-align: center;
+  }
+  .calendly-link-btn {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Sidebar */
+  .contact-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: sticky;
+    top: 88px;
+  }
+
+  .sidebar-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+  }
+  .sidebar-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+  }
+
+  .sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: all 0.2s;
+  }
+  .sidebar-link:hover {
+    border-color: var(--accent);
+    background: var(--accent-pale);
+  }
+
+  .sidebar-reassurance ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .sidebar-reassurance li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .sidebar-cta {
+    background: var(--accent-pale);
+    border-color: rgba(232,98,44,0.15);
+    text-align: center;
+  }
+  .sidebar-cta p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+  }
+  .sidebar-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+    width: 100%;
+    text-align: center;
+  }
+  .sidebar-btn:hover {
+    background: var(--accent-light);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .contact-sidebar {
+      position: static;
+    }
+  }
+  @media (max-width: 640px) {
+    .contact-hero { padding: 48px 0 32px; }
+    .calendly-header { padding: 20px; }
+  }
+</style>
