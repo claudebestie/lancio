@@ -77,9 +77,9 @@ const exemplesData: Record<string, any> = {
     color: "#E8DED4",
     accentColor: "#8B6F47",
     photos: [
-      { file: "coach-approche.jpg", alt: "Sophie Martin — coach de vie Paris", label: "Sophie Martin" },
-      { file: "coach-seance-vie.jpg", alt: "Séance de coaching individuel", label: "En séance" },
-      { file: "coach-temoignage.jpg", alt: "Témoignage client — transformation personnelle", label: "Témoignage" },
+      { file: "30e1d910a21275bd2287866771b56233.jpg", alt: "Sophie Martin — coach de vie, méditation", label: "Approche bien-être" },
+      { file: "58d0060c6bdd456d3ecb3150614ae176.jpg", alt: "Séance de coaching individuel en face-à-face", label: "En séance" },
+      { file: "1ec3cb5da1b707a551605fc472aa1e33.jpg", alt: "Coach et cliente célébrant une réussite", label: "Résultat coaching" },
     ],
     features: ["Approche & méthode", "Parcours personnel", "Témoignages clients", "RDV en ligne (Calendly)", "Blog développement personnel"],
     texte: "Site pensé pour inspirer confiance dès la première seconde. Le ton est chaleureux et bienveillant. La page présente l'approche de Sophie, son parcours, les problématiques qu'elle accompagne (transition de vie, confiance en soi, gestion du stress). Intégration Calendly pour réserver un premier échange gratuit de 20 minutes. Témoignages clients en bas de page pour rassurer.",
@@ -189,23 +189,7 @@ if (!ex) {
         <div class="photos-grid" style={`--n: ${ex.photos.length};`}>
           {ex.photos.map((p: any, i: number) => (
             <div class={`photo-card ${i === 0 ? 'photo-featured' : ''}`}>
-              <!-- 
-                PHOTO PLACEHOLDER — Remplacer src par la vraie photo Mizra
-                Nom du fichier attendu : /photos/${p.file}
-                Placer les photos dans : public/photos/
-              -->
-              <div
-                class="photo-placeholder"
-                style={`background: ${ex.color}; --accent: ${ex.accentColor};`}
-                title={`Photo à placer : public/photos/${p.file}`}
-              >
-                <div class="ph-icon">📷</div>
-                <div class="ph-filename">{p.file}</div>
-                <div class="ph-alt">{p.alt}</div>
-              </div>
-              <!-- Quand photos disponibles, remplacer le div ci-dessus par :
-              <img src={`/photos/${p.file}`} alt={p.alt} loading={i === 0 ? 'eager' : 'lazy'} />
-              -->
+              <img src={`/secteurs/${p.file}`} alt={p.alt} loading={i === 0 ? 'eager' : 'lazy'} class="photo-img" />
               <div class="photo-label">{p.label}</div>
             </div>
           ))}
@@ -294,18 +278,11 @@ if (!ex) {
   }
   .photo-card { display: flex; flex-direction: column; gap: 6px; }
   .photo-featured { grid-column: 1 / 3; grid-row: 1 / 3; }
-  .photo-placeholder {
+  .photo-img {
     width: 100%; height: 200px; border-radius: var(--radius-md);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 8px;
-    border: 2px dashed rgba(14,14,14,0.15);
-    position: relative;
-    overflow: hidden;
+    object-fit: cover;
   }
-  .photo-featured .photo-placeholder { height: 100%; min-height: 300px; }
-  .ph-icon { font-size: 28px; opacity: 0.4; }
-  .ph-filename { font-size: 11px; font-family: var(--font-body); color: rgba(14,14,14,0.5); }
-  .ph-alt { font-size: 10px; color: rgba(14,14,14,0.35); text-align: center; max-width: 160px; }
+  .photo-featured .photo-img { height: 100%; min-height: 300px; }
   .photo-label { font-size: 12px; color: var(--text-muted); padding-left: 4px; }
 
   .exemple-texte-section { margin-bottom: 48px; }
