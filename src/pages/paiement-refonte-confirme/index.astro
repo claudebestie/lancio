@@ -75,6 +75,34 @@ import Layout from '../../layouts/Layout.astro';
     value: 700,
     currency: 'EUR'
   });
+
+  (function() {
+    const SUPABASE_URL = 'https://rofkgmwjggvxlgrdnsyt.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvZmtnbXdqZ2d2eGxncmRuc3l0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5MzA2MTgsImV4cCI6MjA4NzUwNjYxOH0.6nlnX-0wUlID-630j5fOyveEAG0Lrp2gWhgGMRKpmNk';
+    const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get('session_id') || params.get('s') || ('direct-' + Date.now());
+    const guard = 'inserted_refonte_' + sessionId;
+    if (sessionStorage.getItem(guard)) return;
+    sessionStorage.setItem(guard, '1');
+    fetch(SUPABASE_URL + '/rest/v1/lancio_orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        apikey: SUPABASE_KEY,
+        Authorization: 'Bearer ' + SUPABASE_KEY,
+        Prefer: 'return=minimal'
+      },
+      body: JSON.stringify({
+        nom: 'Refonte Stripe — ' + sessionId.slice(-10),
+        email: null,
+        description: 'Refonte page Lancio 700€ — payé via Stripe Payment Link',
+        options: ['refonte'],
+        maintenance: false,
+        options_total: 700,
+        status: 'paid'
+      })
+    }).catch(function(){});
+  })();
 </script>
 
 </Layout>
