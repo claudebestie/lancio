@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 
 const CAL_LINK = "https://cal.eu/lancio/discovery-call-15-min";
 const STRIPE_AUDIT = "https://buy.stripe.com/eVqeVd6Vjdsz64c7Mj4Ja0h";
+const STRIPE_REFONTE = "https://buy.stripe.com/00w8wP4Nb2NVdwEfeL4Ja0k";
+const STRIPE_SITE = "https://buy.stripe.com/cNi9ATbbzgELfEM1nV4Ja0l";
 ---
 
 <Layout
@@ -153,6 +155,7 @@ const STRIPE_AUDIT = "https://buy.stripe.com/eVqeVd6Vjdsz64c7Mj4Ja0h";
             <li>Suivi 30 jours inclus</li>
           </ul>
           <a href={CAL_LINK} class="lp-price-btn lp-price-btn-primary" target="_blank" rel="noopener">Réserver un appel</a>
+          <a href={STRIPE_REFONTE} class="lp-price-direct" target="_blank" rel="noopener">ou commander direct →</a>
         </div>
 
         <!-- Site complet -->
@@ -169,6 +172,7 @@ const STRIPE_AUDIT = "https://buy.stripe.com/eVqeVd6Vjdsz64c7Mj4Ja0h";
             <li>Suivi 30 jours inclus</li>
           </ul>
           <a href={CAL_LINK} class="lp-price-btn lp-price-btn-secondary" target="_blank" rel="noopener">Réserver un appel</a>
+          <a href={STRIPE_SITE} class="lp-price-direct" target="_blank" rel="noopener">ou commander direct →</a>
         </div>
       </div>
     </div>
@@ -630,6 +634,25 @@ const STRIPE_AUDIT = "https://buy.stripe.com/eVqeVd6Vjdsz64c7Mj4Ja0h";
     background: var(--cream);
     color: var(--text-primary);
     border: 1px solid var(--border-strong);
+  }
+
+  .lp-price-direct {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.15s;
+  }
+  .lp-price-direct:hover { color: var(--accent); }
+  .lp-pricing-card-highlight .lp-price-direct {
+    color: rgba(254,253,251,0.6);
+  }
+  .lp-pricing-card-highlight .lp-price-direct:hover {
+    color: var(--accent-light);
   }
 
   /* FAQ */
