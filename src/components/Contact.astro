@@ -27,7 +27,7 @@
         <div class="form-header">
           <span class="form-title">Nous écrire</span>
         </div>
-        <div class="form-body" id="contact-form-body">
+        <form class="form-body" id="contact-form-body" name="contact_lancio" novalidate onsubmit="event.preventDefault(); submitContact(); return false;">
           <div class="field-row">
             <div class="field-group">
               <label class="field-label">Votre nom *</label>
@@ -51,10 +51,10 @@
 
           <div id="c-error" style="display:none; font-size:13px; color:#A32D2D; padding:10px; background:#FEF0F0; border-radius:8px;"></div>
 
-          <button type="button" class="form-submit" id="c-submit" onclick="submitContact()">
+          <button type="submit" class="form-submit" id="c-submit">
             Envoyer mon message →
           </button>
-        </div>
+        </form>
 
         <div id="contact-success" class="form-body" style="display:none;">
           <div class="success-step">

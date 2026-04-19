@@ -47,7 +47,7 @@
         </div>
 
         <!-- Étape 1 : Brief -->
-        <div id="step-brief" class="form-body">
+        <form id="step-brief" class="form-body" name="commander_brief" novalidate onsubmit="event.preventDefault(); showRecap(); return false;">
           <div class="field-group">
             <label class="field-label">Votre prénom et nom *</label>
             <input type="text" id="f-nom" placeholder="Marie Dupont" required />
@@ -132,13 +132,13 @@
 
           <div id="form-error" style="display:none; font-size:13px; color:#A32D2D; padding:10px; background:#FEF0F0; border-radius:8px;"></div>
 
-          <button type="button" class="form-submit" id="submitBtn" onclick="showRecap()">
+          <button type="submit" class="form-submit" id="submitBtn">
             Passer ma commande →</button>
 
           <div class="form-note">
             Vous pourrez relire votre commande avant de payer.
           </div>
-        </div>
+        </form>
 
         <!-- Étape 2 : Récapitulatif -->
         <div id="step-recap" style="display:none;" class="form-body">
