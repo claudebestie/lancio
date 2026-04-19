@@ -67,4 +67,4 @@ Ce qui est inclus : design personnalisé, 3 à 5 pages, responsive mobile, SEO d
 
 Chez [Lancio](/), c'est exactement ça : €290, tout compris, livré en 48h.
 
-**[Commander mon site à €290 →](/#commander)**
+**[Commander mon site à €290 →](/commander/)**

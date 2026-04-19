@@ -65,4 +65,4 @@ Vous n'avez pas besoin de devenir expert en web. Vous avez besoin de 5 minutes p
 
 Chez [Lancio](/), on transforme vos réponses en un site professionnel sur mesure. Design moderne, SEO optimisé, mobile-first. À partir de €290.
 
-**[Créer mon site maintenant →](/#commander)**
+**[Créer mon site maintenant →](/commander/)**

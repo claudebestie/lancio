@@ -69,4 +69,4 @@ Le SEO local n'est pas instantané, mais il est plus rapide que le SEO classique
 
 Un site fait maison ou un Wix basique ne donnera jamais les mêmes résultats qu'un site optimisé pour le SEO local dès sa conception. Chez [Lancio](/), chaque site intègre les bonnes balises, le contenu localisé et la structure que Google attend — à partir de €290.
 
-**[Lancer mon site optimisé SEO →](/#commander)**
+**[Lancer mon site optimisé SEO →](/commander/)**

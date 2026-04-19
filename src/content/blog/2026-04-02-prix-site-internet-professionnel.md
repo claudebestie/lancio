@@ -67,4 +67,4 @@ Un site vitrine à €290 qui vous amène 2 clients par mois à €200 chacun, c
 
 La vraie question n'est pas "combien ça coûte" mais "combien ça me coûte de ne pas en avoir".
 
-**[Commander mon site à €290 →](/#commander)**
+**[Commander mon site à €290 →](/commander/)**

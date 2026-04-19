@@ -157,7 +157,7 @@ const {
         window.datafast?.('page_lang', { lang: 'fr' });
 
         // Track cta_get_started on all #commander links (covers sector pages too)
-        document.querySelectorAll('a[href="#commander"], a[href="/#commander"]').forEach(function(el) {
+        document.querySelectorAll('a[href="/commander/"], a[href="#commander"], a[href="/#commander"]').forEach(function(el) {
           el.addEventListener('click', function() {
             window.datafast?.('cta_get_started');
           });
@@ -226,7 +226,7 @@ const {
 
     <!-- Sticky Mobile CTA -->
     <div class="mobile-cta-bar" id="mobileCta">
-      <a href="#commander" class="mobile-cta-btn">Créer mon site</a>
+      <a href="/commander/" class="mobile-cta-btn">Créer mon site</a>
     </div>
 
     <script is:inline>

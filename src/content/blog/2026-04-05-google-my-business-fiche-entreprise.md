@@ -86,4 +86,4 @@ Votre fiche Google et votre site web se renforcent mutuellement. Google croise l
 
 Un site professionnel optimisé pour le SEO local donne encore plus de poids à votre fiche Google. Chez [Lancio](/), on crée des sites qui travaillent en synergie avec votre fiche Google — à partir de €290.
 
-**[Créer mon site optimisé →](/#commander)**
+**[Créer mon site optimisé →](/commander/)**

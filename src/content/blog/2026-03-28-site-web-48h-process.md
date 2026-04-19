@@ -66,4 +66,4 @@ Vous commandez lundi. Vous êtes en ligne mercredi.
 
 Découvrez nos solutions par secteur : [restaurants](/site-web-restaurant/), [avocats](/site-web-avocat/), [médecins](/site-web-medecin/), [artisans](/site-web-artisan/), [coachs sportifs](/site-web-coach-sportif/).
 
-[Commander votre site →](https://lancio.fr/#commander)
+[Commander votre site →](https://lancio.fr/commander/)

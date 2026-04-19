@@ -54,4 +54,4 @@ Pour un restaurant qui démarre ou qui veut simplement une présence web efficac
 
 Si vous avez besoin d'un site rapidement — pour une ouverture, une saison haute qui approche, un changement de carte — Lancio livre en 48 heures. Vous commandez lundi, vous êtes en ligne mercredi.
 
-[Commander votre site restaurant →](https://lancio.fr/#commander)
+[Commander votre site restaurant →](https://lancio.fr/commander/)

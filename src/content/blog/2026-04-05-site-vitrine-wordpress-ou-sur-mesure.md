@@ -74,4 +74,4 @@ Comment ? En utilisant des technologies modernes (Astro, sites statiques) qui pe
 
 **Choisissez le sur mesure si :** vous voulez un site vitrine professionnel, rapide, sécurisé, sans vous soucier de la maintenance — et que vous préférez investir votre temps dans votre activité plutôt que dans la gestion d'un CMS.
 
-**[Commander mon site sur mesure →](/#commander)**
+**[Commander mon site sur mesure →](/commander/)**

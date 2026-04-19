@@ -76,4 +76,4 @@ Un site de cabinet comptable chez une agence spécialisée : €3 000 à €8 00
 
 Chez [Lancio](/) : €290, livré en 48h. Même qualité, même professionnalisme — sans le budget disproportionné.
 
-**[Créer le site de mon cabinet →](/#commander)**
+**[Créer le site de mon cabinet →](/commander/)**

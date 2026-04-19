@@ -62,4 +62,4 @@ Vous n'avez pas besoin de tout savoir sur le web pour avoir un bon site. Vous av
 
 Chez [Lancio](/), on vous pose les bonnes questions, on crée votre site sur mesure, et vous êtes en ligne en 48h. À partir de €290, sans surprise.
 
-**[Créer mon site vitrine →](/#commander)**
+**[Créer mon site vitrine →](/commander/)**

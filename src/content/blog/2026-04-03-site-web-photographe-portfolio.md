@@ -63,4 +63,4 @@ Vous n'avez pas besoin d'un site à €3 000. Vous avez besoin d'un site rapide,
 
 Chez [Lancio](/), on crée des sites portfolio pour photographes à partir de €290, livrés en 48h. Galeries optimisées, SEO intégré, formulaire de devis — tout est inclus.
 
-**[Créer mon portfolio →](/#commander)**
+**[Créer mon portfolio →](/commander/)**

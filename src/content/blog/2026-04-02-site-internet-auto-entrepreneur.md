@@ -70,4 +70,4 @@ Votre budget est serré, on le sait. C'est exactement pour ça que [Lancio](/) e
 
 €290, c'est l'équivalent d'une ou deux prestations pour la plupart des auto-entrepreneurs. Et ce site travaille pour vous 24h/24, 7j/7, pendant des années.
 
-**[Créer mon site auto-entrepreneur →](/#commander)**
+**[Créer mon site auto-entrepreneur →](/commander/)**

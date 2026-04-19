@@ -93,4 +93,4 @@ Quel que soit le prestataire, voici ce que vous devez préparer :
 
 Chez [Lancio](/), toutes ces cases sont cochées. €290, 48h, propriétaire de votre site.
 
-**[Commander mon site vitrine →](/#commander)**
+**[Commander mon site vitrine →](/commander/)**

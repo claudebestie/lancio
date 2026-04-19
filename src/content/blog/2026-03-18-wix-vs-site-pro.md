@@ -56,4 +56,4 @@ Lancio propose quelque chose de différent : un site sur mesure, vraiment profes
 
 Pour une TPE qui veut arrêter de perdre des clients parce que son site fait peur, c'est probablement la décision la plus rentable à prendre cette année.
 
-[Lancer votre site avec Lancio →](https://lancio.fr/#commander)
+[Lancer votre site avec Lancio →](https://lancio.fr/commander/)

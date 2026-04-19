@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Commander from '../../components/Commander.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Commander mon site Lancio · Brief en 5 min | Lancio"
+  description="Remplis le brief en 5 minutes. Site sur mesure livré sous 7-14 jours. Paiement sécurisé Stripe, satisfait ou remboursé."
+  canonical="https://lancio.fr/commander/"
+>
+  <Nav />
+  <main>
+    <Commander />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main { padding-top: 0; }
+</style>
