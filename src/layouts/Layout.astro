@@ -21,6 +21,26 @@ const {
 <!doctype html>
 <html lang="fr">
   <head>
+    <!-- Google Consent Mode v2 — defaults BEFORE GTM/gtag -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'functionality_storage': 'granted',
+        'security_storage': 'granted',
+        'wait_for_update': 500
+      });
+    </script>
+
+    <!-- Tarteaucitron CMP (managed) -->
+    <link rel="dns-prefetch" href="//cdntag.tarteaucitron.io">
+    <link rel="preconnect" href="https://cdntag.tarteaucitron.io" crossorigin>
+    <script is:inline src="https://cdntag.tarteaucitron.io/load.js?domain=lancio.fr&uuid=0cbc3c32d93ce1c2ce22d766f4126a69c9139a06"></script>
+
     <!-- Google Tag Manager -->
     <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
