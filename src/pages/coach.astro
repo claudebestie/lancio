@@ -1,0 +1,790 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const CAL_LINK = "https://cal.eu/lancio/discovery-15min";
+const STRIPE_AUDIT = "https://buy.stripe.com/eVqeVd6Vjdsz64c7Mj4Ja0h";
+---
+
+<Layout
+  title="Site web pour coach qui convertit · Refonte premium en 14 jours | Lancio"
+  description="Refonte ou création de site pour coachs business, sport et mindset. Copy orientée conversion, design premium, livré en 14 jours. À partir de 700€."
+  canonical="https://lancio.fr/coach/"
+>
+
+<!-- Mini header isolé (pas de nav globale) -->
+<header class="lp-header">
+  <div class="container lp-header-inner">
+    <a href="/" class="lp-logo">Lancio</a>
+    <a href={CAL_LINK} class="lp-header-cta" target="_blank" rel="noopener">
+      Réserver 15 min
+    </a>
+  </div>
+</header>
+
+<main class="lp-coach">
+
+  <!-- 1. HERO -->
+  <section class="lp-hero">
+    <div class="container">
+      <div class="lp-hero-content">
+        <span class="lp-tag">Spécialiste sites pour coachs</span>
+        <h1 class="lp-h1">Ton site coach attire des visiteurs.<br/><span class="lp-h1-accent">Lancio les transforme en clients.</span></h1>
+        <p class="lp-sub">
+          Refonte premium pour <strong>coachs business, sport, mindset</strong>. Copy orientée conversion, design qui inspire confiance, livré en <strong>14 jours</strong>. À partir de 700€.
+        </p>
+        <div class="lp-hero-ctas">
+          <a href={CAL_LINK} class="lp-btn-primary" target="_blank" rel="noopener">
+            Réserver mon appel découverte (15 min · gratuit)
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="#tarifs" class="lp-btn-ghost">Voir les tarifs ↓</a>
+        </div>
+        <ul class="lp-microproof">
+          <li>✓ 100% sur mesure, pas de template</li>
+          <li>✓ Copy orientée conversion (pas juste joli)</li>
+          <li>✓ Livraison 14 jours, garantie satisfaction</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. PROBLÈME -->
+  <section class="lp-problem">
+    <div class="container">
+      <div class="lp-section-head">
+        <span class="lp-eyebrow">Le problème</span>
+        <h2 class="lp-h2">Tu as un site qui parle de toi.<br/>Pas de la transformation que tu offres.</h2>
+        <p class="lp-section-sub">Résultat : tu attires des curieux qui négocient, pas des clientes qui paient ton plein tarif.</p>
+      </div>
+
+      <div class="lp-problem-grid">
+        <div class="lp-problem-card">
+          <div class="lp-problem-num">01</div>
+          <h3>Message flou</h3>
+          <p>Ton visiteur arrive et ne comprend pas en 5 secondes <strong>pour qui</strong> tu travailles et <strong>quel résultat</strong> tu obtiens. Il part.</p>
+        </div>
+        <div class="lp-problem-card">
+          <div class="lp-problem-num">02</div>
+          <h3>Mauvais clients</h3>
+          <p>Tu attires des gens qui veulent du gratuit, qui négocient ton prix, ou qui ne sont pas alignés avec ta méthode. Tu perds du temps.</p>
+        </div>
+        <div class="lp-problem-card">
+          <div class="lp-problem-num">03</div>
+          <h3>Friction de réservation</h3>
+          <p>Ton formulaire demande 8 champs, ton CTA est planqué, ton lien Calendly est cassé. <strong>70% des prospects partent sans booker.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SOLUTION -->
+  <section class="lp-solution">
+    <div class="container">
+      <div class="lp-section-head">
+        <span class="lp-eyebrow">La méthode Lancio</span>
+        <h2 class="lp-h2">3 étapes pour transformer ton site<br/>en machine à clients qualifiés.</h2>
+      </div>
+
+      <div class="lp-steps">
+        <div class="lp-step">
+          <div class="lp-step-num">1</div>
+          <div class="lp-step-content">
+            <h3>Audit conversion</h3>
+            <p>J'analyse ton site, ta cible et tes concurrents. Je te livre <strong>5-7 reco actionnables</strong> en Loom commenté + doc Notion. Sous 48h.</p>
+            <span class="lp-step-tag">Livré sous 48h · 150€</span>
+          </div>
+        </div>
+        <div class="lp-step">
+          <div class="lp-step-num">2</div>
+          <div class="lp-step-content">
+            <h3>Refonte ou création</h3>
+            <p>Je réécris ta copy orientée conversion (basée sur l'audit) et redesigne ton site en respectant ton univers. Tu valides à chaque étape.</p>
+            <span class="lp-step-tag">Livré sous 14 jours · 700-1200€</span>
+          </div>
+        </div>
+        <div class="lp-step">
+          <div class="lp-step-num">3</div>
+          <div class="lp-step-content">
+            <h3>Suivi 30 jours</h3>
+            <p>Après livraison, je reste dispo 30 jours pour ajuster, répondre à tes questions, et optimiser en fonction des premières conversions.</p>
+            <span class="lp-step-tag">Inclus · sans surcoût</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PRICING -->
+  <section class="lp-pricing" id="tarifs">
+    <div class="container">
+      <div class="lp-section-head">
+        <span class="lp-eyebrow">Tarifs transparents</span>
+        <h2 class="lp-h2">Choisis selon où tu en es.</h2>
+        <p class="lp-section-sub">Paiement unique, sans abonnement. Tu es 100% propriétaire de ton site.</p>
+      </div>
+
+      <div class="lp-pricing-grid">
+        <!-- Audit -->
+        <div class="lp-pricing-card">
+          <div class="lp-price-name">Audit</div>
+          <div class="lp-price-amount">150€</div>
+          <p class="lp-price-desc">Pour valider que je suis la bonne personne avant d'investir plus.</p>
+          <ul class="lp-price-features">
+            <li>Analyse complète site + cible</li>
+            <li>5-7 reco actionnables</li>
+            <li>Loom commenté + doc Notion</li>
+            <li>Livré sous 48h</li>
+          </ul>
+          <a href={STRIPE_AUDIT} class="lp-price-btn lp-price-btn-secondary" target="_blank" rel="noopener">Réserver l'audit</a>
+        </div>
+
+        <!-- Refonte (highlight) -->
+        <div class="lp-pricing-card lp-pricing-card-highlight">
+          <span class="lp-price-badge">Le plus choisi</span>
+          <div class="lp-price-name">Refonte page</div>
+          <div class="lp-price-amount">700€</div>
+          <p class="lp-price-desc">Ta page principale (home ou landing) entièrement refaite.</p>
+          <ul class="lp-price-features">
+            <li>Audit inclus</li>
+            <li>Copy orientée conversion</li>
+            <li>Design premium sur mesure</li>
+            <li>Mobile + desktop</li>
+            <li>Livré sous 7 jours</li>
+            <li>Suivi 30 jours inclus</li>
+          </ul>
+          <a href={CAL_LINK} class="lp-price-btn lp-price-btn-primary" target="_blank" rel="noopener">Réserver un appel</a>
+        </div>
+
+        <!-- Site complet -->
+        <div class="lp-pricing-card">
+          <div class="lp-price-name">Site complet</div>
+          <div class="lp-price-amount">1200€</div>
+          <p class="lp-price-desc">Site 5 pages + intégration Cal/Stripe + SEO de base.</p>
+          <ul class="lp-price-features">
+            <li>Audit inclus</li>
+            <li>5 pages sur mesure</li>
+            <li>Cal.com + Stripe intégrés</li>
+            <li>SEO technique de base</li>
+            <li>Livré sous 14 jours</li>
+            <li>Suivi 30 jours inclus</li>
+          </ul>
+          <a href={CAL_LINK} class="lp-price-btn lp-price-btn-secondary" target="_blank" rel="noopener">Réserver un appel</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FAQ -->
+  <section class="lp-faq">
+    <div class="container">
+      <div class="lp-section-head">
+        <span class="lp-eyebrow">Questions fréquentes</span>
+        <h2 class="lp-h2">Tout ce que tu te demandes.</h2>
+      </div>
+
+      <div class="lp-faq-list">
+        <details class="lp-faq-item">
+          <summary>Combien de temps ça prend vraiment ?</summary>
+          <div class="lp-faq-answer">
+            <p>Audit : <strong>48h</strong> chrono après paiement. Refonte page : <strong>7 jours</strong>. Site complet : <strong>14 jours</strong>. Si je dépasse le délai annoncé, je te rembourse 10% par jour de retard.</p>
+          </div>
+        </details>
+
+        <details class="lp-faq-item">
+          <summary>Et si je ne suis pas satisfaite du résultat ?</summary>
+          <div class="lp-faq-answer">
+            <p>Garantie satisfait ou remboursé sur l'audit (150€). Sur les refontes/sites, je travaille en itérations validées par toi à chaque étape. Tu ne payes pas un truc que tu n'as pas vu et approuvé.</p>
+          </div>
+        </details>
+
+        <details class="lp-faq-item">
+          <summary>Je suis propriétaire de mon site ?</summary>
+          <div class="lp-faq-answer">
+            <p><strong>100% propriétaire.</strong> Pas d'abonnement, pas de location. Le code, le design, le contenu, le domaine, l'hébergement : tout t'appartient. Tu peux changer de prestataire ou tout reprendre toi-même quand tu veux.</p>
+          </div>
+        </details>
+
+        <details class="lp-faq-item">
+          <summary>Tu travailles avec des coachs débutantes ?</summary>
+          <div class="lp-faq-answer">
+            <p>Oui — à condition que ton offre soit claire. Je ne peux pas faire un site qui convertit si tu ne sais pas encore <strong>à qui</strong> tu vends ni <strong>quel résultat</strong> tu promets. Si tu en es là, on commence par 30 min de clarification dans l'audit avant de coder quoi que ce soit.</p>
+          </div>
+        </details>
+
+        <details class="lp-faq-item">
+          <summary>Refonte vs création from scratch ?</summary>
+          <div class="lp-faq-answer">
+            <p>Si ton site actuel a une bonne structure mais une copy/design qui datent : <strong>refonte page</strong> (700€). Si ton site est trop vieux, mal structuré, ou inexistant : <strong>création complète</strong> (1200€). On en parle dans l'audit ou l'appel découverte, pas de surprise.</p>
+          </div>
+        </details>
+
+        <details class="lp-faq-item">
+          <summary>Comment je paie ?</summary>
+          <div class="lp-faq-answer">
+            <p>Stripe (CB sécurisé). Audit : 100% à la commande. Refonte/site : 50% au démarrage, 50% à la livraison. Facture pro fournie pour ta compta.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CTA FINAL -->
+  <section class="lp-final-cta">
+    <div class="container">
+      <div class="lp-final-card">
+        <h2 class="lp-final-h">Prête à transformer ton site<br/>en outil qui te génère des clientes ?</h2>
+        <p class="lp-final-sub">15 minutes pour qu'on regarde ton site ensemble et qu'on identifie tes 2 plus gros leviers de conversion. <strong>Gratuit, sans engagement.</strong></p>
+        <a href={CAL_LINK} class="lp-btn-primary lp-btn-xl" target="_blank" rel="noopener">
+          Réserver mon appel découverte
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <p class="lp-final-foot">Ou écris-moi à <a href="mailto:hello@lancio.fr">hello@lancio.fr</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer minimal LP -->
+<footer class="lp-footer">
+  <div class="container lp-footer-inner">
+    <span class="lp-footer-brand">© 2026 Lancio · Sites pour coachs et freelances</span>
+    <div class="lp-footer-links">
+      <a href="/mentions-legales/">Mentions légales</a>
+      <a href="mailto:hello@lancio.fr">hello@lancio.fr</a>
+    </div>
+  </div>
+</footer>
+
+</Layout>
+
+<style>
+  /* Reset & base LP */
+  .lp-coach {
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+  .lp-coach * { box-sizing: border-box; }
+
+  /* Mini header isolé */
+  .lp-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(254,253,251,0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+  }
+  .lp-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .lp-logo {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+  .lp-header-cta {
+    background: var(--accent);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 2px 12px rgba(232,98,44,0.22);
+    transition: transform 0.15s;
+  }
+  .lp-header-cta:hover { transform: translateY(-1px); }
+
+  /* HERO */
+  .lp-hero {
+    padding: 80px 0 100px;
+    background: linear-gradient(180deg, var(--white) 0%, var(--cream) 100%);
+  }
+  .lp-hero-content {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .lp-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-pale);
+    padding: 8px 14px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+  }
+  .lp-h1 {
+    font-family: var(--font-display);
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    margin-bottom: 24px;
+    font-weight: 800;
+  }
+  .lp-h1-accent { color: var(--accent); }
+
+  .lp-sub {
+    font-size: 19px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 36px;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .lp-hero-ctas {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  .lp-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: #fff;
+    padding: 16px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 6px 24px rgba(232,98,44,0.28);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .lp-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(232,98,44,0.36);
+  }
+  .lp-btn-xl {
+    padding: 20px 36px;
+    font-size: 17px;
+  }
+  .lp-btn-ghost {
+    color: var(--text-secondary);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.15s;
+  }
+  .lp-btn-ghost:hover { color: var(--text-primary); }
+
+  .lp-microproof {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* SECTION HEAD commun */
+  .lp-section-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 56px;
+  }
+  .lp-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .lp-h2 {
+    font-family: var(--font-display);
+    font-size: 40px;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+    font-weight: 800;
+  }
+  .lp-section-sub {
+    font-size: 17px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* PROBLÈME */
+  .lp-problem {
+    padding: 100px 0;
+    background: var(--white);
+  }
+  .lp-problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .lp-problem-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+  }
+  .lp-problem-num {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+  .lp-problem-card h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  .lp-problem-card p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  /* SOLUTION */
+  .lp-solution {
+    padding: 100px 0;
+    background: var(--cream);
+  }
+  .lp-steps {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .lp-step {
+    display: flex;
+    gap: 24px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+    align-items: flex-start;
+  }
+  .lp-step-num {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 18px;
+  }
+  .lp-step-content h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .lp-step-content p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+  .lp-step-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-pale);
+    padding: 5px 11px;
+    border-radius: 999px;
+  }
+
+  /* PRICING */
+  .lp-pricing {
+    padding: 100px 0;
+    background: var(--white);
+  }
+  .lp-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: stretch;
+  }
+  .lp-pricing-card {
+    background: var(--white);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-xl);
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .lp-pricing-card-highlight {
+    background: var(--text-primary);
+    color: var(--white);
+    border-color: var(--text-primary);
+    transform: scale(1.04);
+    box-shadow: 0 16px 48px rgba(26,26,46,0.18);
+  }
+  .lp-pricing-card-highlight .lp-price-name,
+  .lp-pricing-card-highlight .lp-price-amount,
+  .lp-pricing-card-highlight .lp-price-desc,
+  .lp-pricing-card-highlight .lp-price-features li { color: var(--white); }
+  .lp-pricing-card-highlight .lp-price-desc { opacity: 0.85; }
+
+  .lp-price-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+
+  .lp-price-name {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .lp-price-amount {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+  .lp-price-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+  .lp-price-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+  }
+  .lp-price-features li {
+    font-size: 14px;
+    color: var(--text-primary);
+    padding-left: 22px;
+    position: relative;
+  }
+  .lp-price-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .lp-pricing-card-highlight .lp-price-features li::before { color: var(--accent-light); }
+
+  .lp-price-btn {
+    display: block;
+    text-align: center;
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    transition: transform 0.15s ease;
+  }
+  .lp-price-btn:hover { transform: translateY(-1px); }
+  .lp-price-btn-primary {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(232,98,44,0.3);
+  }
+  .lp-price-btn-secondary {
+    background: var(--cream);
+    color: var(--text-primary);
+    border: 1px solid var(--border-strong);
+  }
+
+  /* FAQ */
+  .lp-faq {
+    padding: 100px 0;
+    background: var(--cream);
+  }
+  .lp-faq-list {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .lp-faq-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .lp-faq-item summary {
+    cursor: pointer;
+    padding: 20px 24px;
+    font-weight: 600;
+    font-size: 16px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.15s;
+  }
+  .lp-faq-item summary::-webkit-details-marker { display: none; }
+  .lp-faq-item summary::after {
+    content: '+';
+    color: var(--accent);
+    font-size: 22px;
+    font-weight: 400;
+    transition: transform 0.2s;
+  }
+  .lp-faq-item[open] summary::after { transform: rotate(45deg); }
+  .lp-faq-item summary:hover { background: var(--cream); }
+  .lp-faq-answer {
+    padding: 0 24px 24px;
+  }
+  .lp-faq-answer p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* FINAL CTA */
+  .lp-final-cta {
+    padding: 100px 0;
+    background: var(--white);
+  }
+  .lp-final-card {
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--text-primary);
+    color: var(--white);
+    border-radius: var(--radius-xl);
+    padding: 64px 48px;
+    text-align: center;
+  }
+  .lp-final-h {
+    font-family: var(--font-display);
+    font-size: 36px;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--white);
+    margin-bottom: 16px;
+    font-weight: 800;
+  }
+  .lp-final-sub {
+    font-size: 16px;
+    color: rgba(254,253,251,0.85);
+    line-height: 1.6;
+    margin-bottom: 32px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .lp-final-foot {
+    margin-top: 24px;
+    font-size: 13px;
+    color: rgba(254,253,251,0.6);
+  }
+  .lp-final-foot a {
+    color: var(--accent-light);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* FOOTER LP */
+  .lp-footer {
+    background: var(--cream);
+    padding: 28px 0;
+    border-top: 1px solid var(--border);
+  }
+  .lp-footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .lp-footer-brand {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .lp-footer-links {
+    display: flex;
+    gap: 20px;
+  }
+  .lp-footer-links a {
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: color 0.15s;
+  }
+  .lp-footer-links a:hover { color: var(--text-primary); }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .lp-hero { padding: 56px 0 72px; }
+    .lp-h1 { font-size: 36px; }
+    .lp-sub { font-size: 16px; margin-bottom: 28px; }
+    .lp-hero-ctas { flex-direction: column; gap: 12px; }
+    .lp-btn-primary { width: 100%; justify-content: center; }
+    .lp-btn-xl { width: 100%; justify-content: center; }
+    .lp-microproof { flex-direction: column; gap: 8px; align-items: center; }
+
+    .lp-h2 { font-size: 28px; }
+    .lp-section-sub { font-size: 15px; }
+
+    .lp-problem, .lp-solution, .lp-pricing, .lp-faq, .lp-final-cta {
+      padding: 64px 0;
+    }
+
+    .lp-problem-grid { grid-template-columns: 1fr; gap: 16px; }
+    .lp-pricing-grid { grid-template-columns: 1fr; gap: 16px; }
+    .lp-pricing-card-highlight { transform: none; }
+
+    .lp-step { flex-direction: column; gap: 16px; padding: 24px; }
+    .lp-step-num { width: 38px; height: 38px; font-size: 16px; }
+
+    .lp-final-card { padding: 48px 28px; }
+    .lp-final-h { font-size: 26px; }
+
+    .lp-footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+  }
+
+  @media (max-width: 480px) {
+    .lp-h1 { font-size: 30px; }
+    .lp-h2 { font-size: 24px; }
+  }
+</style>
