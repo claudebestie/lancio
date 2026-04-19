@@ -134,11 +134,31 @@ const {
           });
         });
 
-        // Track book_consultation on all Calendly links
-        document.querySelectorAll('a[href*="calendly.com"]').forEach(function(el) {
+        // Track book_consultation on all Calendly and Cal.eu/Cal.com links
+        document.querySelectorAll('a[href*="calendly.com"], a[href*="cal.eu"], a[href*="cal.com"]').forEach(function(el) {
           el.addEventListener('click', function() {
             var page = window.location.pathname.replace(/\//g, '') || 'homepage';
             window.datafast?.('book_consultation', { page: page });
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: 'audit_intent',
+              value: 25,
+              currency: 'EUR',
+              page: page
+            });
+          });
+        });
+
+        // Track form_submit on all forms
+        document.querySelectorAll('form').forEach(function(form) {
+          form.addEventListener('submit', function() {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: 'form_submit',
+              form_name: form.getAttribute('name') || form.id || 'unknown',
+              value: 10,
+              currency: 'EUR'
+            });
           });
         });
 
