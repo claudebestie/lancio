@@ -1,11 +1,63 @@
 ---
-const siteFeatures = [
-  "Design moderne sur mesure",
-  "Structure optimisée conversion",
-  "Responsive mobile parfait",
-  "Prise de RDV intégrée (Calendly)",
-  "Hébergement + domaine 1 an",
-  "1 révision incluse",
+const STRIPE_AUDIT = "https://buy.stripe.com/eVqeVd6Vjdsz64c7Mj4Ja0h";
+const STRIPE_REFONTE = "https://buy.stripe.com/00w8wP4Nb2NVdwEfeL4Ja0k";
+const STRIPE_SITE = "https://buy.stripe.com/cNi9ATbbzgELfEM1nV4Ja0l";
+const CAL_LINK = "https://cal.eu/lancio/discovery-call-15-min";
+
+const services = [
+  {
+    name: "Audit",
+    desc: "Pour valider où tu coinces avant d'investir plus.",
+    price: "150",
+    unit: "€",
+    badge: null,
+    features: [
+      "Analyse complète site + cible",
+      "5-7 reco actionnables",
+      "Loom commenté + doc Notion",
+      "Livré sous 48h",
+      "150€ déduits si refonte/site dans 30j",
+    ],
+    cta: "Réserver l'audit",
+    href: STRIPE_AUDIT,
+    highlight: false,
+  },
+  {
+    name: "Refonte page",
+    desc: "Ta page principale refaite. Copy + design.",
+    price: "700",
+    unit: "€",
+    badge: "Le plus choisi",
+    features: [
+      "Audit inclus",
+      "Copy orientée conversion",
+      "Design premium sur mesure",
+      "Mobile + desktop",
+      "Livré sous 7 jours",
+      "Suivi 30 jours inclus",
+    ],
+    cta: "Réserver un appel",
+    href: CAL_LINK,
+    highlight: true,
+  },
+  {
+    name: "Site complet",
+    desc: "Site 5 pages sur mesure + intégrations.",
+    price: "1200",
+    unit: "€",
+    badge: null,
+    features: [
+      "Audit inclus",
+      "5 pages sur mesure",
+      "Cal.com + Stripe intégrés",
+      "SEO technique de base",
+      "Livré sous 14 jours",
+      "Suivi 30 jours inclus",
+    ],
+    cta: "Réserver un appel",
+    href: CAL_LINK,
+    highlight: false,
+  },
 ];
 
 const abonnements = [
@@ -53,58 +105,43 @@ const abonnements = [
 <section class="pricing section-pad" id="pricing">
   <div class="container">
 
-    <!-- ═══ PARTIE 1 : LE SITE ═══ -->
+    <!-- ═══ PARTIE 1 : SERVICES (3 tiers) ═══ -->
     <div class="section-header">
-      <div class="section-tag">Ton site</div>
-      <h2 class="section-h2">Un site qui attire<br/><em>les bons clients.</em></h2>
+      <div class="section-tag">Par où commencer ?</div>
+      <h2 class="section-h2">3 façons de travailler<br/><em>ensemble.</em></h2>
+      <p class="section-sub">Choisis selon où tu en es. Tarifs transparents, paiement unique, 100% propriétaire de ton site.</p>
     </div>
 
-    <div class="site-block">
-      <div class="site-visual">
-        <div class="site-mockup">
-          <div class="mockup-bar">
-            <span class="dot dot-red"></span>
-            <span class="dot dot-yellow"></span>
-            <span class="dot dot-green"></span>
-            <span class="mockup-url">ton-site.fr</span>
+    <div class="services-grid">
+      {services.map(s => (
+        <div class={`service-card ${s.highlight ? 'service-highlight' : ''}`}>
+          {s.badge && <div class="service-badge">{s.badge}</div>}
+          <div class="service-name">{s.name}</div>
+          <div class="service-desc">{s.desc}</div>
+          <div class="service-price">
+            <span class="service-amount">{s.price}</span>
+            <span class="service-unit">{s.unit}</span>
           </div>
-          <div class="mockup-screen">
-            <img src="/secteurs/coach1.jpg" alt="Exemple de site de coach livré par Lancio" loading="lazy" width="600" height="375" />
+          <div class="service-features">
+            {s.features.map(f => (
+              <div class="service-feature">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="var(--accent-pale)"/><path d="M4 7l2 2 4-4" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>{f}</span>
+              </div>
+            ))}
           </div>
+          <a href={s.href} class={`service-cta ${s.highlight ? 'service-cta-primary' : 'service-cta-secondary'}`} target="_blank" rel="noopener">
+            {s.cta}
+          </a>
         </div>
-        <div class="site-float">
-          <img src="/secteurs/30e1d910a21275bd2287866771b56233.jpg" alt="Coach de vie — site Lancio" loading="lazy" class="float-img" />
-        </div>
-      </div>
-      <div class="site-info">
-        <div class="site-price-row">
-          <div class="site-price">
-            <span class="site-amount">490</span>
-            <span class="site-currency">€</span>
-          </div>
-          <div class="site-delivery">
-            <span class="delivery-badge">Livré en 48h</span>
-            <span class="delivery-note">Paiement unique · Pas d'abonnement</span>
-          </div>
-        </div>
-        <div class="site-features">
-          {siteFeatures.map(f => (
-            <div class="site-feature">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="var(--accent-pale)"/><path d="M5 8l2 2 4-4" stroke="var(--accent)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <span>{f}</span>
-            </div>
-          ))}
-        </div>
-        <a href="#commander" class="site-cta">Attirer les bons clients</a>
-        <div class="site-note">Brief en 5 min · Satisfait ou remboursé</div>
-      </div>
+      ))}
     </div>
 
     <!-- ═══ PARTIE 2 : ABONNEMENTS ═══ -->
     <div class="section-header abo-header">
-      <div class="section-tag">Aller plus loin</div>
+      <div class="section-tag">Maintenance · optionnel</div>
       <h2 class="section-h2">Fais grandir<br/><em>ton activité.</em></h2>
-      <p class="section-sub">Des abonnements mensuels pour que ton site travaille pour toi, chaque mois.</p>
+      <p class="section-sub"><strong>À souscrire après la livraison de ton site.</strong> Pour que ton site continue à travailler pour toi, chaque mois.</p>
     </div>
 
     <div class="abo-grid">
@@ -133,13 +170,136 @@ const abonnements = [
     </div>
 
     <div class="pricing-note-wrap">
-      <p class="pricing-note">Les abonnements nécessitent le site pro (490€). Sans engagement, résiliable à tout moment.</p>
+      <p class="pricing-note">Les abonnements sont disponibles après la livraison de ton site. Sans engagement, résiliable à tout moment.</p>
     </div>
 
   </div>
 </section>
 
 <style>
+/* ═══ SERVICES 3-TIER (NEW) ═══ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: stretch;
+  margin-bottom: 80px;
+}
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-xl);
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.service-highlight {
+  background: var(--text-primary);
+  color: var(--white);
+  border-color: var(--text-primary);
+  transform: scale(1.04);
+  box-shadow: 0 16px 48px rgba(26,26,46,0.18);
+}
+.service-highlight .service-name,
+.service-highlight .service-desc,
+.service-highlight .service-amount,
+.service-highlight .service-unit,
+.service-highlight .service-feature span { color: var(--white); }
+.service-highlight .service-desc { opacity: 0.85; }
+
+.service-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+.service-name {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.service-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 20px;
+  min-height: 42px;
+}
+.service-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+.service-amount {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--text-primary);
+}
+.service-unit {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.service-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+  flex-grow: 1;
+}
+.service-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+}
+.service-feature svg { flex-shrink: 0; margin-top: 3px; }
+.service-highlight .service-feature svg circle { fill: rgba(232,98,44,0.25); }
+
+.service-cta {
+  display: block;
+  text-align: center;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  transition: transform 0.15s ease;
+}
+.service-cta:hover { transform: translateY(-1px); }
+.service-cta-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(232,98,44,0.3);
+}
+.service-cta-secondary {
+  background: var(--cream);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+}
+
+@media (max-width: 900px) {
+  .services-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 56px; }
+  .service-highlight { transform: none; }
+  .service-desc { min-height: auto; }
+}
+
+/* ═══ LEGACY (site-block, now unused but kept for safety) ═══ */
 .section-header { text-align: center; }
 .section-tag {
   display: inline-block; font-size: 12px; font-weight: 600;
