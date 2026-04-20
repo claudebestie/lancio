@@ -310,10 +310,6 @@
 </style>
 
 <script>
-  // ── Config ────────────────────────────────────────────────────────────────────
-  const SUPABASE_URL = 'https://rofkgmwjggvxlgrdnsyt.supabase.co';
-  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvZmtnbXdqZ2d2eGxncmRuc3l0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5MzA2MTgsImV4cCI6MjA4NzUwNjYxOH0.6nlnX-0wUlID-630j5fOyveEAG0Lrp2gWhgGMRKpmNk';
-
   // ── Offer labels for recap ─────────────────────────────────────────────────
   const OFFRE_LABELS: Record<string, string> = {
     'audit': 'Audit · 150€',
@@ -373,13 +369,13 @@
       const description = document.getElementById('recap-description')?.textContent?.trim() || (document.getElementById('f-description') as HTMLTextAreaElement)?.value || '';
       const offre = (document.querySelector('input[name="f-offre"]:checked') as HTMLInputElement)?.value || '';
 
-      const res = await fetch(SUPABASE_URL + '/rest/v1/lancio_orders', {
+      const res = await fetch('/.netlify/functions/brief-submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', apikey: SUPABASE_KEY, Authorization: 'Bearer ' + SUPABASE_KEY, Prefer: 'return=minimal' },
-        body: JSON.stringify({ nom, email, tel, secteur, entreprise, domaine, description, options: [offre], maintenance: false, options_total: 0, status: 'new' })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nom, email, tel, secteur, entreprise, domaine, description, offre })
       });
 
-      if (res.ok || res.status === 201) {
+      if (res.ok) {
         const recap = document.getElementById('step-recap');
         const confirm = document.getElementById('step-confirm');
         if (recap) recap.style.display = 'none';
