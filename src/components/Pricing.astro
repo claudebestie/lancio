@@ -18,8 +18,10 @@ const services = [
       "Livré sous 48h",
       "150€ déduits si refonte/site dans 30j",
     ],
-    cta: "Réserver l'audit",
+    cta: "Réserver l'audit · 150€",
     href: STRIPE_AUDIT,
+    alt: "Discuter avant",
+    altHref: CAL_LINK,
     highlight: false,
   },
   {
@@ -36,8 +38,10 @@ const services = [
       "Livré sous 7 jours",
       "Suivi 30 jours inclus",
     ],
-    cta: "Réserver un appel",
-    href: CAL_LINK,
+    cta: "Commander refonte · 700€",
+    href: STRIPE_REFONTE,
+    alt: "Discuter avant",
+    altHref: CAL_LINK,
     highlight: true,
   },
   {
@@ -54,8 +58,10 @@ const services = [
       "Livré sous 14 jours",
       "Suivi 30 jours inclus",
     ],
-    cta: "Réserver un appel",
-    href: CAL_LINK,
+    cta: "Commander site · 1200€",
+    href: STRIPE_SITE,
+    alt: "Discuter avant",
+    altHref: CAL_LINK,
     highlight: false,
   },
 ];
@@ -133,15 +139,20 @@ const abonnements = [
           <a href={s.href} class={`service-cta ${s.highlight ? 'service-cta-primary' : 'service-cta-secondary'}`} target="_blank" rel="noopener">
             {s.cta}
           </a>
+          {s.alt && (
+            <a href={s.altHref} class="service-cta-alt" target="_blank" rel="noopener">
+              {s.alt} →
+            </a>
+          )}
         </div>
       ))}
     </div>
 
     <!-- ═══ PARTIE 2 : ABONNEMENTS ═══ -->
     <div class="section-header abo-header">
-      <div class="section-tag">Maintenance · optionnel</div>
+      <div class="section-tag">Après livraison · optionnel</div>
       <h2 class="section-h2">Fais grandir<br/><em>ton activité.</em></h2>
-      <p class="section-sub"><strong>À souscrire après la livraison de ton site.</strong> Pour que ton site continue à travailler pour toi, chaque mois.</p>
+      <p class="section-sub"><strong>Dispo uniquement après la livraison de ton site.</strong> On t'en parle en fin de mission — pas avant. Tu choisis si tu actives ou non.</p>
     </div>
 
     <div class="abo-grid">
@@ -163,7 +174,7 @@ const abonnements = [
             ))}
           </div>
           <a href="/contact" class={`abo-cta ${abo.highlight ? 'abo-cta-primary' : 'abo-cta-secondary'}`}>
-            Choisir {abo.name}
+            En savoir plus
           </a>
         </div>
       ))}
@@ -292,6 +303,19 @@ const abonnements = [
   color: var(--text-primary);
   border: 1px solid var(--border-strong);
 }
+.service-cta-alt {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.service-cta-alt:hover { color: var(--text-primary); }
+.service-highlight .service-cta-alt { color: rgba(255,255,255,0.75); }
+.service-highlight .service-cta-alt:hover { color: #fff; }
 
 @media (max-width: 900px) {
   .services-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 56px; }

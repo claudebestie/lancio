@@ -23,21 +23,26 @@
       <li><a href="/blog">Blog</a></li>
       <li><a href="/contact">Contact</a></li>
     </ul>
-    <a href="/commander/" class="nav-mobile-cta">Créer mon site</a>
+    <a href="/commander/" class="nav-mobile-cta">Discuter de mon projet</a>
   </div>
 </nav>
 
 <script>
   const burger = document.getElementById('navBurger');
   const mobile = document.getElementById('navMobile');
+  const syncBodyClass = () => {
+    document.body.classList.toggle('nav-open', !!mobile?.classList.contains('open'));
+  };
   burger?.addEventListener('click', () => {
     mobile?.classList.toggle('open');
     burger?.classList.toggle('active');
+    syncBodyClass();
   });
   document.querySelectorAll('.nav-mobile a').forEach(a => {
     a.addEventListener('click', () => {
       mobile?.classList.remove('open');
       burger?.classList.remove('active');
+      syncBodyClass();
     });
   });
 

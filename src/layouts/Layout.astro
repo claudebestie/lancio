@@ -10,8 +10,8 @@ export interface Props {
 }
 
 const {
-  title = "Site internet professionnel en 48h | 490 € tout compris | Lancio",
-  description = "Votre site internet pro livré en 48h à partir de 490 €. Design sur mesure pour restaurant, coiffeur, avocat, médecin, artisan. Brief en 5 min, sans engagement.",
+  title = "Crée un site qui te génère des clients en 7 jours | Lancio",
+  description = "Site de conversion pour freelances, coachs, consultants. 3 offres : audit 150€ (48h), refonte page 700€ (7j), site complet 1200€ (14j). Satisfait ou remboursé.",
   canonical = "https://lancio.fr",
   ogImage,
   extraStructuredData,
@@ -244,12 +244,18 @@ const {
           entries.forEach(e => {
             if (!e.isIntersecting) {
               mobileCta.classList.add('show');
+              document.body.classList.add('mobile-cta-visible');
             } else {
               mobileCta.classList.remove('show');
+              document.body.classList.remove('mobile-cta-visible');
             }
           });
         }, { threshold: 0 });
         heroObs.observe(heroSection);
+      } else if (mobileCta) {
+        // Pages without a .hero (e.g. /commander/, /contact/) keep the CTA hidden
+        // so the form or embed has clean bottom space.
+        mobileCta.classList.remove('show');
       }
     </script>
   </body>
@@ -346,6 +352,8 @@ const {
     transition: transform 0.3s ease;
   }
   .mobile-cta-bar.show { transform: none; }
+  body.nav-open .mobile-cta-bar { transform: translateY(100%); }
+  body.nav-open #chat-widget { display: none; }
   .mobile-cta-btn {
     display: block;
     text-align: center;
@@ -366,6 +374,53 @@ const {
       padding: 0 20px;
     }
     .mobile-cta-bar { display: block; }
-    body { padding-bottom: 72px; }
+    body.mobile-cta-visible { padding-bottom: 72px; }
   }
+
+  /* ═══ Cookie banner (tarteaucitron) — bottom bar instead of full overlay ═══ */
+  /* Shrinks the initial consent alert to a bottom bar, so the hero stays readable. */
+  #tarteaucitronRoot #tarteaucitronAlertBig {
+    position: fixed !important;
+    top: auto !important;
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 12px !important;
+    transform: none !important;
+    width: auto !important;
+    max-width: calc(100vw - 24px) !important;
+    max-height: 60vh !important;
+    overflow-y: auto !important;
+    padding: 16px 20px !important;
+    border-radius: 14px !important;
+    box-shadow: 0 10px 32px rgba(0,0,0,0.18) !important;
+    background: #fff !important;
+    z-index: 2147483647 !important;
+  }
+  /* Darker backdrop removed so the page stays visible */
+  #tarteaucitronRoot .tarteaucitronBack { background: transparent !important; }
+  /* Collapse the partner lists + bullets on the small bar for a tighter bottom look */
+  @media (max-width: 768px) {
+    #tarteaucitronRoot #tarteaucitronAlertBig {
+      left: 8px !important;
+      right: 8px !important;
+      bottom: 8px !important;
+      padding: 14px 16px !important;
+    }
+    #tarteaucitronRoot #tarteaucitronAlertBig #tarteaucitronDisclaimerAlert {
+      font-size: 13px !important;
+      line-height: 1.4 !important;
+      margin-bottom: 8px !important;
+    }
+    /* Hide the persistent floating cookie "manage" icon on mobile */
+    #tarteaucitronRoot #tarteaucitronManager,
+    #tarteaucitronRoot #tarteaucitronIcon { display: none !important; }
+  }
+
+  /* Hide the tarteaucitron floating cookie icon when the mobile CTA bar is visible,
+     to prevent the 3-way overlap at the bottom of the viewport. */
+  body.mobile-cta-visible #tarteaucitronRoot #tarteaucitronManager,
+  body.mobile-cta-visible #tarteaucitronRoot #tarteaucitronIcon { display: none !important; }
+
+  /* Chat widget shift when sticky CTA visible, so the bubble doesn't sit on top of the CTA */
+  body.mobile-cta-visible #chat-widget { bottom: calc(72px + env(safe-area-inset-bottom)) !important; }
 </style>

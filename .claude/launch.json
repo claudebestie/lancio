@@ -3,9 +3,10 @@
   "configurations": [
     {
       "name": "lancio-dev",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["astro", "dev", "--port", "${PORT}"],
       "port": 4321,
+      "autoPort": true,
       "cwd": "."
     }
   ]
