@@ -18,15 +18,16 @@ const esc = (s) => String(s || '').replace(/[<>&"]/g, (c) => ({ '<': '&lt;', '>'
 
 async function sendBrevo(payload) {
   const key = process.env.BREVO_API_KEY;
-  if (!key) { console.error('BREVO_API_KEY missing'); return; }
+  if (!key) return { ok: false, status: 0, error: 'BREVO_API_KEY missing' };
   try {
     const r = await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
       headers: { 'api-key': key, 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify(payload),
     });
-    if (!r.ok) console.error('Brevo', r.status, await r.text());
-  } catch (e) { console.error('Brevo err', e); }
+    const txt = await r.text();
+    return { ok: r.ok, status: r.status, body: txt.substring(0, 300) };
+  } catch (e) { return { ok: false, status: 0, error: String(e) }; }
 }
 
 export const handler = async (event) => {
@@ -87,7 +88,8 @@ export const handler = async (event) => {
 </div>`,
   };
 
-  await Promise.all([sendBrevo(clientMail), sendBrevo(notifMail)]);
+  const [clientResult, notifResult] = await Promise.all([sendBrevo(clientMail), sendBrevo(notifMail)]);
+  const debug = event.queryStringParameters?.debug === '1';
 
-  return { statusCode: 200, body: JSON.stringify({ ok: true }) };
+  return { statusCode: 200, body: JSON.stringify(debug ? { ok: true, client: clientResult, notif: notifResult } : { ok: true }) };
 };
