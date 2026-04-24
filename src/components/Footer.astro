@@ -17,7 +17,7 @@
       </nav>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">&copy; {new Date().getFullYear()} Lancio. Tous droits réservés.</span>
+      <span class="footer-copy">&copy; {new Date().getFullYear()} Lancio — Margaux Adda, SIREN 850 474 552. <a href="/mentions-legales/" class="footer-legal">Mentions légales</a></span>
       <a href="mailto:hello@lancio.fr" class="footer-email">hello@lancio.fr</a>
     </div>
   </div>
@@ -87,6 +87,14 @@
   font-weight: 500;
 }
 .footer-email:hover { color: var(--accent-light); }
+
+.footer-legal {
+  color: rgba(255,255,255,0.6);
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,0.2);
+  transition: color 0.2s;
+}
+.footer-legal:hover { color: var(--accent); }
 
 @media (max-width: 768px) {
   .footer-top {
